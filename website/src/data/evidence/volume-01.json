@@ -1,0 +1,830 @@
+{
+  "volume": 1,
+  "title": "Evidence Library Volume 1 — Membranes, Assemblies, Codes and Diagnostics",
+  "received": "2026-07-16",
+  "provenance": {
+    "prepared_by": "Gemini (research librarian role)",
+    "submitted_by": "Owner, via chat",
+    "handling": "Staging library. Not verified truth. No entry may reach a published page until it has cleared editorial AND technical review.",
+    "note": "Submitted as a review queue, explicitly not for automatic publication. Stored verbatim; the only field added by CRI is review_status."
+  },
+  "review_status": "Pending Editorial & Technical Review",
+  "sections": [
+    {
+      "id": "tpo",
+      "number": 1,
+      "title": "Thermoplastic Polyolefin (TPO) Roofing",
+      "summary": "Thermoplastic Polyolefin (TPO) is a single-ply, heat-weldable thermoplastic membrane. Its standard material performance is governed by ASTM, focusing on weathering, thickness over scrim, and physical aging properties.",
+      "entries": [
+        {
+          "claim": "TPO membranes must conform to ASTM D6878, establishing minimum properties for thickness, tensile strength, and heat aging.",
+          "source": "ASTM International",
+          "publication": "ASTM D6878: Standard Specification for Thermoplastic Polyolefin Based Sheet Roofing",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d6878_d6878m-21.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes (Facts/Data)",
+          "verification_flag": "Standard engineering review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "TPO must have a minimum overall thickness of 45 mils and a minimum thickness-over-scrim of 16 mils.",
+          "source": "ASTM International",
+          "publication": "ASTM D6878: Standard Specification for Thermoplastic Polyolefin Based Sheet Roofing",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d6878_d6878m-21.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Required on site to verify mil-weight via micrometer",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Heat aging testing requires exposure at 240°F (116°C) for 32 weeks, followed by a mandrel bend test with zero cracking.",
+          "source": "Carlisle SynTec Systems",
+          "publication": "Technical Product Data - Sure-Weld TPO",
+          "publication_date": "2024",
+          "url": "https://www.carlislesyntec.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes (Data)",
+          "verification_flag": "Highly technical lab protocol verification",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Mechanically attached single-ply membranes require enhanced perimeter fastening zones dictated by ASCE 7 wind load calculations.",
+          "source": "American Society of Civil Engineers (ASCE)",
+          "publication": "ASCE 7-22: Minimum Design Loads and Associated Criteria for Buildings and Other Structures",
+          "publication_date": "2022",
+          "url": "https://www.asce.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Requires engineering wind uplift calculations",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Induction welding TPO systems (e.g., Rhinobond) requires specific plate distribution patterns based on FM Global wind uplift ratings (e.g., 1-90).",
+          "source": "GAF",
+          "publication": "GAF EverGuard TPO Application & Specifications Manual",
+          "publication_date": "2024",
+          "url": "https://www.gaf.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Requires field calibration and pull tests",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "TPO welding parameters require a consistent seam width of 1.5 inches when utilizing automated hot-air welders.",
+          "source": "Elevate",
+          "publication": "Elevate TPO Design & Installation Guide",
+          "publication_date": "2025",
+          "url": "https://www.holcimelevate.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Verified by daily test cuts and destructive peel testing",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "CONFLICT / OUTDATED FLAG: Older TPO specifications from the early 2000s allowed 1.25-inch seams; modern standards mandate 1.5-inch to 2-inch widths to account for micro-voids.",
+          "source": "National Roofing Contractors Association (NRCA)",
+          "publication": "Technical Bulletin: TPO Seam Geometry Recommendations",
+          "publication_date": "2021",
+          "url": "https://nrca.net/",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "Conflict flag: Cross-reference project spec sheets against old warranties",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "epdm",
+      "number": 2,
+      "title": "EPDM Roofing",
+      "summary": "Ethylene Propylene Diene Terpolymer (EPDM) is a thermoset synthetic rubber membrane valued for ozone resistance and low-temperature flexibility.",
+      "entries": [
+        {
+          "claim": "EPDM membrane materials are governed by ASTM D4637, which regulates Type I (non-reinforced) and Type II (scrim-reinforced) sheets.",
+          "source": "ASTM International",
+          "publication": "ASTM D4637: Standard Specification for EPDM Sheet Used In Single-Ply Roof Membrane",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d4637_d4637m-15r21e01.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Standard architectural design review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "NRCA recommends EPDM seams be executed using a minimum 3-inch wide double-sided self-adhering seam tape rather than liquid adhesives.",
+          "source": "National Roofing Contractors Association (NRCA)",
+          "publication": "The NRCA Roofing Manual: Membrane Roof Systems",
+          "publication_date": "2023",
+          "url": "https://nrca.net/manuals",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "Field inspection of seam width required",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Non-reinforced EPDM exhibits ozone resistance up to 100 pphm (parts per hundred million) at 104°F (40°C) without physical cracking.",
+          "source": "Elevate (formerly Firestone)",
+          "publication": "RubberGard EPDM Technical Manual",
+          "publication_date": "2024",
+          "url": "https://www.holcimelevate.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Lab certificate review",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "pvc",
+      "number": 3,
+      "title": "PVC Roofing",
+      "summary": "Polyvinyl Chloride (PVC) is a thermoplastic membrane reinforced with polyester or fiberglass, offering inherent resistance to chemicals, grease, and oils.",
+      "entries": [
+        {
+          "claim": "PVC membranes are certified under ASTM D4434, dividing membranes into Type II (fiberglass), Type III (fabric reinforced), and Type IV (high-strength).",
+          "source": "ASTM International",
+          "publication": "ASTM D4434: Standard Specification for Poly(Vinyl Chloride) Sheet Roofing",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d4434_d4434m-21.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Critical for matching project specifications",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Type IV PVC membranes require a minimum breaking strength of 275 lbf compared to only 200 lbf for Type III.",
+          "source": "Carlisle SynTec Systems",
+          "publication": "Technical Bulletin: PVC Type III vs. Type IV Standards",
+          "publication_date": "2024",
+          "url": "https://www.carlislesyntec.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Structural wind uplift calculations",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Standard PVC utilizes liquid plasticizers which can migrate over time, whereas KEE (Ketone Ethylene Ester) uses solid plasticizers to retain flexibility.",
+          "source": "Siplast",
+          "publication": "Comparative Analysis of PVC and KEE Membranes",
+          "publication_date": "2024",
+          "url": "https://www.siplast.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Chemical analysis review",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "modbit-bur-assemblies",
+      "number": 4,
+      "title": "Modified Bitumen (Mod-Bit) & BUR Assemblies",
+      "summary": "These heavy-duty asphaltic options include multi-ply built-up roofs and polymer-modified bitumen membranes.",
+      "entries": [
+        {
+          "claim": "Fiberglass-reinforced SBS membranes must meet ASTM D6163, while polyester-reinforced sheets must meet ASTM D6164.",
+          "source": "Johns Manville",
+          "publication": "What Reinforcement Fabric Is Required for Modified Bitumen?",
+          "publication_date": "2026",
+          "url": "https://www.jm.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Specifier review of reinforcing fibers",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "All physical property evaluations (tensile, elongation, tear) for Mod-Bit must be conducted per ASTM D5147.",
+          "source": "ASTM International",
+          "publication": "ASTM D5147: Standard Test Methods for Coated Glass Fabrics Used in Roofing",
+          "publication_date": "2020",
+          "url": "https://www.astm.org/d5147_d5147m-18.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Mandatory lab testing standards",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "APP modified bitumen sheets are specified under ASTM D6222 for heat and UV stability.",
+          "source": "GAF",
+          "publication": "GAF Commercial Product Manual: APP Membranes",
+          "publication_date": "2024",
+          "url": "https://www.gaf.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "High-temperature region design review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Asphalt-saturated glass felts (Type IV and Type VI) used in BUR must conform to minimum tensile and physical properties under ASTM D2178.",
+          "source": "ASTM International",
+          "publication": "ASTM D2178/D2178M: Standard Specification for Asphalt Glass Felt Used in Roofing and Waterproofing",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Field weight inspection",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Asphalt roll-roofing (glass felt) cap sheets surfaced with mineral granules must comply with physical properties under ASTM D3909.",
+          "source": "ASTM International",
+          "publication": "ASTM D3909/D3909M: Standard Specification for Asphalt Roll Roofing (Glass Felt) Surfaced With Mineral Granules",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Laboratory pliability check",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Asphalt-coated glass-fiber venting base sheets, designed for lateral pressure release over lightweight concrete or existing roofs, must meet ASTM D4897 Type II.",
+          "source": "ASTM International",
+          "publication": "ASTM D4897/D4897M-16: Standard Specification for Asphalt-Coated Glass-Fiber Venting Base Sheet Used in Roofing",
+          "publication_date": "2021",
+          "url": "https://codes.iccsafe.org/content/ASTM-D4897-D4897M-16",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Visual inspection of venting channels",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Asphalt application temperatures (EVT) must be maintained within +/- 25°F (+/- 14°C) of the target temperature at the point of application.",
+          "source": "ASTM International",
+          "publication": "ASTM D4402: Standard Test Method for Viscosity Determinations of Asphalts Using a Rotational Viscometer",
+          "publication_date": "2023",
+          "url": "https://www.astm.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "On-site kettle thermometer validation",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Multi-ply configurations must limit the slope to less than 3 inches per foot unless special strapping methods are engineered to prevent sheet slippage.",
+          "source": "Johns Manville",
+          "publication": "JM Built-Up Roofing Systems Technical Manual",
+          "publication_date": "2024",
+          "url": "https://www.jm.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Architectural design review",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "bur",
+      "number": 5,
+      "title": "Built-Up Roofing (BUR)",
+      "summary": "Standard aggregate and organic felt built-up systems rely on asphalt classifications and surface coverage.",
+      "entries": [
+        {
+          "claim": "Asphalt-saturated organic felts used in BUR must comply with ASTM D226 Type I or Type II.",
+          "source": "ASTM International",
+          "publication": "ASTM D226: Standard Specification for Asphalt-Saturated Organic Felt",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d226_d226m-17.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Field inspection of felt weight",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Coal tar pitch used in BUR must comply with ASTM D450, providing high resistance to water ponding.",
+          "source": "ASTM International",
+          "publication": "ASTM D450: Standard Specification for Coal-Tar Pitch Used in Roofing",
+          "publication_date": "2020",
+          "url": "https://www.astm.org/d450_d450m-13r18.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Environmental/safety chemical audit",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Aggregate surfacing is critical to provide UV shielding and fire resistance per ASTM D1863.",
+          "source": "National Roofing Contractors Association (NRCA)",
+          "publication": "The NRCA Manual: Steep and Low-Slope BUR Assemblies",
+          "publication_date": "2023",
+          "url": "https://nrca.net/manuals",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "Aggregate coverage and weight validation",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "metal",
+      "number": 6,
+      "title": "Metal Roofing",
+      "summary": "Commercial metal systems consist of standing-seam panels that act structural or decorative.",
+      "entries": [
+        {
+          "claim": "Metal roof systems must resist wind uplift according to the testing criteria established by UL 580.",
+          "source": "Underwriters Laboratories (UL)",
+          "publication": "UL 580: Standard for Tests for Wind Uplift Resistance of Roof Assemblies",
+          "publication_date": "2022",
+          "url": "https://standardscatalog.ul.com/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Uplift pressure calculation comparison",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Structural metal panel systems are tested under ASTM E1592 to determine structural performance under static air pressure.",
+          "source": "ASTM International",
+          "publication": "ASTM E1592: Standard Test Method for Structural Performance of Sheet Metal Roof",
+          "publication_date": "2020",
+          "url": "https://www.astm.org/e1592-05r17.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Structural engineer review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Galvanized coatings must meet ASTM A653 with a minimum G90 coating designation for corrosion protection.",
+          "source": "Metal Construction Association (MCA)",
+          "publication": "Metal Roofing Technical Bulletin: Anti-Corrosion Standards",
+          "publication_date": "2023",
+          "url": "https://metalconstruction.org/",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "Corrosive/saltwater environment suitability check",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "coatings",
+      "number": 7,
+      "title": "Roof Coatings",
+      "summary": "Fluid-applied silicone, acrylic, or urethane membranes are engineered to restore degraded surfaces.",
+      "entries": [
+        {
+          "claim": "Liquid-applied silicone coatings must comply with ASTM D6694 for physical properties and weathering resistance.",
+          "source": "ASTM International",
+          "publication": "ASTM D6694: Standard Specification for Liquid-Applied Silicone Coatings",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d6694_d6694m-15r21.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Adhesion pull test on-site",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Elastomeric acrylic coatings must meet ASTM D6083 requirements for tensile strength and water resistance.",
+          "source": "ASTM International",
+          "publication": "ASTM D6083: Standard Specification for Liquid-Applied Acrylic Coatings",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/d6083_d6083m-21.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Thermal movement elongation limits check",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Roof coatings do not replace a deteriorated roof deck; code requires that the existing substrate is dry and structurally sound before application.",
+          "source": "GAF",
+          "publication": "GAF Liquid-Applied Roof Restoration Manual",
+          "publication_date": "2025",
+          "url": "https://www.gaf.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Infrared moisture scan before coating application",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "inspections",
+      "number": 8,
+      "title": "Roof Inspections & Diagnostics",
+      "summary": "Accurate diagnostic and scanning standards verify underlying structural and moisture integrity.",
+      "entries": [
+        {
+          "claim": "Visual roof inspections should follow ASTM D1079 terms and standard operating procedures for visual assessments.",
+          "source": "ASTM International",
+          "publication": "ASTM D1079: Standard Terminology Relating to Roofing and Waterproofing",
+          "publication_date": "2020",
+          "url": "https://www.astm.org/d1079-20.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Insurance claim documentation alignment",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Non-destructive moisture detection in roofs via infrared thermography is standardized under ASTM C1153, which requires the scan to be performed at least 1 hour after sunset.",
+          "source": "ASTM International",
+          "publication": "ASTM C1153: Standard Practice for Location of Wet Insulation in Roofing Systems",
+          "publication_date": "2021",
+          "url": "https://www.astm.org/c1153-15r21.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Certified Thermographer Level II review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Electronic Leak Detection (ELD) mapping must follow standard conductive media testing parameters for high or low voltage protocols.",
+          "source": "ASTM International",
+          "publication": "ASTM D7877: Standard Guide for Electronic Methods for Detecting Leaks in Waterproof Membranes",
+          "publication_date": "2022",
+          "url": "https://www.astm.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Vector mapping setup verification",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "NRCA recommends commercial roofs be inspected twice annually (spring and autumn) plus after any major storm event.",
+          "source": "National Roofing Contractors Association (NRCA)",
+          "publication": "NRCA Commercial Roof Maintenance Manual",
+          "publication_date": "2024",
+          "url": "https://nrca.net/",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "Facilities maintenance schedule audit",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "insulation-cover-boards",
+      "number": 9,
+      "title": "Low-Slope Insulation & Cover Boards",
+      "summary": "Physical and thermal properties (R-value and compressive strength) determine performance under structural loads and hail impacts.",
+      "entries": [
+        {
+          "claim": "Polyisocyanurate (Polyiso) insulation boards must conform to the physical testing specifications of ASTM C1289.",
+          "source": "ASTM International",
+          "publication": "ASTM C1289: Standard Specification for Faced Rigid Cellular Polyisocyanurate Thermal Insulation Board",
+          "publication_date": "2024",
+          "url": "https://www.astm.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Long-Term Thermal Resistance (LTTR) design value review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "High-density gypsum cover boards (e.g., DensDeck, Securock) are required to achieve FM Global Class 1 severe hail (SH) ratings.",
+          "source": "FM Global",
+          "publication": "FM Property Loss Prevention Data Sheet 1-29: Roof Deck Design",
+          "publication_date": "2022",
+          "url": "https://www.fmglobal.com/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Submittal and specification validation",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Polyiso exhibits a thermal performance drop (thermal drift) at lower ambient temperatures, which must be accounted for in cold climates.",
+          "source": "National Institute of Standards and Technology (NIST)",
+          "publication": "NIST Technical Note 1982: Low-Temperature Thermal Resistance Modeling",
+          "publication_date": "2021",
+          "url": "https://www.nist.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Mechanical/R-value design adjustments",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "hurricane-codes",
+      "number": 10,
+      "title": "High-Velocity Hurricane Mitigation & Codes",
+      "summary": "Coastal regions require rigorous engineering, specialized perimeter edge testing, and mechanical fastening patterns.",
+      "entries": [
+        {
+          "claim": "Wind design and uplift requirements for insurance and property loss mitigation must be calculated using regional basic wind speeds per FM Global Data Sheet 1-28.",
+          "source": "FM Global",
+          "publication": "FM Property Loss Prevention Data Sheet 1-28: Wind Design",
+          "publication_date": "2026",
+          "url": "https://www.fmglobal.com/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Compare wind speed design maps against site-specific FM criteria",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Roofing projects funded by FEMA grants must comply with FEMA P-804 wind retrofit mitigation guides for high-wind zones.",
+          "source": "Federal Emergency Management Agency (FEMA)",
+          "publication": "FEMA P-804: Wind Retrofit Guide for Residential and Low-Rise Buildings",
+          "publication_date": "2010",
+          "url": "https://www.fema.gov/sites/default/files/2020-07/fema_p_804_0.pdf",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "FEMA grant application compliance audit",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Florida Building Code requires low-slope systems to provide a minimum safety factor of 2.0 over calculated design wind pressures when using laboratory testing values.",
+          "source": "Florida Building Commission",
+          "publication": "2023 Florida Building Code, Fifth Edition - Chapter 15",
+          "publication_date": "2023",
+          "url": "https://www.floridabuilding.org/",
+          "confidence_level": "High",
+          "source_type": "Primary (Statutory)",
+          "quote_legality": "Yes",
+          "verification_flag": "Florida Product Approval Database cross-reference",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "FEMA recommends upgrading perimeter fastener spacing by a factor of 50% relative to standard field density inside high-wind risk bands.",
+          "source": "Federal Emergency Management Agency (FEMA)",
+          "publication": "FEMA P-424: Design Guide for Improving School Safety in Earthquakes, Floods, and High Winds",
+          "publication_date": "2021",
+          "url": "https://www.fema.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Wind load structural design review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Edge metal configurations must be certified under ANSI/SPRI ES-1 to resist high wind stress on commercial properties.",
+          "source": "American National Standards Institute / SPRI",
+          "publication": "ANSI/SPRI ES-1: Wind Design Standard for Edge Systems Used with Low Slope Roofing Systems",
+          "publication_date": "2021",
+          "url": "https://www.spri.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Metal shop certification verification",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "life-expectancy",
+      "number": 11,
+      "title": "Roof Life Expectancy",
+      "summary": "Service lifespan is modeled using thermal loading, material composition, and long-term degradation curves.",
+      "entries": [
+        {
+          "claim": "Typical service life for EPDM is 25-30 years, TPO is 20-25 years, and PVC is 20-25 years if properly installed.",
+          "source": "Department of Energy (DOE)",
+          "publication": "PNNL Study on Low-Slope Roof Lifespans",
+          "publication_date": "2021",
+          "url": "https://www.pnnl.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Validation of environmental variable inputs",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "BUR life expectancy averages 20-30 years, but drops sharply without adequate UV aggregate cover.",
+          "source": "National Institute of Standards and Technology (NIST)",
+          "publication": "NIST IR 6231: Service Life of Low-Slope Roofs",
+          "publication_date": "Long-term Study",
+          "url": "https://www.nist.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Core testing history review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Double-ply Mod-Bit assemblies can yield a service life of 20-25 years under standard environmental exposure.",
+          "source": "GAF",
+          "publication": "GAF Commercial Low-Slope Application Manual",
+          "publication_date": "2024",
+          "url": "https://www.gaf.com/",
+          "confidence_level": "High",
+          "source_type": "Manufacturer documentation",
+          "quote_legality": "Yes",
+          "verification_flag": "Warranty-term validation",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "maintenance-safety",
+      "number": 12,
+      "title": "Commercial Roof Maintenance & Safety",
+      "summary": "Maintenance guidelines maintain warranty compliance and follow federal fall protection standards.",
+      "entries": [
+        {
+          "claim": "OSHA standard 1910.28 requires fall protection for any personnel performing roof maintenance on a roof with unprotected sides or edges 4 feet or more above a lower level.",
+          "source": "Occupational Safety and Health Administration (OSHA)",
+          "publication": "OSHA 29 CFR 1910.28: Duty to Have Fall Protection",
+          "publication_date": "2023",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.28",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Compliance manager/safety inspector review",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "For preventive maintenance, OSHA 1910.28 organizes rooftop protection by distance from the edge: workers between 6 and 15 feet from the edge must be protected by a guardrail, safety net, travel restraint, or personal fall arrest system.",
+          "source": "Occupational Safety and Health Administration (OSHA)",
+          "publication": "OSHA 29 CFR 1910.28: Duty to Have Fall Protection",
+          "publication_date": "2023",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.28",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Rooftop perimeter boundary audits",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "FM Global requires commercial drains to be cleared of debris to prevent structural overloading from ponding water.",
+          "source": "FM Global (FM Approvals)",
+          "publication": "FM Property Loss Prevention Data Sheets 1-54: Roof Systems",
+          "publication_date": "2021",
+          "url": "https://www.fmglobal.com/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Structural dead load calculations",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Maintaining historical repair logs is a universal requirement to avoid denial of commercial system warranties.",
+          "source": "National Roofing Contractors Association (NRCA)",
+          "publication": "The NRCA Guidelines for Commercial Roof Maintenance",
+          "publication_date": "2024",
+          "url": "https://nrca.net/",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "Manufacturer audit trail check",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "insurance-claims",
+      "number": 13,
+      "title": "Insurance Claims",
+      "summary": "Insurance requirements demand clear historical documentation and compliance with local statutory codes.",
+      "entries": [
+        {
+          "claim": "Florida's '25 Percent Rule' requires that if more than 25% of a roof section is damaged within 12 months, the entire section must be brought to current building code.",
+          "source": "Florida Building Commission",
+          "publication": "Florida Building Code - Existing Building (Section 706.1.1 / Section 1512)",
+          "publication_date": "2023",
+          "url": "https://www.floridabuilding.org/",
+          "confidence_level": "High",
+          "source_type": "Primary (Statutory)",
+          "quote_legality": "Yes",
+          "verification_flag": "Local building code enforcement check",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Post-disaster roof structural reviews must be documented by a licensed professional engineer to confirm wind uplift structural failure.",
+          "source": "Federal Emergency Management Agency (FEMA)",
+          "publication": "FEMA Mitigation Assessment Team (MAT) Reports",
+          "publication_date": "2020",
+          "url": "https://www.fema.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Professional Engineer (PE) structural seal validation",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Pre-existing unmitigated roof damage is the leading cause of denied commercial property insurance claims.",
+          "source": "Insurance Information Institute (III)",
+          "publication": "Commercial Property Insurance Claim Audits",
+          "publication_date": "2024",
+          "url": "https://www.iii.org/",
+          "confidence_level": "High",
+          "source_type": "Secondary",
+          "quote_legality": "Yes",
+          "verification_flag": "Legal / adjuster review",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "repair-vs-replacement",
+      "number": 14,
+      "title": "Repair vs. Replacement",
+      "summary": "Determining the transition point between restoration and full replacement is governed by code-mandated moisture percentages and layering limits.",
+      "entries": [
+        {
+          "claim": "If moisture scans show more than 25% of the insulation is saturated, a full replacement is recommended over a restoration coating.",
+          "source": "National Roofing Contractors Association (NRCA)",
+          "publication": "NRCA Low-Slope Roof Restoration Manual",
+          "publication_date": "2023",
+          "url": "https://nrca.net/",
+          "confidence_level": "High",
+          "source_type": "Industry guidance",
+          "quote_legality": "Yes",
+          "verification_flag": "On-site thermographic verification",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "The International Building Code (IBC) limits low-slope roofs to a maximum of two roofing system layers before complete tear-off is required.",
+          "source": "International Code Council (ICC)",
+          "publication": "2024 International Building Code (IBC), Section 1512.3: Roof Recover",
+          "publication_date": "2024",
+          "url": "https://codes.iccsafe.org/s/IBC2024P1/chapter-15-roof-assemblies-and-rooftop-structures/IBC2024P1-Ch15-Sec1512.3",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Core cut visual confirmation",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "Structural dead weight calculations must be completed when adding a second layer to ensure the structure can support the new dead load.",
+          "source": "International Code Council (ICC)",
+          "publication": "International Building Code (IBC), Chapter 16: Structural Loads",
+          "publication_date": "2021",
+          "url": "https://codes.iccsafe.org/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Structural engineer stamping",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    },
+    {
+      "id": "cool-roofs",
+      "number": 15,
+      "title": "White Roof vs. Black Roof (Cool Roofs)",
+      "summary": "Cool roof metrics use solar reflectance index values to calculate performance across climatic zones.",
+      "entries": [
+        {
+          "claim": "Cool roofs must have a high Solar Reflectance Index (SRI), calculated using equations in ASTM E1980.",
+          "source": "ASTM International",
+          "publication": "ASTM E1980: Standard Practice for Calculating Solar Reflectance Index",
+          "publication_date": "2019",
+          "url": "https://www.astm.org/e1980-11r19.html",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Thermodynamic calculation auditing",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "In ASHRAE Climate Zones 1-3 (Southern US), white roofs can reduce roof surface temperatures by up to 50°F (28°C), lowering peak HVAC loads.",
+          "source": "Department of Energy (DOE)",
+          "publication": "DOE Cool Roof Installation and Energy Studies",
+          "publication_date": "2022",
+          "url": "https://www.energy.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Building energy simulation model check",
+          "review_status": "Pending Editorial & Technical Review"
+        },
+        {
+          "claim": "In ASHRAE Climate Zones 5-8 (Northern US), cool roofs can cause a heating penalty where the building requires more heating fuel in winter.",
+          "source": "Lawrence Berkeley National Laboratory (LBNL)",
+          "publication": "LBNL Cool Roof Heat Load Interdependency Report",
+          "publication_date": "2021",
+          "url": "https://www.lbl.gov/",
+          "confidence_level": "High",
+          "source_type": "Primary",
+          "quote_legality": "Yes",
+          "verification_flag": "Thermodynamic fuel use analysis",
+          "review_status": "Pending Editorial & Technical Review"
+        }
+      ]
+    }
+  ]
+}
