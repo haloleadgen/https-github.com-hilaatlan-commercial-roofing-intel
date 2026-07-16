@@ -71,7 +71,10 @@ calculation and tested-assembly listing (FM/UL) either way.
 Not inherently; it removes flutter fatigue and point stresses, which helps at the
 margins. Installation quality still dominates.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: ASCE 7 wind provisions, FM 1-28/1-29 and RoofNav listings,
-SPRI/NRCA attachment guidance, deck-specific fastener pull-out data.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: ASCE 7 wind provisions, FM 1-28/1-29 and RoofNav listings, SPRI/NRCA attachment guidance, deck-specific fastener pull-out data.*

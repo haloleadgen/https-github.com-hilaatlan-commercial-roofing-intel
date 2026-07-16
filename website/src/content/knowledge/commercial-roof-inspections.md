@@ -91,7 +91,10 @@ imaging at scale; they can't probe a seam or lift equipment skirts.
 Keep everything, forever. The file is cumulative evidence of condition and care — the
 exact thing [insurance disputes](/situations/insurance-claims/) and warranty claims turn on.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: NRCA inspection guidance, IIBEC (consultants) standards,
-ASTM C1153 (infrared moisture surveys), manufacturer warranty inspection terms.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: NRCA inspection guidance, IIBEC (consultants) standards, ASTM C1153 (infrared moisture surveys), manufacturer warranty inspection terms.*

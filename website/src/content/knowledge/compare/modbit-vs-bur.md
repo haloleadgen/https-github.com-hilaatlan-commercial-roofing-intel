@@ -63,7 +63,10 @@ trade-off is fewer plies for far better consistency.
 No. Assess condition first ([coating candidacy](/knowledge/compare/coating-vs-replacement/)),
 then compare successors openly when the time comes.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: NRCA manual chapters, ARMA literature, ASTM D312/D6162-64,
-regional labor availability data.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: NRCA manual chapters, ARMA literature, ASTM D312/D6162-64, regional labor availability data.*

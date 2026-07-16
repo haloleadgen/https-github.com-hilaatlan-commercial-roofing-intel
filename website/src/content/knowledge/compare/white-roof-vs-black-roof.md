@@ -3,6 +3,11 @@ title: "White Roof vs. Black Roof: The Reflectivity Decision"
 description: "When a reflective roof saves real money, when a dark roof is the better thermal choice, and why the answer is your climate's heating/cooling balance — not a universal rule."
 type: comparison
 status: draft
+sources:
+  - title: "Cool Roofs research summary — 236-city DOE-2.1E modeling and the 2001 Austin retail field study"
+    publisher: "Lawrence Berkeley National Laboratory (via ENERGY STAR)"
+    url: "https://www.energystar.gov/ia/partners/prod_development/revisions/downloads/roofs/Lawrence_Berkeley_National_Laboratory.pdf"
+    supports: "Cooling savings exceed the heating penalty in essentially all U.S. commercial climates outside remote Alaska (aged reflectance 0.55); the Austin field study measured a 42°F summer surface-temperature reduction (168°F to 126°F) and roughly 14% peak cooling savings after a black-to-white membrane switch. Carried over from the draft's own verification note; not independently re-checked."
 updated: "2026-07-15"
 takeaways:
   - "This is a climate question: cooling-dominated buildings generally benefit from white; heating-dominated buildings can benefit from dark."
@@ -74,13 +79,7 @@ interior and less HVAC load on any conditioned pockets.
 In some cold-climate assemblies, colder membranes shift the dew point; it's a design
 detail your roof consultant should address, not a reason to dismiss white.
 
-## Sources
+## Verification still outstanding
 
-Verified so far: LBNL's 236-city DOE-2.1E modeling (aged reflectance 0.55) found
-cooling savings exceed the heating penalty in essentially all U.S. commercial climates
-outside remote Alaska; LBNL's 2001 Austin retail field study measured a 42°F summer
-surface-temperature reduction (168°F→126°F) and ~14% peak cooling savings after a
-black→white membrane switch
-([LBNL summary via ENERGY STAR](https://www.energystar.gov/ia/partners/prod_development/revisions/downloads/roofs/Lawrence_Berkeley_National_Laboratory.pdf)).
-Remaining verification: CRRC aged-reflectance data, IECC/ASHRAE cool-roof requirements,
-local ordinances.
+Not yet obtained: CRRC aged-reflectance data, IECC/ASHRAE cool-roof requirements, and
+local ordinances. This page stays in source verification until they are.

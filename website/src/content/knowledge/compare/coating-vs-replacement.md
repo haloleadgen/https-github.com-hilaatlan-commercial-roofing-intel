@@ -81,7 +81,10 @@ not after.
 Usually yes, if the substrate stayed sound and the first system was maintained — that
 renewal option is a real part of the value.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: RCMA guidance, ASTM coating standards, moisture-survey
-standards (ASTM C1153 infrared), energy-code reroofing triggers (IECC), tax guidance.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: RCMA guidance, ASTM coating standards, moisture-survey standards (ASTM C1153 infrared), energy-code reroofing triggers (IECC), tax guidance.*

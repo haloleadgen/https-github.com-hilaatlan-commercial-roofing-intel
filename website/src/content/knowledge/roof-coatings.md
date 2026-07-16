@@ -103,8 +103,10 @@ commonly targets 10–20 years, renewable by recoat if the substrate stays sound
 Sometimes, and sometimes it's marketing. Compare leak-coverage terms, exclusions
 (ponding, traffic), and maintenance requirements line by line.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: ASTM D6694/D6083/C836 (coating standards), RCMA technical
-bulletins, CRRC reflectivity data, manufacturer system specifications, IRS maintenance
-vs. capital guidance.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: ASTM D6694/D6083/C836 (coating standards), RCMA technical bulletins, CRRC reflectivity data, manufacturer system specifications, IRS maintenance vs. capital guidance.*

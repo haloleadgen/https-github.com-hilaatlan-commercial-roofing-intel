@@ -97,7 +97,10 @@ under intense UV. Regional practice usually decides; both perform when installed
 Frequently yes, once granule loss begins but before saturation — see
 [Coating vs. Replacement](/knowledge/compare/coating-vs-replacement/).
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: ASTM D6162–D6164 (SBS), D6222–D6223 (APP), NRCA manual,
-ARMA technical bulletins, NFPA 241 / hot-work standards.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: ASTM D6162–D6164 (SBS), D6222–D6223 (APP), NRCA manual, ARMA technical bulletins, NFPA 241 / hot-work standards.*

@@ -3,6 +3,11 @@ title: "Hurricane Preparation for Commercial Roofs"
 description: "A 96-hour preparation sequence for named storms: what to secure, document, and stage before landfall — and why the pre-storm file determines the post-storm claim."
 urgency: time-sensitive
 status: draft
+sources:
+  - title: "Florida SB 4-D Building Safety Law — milestone inspection requirements"
+    publisher: "Thornton Tomasetti (engineering firm summary)"
+    url: "https://www.thorntontomasetti.com/florida-sb4d-building-safety-law"
+    supports: "Milestone inspections for buildings of three or more habitable stories: first inspection at 30 years (25 in some coastal jurisdictions), recurring every 10 years. A third-party summary, not the statute — Fla. Stat. has not been read directly. Carried over from the draft's own verification note."
 updated: "2026-07-15"
 takeaways:
   - "Hurricane prep is mostly documentation and drainage: prove pre-storm condition, and make sure water can leave the roof."
@@ -87,10 +92,8 @@ belongs in drainage, securing loose items, and sealing known defects.
 More, not less. An aging roof with a documented maintenance record is a coverage
 conversation; an aging roof with no record invites a wear-and-tear denial.
 
-## Sources
+## Verification still outstanding
 
-Verified so far: Florida milestone-inspection law (SB 4-D) — 3+ habitable stories,
-30-year first inspection (25 coastal), 10-year recurrence
-([Thornton Tomasetti](https://www.thorntontomasetti.com/florida-sb4d-building-safety-law)).
-Remaining verification: FEMA/NOAA guidance, IBHS programs, FM data sheets, HVHZ code
-provisions.
+Not yet obtained: FEMA/NOAA guidance, IBHS programs, FM data sheets, HVHZ code
+provisions, and the statute itself rather than a summary of it. This page stays in
+source verification until they are.

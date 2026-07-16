@@ -67,7 +67,10 @@ stability advantages — worth pricing on harsh-exposure roofs; typically a furt
 **Can PVC and TPO be repaired with each other's material?**
 No — they are not weld-compatible. Repairs must match the membrane chemistry.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: ASTM D6878 (TPO), D4434 (PVC), SPRI documents, manufacturer
-data sheets, published field-performance studies.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: ASTM D6878 (TPO), D4434 (PVC), SPRI documents, manufacturer data sheets, published field-performance studies.*

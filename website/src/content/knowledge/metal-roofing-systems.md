@@ -103,7 +103,10 @@ quiet advantages.
 **Is a metal roof loud in rain?**
 Over insulated commercial assemblies, no more than any other system.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: MCA/MBMA technical guides, ASTM E1514/E2140 (standing seam),
-UL 2218 (impact), paint-system warranty terms, FM wind-uplift approvals.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: MCA/MBMA technical guides, ASTM E1514/E2140 (standing seam), UL 2218 (impact), paint-system warranty terms, FM wind-uplift approvals.*

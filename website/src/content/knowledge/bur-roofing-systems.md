@@ -93,7 +93,10 @@ missing gravel is the problem to flag.
 Ply count, surfacing, tear-off scope, and insulation are frequently unequal across bids.
 Force identical specifications before comparing numbers.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: NRCA manual, ASTM D312 (asphalt), ARMA BUR technical
-literature, published service-life field studies.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: NRCA manual, ASTM D312 (asphalt), ARMA BUR technical literature, published service-life field studies.*

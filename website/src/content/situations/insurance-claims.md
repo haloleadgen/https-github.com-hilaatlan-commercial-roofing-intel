@@ -3,6 +3,15 @@ title: "Commercial Roof Insurance Claims: The Owner's Playbook"
 description: "How commercial roof claims actually get evaluated — the paper trail adjusters work against, wind damage versus wear-and-tear, and the sequence from notice to settlement."
 urgency: time-sensitive
 status: draft
+sources:
+  - title: "Florida SB 4-D Building Safety Law — milestone inspection requirements"
+    publisher: "Thornton Tomasetti (engineering firm summary)"
+    url: "https://www.thorntontomasetti.com/florida-sb4d-building-safety-law"
+    supports: "Milestone inspections apply to condominium/cooperative buildings of three or more habitable stories: first structural inspection by a licensed PE or architect at 30 years from certificate of occupancy (25 in some coastal jurisdictions), then every 10 years, with a Phase 2 investigation where deterioration is found. A third-party summary, not the statute. Carried over from the draft's own verification note."
+  - title: "SB4D compliance guide"
+    publisher: "Intertek (testing and certification firm)"
+    url: "https://www.intertek.com/building/sb4d/"
+    supports: "Corroborates the milestone-inspection thresholds above. A commercial third-party guide, not the statute. Carried over from the draft's own verification note."
 updated: "2026-07-15"
 takeaways:
   - "Claims are decided on documentation: pre-loss condition, dated damage evidence, and mitigation records."
@@ -102,13 +111,8 @@ not vendor identity. Verify policy specifics.
 Run the math: damage below or near the wind deductible usually shouldn't be claimed.
 Document it anyway — it establishes condition history.
 
-## Sources
+## Verification still outstanding
 
-Verified so far: Florida SB 4-D milestone inspections apply to condominium/cooperative
-buildings of three or more habitable stories — first structural inspection by a licensed
-PE/architect at 30 years from certificate of occupancy (25 in some coastal
-jurisdictions), then every 10 years, with Phase 2 investigation where deterioration is
-found ([Thornton Tomasetti summary](https://www.thorntontomasetti.com/florida-sb4d-building-safety-law),
-[Intertek SB4D guide](https://www.intertek.com/building/sb4d/)).
-Remaining verification: statutory citations (Fla. Stat.), claim deadlines, ISO form
-language, public-adjuster rules.
+Not yet obtained: the statutory citations themselves (Fla. Stat.), claim deadlines, ISO
+form language, and public-adjuster rules. This page stays in source verification until
+they are.

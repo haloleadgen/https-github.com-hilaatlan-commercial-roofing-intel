@@ -3,6 +3,11 @@ title: "PVC Roofing Systems: A Complete Owner's Reference"
 description: "What PVC roofing is, why restaurants and chemical-exposure buildings specify it, realistic service life and costs, failure modes, and what owners should verify."
 type: article
 status: draft
+sources:
+  - title: "Understanding ASTM Standards for Roofing Membranes — summary of ASTM D4434 (Standard Specification for Poly(Vinyl Chloride) Sheet Roofing)"
+    publisher: "Carlisle SynTec (manufacturer summary of the ASTM standard)"
+    url: "https://www.carlislesyntec.com/en/Resources/Media/Blog-Landing-Page/SpecTopics/2021/12/16/Understanding-ASTM-Standards-for-Roofing-Membranes"
+    supports: "Type II (fiber-reinforced), Type III (fabric-reinforced), and Type IV classifications. This is a manufacturer's summary of the standard, not the standard itself — ASTM D4434 has not been read against its current catalogue entry. Carried over from the draft's own verification note."
 updated: "2026-07-15"
 takeaways:
   - "PVC is a welded-seam single-ply membrane distinguished by chemical and grease resistance — the default over restaurants and industrial exhaust."
@@ -105,9 +110,8 @@ resist them.
 Sometimes — adhesion testing is mandatory first, and brittle late-life PVC is a poor
 coating candidate. See [Coating vs. Replacement](/knowledge/compare/coating-vs-replacement/).
 
-## Sources
+## Verification still outstanding
 
-Verified so far: ASTM D4434, *Standard Specification for Poly(Vinyl Chloride) Sheet
-Roofing* — confirms Type II (fiber-reinforced), Type III (fabric-reinforced), and Type IV
-classifications (per [Carlisle SpecTopics summary](https://www.carlislesyntec.com/en/Resources/Media/Blog-Landing-Page/SpecTopics/2021/12/16/Understanding-ASTM-Standards-for-Roofing-Membranes)).
-Remaining verification: NRCA manual, SPRI bulletins, plasticizer-aging research.
+Not yet obtained: the NRCA manual, SPRI bulletins, plasticizer-aging research, and ASTM
+D4434 itself rather than a manufacturer's summary of it. This page stays in source
+verification until they are.

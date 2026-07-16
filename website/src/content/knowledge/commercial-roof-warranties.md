@@ -89,7 +89,10 @@ justify a consultant's review.
 Many do, with notice and a fee within a set window. Handle it during the transaction —
 it's cheap diligence with real value.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: representative manufacturer warranty documents (NDL terms,
-exclusions), NRCA warranty guidance, IIBEC commentary, assignability terms.*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: representative manufacturer warranty documents (NDL terms, exclusions), NRCA warranty guidance, IIBEC commentary, assignability terms.*

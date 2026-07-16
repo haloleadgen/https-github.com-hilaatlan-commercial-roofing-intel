@@ -69,7 +69,10 @@ warranty terms both reflect. *Specific service-life deltas pending benchmark ver
 No — it's a legitimate spec for the right horizon. It becomes a mistake when a
 20-year expectation is placed on a short-horizon product.
 
-## Sources
+## Sources — none yet
 
-*Draft — verification list: ASTM D6878/D4434 thickness tolerances, manufacturer
-thickness-over-scrim data, warranty term sheets, hail/puncture test data (FM 4470).*
+This page has **no citations**. The documents below are the ones CRI intends to obtain
+and read; nothing here has been consulted, and none of it supports any statement above.
+It is a shopping list, not a bibliography.
+
+*To obtain: ASTM D6878/D4434 thickness tolerances, manufacturer thickness-over-scrim data, warranty term sheets, hail/puncture test data (FM 4470).*
