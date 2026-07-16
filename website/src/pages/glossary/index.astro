@@ -7,9 +7,17 @@ import { getCollection } from 'astro:content';
 const entries = (await getCollection('glossary')).sort((a, b) =>
   a.data.term.localeCompare(b.data.term)
 );
+
+/* Thin-hub guard: noindex this hub while it has no published children.
+   Every child here is currently noindexed pending editorial review, so an indexable
+   hub listing only unreachable pages is a thin-content / crawl-dead-end signal on a
+   domain with no authority yet. The hub re-enters the index automatically (here and
+   in the sitemap filter in astro.config.mjs) as soon as one child is published. */
+const publishedCount = entries.filter((e) => e.data.status === 'published').length;
 ---
 
 <Base
+  noindex={publishedCount === 0}
   title="Commercial Roofing Glossary"
   description="Plain-English definitions of commercial roofing terms — written so building owners and managers can read proposals, warranties, and inspection reports with confidence."
 >

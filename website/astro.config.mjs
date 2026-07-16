@@ -40,10 +40,13 @@ const noindexPaths = new Set([
   // tools with draft/sample methodology (noindexed until verified)
   '/tools/maintenance-budget-planner/',
   '/tools/roof-life-expectancy-estimator/',
+  // the tools hub itself: both tools are unpublished, so it lists nothing crawlable
+  '/tools/',
 ]);
 
 for (const [collection, prefix] of Object.entries(ROUTE_MAP)) {
   const dir = join(CONTENT_DIR, collection);
+  let publishedInCollection = 0;
   for (const file of walk(dir)) {
     if (!file.endsWith('.md')) continue;
     const src = readFileSync(file, 'utf-8');
@@ -54,7 +57,15 @@ for (const [collection, prefix] of Object.entries(ROUTE_MAP)) {
         .slice(join(CONTENT_DIR, collection).length + 1)
         .replace(/\.md$/, '');
       noindexPaths.add(`${prefix}/${slug}/`);
+    } else {
+      publishedInCollection += 1;
     }
+  }
+  // Keep the sitemap in step with the thin-hub guard on the hub pages themselves:
+  // a hub with no published children is noindexed in its <head>, so it must not be
+  // advertised in the sitemap either. It returns automatically once a child publishes.
+  if (publishedInCollection === 0) {
+    noindexPaths.add(`${prefix}/`);
   }
 }
 

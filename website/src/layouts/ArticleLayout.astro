@@ -90,7 +90,11 @@ const articleSchema = {
 
   <div class="container section--tight">
     <div class="article-grid">
-      <article data-pagefind-body id="article-body">
+      {/* data-pagefind-body only when published. Search is a discovery surface like
+          the nav: indexing draft/sample pages meant a reader searching "TPO" got 9
+          results, most of them placeholder pages carrying a "Sample content" banner.
+          Pagefind indexed 44 pages while only 3 were published. */}
+      <article {...(isPublished ? { 'data-pagefind-body': true } : {})} id="article-body">
         <header>
           <p class="eyebrow" data-pagefind-filter="type">{typeLabel}</p>
           <h1>{title}</h1>

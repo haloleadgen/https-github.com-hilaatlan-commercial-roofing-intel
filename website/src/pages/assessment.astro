@@ -90,11 +90,15 @@ import { SITE } from '../data/site';
             <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a>.
           </p>
         </form>
-        <div class="callout callout--caution">
-          <strong class="callout__title">Pre-launch note</strong>
-          Partner coverage areas and the request workflow go live with the site launch;
-          this page defines the standard the service must meet.
-        </div>
+        {/* Removed a public "Pre-launch note" reading "Partner coverage areas and the
+            request workflow go live with the site launch; this page defines the standard
+            the service must meet." That is internal project language on a live,
+            indexable lead-generation page — it tells a prospective reader nothing and
+            signals the service is not real.
+            OPERATIONAL DEPENDENCY: this page now makes an unqualified offer, so the
+            assessment workflow (partner coverage + request handling) must genuinely be
+            live on launch day, and the form must be submitted end-to-end once deployed
+            on Netlify — it cannot work before then. See LAUNCH_CHECKLIST.md. */}
       </div>
 
       <aside class="article-aside" aria-label="Assessment information">

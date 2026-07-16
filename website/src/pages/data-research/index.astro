@@ -12,9 +12,17 @@ const pipeline = [
   'Membrane failure-mode research review',
   'Annual State of Commercial Roofing report',
 ];
+
+/* Thin-hub guard: noindex this hub while it has no published children.
+   Every child here is currently noindexed pending editorial review, so an indexable
+   hub listing only unreachable pages is a thin-content / crawl-dead-end signal on a
+   domain with no authority yet. The hub re-enters the index automatically (here and
+   in the sitemap filter in astro.config.mjs) as soon as one child is published. */
+const publishedCount = entries.filter((e) => e.data.status === 'published').length;
 ---
 
 <Base
+  noindex={publishedCount === 0}
   title="Data & Research"
   description="Proprietary datasets, benchmarks, regional cost data, roof-life research, hurricane-performance analysis, and methodology reports from Commercial Roofing Intel."
 >

@@ -54,7 +54,8 @@ const facts = [
 
   <div class="container section--tight">
     <div class="article-grid">
-      <article data-pagefind-body>
+      {/* Only published terms enter the search index — see ArticleLayout. */}
+      <article {...(entry.data.status === 'published' ? { 'data-pagefind-body': true } : {})}>
         <header>
           <p class="eyebrow" data-pagefind-filter="type">Glossary</p>
           <h1>{entry.data.term}</h1>

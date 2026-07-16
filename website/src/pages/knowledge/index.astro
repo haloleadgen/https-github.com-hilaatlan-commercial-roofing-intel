@@ -16,9 +16,17 @@ const sections = [
   { key: 'guide', title: 'Decision Guides', blurb: 'Structured frameworks for consequential decisions — criteria, thresholds, and trade-offs.' },
   { key: 'comparison', title: 'Comparisons', blurb: 'Side-by-side, evidence-based comparisons of systems, materials, and approaches.' },
 ];
+
+/* Thin-hub guard: noindex this hub while it has no published children.
+   Every child here is currently noindexed pending editorial review, so an indexable
+   hub listing only unreachable pages is a thin-content / crawl-dead-end signal on a
+   domain with no authority yet. The hub re-enters the index automatically (here and
+   in the sitemap filter in astro.config.mjs) as soon as one child is published. */
+const publishedCount = entries.filter((e) => e.data.status === 'published').length;
 ---
 
 <Base
+  noindex={publishedCount === 0}
   title="Knowledge"
   description="Commercial roofing systems, materials, maintenance, replacement, coatings, warranties, and technical fundamentals — the CRI knowledge base."
 >
