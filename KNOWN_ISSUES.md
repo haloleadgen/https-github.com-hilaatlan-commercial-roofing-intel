@@ -1,205 +1,178 @@
 # Known Issues — Commercial Roofing Intel
 
-Last updated: July 16, 2026 · Source: pre-launch engineering review
+Last updated: July 16, 2026 · After the build-and-ship session
 Severity: 🔴 launch blocker · 🟠 fix before promoting · 🟡 fix soon · ⚪ backlog
 
-Every issue below was verified against the actual files or the built output in
-`website/dist/`. Where something could not be verified on this machine, it says so.
+Every issue below was verified against source or the built output in `website/dist/`.
+Where something could not be verified, it says so.
+
+**Resolved this session** (previously #1, #2, #4, #6 — see CHANGELOG): the build now
+works, `dist/` matches source, citation badges are truthful, trust badges appear only
+on published pages, empty hubs are noindexed, and the docs contradiction is fixed.
 
 ---
 
-## 🔴 1. The built site (`dist/`) no longer matches the source — and cannot be rebuilt here
+## 🔴 1. Only 3 articles are published — the site's own launch rule is unmet
 
-**No Node.js toolchain is installed on this machine.** No `node`, no `npm`, no
-Homebrew, no bundled runtime. `npm run build` cannot run.
+Not a defect. The central fact about this project.
 
-Consequence: the source fixes made in this review (issue 2) **are not in `dist/`**.
-`dist/` and `dist-v1.8-PRODUCTION.zip` still contain the incorrect citation badges.
+`VERSION-1-REPORT.md` set the bar: *"Don't launch until … 20–30 real cornerstone
+articles are written."* Today: **3 published**, 23 draft, 9 sample.
 
-**Do not deploy the current `dist/` or the v1.8 zip.** They ship the bug.
+The engineering is production-grade and the content is roughly an order of magnitude
+behind it. A reader arriving from Google can read exactly three articles. Five of six
+pillars in the nav lead to pages that are honest but empty of published work.
 
-To clear this, on a machine with Node 22:
+**The bottleneck is citation verification, not writing.** 23 drafts already exist in
+good structural shape, each with a prose "Verified so far / Remaining verification"
+section. Converting ~10 to `published` with real sources would clear the launch bar
+*and* un-noindex the hubs automatically.
 
-```bash
-cd website
-npm install
-npm run build      # astro build && pagefind --site dist
-```
-
-Then re-verify: `grep -ro '[0-9]* sources cited' dist --include="*.html" | sort | uniq -c`
-should show `3 sources cited` (×2) and `1 source cited` (×1), and no `0 sources cited`.
-
-Until then, **every source-level fix in this session is unverified.** They are small,
-data-only frontmatter edits plus two guarded conditionals, but nothing has been
-compiled or rendered. Treat them as reviewed-but-untested.
+Nothing about this is fixable by engineering. It is editorial work.
 
 ---
 
-## 🔴 2. The "N sources cited" trust badge was false on all three published pages
+## 🔴 2. `repair-or-replace` publishes uncited numeric thresholds — your decision
 
-This is the most serious issue found. The site's core claim is evidence-based
-independence, and the flagship trust signal was wrong on every page carrying it.
+**Unchanged from the last review. This is the last content blocker I cannot clear.**
 
-`sources:` is a **hand-typed integer in frontmatter with no connection to the
-citations actually present in the article.** Nothing validates it. It drifted in
-both directions:
-
-| Page | Badge rendered | Real citations | Status |
-| --- | --- | --- | --- |
-| `/knowledge/epdm-roofing-systems/` | "Evidence-based · **0** sources cited" | 3 real (ASTM D4637, ERA survey, NRCA) | published, indexable |
-| `/knowledge/tpo-roofing-systems/` | "**8** sources cited" | 3 (ASTM D6878, NRCA, trade summary) | published, indexable |
-| `/knowledge/guides/repair-or-replace/` | "**6** sources cited" | 1 (NRCA reroofing/code) | published, indexable |
-
-"Evidence-based · 0 sources cited" was rendering publicly on a page that in fact
-cites three good sources. That is self-refuting, and it is the kind of detail a
-skeptical reader screenshots.
-
-**Fixed in source** (data-only, unverified pending rebuild):
-- EPDM `sources: 0` → `3`
-- TPO `sources: 8` → `3`
-- repair-or-replace `sources: 6` → `1`
-- Removed unfounded `sources:` from the four sample pages that declared 12/9/4/5
-  against **zero** actual citations (`sources` is optional in the schema, so nothing
-  renders). This defused a trap: those numbers would have shipped the instant
-  someone flipped `status: sample` → `published`.
-- `TrustMeta.astro` + `ArticleLayout.astro`: the badge now only renders when
-  `sources > 0`, and reads "1 source cited" rather than "1 sources cited".
-
-**Root cause is NOT fixed.** The number is still hand-typed and can drift again.
-
-**Recommended durable fix** (needs a build to verify, so not attempted here):
-derive the count from the article body at build time instead of trusting frontmatter
-— count the entries in the `## Sources` section, or the distinct external links.
-Then the badge cannot lie. Until that lands, treat `sources:` as a manual claim that
-must be checked by a human at publish time.
-
----
-
-## 🟠 3. `repair-or-replace` is published with one citation and an uncited numeric claim
-
-Now truthfully labelled "1 source cited" — but it is a decision guide that drives
-six-figure decisions, and it asserts specific thresholds without citation:
+Now truthfully labelled "1 source cited". But it is a decision guide driving
+six-figure decisions and it asserts two specific thresholds with no citation:
 
 - "repair costs approach **25–30%** of replacement cost → replacement deserves analysis"
 - "wet insulation around **25%** of roof area → tear-off more economical"
 
 Both are attributed only to "roof consultants commonly treat…". The IBC/NRCA code
-point *is* cited; the two numeric thresholds are not.
+point *is* cited; these two numbers are not.
 
-**This is a judgment call I deliberately left to you**, because it changes launch
-scope rather than fixing a defect. Your options:
+Options, in order of preference:
 
 1. **Source the thresholds** (NRCA, RCI/IIBEC, or a named consultant text) and raise
-   the count honestly. Best outcome.
-2. **Demote to `status: draft`** until sourced. This is exactly what `draft` is for
-   per `SampleNotice.astro` ("real editorial content, sources under verification").
-   It auto-noindexes and shows the verification banner. Costs you one of three
-   launch articles.
-3. Launch as-is with "1 source cited". Truthful, but thin for a flagship guide on a
-   site whose pitch is evidence.
+   the count honestly.
+2. **Demote to `status: draft`** until sourced. Auto-noindexes, shows the verification
+   banner, removes it from search and the homepage. Costs you one of three articles —
+   and would drop `/knowledge/` to 2 published children.
+3. Launch as-is with "1 source cited". Truthful, but thin for a flagship guide.
 
-My recommendation: **option 1, else option 2.** Publishing quantitative decision
-thresholds under an "Evidence-based" badge with no citation is the single biggest
-credibility risk on the site — precisely because CRI is contractor-affiliated
-(issue 5), so every uncited number that favours replacement invites the inference
-that it was written to sell roofs.
+**Why this matters more here than elsewhere:** CRI is commonly owned with a roofing
+contractor and monetised by referrals to it. Every uncited number that happens to
+favour replacement invites the inference that it was written to sell roofs. That is
+the specific attack this site's entire governance layer exists to withstand.
 
 ---
 
-## 🟠 4. Five of six pillar hubs are indexable but lead to nothing indexable
+## 🔴 3. Emergency pages are `Placeholder:` stubs — needs a qualified author
 
-The nav presents six pillars. At launch, a crawler finds this:
+`situations/my-roof-is-leaking.md` and `situations/storm-damage-first-72-hours.md` are
+skeletons. Literally:
 
-| Hub | Indexable? | Children | Indexable children |
-| --- | --- | --- | --- |
-| `/knowledge/` | yes | 17 | **3** |
-| `/glossary/` | yes | 11 | **0** |
-| `/situations/` | yes | 4 | **0** |
-| `/for-your-role/` | yes | 2 | **0** |
-| `/data-research/` | yes | 1 | **0** |
-| `/tools/` | yes | 2 | **0** |
+> "**Placeholder checklist:** protect occupants and contents, contain water…"
+> "1. Signing a full-replacement contract during the emergency. **Placeholder explanation.**"
 
-`/glossary/` is an indexable page listing 11 terms, every one of which is noindexed.
-That is a thin-content, crawl-dead-end pattern — a hub whose entire value is links
-that go nowhere Google can follow. Five such hubs at launch is a weak first
-impression for a domain with no authority yet.
+They are noindexed, excluded from search, and removed from the homepage, so they do no
+harm today. But they are the highest-intent pages on a commercial roofing site, and
+the Situations pillar cannot launch meaningfully without them.
 
-Note this is a *side effect of doing the right thing*: the noindex-until-published
-discipline is correct and well built (see `astro.config.mjs`). The hubs just
-outpaced the content.
-
-**Options:** noindex the empty hubs until each has ≥1 published child (mirrors the
-existing status logic), or hold launch until each pillar has content. Do not
-"solve" it by publishing unverified drafts.
+**I did not write this content deliberately.** Detailed insurance-claim tactics and
+contractor-briefing guidance, published under "Reviewed by Hila Atlan,
+Editor-in-Chief" with an evidence badge, on a contractor-affiliated site, would be
+manufacturing the appearance of expertise — the exact harm this project exists to
+avoid. This needs a qualified author and real sources.
 
 ---
 
-## 🟡 5. Contractor affiliation is disclosed — verify the disclosure is sufficient
+## 🔴 4. Founder / counsel items (unchanged — Claude cannot clear these)
 
-`/about/funding-and-relationships/` discloses that CRI and **Victory E&I Roofing and
-Construction LLC** share common ownership, and that referrals go to a commercial
-contractor. The editorial-independence language is present and reads well
-(no pre-publication access, no content created to benefit partners, compensation
-independent of referral revenue).
-
-This is correct and honest as far as it goes. Two things to confirm with counsel,
-not with me:
-
-- The page still carries a "founder confirmation required" flag on the legal entity
-  names and fee structure (per `GO-LIVE.md`). Unresolved.
-- An "independent knowledge platform" that is commonly owned with a roofing
-  contractor and monetised by referrals to that contractor is a structure the FTC
-  cares about. The disclosure exists; whether its **placement and prominence** are
-  adequate (it currently lives on a governance page, not on the articles that carry
-  referral CTAs) is a question for your attorney.
-
-I am flagging this, not resolving it. Do not treat this file as legal advice.
+- **Funding & Relationships wording** — legal entity names, the Victory E&I
+  common-ownership description, and the fee structure need counsel's sign-off. The
+  page still carries a visible "founder confirmation required" flag.
+- **Legal review** — Privacy Policy, Terms, and the assessment service terms.
+- **Hosting + domain** — no account, DNS, or SSL confirmed. See INFRASTRUCTURE.md.
+- **Partner agreement in writing** — the no-pressure standard and referral fees.
 
 ---
 
-## 🟡 6. Documentation contradicts itself on the production email
+## 🟠 5. "Every claim sourced" on the homepage — an editorial claim I did not change
 
-`GO-LIVE.md` states **both**:
-- line ~9: `hila@victoryroofer.com` ✅
-- line ~22: `hila@victoryeniroofing.com` ✅
+The hero carries three proof bullets, including **"✓ Every claim sourced"**.
 
-**The code is correct and consistent** — `hila@victoryroofer.com`, 184 occurrences
-across `dist/`, single-sourced from `src/data/site.ts`. Phone `(954) 634-2028`
-appears 62 times, consistent.
+Given issue #2 (a published guide with two uncited numeric thresholds), that claim is
+not currently true. It is also the kind of absolute a critic tests first.
 
-So this is a **stale documentation error, not a site bug.** But it is the exact kind
-of thing that causes someone to "fix" the working code to match a wrong doc. The
-contradictory line should be corrected in `GO-LIVE.md`.
+I left it alone because changing it is an **editorial-policy decision**, which your
+directive reserves for you. Three options:
+
+1. Make it true — source the `repair-or-replace` thresholds (fixes #2 as well).
+2. Soften to something defensible: "Sources published with every claim" / "Every
+   claim traceable".
+3. Keep it as a standard you enforce from launch, accepting #2 must be fixed first.
+
+Recommend 1.
+
+## 🟠 6. The assessment page now makes an unqualified offer
+
+I removed its public "Pre-launch note" (internal language on a live lead-gen page).
+The page now offers a complimentary assessment with no caveat.
+
+**That means the offer must actually be operational on launch day** — partner coverage
+areas, request handling, and a form that delivers. The form cannot work until deployed
+on Netlify. **Submit it for real immediately after the first deploy.** A silently
+broken lead form on the site's only revenue path is an expensive failure.
+
+Its disclosure is genuinely strong and should not be weakened: it names Victory E&I,
+the common ownership, and the referral fee *on the page carrying the CTA*.
+
+## 🟡 7. Benchmarks v1.0 gates the estimator
+
+`/data-research/commercial-roof-life-expectancy-benchmarks/` is still `v0.1 — sample`,
+its methodology section is the literal word "Placeholder:", and it is marked "Not for
+citation until v1.0". The estimator runs on it and is noindexed and unsearchable as a
+result — correct, and it should stay that way until the data is validated.
+
+The estimator is the most differentiated thing on the site. Do not un-noindex it
+before the data is real: a tool emitting confident year-ranges from placeholder
+modifiers, on a contractor-affiliated site, is the worst-case version of this project.
+
+## 🟡 8. Astro has a known-high CVE; staying on 5.18.2 deliberately
+
+`npm audit` reports 1 high + 1 low. **Justified decision not to fix:**
+
+- 5.18.2 is already the newest 5.x — there is no patched 5.x. The only fix is
+  **astro@7**, two majors, days before launch.
+- The advisories require SSR or template patterns this site does not use. Verified:
+  **zero** `define:vars`, server islands, dynamic slot names, spread props, or SSR
+  adapter. The esbuild issue is dev-server-only, on Windows.
+
+This is a static build served from a CDN with no request handling. Not reachable.
+**Revisit after launch**, on a branch, with time to test.
+
+## 🟡 9. Documentation sprawl (13 legacy root docs)
+
+Reduced but not resolved. `MASTER_INDEX.md` now marks what is superseded, and
+`GO-LIVE.md` / `START HERE.md` carry warnings. The legacy reports still overlap and
+some are stale. Consider archiving them into `docs/archive/` post-launch.
 
 ---
 
-## 🟡 7. Root-level documentation sprawl (13 files, overlapping, some superseded)
+## ⚪ 10. Verified this session — no longer unknown
 
-`ASSESSMENT-PAGE-EXPORT.md`, `BUSINESS-IMPACT-REPORT.md`, `DEPLOYMENT-REPORT.md`,
-`FOUNDER-LAUNCH-ACTIONS.md`, `GO-LIVE.md`, `MASTER-ROADMAP.md`, `PAGE-EXPORTS.md`,
-`POLSIA-HANDOFF-INVENTORY.md`, `ROUND-1-REVIEW.md`, `SESSION-NOTES.md`,
-`START HERE.md`, `VERIFICATION-LOG.md`, `VERSION-1-REPORT.md`.
+For the record, these were previously listed as unverifiable and now are not:
 
-Several describe the same launch state at different points in time, and at least one
-(`START HERE.md`) still points at `dist-v1.1.zip` as "the current built site" when
-v1.8 exists. `VERSION-1-REPORT.md` claims "33 pages"; the build is 60.
+- **Build**: exit 0, zero warnings, zero errors, 60 pages, reproducible from clean.
+- **Accessibility**: zero heading-order violations across 60 pages; 1 `h1` each; 0
+  images without alt; 0 unlabeled inputs; skip link + landmarks; mobile menu
+  `aria-expanded`/`aria-controls` verified working.
+- **Links**: **3,458 internal links, 0 broken.**
+- **Mobile**: no horizontal overflow at 375px; menu tested.
+- **Search**: Pagefind works; returns published pages only.
+- **Weight**: 1.8 MB dist, 24 KB CSS, **no JS bundle**, no image >100 KB, **zero
+  third-party requests**, CLS 0.
 
-See `MASTER_INDEX.md` for which of these is still authoritative.
+## ⚪ 11. Still genuinely unverified — do not claim these
 
----
-
-## ⚪ 8. Unverified on this machine (no toolchain, no network testing)
-
-Not claims of correctness — claims of *ignorance*. Someone must check these:
-
-- **Performance / Core Web Vitals** — no build, no Lighthouse. The architecture is
-  strongly favourable (static Astro, zero client framework, system fonts, ~2.1 MB
-  dist), but no number has been measured. Do not report a score you have not run.
-- **Accessibility** — the code shows good practice (skip link, landmarks, one h1,
-  `aria-expanded` menu, `aria-live` tool results, focus styles, reduced-motion). No
-  axe/screen-reader pass was run. Static reading is not an a11y audit.
-- **Forms** — contact + assessment forms rely on Netlify form attributes. They
-  cannot work until deployed on Netlify. Untested end-to-end.
-- **Search** — Pagefind needs a real server; disabled in the local `preview/` folder.
-- **Links** — prior docs claim "3,807 internal links, 0 broken". Not re-verified
-  this session.
+- **Real-world Core Web Vitals.** Measured FCP/LCP ≈124 ms, but that is **localhost**,
+  not field data. The structure (1 request, no JS, no third-party) predicts excellent
+  real numbers. **Run Lighthouse against the live URL after deploy.**
+- **Forms end-to-end** — Netlify-dependent. Untestable until deployed. Test both.
+- **The www → apex 301** — untestable until DNS exists.
+- **Rich-result validity** — run Google's Rich Results Test on live URLs.
