@@ -4,6 +4,40 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-16 (v1.9-RC2) — Citation architecture applied to the draft library
+
+`dist-v1.9-RC2.zip` · 679 KB · 162 files · build exit 0, **0 errors, 0 warnings**, 60 pages.
+Supersedes RC1.
+
+⚠️ **The Gemini research library does not exist.** It is not on this machine and not in the
+connected Google Drive (which holds Victory E&I marketing content only). Nothing was
+invented in its place. This is the second referenced research artifact that has not
+materialised — the "Claude Chrome" emergency copy was the first.
+
+**Migrated (4 drafts that already named real documents):** white-roof-vs-black-roof
+(LBNL via ENERGY STAR), pvc-roofing-systems (ASTM D4434 via a Carlisle summary),
+hurricane-preparation and insurance-claims (Florida SB 4-D via Thornton Tomasetti /
+Intertek). Each entry records its limitation — that two are third-party summaries rather
+than the standard or statute itself, and that all were carried over rather than
+independently re-verified, per the directive.
+
+**Trap defused (11 drafts):** sections reading *"Draft — verification list: NRCA manual,
+ASTM D312…"* sat under a `## Sources` heading. Those are documents CRI *intends to obtain*,
+and counting planned sources is forbidden — but the heading meant a reviewer, or anyone
+flipping `status` to published, would ship a shopping list as a bibliography. The heading is
+now **"Sources — none yet"** and the section states the page has no citations and that
+nothing listed supports any statement on it.
+
+Coverage: **9 of 35** files. All 15 touched drafts remain `draft` — their sources are not
+finished, which is what `draft` means. Counts stay suppressed on them.
+
+**Verified:** acceptance test passes on every page rendering a count · sitemap 24 =
+indexable 24, zero disagreement · 3,577 internal links, 0 broken · 0 h1/heading/alt
+violations · zero unpublished pages carry an evidence chip, editorial-review claim, or
+search entry.
+
+---
+
 ## 2026-07-16 (v1.9-RC1) — Editorial remediation implemented
 
 **Release candidate. Not production.** `dist-v1.9-RC1.zip` · 677 KB · 162 files ·

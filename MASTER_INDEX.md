@@ -24,13 +24,18 @@ Static site, Astro 5 + Pagefind. Source in `website/src/`, built output in `webs
 
 | | |
 | --- | --- |
-| **Package** | `website/dist-v1.9-RC1.zip` (677 KB, 162 files) |
+| **Package** | `website/dist-v1.9-RC2.zip` (679 KB, 162 files) — supersedes RC1 |
 | **Build date** | 2026-07-16 |
 | **Node** | v22.23.1 (matches `netlify.toml`) |
 | **Status** | **Release candidate — not production.** Legal, DNS, and email gates are open. |
 
-`dist-v2.0-PRODUCTION.zip` from the previous session is retained but **superseded** — it
-predates the editorial status framework and still carries the old trust badges.
+`dist-v1.9-RC1.zip` and `dist-v2.0-PRODUCTION.zip` are retained but **superseded**. RC1
+predates the citation migration; v2.0-PRODUCTION predates the status framework entirely
+and still carries the old trust badges. Deploy neither.
+
+**Citation coverage:** structured citations are in **9 of 35** content files — every file
+that has a real citation to structure. The other 26 have none, and now say so on the page
+("Sources — none yet"). There is no hidden backlog of unstructured citations.
 
 ## The three facts that matter most today
 
