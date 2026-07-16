@@ -4,14 +4,26 @@ description: "What EPDM rubber roofing is, how it performs over decades, realist
 type: article
 status: published
 updated: "2026-07-15"
-sources: 3
+sources:
+  - title: "ASTM D4637/D4637M — Standard Specification for EPDM Sheet Used in Single-Ply Roof Membrane"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d4637_d4637m-15r21e01.html"
+    supports: "Type I/II/III classifications. Verified against the current ASTM catalogue entry."
+  - title: "Survey, Research Confirm EPDM Roofing Membranes Last 38 Years"
+    publisher: "EPDM Roofing Association (industry association)"
+    url: "https://epdmroofs.org/resource/survey-research-confirm-epdm-roofing-membranes-last-38-years/"
+    supports: "Survey of 569 roofing professionals reporting routinely achieved service lives of 38+ years. Industry-association data, not independent research — CRI's 20–30 year planning range is deliberately more conservative than the association's own finding."
+  - title: "Longevity, Long-Term Performance & Service Life"
+    publisher: "EPDM Roofing Association (industry association)"
+    url: "https://epdmroofs.org/epdm-todays-choice/longevity-long-term-performance/"
+    supports: "Long-term field performance background. Industry-association source; treat directionally, not as an independent benchmark."
 takeaways:
   - "EPDM is a synthetic rubber membrane with the longest field track record of any single-ply system — over 50 years of installed history."
   - "Its chemistry is stable and repairs remain possible late in life, which is why many owners run EPDM roofs 25–30 years."
   - "Seams are EPDM's structural weak point: they rely on adhesives and tapes rather than the welded seams of TPO and PVC."
   - "Black EPDM absorbs heat — an advantage in heating-dominated climates, a cost in cooling-dominated ones."
 related:
-  - title: "TPO vs. EPDM: Evidence-Based Comparison"
+  - title: "TPO vs. EPDM"
     href: "/knowledge/compare/tpo-vs-epdm/"
     type: "Comparison"
   - title: "TPO Roofing Systems: A Complete Owner's Reference"
@@ -122,15 +134,3 @@ membranes tend to win that specification. Run the comparison rather than default
 Ballasted systems have specific wind-zone limitations and code constraints in
 high-wind regions. Coastal owners should verify uplift requirements before considering it.
 
-## Sources
-
-- ASTM D4637/D4637M, *Standard Specification for EPDM Sheet Used in Single-Ply Roof
-  Membrane* ([astm.org](https://store.astm.org/d4637_d4637m-15r21e01.html)) — Type I/II/III
-  classifications.
-- EPDM Roofing Association survey (569 roofing professionals) and companion laboratory
-  research reporting routinely achieved service lives of 38+ years for well-maintained
-  EPDM ([Roofing Contractor summary](https://www.roofingcontractor.com/articles/102021-survey-research-confirm-epdm-roofing-membranes-last-38-years),
-  [ERA](https://epdmroofs.org/epdm-todays-choice/longevity-long-term-performance/)).
-  *Note: industry-association data; CRI's 20–30 year planning range is deliberately more
-  conservative than the association's field-survey findings.*
-- NRCA ponding-water guidance (see [ponding water](/glossary/ponding-water/)).

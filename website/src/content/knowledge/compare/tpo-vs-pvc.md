@@ -4,7 +4,6 @@ description: "The two hot-air-welded single-ply membranes compared on fixed crit
 type: comparison
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Both weld into monolithic surfaces; the choice is about exposure and premium, not seam quality."
   - "Grease, chemicals, or industrial exhaust on the roof → PVC. No such exposure → TPO usually wins on price."

@@ -2,7 +2,7 @@
 title: "For HOA & Condo Boards"
 description: "Board-level roofing decisions: reserve planning, special assessments, fiduciary duty, and how to evaluate contractor proposals as a volunteer board."
 audience: "HOA & Condo Boards"
-status: sample
+status: template
 updated: "2026-07-01"
 takeaways:
   - "Roofing is usually the largest line in a reserve study — and the most commonly underfunded."

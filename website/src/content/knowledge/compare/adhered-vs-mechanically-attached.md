@@ -4,7 +4,6 @@ description: "The attachment decision under every single-ply roof — wind perfo
 type: comparison
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Attachment method affects wind performance, energy, acoustics, and price — often more than membrane brand does."
   - "Mechanically attached is faster and cheaper; fully adhered is calmer, tighter, and generally the high-wind and high-performance choice."

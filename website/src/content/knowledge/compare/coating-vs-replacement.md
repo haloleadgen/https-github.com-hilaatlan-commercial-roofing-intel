@@ -4,7 +4,6 @@ description: "When a fluid-applied coating restores 10–20 years for a fraction
 type: comparison
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "This is a candidacy question, not a preference: dry, adhered roofs are coating candidates; saturated roofs are not."
   - "The moisture survey is the entire decision — never accept a coating proposal without one."

@@ -13,8 +13,11 @@ import TOC from '../components/TOC.astro';
 import KeyFacts from '../components/KeyFacts.astro';
 import PrevNext from '../components/PrevNext.astro';
 import AssessmentNote from '../components/AssessmentNote.astro';
+import Sources from '../components/Sources.astro';
 import { SITE } from '../data/site';
 import { formatDate } from '../data/dates';
+import { STATUS, EDITOR, isIndexable, type Status } from '../data/status';
+import type { Source } from '../data/sources';
 
 interface Crumb { name: string; href?: string; }
 interface RelatedItem { title: string; href: string; type?: string; description?: string; }
@@ -29,8 +32,8 @@ interface Props {
   crumbs: Crumb[];
   updated?: string;
   reviewed?: string;
-  sources?: number;
-  status?: 'sample' | 'draft' | 'published';
+  sources?: Source[];
+  status?: Status;
   takeaways?: string[];
   related?: RelatedItem[];
   headings?: Heading[];
@@ -44,8 +47,8 @@ interface Props {
 
 const {
   title, description, typeLabel, crumbs,
-  updated, reviewed, sources,
-  status = 'sample', takeaways = [], related = [],
+  updated, reviewed, sources = [],
+  status = 'template', takeaways = [], related = [],
   headings = [], facts = [], body = '',
   prev, next, sectionLabel, showAssessment = false,
 } = Astro.props;
@@ -55,36 +58,55 @@ const readingMinutes = Math.max(1, Math.round(words / 220));
 
 const fmt = (d?: string) => (d ? formatDate(d) : undefined);
 
-const isPublished = status === 'published';
+const meta = STATUS[status] ?? STATUS.template;
+// Derived from the structured array, never hand-typed.
+const sourceCount = sources.length;
 
 const reviewFacts: Fact[] = [
   { label: 'Content type', value: typeLabel },
   ...(updated ? [{ label: 'Last updated', value: fmt(updated)! }] : []),
-  // Only a published page may claim it was reviewed. On sample/draft pages this
-  // sidebar previously asserted "Reviewed by: Hila Atlan, Founder & Editor-in-Chief"
-  // over placeholder content that had had no such review.
-  ...(isPublished
-    ? [{ label: 'Reviewed by', value: reviewed ?? 'Hila Atlan, Founder & Editor-in-Chief' }]
-    : [{ label: 'Review status', value: status === 'draft' ? 'Draft — verification in progress' : 'Sample — not editorial content' }]),
-  ...(isPublished && typeof sources === 'number' && sources > 0
-    ? [{ label: 'Sources cited', value: String(sources) }]
+  { label: 'Publication status', value: meta.label },
+  // Editorial review is stated separately from technical review, and only where it
+  // actually happened. This sidebar previously asserted "Reviewed by: Hila Atlan,
+  // Founder & Editor-in-Chief" over template content that had had no such review.
+  ...(meta.showEditorialReview
+    ? [{ label: 'Editorial review', value: reviewed ?? EDITOR }]
+    : []),
+  ...(status === 'technical-review'
+    ? [{ label: 'Technical review', value: 'Pending subject-matter verification' }]
+    : []),
+  ...(meta.showSourceCount && sourceCount > 0
+    ? [{ label: 'Sources cited', value: String(sourceCount) }]
     : []),
   { label: 'Reading time', value: `${readingMinutes} min` },
 ];
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description,
-  ...(updated ? { dateModified: updated } : {}),
-  author: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
-  publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
-  mainEntityOfPage: new URL(Astro.url.pathname, SITE.domain).href,
-};
+/* Schema is emitted only for pages a crawler may index, and reflects the real
+   publication state. Emitting Article markup for template pages asserted to machines
+   what the visible banner denied to humans. `editor` names the editorial reviewer only
+   where an editorial review happened; it is never presented as technical review. */
+const articleSchema = isIndexable(status)
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: title,
+      description,
+      ...(updated ? { dateModified: updated, datePublished: updated } : {}),
+      author: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+      publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+      ...(meta.showEditorialReview
+        ? { editor: { '@type': 'Person', name: reviewed ?? EDITOR } }
+        : {}),
+      ...(sourceCount > 0
+        ? { citation: sources.map((x) => x.url ?? `${x.title} — ${x.publisher}`) }
+        : {}),
+      creativeWorkStatus: meta.label,
+      mainEntityOfPage: new URL(Astro.url.pathname, SITE.domain).href,
+    }
+  : undefined;
 ---
 
-<Base title={title} description={description} schema={articleSchema} noindex={status !== 'published'}>
+<Base title={title} description={description} schema={articleSchema} noindex={!isIndexable(status)}>
   <div class="read-progress" aria-hidden="true"></div>
   <Breadcrumbs crumbs={crumbs} />
 
@@ -94,7 +116,7 @@ const articleSchema = {
           the nav: indexing draft/sample pages meant a reader searching "TPO" got 9
           results, most of them placeholder pages carrying a "Sample content" banner.
           Pagefind indexed 44 pages while only 3 were published. */}
-      <article {...(isPublished ? { 'data-pagefind-body': true } : {})} id="article-body">
+      <article {...(isIndexable(status) ? { 'data-pagefind-body': true } : {})} id="article-body">
         <header>
           <p class="eyebrow" data-pagefind-filter="type">{typeLabel}</p>
           <h1>{title}</h1>
@@ -102,12 +124,14 @@ const articleSchema = {
           <TrustMeta updated={updated} reviewed={reviewed} sources={sources} minutes={readingMinutes} status={status} />
         </header>
 
-        {status !== 'published' && <SampleNotice status={status} />}
+        <SampleNotice status={status} />
         {takeaways.length > 0 && <KeyTakeaways items={takeaways} />}
 
         <div class="prose">
           <slot />
         </div>
+
+        <Sources items={sources} />
 
         {showAssessment && <AssessmentNote />}
 

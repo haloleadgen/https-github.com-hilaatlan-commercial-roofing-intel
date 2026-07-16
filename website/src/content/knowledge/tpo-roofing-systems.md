@@ -4,14 +4,22 @@ description: "What TPO is, how it performs, expected service life, common failur
 type: article
 status: published
 updated: "2026-07-01"
-sources: 3
+sources:
+  - title: "ASTM D6878/D6878M — Standard Specification for Thermoplastic Polyolefin-Based Sheet Roofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d6878_d6878m-21.html"
+    supports: "Scrim reinforcement and polymer composition requirements. Verified against the current ASTM catalogue entry."
+  - title: "What Is TPO Roofing Lifespan?"
+    publisher: "Moser Roofing Solutions (trade/vendor summary)"
+    url: "https://www.moserroofingsolutions.com/blog/what-is-tpo-roofing-lifespan/"
+    supports: "Cited only as an example of commonly published trade guidance for the 15–25 year planning range. It is vendor-published commentary, not independent research. No independent longitudinal field study of TPO service life is public — a genuine evidence gap."
 takeaways:
   - "TPO (thermoplastic polyolefin) is the most widely installed low-slope commercial membrane in North America."
   - "Realistic service life is 15–25 years and depends more on installation quality and maintenance than on brand."
   - "Heat-welded seams are TPO's core strength — and improper welding is its most common failure origin."
   - "Membrane thickness (45/60/80 mil) and attachment method materially change cost, wind performance, and longevity."
 related:
-  - title: "TPO vs. EPDM: Evidence-Based Comparison"
+  - title: "TPO vs. EPDM"
     href: "/knowledge/compare/tpo-vs-epdm/"
     type: "Comparison"
   - title: "Roof Life Expectancy Estimator"
@@ -58,14 +66,3 @@ installer certification with the specific manufacturer, and
 [warranty terms](/knowledge/commercial-roof-warranties/) — especially ponding and
 unauthorized-repair exclusions.
 
-## Sources
-
-- ASTM D6878/D6878M, *Standard Specification for Thermoplastic Polyolefin-Based Sheet
-  Roofing* ([astm.org](https://store.astm.org/d6878_d6878m-21.html)) — scrim reinforcement
-  and polymer composition requirements.
-- Service-life planning range (15–25 years) reflects commonly published trade and
-  contractor guidance (e.g., [industry summaries](https://www.moserroofingsolutions.com/blog/what-is-tpo-roofing-lifespan/));
-  no independent longitudinal field study of TPO service life is yet public — a genuine
-  evidence gap CRI's benchmark program is designed to address.
-- NRCA 48-hour ponding definition and warranty-exclusion pattern
-  ([NRCA guidance](https://hinarratives.com/wp-content/uploads/sites/176/2021/09/Roof-Ponding-NRCA.pdf)).

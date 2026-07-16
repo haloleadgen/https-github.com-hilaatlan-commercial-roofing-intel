@@ -1,8 +1,8 @@
 ---
-title: "TPO vs. EPDM: Evidence-Based Comparison"
+title: "TPO vs. EPDM"
 description: "Side-by-side comparison of the two most common single-ply commercial membranes — performance, cost, longevity, and which conditions favor each."
 type: comparison
-status: sample
+status: template
 updated: "2026-07-01"
 takeaways:
   - "Neither membrane 'wins' universally — climate, building use, and budget determine the better fit."

@@ -4,7 +4,6 @@ description: "What PVC roofing is, why restaurants and chemical-exposure buildin
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "PVC is a welded-seam single-ply membrane distinguished by chemical and grease resistance — the default over restaurants and industrial exhaust."
   - "Its seams are typically the strongest part of the system; hot-air welding fuses sheets into a monolithic surface."

@@ -4,7 +4,6 @@ description: "A 96-hour preparation sequence for named storms: what to secure, d
 urgency: time-sensitive
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Hurricane prep is mostly documentation and drainage: prove pre-storm condition, and make sure water can leave the roof."
   - "The pre-storm photo file is the single most valuable claim asset you can create — carriers evaluate damage against prior condition."

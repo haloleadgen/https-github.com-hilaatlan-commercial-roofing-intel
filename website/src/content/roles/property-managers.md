@@ -2,7 +2,7 @@
 title: "For Property Managers"
 description: "Roofing responsibility without roofing training: triage frameworks, budgeting guidance, vendor oversight, and owner-communication resources for commercial property managers."
 audience: "Property Managers"
-status: sample
+status: template
 updated: "2026-07-01"
 takeaways:
   - "Your job isn't roofing expertise — it's running a defensible process."

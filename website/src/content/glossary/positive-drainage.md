@@ -2,7 +2,7 @@
 term: "Positive drainage"
 title: "Positive drainage"
 description: "A roof design condition in which slope is sufficient to drain all water from the roof surface within 48 hours of rainfall under normal conditions."
-status: sample
+status: template
 updated: "2026-07-01"
 related:
   - title: "Ponding water (definition)"

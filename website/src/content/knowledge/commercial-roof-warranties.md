@@ -4,7 +4,6 @@ description: "Manufacturer NDL warranties versus contractor workmanship warranti
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "A roof warranty is a contract with conditions, not a guarantee — most owner disappointment comes from unread terms, not bad faith."
   - "The gold standard is a manufacturer NDL (No Dollar Limit) system warranty; contractor workmanship warranties cover the most common early failures."

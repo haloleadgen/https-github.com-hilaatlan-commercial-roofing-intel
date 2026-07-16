@@ -4,7 +4,6 @@ description: "How commercial roof claims actually get evaluated — the paper tr
 urgency: time-sensitive
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Claims are decided on documentation: pre-loss condition, dated damage evidence, and mitigation records."
   - "The central dispute in most roof claims is storm damage versus pre-existing wear — your maintenance file is the counter-evidence."
@@ -70,7 +69,8 @@ representation as claim size and dispute level grow.
 
 ## State-specific notes
 
-Insurance law is state law. Deadlines, appraisal rights, assignment-of-benefits rules,
+Insurance law is state law. Deadlines, appraisal rights, the rules on transferring claim
+rights,
 and public-adjuster regulation all vary. Florida owners face additional structure:
 percentage wind deductibles are standard, statutory claim deadlines apply, and condo
 buildings three stories and taller carry milestone-inspection obligations that interact
@@ -79,7 +79,10 @@ statutory citations is planned; nothing here is legal advice.*
 
 ## Common mistakes
 
-1. Signing an assignment of benefits or full-replacement contract at the door.
+1. Signing anything at the door — particularly a full-replacement contract, or any
+   document that transfers your claim rights, payment authority, or control of the repair
+   process. Read every such provision carefully. Rules vary by state, and some
+   arrangements may be restricted or prohibited.
 2. Permanent repairs before adjuster review.
 3. Accepting a wear-and-tear characterization without a moisture survey.
 4. Missing policy deadlines while negotiating with contractors.

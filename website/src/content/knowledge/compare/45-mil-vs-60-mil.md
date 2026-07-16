@@ -4,7 +4,6 @@ description: "What membrane thickness actually buys — puncture resistance, wea
 type: comparison
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Thickness is weathering reserve: single-ply membranes age from the top down, and the mils above the reinforcement scrim are what erode."
   - "The 45→60 mil upcharge is small against total project cost — typically the cheapest durability upgrade available."

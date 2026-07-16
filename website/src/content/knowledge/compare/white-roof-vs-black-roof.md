@@ -4,7 +4,6 @@ description: "When a reflective roof saves real money, when a dark roof is the b
 type: comparison
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "This is a climate question: cooling-dominated buildings generally benefit from white; heating-dominated buildings can benefit from dark."
   - "Roof insulation level changes everything — above roughly R-25+, surface color's energy effect shrinks toward rounding error."

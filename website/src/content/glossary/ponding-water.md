@@ -3,7 +3,7 @@ term: "Ponding water"
 title: "Ponding water"
 description: "Water that remains on a roof surface more than 48 hours after rainfall ends — a leading accelerant of membrane aging and a common warranty exclusion."
 alsoKnownAs: ["Standing water"]
-status: sample
+status: template
 updated: "2026-07-01"
 related:
   - title: "TPO Roofing Systems: A Complete Owner's Reference"

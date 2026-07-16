@@ -4,7 +4,6 @@ description: "Silicone, acrylic, and urethane roof coatings — what restoration
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "A coating is not a new roof: it's UV and weathering protection for a roof that is still fundamentally sound."
   - "The candidacy test is moisture: coating over a wet roof seals the problem in. Survey first, always."

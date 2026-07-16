@@ -2,7 +2,7 @@
 term: "Scupper"
 title: "Scupper"
 description: "An opening in a parapet wall or roof edge that allows water to drain off the roof, either directly or into a downspout — often the overflow protection required by code."
-status: sample
+status: template
 updated: "2026-07-01"
 related:
   - title: "Positive drainage (definition)"

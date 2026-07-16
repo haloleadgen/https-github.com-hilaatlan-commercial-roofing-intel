@@ -1,0 +1,32 @@
+---
+/**
+ * Renders the visible source list from structured frontmatter.
+ *
+ * This is the other half of the citation fix: the trust strip derives its count from
+ * the same array this list is rendered from, so "N sources cited" and the entries a
+ * reader can actually see are guaranteed to agree.
+ */
+import type { Source } from '../data/sources';
+
+interface Props { items?: Source[]; }
+const { items = [] } = Astro.props;
+---
+
+{items.length > 0 && (
+  <section class="prose" aria-labelledby="sources-heading">
+    <h2 id="sources-heading">Sources</h2>
+    <ol class="source-list">
+      {items.map((s) => (
+        <li>
+          {s.url ? (
+            <a href={s.url} rel="nofollow noopener" target="_blank"><cite>{s.title}</cite></a>
+          ) : (
+            <cite>{s.title}</cite>
+          )}
+          {' — '}<span class="source-list__publisher">{s.publisher}</span>
+          {s.supports && <span class="source-list__supports"> {s.supports}</span>}
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

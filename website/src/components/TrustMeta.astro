@@ -1,62 +1,68 @@
 ---
 /**
- * Trust strip under every headline: review status, dates, sources, reading time.
+ * Trust strip under every headline.
  *
- * Every claim here is gated on `status`. Nothing in this strip may assert something
- * the page has not actually earned:
- *  - "Evidence-based" and "Reviewed by …" appear ONLY on published pages. They
- *    previously rendered unconditionally, which meant sample placeholder pages
- *    claimed to have been reviewed by the Editor-in-Chief and to be evidence-based.
- *  - The source count renders only when it is greater than zero, so a page never
- *    advertises "0 sources cited" next to an evidence claim.
+ * Every claim here is gated on `status` (src/data/status.ts). A page may only assert
+ * what it has earned:
+ *  - The status chip states the real publication state, in the reader's words.
+ *  - "Reviewed by <editor>" renders only where an editorial review actually happened.
+ *    It previously rendered unconditionally, so template pages claimed to have been
+ *    reviewed by the Editor-in-Chief.
+ *  - The source count is DERIVED from the structured sources array, never hand-typed,
+ *    and only shows for statuses permitted to make that claim.
+ *  - EDITORIAL review is labelled distinctly from TECHNICAL review. Hila is not a
+ *    roofing technical expert; nothing here may imply subject-matter verification.
  *
- * Non-published pages get a neutral status chip instead. The SampleNotice callout
- * directly beneath carries the fuller explanation.
+ * The word "Evidence-based" no longer appears in this component. It was rendering on
+ * 34 unpublished pages.
  */
+import { STATUS, EDITOR, type Status } from '../data/status';
 import { formatDate } from '../data/dates';
+import type { Source } from '../data/sources';
 
 interface Props {
   updated?: string;
   reviewed?: string;
-  sources?: number;
+  sources?: Source[];
   minutes?: number;
-  status?: 'sample' | 'draft' | 'published';
+  status?: Status;
 }
 const {
   updated,
-  reviewed = 'Hila Atlan, Founder & Editor-in-Chief',
-  sources,
+  reviewed = EDITOR,
+  sources = [],
   minutes,
-  status = 'published',
+  status = 'template',
 } = Astro.props;
 
-const isPublished = status === 'published';
-
-// formatDate parses the calendar date as LOCAL midnight — see src/data/dates.ts.
-// new Date('2026-07-01') is UTC midnight and rendered "June 30, 2026" in EDT.
+const meta = STATUS[status] ?? STATUS.template;
+// Derived, never declared.
+const sourceCount = sources.length;
 const fmt = (d: string) => formatDate(d);
 ---
 
 <div class="trust-meta">
-  {isPublished ? (
-    <span class="badge badge--evidence">
+  <span class:list={['badge', `badge--status-${meta.tone}`]} title={meta.detail}>
+    {meta.tone === 'evidence' && (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="20 6 9 17 4 12"></polyline>
       </svg>
-      Evidence-based
-    </span>
-  ) : (
-    <span class="badge">
-      {status === 'draft' ? 'Draft — verification in progress' : 'Sample — not editorial content'}
-    </span>
-  )}
+    )}
+    {meta.label}
+  </span>
 
-  {isPublished && <span>Reviewed by {reviewed}</span>}
+  {meta.showEditorialReview && <span>Editorial review: {reviewed}</span>}
+
+  {status === 'technical-review' && (
+    <span class="trust-meta__pending">Technical review: pending</span>
+  )}
 
   {updated && <span>Updated <time datetime={updated}>{fmt(updated)}</time></span>}
 
-  {isPublished && typeof sources === 'number' && sources > 0 && (
-    <span>{sources} {sources === 1 ? 'source' : 'sources'} cited</span>
+  {meta.showSourceCount && sourceCount > 0 && (
+    <span>
+      <a href="#sources-heading">{sourceCount} {sourceCount === 1 ? 'source' : 'sources'} cited</a>
+    </span>
   )}
 
   {typeof minutes === 'number' && <span>{minutes} min read</span>}

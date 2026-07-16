@@ -1,24 +1,45 @@
 ---
 /**
- * Pre-publication notice. 'sample' = structural placeholder;
- * 'draft' = real editorial content, sources under verification.
- * Removed automatically when frontmatter status becomes 'published'.
+ * Pre-publication notice. Renders nothing for fully published pages.
+ * Wording comes from the single status framework (src/data/status.ts) so the banner,
+ * the trust chip, the search index and the sitemap can never tell a reader three
+ * different stories about the same page.
  */
-interface Props { status?: 'sample' | 'draft' }
-const { status = 'sample' } = Astro.props;
+import { STATUS, type Status } from '../data/status';
+
+interface Props { status?: Status }
+const { status = 'template' } = Astro.props;
+const meta = STATUS[status] ?? STATUS.template;
 ---
 
-{status === 'sample' ? (
+{status === 'template' && (
   <div class="callout callout--caution" role="note">
-    <strong class="callout__title">Sample content — template review only</strong>
-    This page demonstrates the template structure. Final editorial content is in
-    production and will replace this text before launch.
+    <strong class="callout__title">Template — not yet published</strong>
+    {meta.detail}
   </div>
-) : (
+)}
+
+{status === 'draft' && (
+  <div class="callout callout--caution" role="note">
+    <strong class="callout__title">Source verification in progress</strong>
+    {meta.detail}
+  </div>
+)}
+
+{status === 'technical-review' && (
   <div class="callout" role="note">
-    <strong class="callout__title">Draft — editorial verification in progress</strong>
-    This article has been drafted to CRI standards but its sources and figures are
-    still being verified by the editorial team. It will carry full citations before
-    publication. Details may change during review.
+    <strong class="callout__title">Technical review pending</strong>
+    This page is editorially complete and its sources are listed below. It is awaiting
+    subject-matter verification of its technical claims by a qualified roofing
+    professional. It is general educational information — not an inspection, an
+    engineering judgement, or advice about your specific building.
+  </div>
+)}
+
+{status === 'preliminary' && (
+  <div class="callout callout--caution" role="note">
+    <strong class="callout__title">Published with limitations — preliminary data</strong>
+    {meta.detail}. It is published openly so the methodology can be examined, not
+    because the numbers are settled. Do not rely on it for planning or budgeting.
   </div>
 )}

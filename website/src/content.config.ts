@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { sourcesSchema } from './data/sources';
 
 /**
  * Content model. Adding a page = dropping a Markdown file in the right
@@ -22,9 +23,16 @@ const base = {
   description: z.string(),
   updated: z.string().optional(),
   reviewed: z.string().default('Hila Atlan, Founder & Editor-in-Chief'),
-  /** 'sample' shows the template-review banner; 'published' removes it */
-  status: z.enum(['sample', 'draft', 'published']).default('sample'),
-  sources: z.number().optional(),
+  /** The editorial publication-status framework — see src/data/status.ts.
+   *  Governs indexing, search, promotion, and which trust claims may render.
+   *  'template' replaces the former 'sample'. */
+  status: z
+    .enum(['template', 'draft', 'technical-review', 'preliminary', 'published'])
+    .default('template'),
+  /** Structured citations. The displayed count is derived from this array and the
+   *  visible list is rendered from it, so the two cannot drift apart. Previously a
+   *  hand-typed integer that was wrong on every page that used it. */
+  sources: sourcesSchema,
   takeaways: z.array(z.string()).default([]),
   related,
 };

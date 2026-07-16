@@ -4,7 +4,6 @@ description: "Inspection types, cadence, and deliverables — what a professiona
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "The industry-standard cadence is two inspections per year — spring and fall — plus after major storms."
   - "An inspection is only as valuable as its documentation: photos, locations, and a written report you keep."

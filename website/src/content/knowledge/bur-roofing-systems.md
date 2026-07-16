@@ -4,7 +4,6 @@ description: "What built-up (tar-and-gravel) roofing is, why it still protects l
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "BUR is the century-old multi-ply system: alternating bitumen and reinforcing felts, usually gravel-surfaced — maximum redundancy."
   - "Well-built BUR routinely reaches 20–30 years, and 4-ply systems longer; the aging is gradual, not sudden."

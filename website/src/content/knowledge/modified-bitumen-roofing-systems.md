@@ -4,7 +4,6 @@ description: "What mod-bit roofing is, where multi-ply redundancy still beats si
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Modified bitumen is asphalt engineered with polymers (SBS or APP), installed in two or more plies — redundancy is its core value."
   - "A 2-ply mod-bit roof tolerates surface damage that would leak through any single-ply immediately."

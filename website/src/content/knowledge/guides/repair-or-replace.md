@@ -1,14 +1,18 @@
 ---
 title: "Repair or Replace? How to Decide"
-description: "A structured decision framework for the most consequential commercial roofing decision — with cost thresholds, condition criteria, and the questions to ask before committing either way."
+description: "A structured decision framework for the most consequential commercial roofing decision — the evidence to gather, the tests to run, and the questions to ask before committing either way."
 type: guide
 status: published
 updated: "2026-07-01"
-sources: 1
+sources:
+  - title: "Reroofing and Code Compliance (November 2016)"
+    publisher: "National Roofing Contractors Association"
+    url: "https://nrcawebstorage.blob.core.windows.net/files/filesnrca/pdf/technical/Reroofing-Code-Compliance-Nov-2016.pdf"
+    supports: "IBC reroofing provisions: recovering a water-soaked roof is prohibited, and work exceeding prescribed thresholds triggers full code compliance."
 takeaways:
   - "The decision is rarely about the leak in front of you — it's about the remaining value of the whole assembly."
-  - "A common consultant rule of thumb: when repair costs approach 25–30% of replacement cost, replacement deserves serious analysis."
-  - "Wet insulation changes the math: around 25% saturation, consultants typically find tear-off more economical than chasing moisture — and code prohibits recovering a water-soaked roof."
+  - "Compare repair cost plus remaining life against replacement cost plus new life — the ratio matters more than any single rule of thumb."
+  - "Wet insulation changes the math: saturation is what usually turns a repair into a replacement, and code prohibits recovering a water-soaked roof."
   - "Get the condition assessment before the proposal, not from the proposal."
 related:
   - title: "Roof Life Expectancy Estimator"
@@ -43,15 +47,21 @@ coverage. A proposal written before this evidence exists is a guess with a price
 | --- | --- |
 | Dry assembly, localized defects | Targeted repair + proactive maintenance |
 | Dry but UV-tired field, sound adhesion | [Restoration coating](/knowledge/compare/coating-vs-replacement/) |
-| Saturation approaching the ~25% rule of thumb | Replacement analysis begins in earnest |
+| Meaningful, spreading saturation of the insulation | Replacement analysis begins in earnest |
 | Widespread saturation, attachment or structural issues | Replacement (staged if evidence supports it) |
 
-Two thresholds anchor the analysis. Roof consultants commonly treat wet insulation
-around 25% of roof area as the point where tear-off becomes more economical than
-chasing moisture. Separately, building codes (IBC reroofing provisions) prohibit
-recovering a water-soaked roof and trigger full code compliance when work exceeds
-prescribed thresholds — meaning a "big repair" can legally become a replacement-grade
-project ([NRCA, Reroofing and Code Compliance](https://nrcawebstorage.blob.core.windows.net/files/filesnrca/pdf/technical/Reroofing-Code-Compliance-Nov-2016.pdf)).
+One hard constraint anchors the analysis, and it is not a rule of thumb: building codes
+(IBC reroofing provisions) prohibit recovering a water-soaked roof, and trigger full
+code compliance once work exceeds prescribed thresholds — meaning a "big repair" can
+legally become a replacement-grade project. That is why the moisture survey, not the
+proposal, decides this question.
+
+Percentage rules of thumb circulate widely in the trade — a repair-cost share of
+replacement cost, or a share of roof area found wet, beyond which replacement is said to
+win. CRI does not publish specific figures for them, because we have not yet identified
+a citable primary source that establishes them. Ask any consultant quoting one which
+study it comes from; the answer is informative either way. The four tests above do not
+need a magic number to work.
 
 ## When the answer is genuinely "it depends"
 

@@ -1,10 +1,10 @@
 ---
 title: "Commercial Roof Life Expectancy Benchmarks"
 description: "Benchmark service-life data for commercial roof systems by membrane type and climate exposure, with full methodology disclosure — the reference table behind CRI's Roof Life Expectancy Estimator."
-status: sample
+status: preliminary
 updated: "2026-07-01"
 coverage: "Major low-slope systems, U.S. climate zones"
-sampleSize: "Placeholder — literature synthesis v0.1"
+sampleSize: "Not yet established — preliminary literature synthesis, v0.1"
 takeaways:
   - "Service life varies more within a system type than between system types — installation and maintenance dominate."
   - "These benchmarks power the CRI Roof Life Expectancy Estimator and are versioned for stable citation."
@@ -12,7 +12,7 @@ related:
   - title: "Roof Life Expectancy Estimator"
     href: "/tools/roof-life-expectancy-estimator/"
     type: "Decision Tool"
-  - title: "TPO vs. EPDM: Evidence-Based Comparison"
+  - title: "TPO vs. EPDM"
     href: "/knowledge/compare/tpo-vs-epdm/"
     type: "Comparison"
   - title: "CRI Methodology"
@@ -20,7 +20,7 @@ related:
     type: "Governance"
 ---
 
-## Benchmark table (v0.1 — sample data)
+## Benchmark table (v0.1 — preliminary, not validated)
 
 | Roof system | Typical range (years) | Well-maintained upper bound | Key life-limiting factors |
 | --- | --- | --- | --- |
@@ -33,10 +33,16 @@ related:
 
 ## Methodology summary
 
-Placeholder: data sources (field studies, standards-body research, published service-life
-literature), inclusion criteria, cleaning rules, and known limitations. Full methodology
-per the [CRI Methodology](/about/methodology/) standard.
+**This section is not yet written, and the dataset is not yet defensible.** v1.0 will
+document: the data sources drawn on (field studies, standards-body research, published
+service-life literature), inclusion and exclusion criteria, how conflicting figures were
+reconciled, sample sizes, and known limitations — to the [CRI Methodology](/about/methodology/)
+standard.
+
+Until that work is done, the ranges above are a synthesis of commonly published figures.
+They are a starting point for validation, not a finding. Do not cite them, and do not
+plan against them.
 
 ## Version history
 
-- **v0.1 (sample)** — structural placeholder for template review. Not for citation until v1.0.
+- **v0.1 (preliminary)** — commonly published figures, gathered for validation. Not validated, not for citation, and not used in any public CRI calculator. Superseded by v1.0.

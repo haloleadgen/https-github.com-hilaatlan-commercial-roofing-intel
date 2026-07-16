@@ -4,7 +4,6 @@ description: "The two asphalt multi-ply systems compared — factory consistency
 type: comparison
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Same family, same core virtue (redundancy); the difference is factory-made plies versus field-built ones."
   - "Mod-bit has largely replaced new BUR because it needs fewer specialist crews and installs faster with more consistency."

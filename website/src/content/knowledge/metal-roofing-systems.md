@@ -4,7 +4,6 @@ description: "Standing seam and exposed-fastener metal roofing for commercial bu
 type: article
 status: draft
 updated: "2026-07-15"
-sources: 0
 takeaways:
   - "Metal is the longevity outlier: standing seam systems routinely plan for 30–45 years, with coating technology setting the ceiling."
   - "Standing seam (concealed clips) and exposed-fastener panels are different products with different lifespans — don't let bids blur them."
