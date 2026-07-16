@@ -1,114 +1,107 @@
 # Launch Checklist — CommercialRoofingIntel.com
 
-Updated July 16, 2026 · Supersedes the checklist sections of `GO-LIVE.md` and
-`VERSION-1-REPORT.md` where they conflict.
+Updated July 16, 2026 · Release candidate **`dist-v1.9-RC1.zip`** (677 KB, 162 files)
+Supersedes `GO-LIVE.md` and the checklist in `VERSION-1-REPORT.md` where they conflict.
 
-**Status: HOLD LAUNCH.** Not for engineering reasons — the build is production-ready
-and every engineering blocker from the last review is cleared. The remaining blockers
-are **editorial, legal, and operational.**
+**Status: HOLD LAUNCH.** Engineering is done. Every remaining blocker is editorial,
+legal, or operational — and none of them can be cleared by Claude.
 
-Deployable package: **`website/dist-v2.0-PRODUCTION.zip`** (646 KB, 160 files) — built
-clean from source, verified to contain the fixes.
+The site is now *honest*: nothing claims more than it has earned, and the status of every
+page is stated on the page. What it is not yet is *finished*, and it does not pretend to be.
 
 ---
 
-## 🔴 Blockers — do not launch until these are true
+## 🔴 Blockers — launch cannot happen until these are true
+
+### Legal (counsel required — do not have AI write these)
+- [ ] **Privacy Policy** reviewed by a qualified attorney. Currently carries a visible
+      "draft, not yet reviewed by counsel" notice, which is honest and must stay until it
+      is untrue.
+- [ ] **Terms of Use** — same.
+- [ ] **Funding & Relationships wording** — confirm the legal entity names and that
+      "shares common ownership" is factually accurate, then have counsel review the
+      formulation. **The page is noindexed until you do.** It stays reachable for readers.
+- [ ] **Partner agreement in writing** — the no-pressure standard and referral fees.
 
 ### Editorial
-- [ ] **Publish more than 3 articles.** Your own rule says 20–30. There are 23 drafts
-      that need *citations, not writing*. Ten published clears the bar and un-noindexes
-      the hubs automatically. *(KNOWN_ISSUES #1)*
-- [ ] **Decide `repair-or-replace`** — source its two uncited numeric thresholds, or
-      set `status: draft`. *(KNOWN_ISSUES #2)*
-- [ ] **Emergency pages need a qualified author.** `my-roof-is-leaking` and
-      `storm-damage-first-72-hours` are literal `Placeholder:` stubs. They are safely
-      hidden today, but the Situations pillar cannot launch without them.
-      **Do not have an AI write these.** *(KNOWN_ISSUES #3)*
-- [ ] **Decide "Every claim sourced"** on the homepage hero — currently not true while
-      #2 stands. *(KNOWN_ISSUES #5)*
-
-### Legal / founder
-- [ ] **Funding & Relationships wording** — counsel sign-off on entity names, the
-      Victory E&I common-ownership language, and the fee structure. The page still
-      carries a visible "founder confirmation required" flag.
-- [ ] **Legal review** — Privacy Policy, Terms, assessment service terms.
-- [ ] **Partner agreement in writing** — no-pressure standard + referral fees.
+- [ ] **Technical review of both emergency pages** by a qualified roofing professional.
+      They are editorially complete and sourced to Ready.gov and OSHA, and the pages say
+      openly that technical review is pending. Once reviewed, flip
+      `status: technical-review` → `published`.
+- [ ] **Decide whether 3 published articles is a launch.** Your own rule says 20–30.
+      23 drafts need *citations, not writing*.
+- [ ] **Benchmarks v1.0** — validate the dataset, then the estimator can be restored.
+      Until then both are correctly gated.
 
 ### Operational
-- [ ] **The assessment offer must be real on day one.** Its "Pre-launch note" is gone,
-      so the page now makes an unqualified offer: partner coverage and request handling
-      must actually work. *(KNOWN_ISSUES #6)*
-- [ ] **Hosting + domain** — create the Netlify account, connect the repo (one exists
-      now) or drag the *rebuilt* `dist/`, point commercialroofingintel.com, enable
-      HTTPS, confirm www → apex.
+- [ ] **Hosting + domain.** No account, DNS, or SSL confirmed.
+- [ ] **CRI-domain email provisioning.** `hila@victoryroofer.com` stays until
+      `contact@`, `editorial@`, and `corrections@commercialroofingintel.com` are
+      provisioned **and send/receive tested**. Do not swap addresses before testing.
+- [ ] **The assessment offer must be operational on day one** — its "Pre-launch note" is
+      gone, so the page makes an unqualified offer.
 
-## 🟠 Immediately after first deploy — do these the same hour
+## 🟠 Immediately after first deploy — same hour
 
-- [ ] **Submit the contact form for real.** Netlify-dependent; cannot be tested before
-      deploy. Confirm it arrives at hila@victoryroofer.com.
-- [ ] **Submit the assessment form for real.** Same. This is your revenue path.
-- [ ] **Run Lighthouse against the live URL.** Local numbers are not field data.
-- [ ] **Verify the www → apex 301** actually fires.
-- [ ] **Search Console** — verify the domain, submit `/sitemap-index.xml`.
-- [ ] **Rich Results Test** on the three published articles.
-- [ ] Confirm search works on the live host (Pagefind needs a real server).
+- [ ] **Submit the contact form for real.** Netlify-dependent; untestable before deploy.
+- [ ] **Submit the assessment form for real.** This is the revenue path.
+- [ ] **Run Lighthouse against the live URL.** No CWV number has been measured.
+- [ ] Verify the **www → apex 301** fires.
+- [ ] **Search Console**: verify domain, submit `/sitemap-index.xml` (confirmed 200 locally).
+- [ ] **Analytics**: decide whether to run any; reconcile with the Privacy Policy first.
+- [ ] Confirm Pagefind search works on the live host.
 
-## ✅ Cleared this session — verified, not assumed
+## ✅ Cleared — verified this session, not assumed
 
-**Build**
-- [x] Node v22.23.1 installed (matches `netlify.toml`), checksum-verified from nodejs.org.
-- [x] `npm install && npm run build` → **exit 0, zero warnings, zero errors, 60 pages.**
-- [x] Fixed the build being broken outright: `astro.config.mjs` used `URL.pathname`
-      (URL-encoded), so the space in "Commercial Roofing Intel" became `%20` and every
-      fs call failed with ENOENT. Now `fileURLToPath`.
-- [x] Clean-from-scratch build reproduces output identically.
+**Build** · Node v22.23.1 (matches `netlify.toml`; no version drift) · `npm ci` with the
+existing lockfile, unchanged · `npm run build` → **exit 0, 0 errors, 0 warnings**, 60
+pages · reproducible from a clean `rm -rf dist .astro`.
 
-**Trust**
-- [x] Citation badges match real sources exactly: TPO 3, EPDM 3, repair-or-replace 1.
-- [x] "0 sources cited" eliminated (EPDM was advertising it while citing 3 sources).
-- [x] Evidence badge: 37 pages → **3** (34 were unpublished placeholders).
-- [x] "Reviewed by Hila Atlan, Editor-in-Chief": **0** unpublished pages now claim it.
-- [x] Estimator's fabricated `sources={12}` removed (it listed zero citations).
-- [x] Zero staging/internal language on any indexable page.
-- [x] Contact page: removed a public note naming an internal doc ("see GO-LIVE checklist").
-- [x] Assessment page: removed public "Pre-launch note".
+**Citation integrity** · `sources` is a structured array; count is derived, list is
+rendered from the same data · **acceptance test passes 5/5** · every cited URL checked
+over HTTP — two were dead and were removed or replaced rather than padded.
 
-**Discovery**
-- [x] Search indexed 44 pages (34 unpublished) → **10 (0 unpublished)**.
-- [x] Site nav links to **zero** unpublished pages (was 6).
-- [x] Homepage promotes only published work; stats count published only (was
-      advertising "9 Encyclopedia articles" against 2 readable).
-- [x] Empty hubs noindex themselves; sitemap matches. Reverses automatically on publish.
-- [x] Sitemap = 18 URLs = exactly the 18 indexable pages.
+**Trust claims** · "Evidence-based": **0 pages** · "Every claim sourced": **0 pages** ·
+"0 sources cited": **0** · no unpublished page claims editorial review · editorial review
+is stated separately from technical review · no page claims Hila holds technical,
+contractor, or engineering credentials.
 
-**Quality**
-- [x] **3,458 internal links, 0 broken.**
-- [x] Zero heading-order violations across 60 pages (4 hubs jumped h1→h3; fixed with
-      visually-hidden h2s, no visual change).
-- [x] 1 `h1` per page · 0 images missing alt · 0 unlabeled inputs · skip link ·
-      landmarks · mobile menu `aria-expanded` verified.
-- [x] No horizontal overflow at 375px. No console errors.
-- [x] Fixed a sitewide date bug: `new Date('2026-07-01')` parsed as UTC rendered
-      "June 30, 2026" in EDT, and output varied by build machine timezone.
-- [x] 1.8 MB dist · 24 KB CSS · **no JS bundle** · zero third-party requests · CLS 0.
-- [x] Security headers in both `netlify.toml` and `dist/_headers`; robots; 404.
-- [x] Canonical / description / OG / Twitter: **60/60**.
+**Safety (emergency pages)** · no "puncture the ceiling" advice in any form · required
+wording present on both pages · electrical guidance matches Ready.gov verbatim · roof
+access forbidden per OSHA · every insurance absolute removed · AOB uses national language
+only.
+
+**Gating** · estimator's form, results and script removed (not hidden) · dataset offers no
+citation · both excluded from promotion · funding page noindexed.
+
+**Structure** · sitemap = page-head noindex, exactly 24 = 24 · `/sitemap-index.xml` → 200 ·
+3,577 internal links, **0 broken** · 60/60 canonical/title/description, all on the
+production domain · 1 h1 per page · 0 heading-order violations · 0 images missing alt ·
+no mobile overflow at 375px across 11 key pages · schema carries real `creativeWorkStatus`
+and `citation` entries; template pages emit no Article schema.
 
 ## ⚠️ Do not claim these — not measured
 
-- **Real-world Core Web Vitals.** FCP/LCP ≈124 ms is **localhost**. Structure predicts
-  excellent field numbers; nothing is proven until measured on the live URL.
-- **Forms** — untestable pre-deploy.
-- **Screen-reader testing** — automated checks pass; no human/AT pass was run.
+- **Core Web Vitals / Lighthouse.** Structure is favourable (static, no JS bundle, no
+  third-party requests) but nothing has been measured on a real network.
+- **Forms end-to-end.** Netlify-dependent.
+- **Screen-reader / assistive-technology testing.** Automated checks pass; no human pass.
+
+## 🟡 Known and accepted
+
+- **Astro 5.18.2 has a high-severity advisory.** 5.18.2 is already the newest 5.x; the
+  only fix is Astro 7 (two majors). The advisories require SSR or template patterns this
+  site does not use (verified: no adapter, no `define:vars`, no server islands, no dynamic
+  slots, no spread props). Static build, no request handling. Revisit post-launch on a branch.
 
 ---
 
 ## Order of operations
 
-1. Editorial: publish drafts with real citations; resolve #2 and #3.
-2. Counsel: funding page, privacy, terms.
-3. Confirm the assessment workflow is genuinely operational.
-4. Deploy `dist-v2.0-PRODUCTION.zip` (or connect the repo — preferred; Netlify builds
-   in UTC and the git history is now a real audit trail).
-5. **Same hour:** test both forms, Lighthouse, 301, Search Console.
-6. Publish steadily. Hubs and search re-open themselves as content lands.
+1. Counsel: privacy, terms, funding wording.
+2. Roofing professional: technical review of the two emergency pages.
+3. Editorial: publish drafts with real citations (the fastest path to a real launch).
+4. Provision and test CRI-domain email.
+5. Confirm the assessment workflow is genuinely live.
+6. Deploy `dist-v1.9-RC1.zip` — or better, connect the repo so Netlify builds from source.
+7. **Same hour:** both forms, Lighthouse, 301, Search Console.

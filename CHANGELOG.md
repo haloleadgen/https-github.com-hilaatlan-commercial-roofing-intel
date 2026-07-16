@@ -4,6 +4,86 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-16 (v1.9-RC1) — Editorial remediation implemented
+
+**Release candidate. Not production.** `dist-v1.9-RC1.zip` · 677 KB · 162 files ·
+Node v22.23.1 · `npm ci && npm run build` → exit 0, **0 errors, 0 warnings**, 60 pages.
+
+### Editorial status framework
+Replaced `sample|draft|published` with `template | draft | technical-review |
+preliminary | published` (`src/data/status.ts`). One module decides, per status: the
+reader-facing label, indexability, whether a source count may be shown, and whether the
+page may name an editorial reviewer. It **separates editorial review from technical
+review** — Hila is not a roofing technical expert, and `technical-review` lets
+editorially finished work publish honestly while disclosing that gap.
+
+### Citations are now structural, not typed
+The `sources` integer is gone. It is a structured array: the visible list renders from
+it and the count derives from it, so they cannot disagree. `title` and `publisher` are
+required, enforcing "a named document, not a generic organisation".
+**Acceptance test passes** — every visible count equals its visible entries (5/5).
+
+**Two cited URLs were dead.** Checked every citation over HTTP rather than trusting it:
+- TPO's NRCA ponding link (a third-party rehost) **404s**. No verifiable named NRCA
+  document could replace it, so it was removed. **TPO is 2, not the 3 expected** —
+  reported rather than padded.
+- EPDM's `roofingcontractor.com` link would not resolve; replaced with ERA's own primary
+  page for the same survey (verified 200). EPDM remains 3.
+- Repair or Replace: NRCA Reroofing and Code Compliance verified 200. Remains 1.
+
+### Emergency pages replaced
+Both were literal `Placeholder:` stubs. Rewritten to the 14-section structure, sourced to
+**Ready.gov Floods** and **OSHA 3755** (both verified, and Ready.gov's exact wording
+fetched and checked). Marked `technical-review`, not `published`.
+
+- **Safety:** no version of "puncture the ceiling from below" appears. Required wording
+  present on both pages. The technique is not described at all.
+- **Electrical:** power off only when safe from a dry location; never touch wet equipment;
+  never cross standing water to a breaker.
+- **Roof access:** never access a wet or storm-damaged roof. "No photograph is worth a fall."
+- **Insurance:** every absolute removed; nothing promises reimbursement.
+- **AOB:** national language only. No Florida claim published — the Florida DFS source
+  could not be reached to verify it.
+- ⚠️ **The directive stated Ready.gov advises photographing damage. That is not on the
+  Floods page, so it is NOT attributed to Ready.gov.**
+- ⚠️ **The "editorial copy supplied by Claude Chrome" does not exist on this machine and
+  was never supplied.** This copy was written here, from verified sources only.
+
+### Estimator and dataset gated
+The estimator's form, result panel and **entire calculation script are removed**, not
+hidden — it ran on placeholder modifiers from a dataset marked "not for citation". It now
+reads "In development — not yet validated" and points to Repair or Replace. Its
+methodology stays published, reframed as a proposal to be audited. Its hardcoded
+`sources={12}` (citing nothing) is gone.
+The dataset offered a **formatted suggested citation for data it says is not citable**;
+that block now renders only for `published` datasets.
+
+### Hubs and homepage
+New `StatusGroupedList`: every hub lists its complete pillar grouped by honest status.
+Sitemap and page-head noindex agree exactly (**24 = 24**). Homepage features only
+published work; EPDM uses the safer heading (not "The 50-Year Track Record") because our
+own sourced range is 20–30 years; the estimator was removed from the nav dropdown, which
+was advertising a tool that produces nothing.
+
+### Claims removed from rendered output
+`"Evidence-based"` → **0 pages** (was the tagline on all 60, a homepage trust-band heading
+claiming "published methodology for every number", and a template titled *"Evidence-Based
+Comparison"* citing nothing). `"Every claim sourced"` → **0 pages**. Unenforceable
+two-business-day SLAs removed. Legal-review warnings **kept** but rewritten for readers.
+Funding & Relationships **noindexed** pending founder + counsel sign-off; the proposed
+"Items pending final confirmation" paragraph was **not** added.
+
+### Verified
+3,577 internal links / **0 broken** · 60/60 canonical, title, description · exactly 1 h1
+per page · 0 heading-order violations · 0 images missing alt · no mobile overflow at 375px
+across 11 key pages · `/sitemap-index.xml` returns **200** (the audit's 404 predated the
+build being fixed) · schema now carries `creativeWorkStatus` and real `citation` entries.
+
+### Not verified
+Real-world Core Web Vitals · forms end-to-end (Netlify-dependent) · screen-reader/AT pass.
+
+---
+
 ## 2026-07-16 (later) — Build environment + ship-a-trustworthy-V1 session
 
 **Status: HOLD LAUNCH — for editorial/legal reasons, not engineering.** Every

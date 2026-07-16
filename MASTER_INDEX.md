@@ -20,21 +20,41 @@ Static site, Astro 5 + Pagefind. Source in `website/src/`, built output in `webs
 | **[DECISIONS.md](DECISIONS.md)** | Why the project is built the way it is |
 | **[CHANGELOG.md](CHANGELOG.md)** | What changed, when |
 
+## Release artifact
+
+| | |
+| --- | --- |
+| **Package** | `website/dist-v1.9-RC1.zip` (677 KB, 162 files) |
+| **Build date** | 2026-07-16 |
+| **Node** | v22.23.1 (matches `netlify.toml`) |
+| **Status** | **Release candidate — not production.** Legal, DNS, and email gates are open. |
+
+`dist-v2.0-PRODUCTION.zip` from the previous session is retained but **superseded** — it
+predates the editorial status framework and still carries the old trust badges.
+
 ## The three facts that matter most today
 
-1. **The build works, and the site is engineering-ready.** Node 22 is installed,
-   `npm run build` runs clean (exit 0, zero warnings, 60 pages), and
-   `website/dist-v2.0-PRODUCTION.zip` is a verified deployable package. Every
-   engineering blocker from the first review is cleared.
-2. **The site is still on HOLD — for editorial and legal reasons.** Only **3** articles
-   are published against your own 20–30 bar. Two emergency pages are `Placeholder:`
-   stubs. One published guide carries uncited numeric thresholds. Counsel has not
-   signed off on the funding page, privacy, or terms.
-3. **The site now only claims what it has earned.** Trust badges, "Reviewed by", search
-   results, nav links, homepage stats and hubs are all gated on publish status. A
-   reader can no longer be sent from any promotional surface into placeholder content.
-   As you publish, those surfaces re-open **automatically** — `status: published` is
-   the single switch.
+1. **The build is clean and the site is honest.** `npm ci && npm run build` → exit 0,
+   zero errors, zero warnings, 60 pages. Every trust claim is now gated on publication
+   status, and the acceptance test passes: every visible source count equals the visible
+   source entries on that page.
+2. **Launch is still held — on editorial, legal and operational gates, not engineering.**
+   3 pages are fully published; 2 emergency pages are editorially complete but await
+   technical review by a qualified roofer; counsel has not reviewed privacy, terms, or the
+   funding page; no hosting, DNS, or CRI-domain email exists.
+3. **`status` is the only switch.** Indexing, search, sitemap, nav, homepage promotion and
+   every badge derive from it. Change one word of frontmatter and the whole site updates
+   consistently. Never route around it — see [PROJECT_RULES.md](PROJECT_RULES.md).
+
+## The editorial status framework
+
+| Status | Reader sees | Indexed | Searchable | Promoted |
+| --- | --- | --- | --- | --- |
+| `published` | Editorially reviewed · *N* sources cited | yes | yes | yes |
+| `technical-review` | Technical review pending · *N* sources cited | yes | yes | yes |
+| `preliminary` | Published with limitations — preliminary data | yes | yes | **no** |
+| `draft` | Source verification in progress | no | no | no |
+| `template` | Template — not yet published | no | no | no |
 
 ## Build and deploy, in one place
 
