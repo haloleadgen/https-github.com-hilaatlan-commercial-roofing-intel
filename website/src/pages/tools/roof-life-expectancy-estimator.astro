@@ -33,8 +33,7 @@ const related = [
 
 <Base
   title="Roof Life Expectancy Estimator"
-  description="Estimate the remaining service life of a commercial roof from system type, age, climate exposure, and maintenance history — with published methodology and stated uncertainty."
-  noindex={true}
+  description="CRI's Roof Life Expectancy Estimator is in development and does not yet produce estimates. Its methodology is published here for scrutiny while the underlying benchmark dataset is validated."
 >
   <Breadcrumbs crumbs={[{ name: 'Tools', href: '/tools/' }, { name: 'Roof Life Expectancy Estimator' }]} />
 
@@ -45,100 +44,61 @@ const related = [
       <p class="eyebrow" data-pagefind-filter="type">Decision Tool</p>
       <h1>Roof Life Expectancy Estimator</h1>
       <p class="lede">
-        A planning-grade range for remaining service life, built on CRI’s published
-        benchmarks. It cannot replace a physical condition assessment — and it will tell
-        you when to get one.
+        In development. This tool does not yet produce estimates — its benchmark dataset is
+        still preliminary. The methodology is published below so it can be examined before
+        anyone is asked to trust it.
       </p>
       {/* No sources= : this tool lists no external citations, and its own methodology
-          states the modifier values are pre-validation placeholders. Claiming a
-          citation count here contradicted the page's own disclosure. Restore a real
-          count only when Benchmarks v1.0 ships with sources actually listed. */}
-      <TrustMeta updated="2026-07-01" status="sample" />
+          states the modifier values are pre-validation placeholders. It previously
+          hardcoded sources={12} while citing nothing. */}
+      <TrustMeta updated="2026-07-16" status="preliminary" />
     </header>
 
-    <SampleNotice />
+    <SampleNotice status="preliminary" />
 
-    <div class="grid grid--2" style="align-items: start; margin-top: var(--space-5);">
-      <form class="tool-panel" id="rle-form" aria-describedby="rle-disclaimer" novalidate>
-        <h2 style="margin-bottom: var(--space-4); font-size: var(--text-xl);">Your roof</h2>
-
-        <div class="field">
-          <label for="system">Roof system</label>
-          <select id="system" name="system" required>
-            <option value="tpo">TPO (single-ply, white)</option>
-            <option value="epdm">EPDM (single-ply, rubber)</option>
-            <option value="pvc">PVC (single-ply)</option>
-            <option value="modbit">Modified bitumen</option>
-            <option value="bur">Built-up (BUR)</option>
-            <option value="metal">Metal (standing seam)</option>
-          </select>
-          <span class="hint">Not sure? The membrane type is on your warranty or last inspection report.</span>
-        </div>
-
-        <div class="field">
-          <label for="age">Roof age (years)</label>
-          <input id="age" name="age" type="number" inputmode="numeric" min="0" max="80" step="1" value="10" required aria-describedby="age-error" />
-          <span class="hint" id="age-error" role="alert" style="color: var(--cri-alert);" hidden>Enter an age between 0 and 80 years.</span>
-        </div>
-
-        <div class="field">
-          <label for="climate">Climate exposure</label>
-          <select id="climate" name="climate">
-            <option value="moderate">Moderate</option>
-            <option value="hot">Hot / high-UV (cooling-dominated)</option>
-            <option value="cold">Cold / freeze-thaw</option>
-            <option value="coastal">Coastal / hurricane-exposed</option>
-          </select>
-          <span class="hint">Pick the condition that dominates your location.</span>
-        </div>
-
-        <div class="field">
-          <label for="maintenance">Maintenance history</label>
-          <select id="maintenance" name="maintenance">
-            <option value="proactive">Proactive (scheduled inspections + repairs)</option>
-            <option value="reactive" selected>Reactive (fixed when problems appear)</option>
-            <option value="neglected">Minimal / unknown</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="ponding">Known ponding water?</label>
-          <select id="ponding" name="ponding">
-            <option value="no" selected>No</option>
-            <option value="unsure">Not sure</option>
-            <option value="yes">Yes — water sits more than 48 hours</option>
-          </select>
-        </div>
-
-        <button class="btn" type="submit">Estimate remaining life</button>
-      </form>
-
-      <div>
-        <div class="tool-result" id="rle-result" role="status" aria-live="polite" hidden>
-          <p class="eyebrow" style="margin-bottom: var(--space-1);">Estimated remaining service life</p>
-          <p class="tool-result__figure" id="rle-figure">—</p>
-          <p id="rle-confidence" style="font-size: var(--text-xs); margin-top: var(--space-2); font-weight: 600;"></p>
-          <p id="rle-note" style="font-size: var(--text-sm); margin-top: var(--space-3);"></p>
-          <p style="font-size: var(--text-sm); margin-top: var(--space-3);">
-            <strong>Next step:</strong> <span id="rle-next"></span>
-          </p>
-          <p style="font-size: var(--text-xs); color: var(--cri-slate-500); margin-top: var(--space-3);">
-            Methodology v0.1 — modifier values are pre-validation placeholders.
-            <a href="#methodology">Read the full methodology below.</a>
-          </p>
-        </div>
-        <div class="callout" id="rle-disclaimer">
-          <strong class="callout__title">Planning estimate only</strong>
-          This range is derived from population-level benchmarks. Your roof’s actual
-          condition can only be established by physical assessment (visual survey, moisture
-          scan, core samples where warranted). This is educational content, not an
-          engineering evaluation of your building.
-        </div>
-      </div>
+    {/* GATED — the interactive estimator is deliberately removed, not hidden.
+        Its modifiers are unvalidated v0.1 placeholders drawn from a dataset that is
+        explicitly "not for citation". A tool that emits confident year-ranges from
+        placeholder data, on a contractor-affiliated site, is the worst-case version of
+        this project. The methodology below stays published so it can be examined and
+        challenged before the numbers are trusted. Restore the form, the result panel,
+        and the calculation script when Benchmarks v1.0 is validated. */}
+    <div class="callout callout--caution" style="margin-top: var(--space-5);">
+      <strong class="callout__title">In development — not yet validated</strong>
+      <p>
+        The Roof Life Expectancy Estimator is not currently available, and it will not
+        produce an estimate. Its underlying dataset — the
+        <a href="/data-research/commercial-roof-life-expectancy-benchmarks/">CRI Roof Life
+        Expectancy Benchmarks</a> — is still preliminary, and the modifier values below are
+        pre-validation placeholders. A tool that returns a confident number from data we
+        have not validated would be worse than no tool at all, so it returns nothing.
+      </p>
+      <p>
+        We publish the methodology anyway, in full, below. That is deliberate: you should
+        be able to examine and challenge how a tool works <em>before</em> deciding whether
+        to trust its output — not after. It is here to be audited, not used.
+      </p>
+      <p>
+        <strong>What to use instead:</strong> the remaining service life of a specific roof
+        is established by physical assessment — a visual survey, a moisture scan, and core
+        samples where warranted — not by a population-level model. If you are facing the
+        decision this tool was meant to inform, work through
+        <a href="/knowledge/guides/repair-or-replace/">Repair or Replace? How to Decide</a>,
+        which is published and sourced.
+      </p>
+      <p style="margin-bottom: 0;">
+        This page will be updated when Benchmarks v1.0 completes validation. We would rather
+        ship it late than ship it wrong.
+      </p>
     </div>
 
     <div class="prose" style="margin-top: var(--space-7);">
-      <h2 id="methodology">Methodology</h2>
+      <h2 id="methodology">Methodology (published for scrutiny — not in operation)</h2>
+      <p>
+        This is the method the estimator <em>will</em> use once its inputs are validated. No
+        part of it is running today. The modifier values below are placeholders: they are
+        plausible, they are not yet evidence.
+      </p>
       <p>
         The estimator starts from the service-life ranges in the
         <a href="/data-research/commercial-roof-life-expectancy-benchmarks/">CRI Roof Life
@@ -169,81 +129,4 @@ const related = [
 
   <RelatedLinks items={related} />
 
-  <script>
-    const BASE: Record<string, [number, number]> = {
-      tpo: [15, 25], epdm: [20, 30], pvc: [20, 30],
-      modbit: [15, 25], bur: [20, 30], metal: [30, 45],
-    };
-    const CLIMATE: Record<string, number> = { moderate: 1.0, hot: 0.9, cold: 0.92, coastal: 0.85 };
-    const MAINT: Record<string, number> = { proactive: 1.12, reactive: 1.0, neglected: 0.82 };
-
-    const form = document.getElementById('rle-form') as HTMLFormElement | null;
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const ageRaw = Number(data.get('age'));
-      const ageErr = document.getElementById('age-error')!;
-      if (!Number.isFinite(ageRaw) || ageRaw < 0 || ageRaw > 80) {
-        ageErr.hidden = false;
-        (document.getElementById('age') as HTMLInputElement).focus();
-        return;
-      }
-      ageErr.hidden = true;
-
-      const system = String(data.get('system'));
-      const age = Math.round(ageRaw);
-      const climate = String(data.get('climate'));
-      const maint = String(data.get('maintenance'));
-      const pondingChoice = String(data.get('ponding'));
-      const ponding = pondingChoice === 'yes' ? 0.88 : 1.0;
-
-      const factor = (CLIMATE[climate] ?? 1) * (MAINT[maint] ?? 1) * ponding;
-      const [lo, hi] = BASE[system] ?? [15, 25];
-      const adjLo = lo * factor;
-      const adjHi = hi * factor;
-      const remLo = Math.max(0, Math.round(adjLo - age));
-      const remHi = Math.max(0, Math.round(adjHi - age));
-
-      // Confidence: capped at "moderate" (v0.1); drops with unknowns and near end-of-life
-      let confidence = 'Moderate';
-      const reasons: string[] = [];
-      if (pondingChoice === 'unsure') { confidence = 'Low'; reasons.push('ponding status unknown'); }
-      if (maint === 'neglected') { confidence = 'Low'; reasons.push('maintenance history unknown or minimal'); }
-      if (age >= adjHi) { confidence = 'Low'; reasons.push('age at or beyond the benchmark range'); }
-
-      const fig = document.getElementById('rle-figure')!;
-      const conf = document.getElementById('rle-confidence')!;
-      const note = document.getElementById('rle-note')!;
-      const next = document.getElementById('rle-next')!;
-      const result = document.getElementById('rle-result')!;
-
-      conf.textContent = `Confidence: ${confidence}${reasons.length ? ' — ' + reasons.join('; ') : ''}`;
-      conf.style.color = confidence === 'Low' ? 'var(--cri-caution)' : 'var(--cri-evidence)';
-
-      if (age === 0) {
-        fig.textContent = `${Math.round(adjLo)}–${Math.round(adjHi)} years`;
-        note.textContent =
-          'For a new roof, this is the full adjusted service-life range. The single best predictor of where yours lands is installation quality — verify installer certification and specification compliance now, while remedies exist.';
-        next.innerHTML =
-          'File the warranty, commission a post-installation inspection, and set a proactive maintenance cadence — see the <a href="/knowledge/">maintenance fundamentals</a>.';
-      } else if (remHi <= 0) {
-        fig.textContent = 'At or beyond expected life';
-        note.textContent =
-          'Based on population benchmarks, a roof of this age and profile is at or past its expected service life. That does not mean it has failed — it means condition assessment is overdue and budget planning should already be underway.';
-        next.innerHTML =
-          'Commission an independent condition assessment, then work through the <a href="/knowledge/guides/repair-or-replace/">Repair or Replace guide</a>.';
-      } else {
-        fig.textContent = remLo === remHi ? `≈ ${remHi} years` : `${remLo}–${remHi} years`;
-        note.textContent =
-          remLo <= 3
-            ? 'The lower bound of this range is short. Budget planning for replacement should begin now, even if the roof is currently performing.'
-            : 'A range this wide is honest: installation quality and undetected moisture — which this tool cannot see — determine where your roof falls within it.';
-        next.innerHTML =
-          remLo <= 5
-            ? 'Start the <a href="/knowledge/guides/repair-or-replace/">Repair or Replace analysis</a> and get a moisture survey to narrow the range.'
-            : 'Put the roof on a proactive inspection cadence and revisit annually. See <a href="/knowledge/">maintenance fundamentals</a>.';
-      }
-      result.hidden = false;
-    });
-  </script>
 </Base>

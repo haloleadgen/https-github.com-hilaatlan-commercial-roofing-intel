@@ -21,6 +21,10 @@ const url = new URL(Astro.url.pathname, SITE.domain).href;
 // 2025 in any timezone behind UTC, putting the wrong year in the citation block.
 const year = entry.data.updated ? yearOf(entry.data.updated) : new Date().getFullYear();
 
+// Only a fully published dataset may be presented as citable. Anything preliminary,
+// draft, or template must say so where the citation would otherwise sit.
+const isCitable = entry.data.status === 'published';
+
 const facts = [
   ...(entry.data.coverage ? [{ label: 'Coverage', value: entry.data.coverage }] : []),
   ...(entry.data.sampleSize ? [{ label: 'Sample', value: entry.data.sampleSize }] : []),
@@ -45,13 +49,25 @@ const facts = [
   next={nextEntry ? { title: nextEntry.data.title, href: `/data-research/${nextEntry.id}/` } : undefined}
   sectionLabel="Data & Research"
 >
-  <div class="callout callout--evidence">
+  {/* The suggested-citation block is offered ONLY for datasets that are actually
+      citable. This page previously handed readers a formatted citation for a dataset
+      whose own version history says "Not for citation until v1.0" — the page
+      contradicted itself, and the citation block is the half a reader copies. */}
+  <div class:list={['callout', isCitable ? 'callout--evidence' : 'callout--caution']}>
     <strong class="callout__title">Dataset facts</strong>
     <div>Methodology: <a href={entry.data.methodologyHref}>published methodology</a></div>
-    <div style="margin-top: var(--space-2);">
-      <strong>Suggested citation:</strong> Commercial Roofing Intel ({year}).
-      “{entry.data.title}.” <em>{url}</em>
-    </div>
+    {isCitable ? (
+      <div style="margin-top: var(--space-2);">
+        <strong>Suggested citation:</strong> Commercial Roofing Intel ({year}).
+        “{entry.data.title}.” <em>{url}</em>
+      </div>
+    ) : (
+      <div style="margin-top: var(--space-2);">
+        <strong>Suggested citation:</strong> Not yet available. This dataset is preliminary
+        and is not intended for citation. A stable citation format will be published with
+        Version 1.0 after validation.
+      </div>
+    )}
   </div>
 
   <Content />

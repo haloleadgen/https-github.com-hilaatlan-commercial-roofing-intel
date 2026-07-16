@@ -2,40 +2,36 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Card from '../../components/Card.astro';
+import StatusGroupedList from '../../components/StatusGroupedList.astro';
+import type { Item } from '../../components/StatusGroupedList.astro';
 
-const tools = [
+/* No CRI tool is operational. Both calculators run on unvalidated placeholder data and
+   have had their numeric output removed rather than hidden. This hub previously listed
+   the estimator as "Available" and advertised a "Storm Damage Documentation Checklist"
+   that does not exist and linked to this page itself. */
+const tools: Item[] = [
   {
     title: 'Roof Life Expectancy Estimator',
     href: '/tools/roof-life-expectancy-estimator/',
-    status: 'Available',
-    description: 'Estimate remaining service life from system type, age, climate exposure, and maintenance history.',
-  },
-  {
-    title: 'Repair vs. Replace Decision Planner',
-    href: '/knowledge/guides/repair-or-replace/',
-    status: 'Guide available — interactive version planned',
-    description: 'Work through the repair-or-replace decision with cost thresholds and condition criteria.',
+    status: 'preliminary',
+    description: 'Methodology published for scrutiny. Produces no estimate until Benchmarks v1.0 is validated.',
   },
   {
     title: 'Annual Maintenance Budget Planner',
     href: '/tools/maintenance-budget-planner/',
-    status: 'Available (draft methodology)',
-    description: 'Plan preventive maintenance budgets by roof system, age, and square footage.',
+    status: 'draft',
+    description: 'Draft methodology built on placeholder cost rates. Not yet reliable for budgeting.',
   },
   {
-    title: 'Storm Damage Documentation Checklist',
-    href: '/tools/',
-    status: 'In development',
-    description: 'A printable, insurer-ready checklist for documenting storm damage correctly the first time.',
+    title: 'Repair or Replace? How to Decide',
+    href: '/knowledge/guides/repair-or-replace/',
+    status: 'published',
+    description: 'Not a calculator — a published, sourced decision framework. The alternative we recommend today.',
   },
 ];
 ---
 
 <Base
-  {/* Both tools are noindexed pending validated methodology, so this hub currently
-      lists nothing a crawler can reach. Set back to false once a tool is published. */}
-  noindex={true}
   title="Tools"
   description="Decision-support calculators, planners, checklists, estimators, and assessment tools for commercial roofing — each with published methodology."
 >
@@ -47,26 +43,20 @@ const tools = [
   />
 
   <div class="container section--tight">
-    <div class="callout callout--evidence">
-      <strong class="callout__title">Our tool standard</strong>
-      A CRI tool ships only when its methodology page is public, its assumptions are
-      documented, and its outputs carry appropriate uncertainty language. Read the
-      <a href="/about/methodology/">CRI Methodology</a>.
+    <div class="callout callout--caution">
+      <strong class="callout__title">No CRI calculator is operational yet</strong>
+      <p>
+        A CRI tool ships only when its methodology is public, its assumptions are
+        documented, and its underlying data has been validated. Neither calculator meets
+        that bar today, so neither will give you a number. We removed their output rather
+        than let them look authoritative while a caveat sat further down the page.
+      </p>
+      <p style="margin-bottom: 0;">
+        The methodologies are published anyway, so they can be examined before anyone is
+        asked to trust them. Read the <a href="/about/methodology/">CRI Methodology</a>.
+      </p>
     </div>
 
-    {/* Screen-reader-only heading: the cards below are <h3>, so without an
-        intervening <h2> this page jumped h1 -> h3 (WCAG 1.3.1). No visual change. */}
-    <h2 class="visually-hidden">All tools</h2>
-    <div class="grid grid--2" style="margin-top: var(--space-5);">
-      {tools.map((t) => (
-        <Card
-          title={t.title}
-          href={t.href}
-          type="Decision Tool"
-          description={t.description}
-          meta={t.status}
-        />
-      ))}
-    </div>
+    <StatusGroupedList items={tools} />
   </div>
 </Base>

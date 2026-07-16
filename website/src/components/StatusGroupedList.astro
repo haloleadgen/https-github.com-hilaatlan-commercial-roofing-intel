@@ -1,0 +1,97 @@
+---
+/**
+ * Hub listing: the COMPLETE contents of a pillar, grouped by honest publication status.
+ *
+ * Hubs used to show a flat grid in which a template page looked exactly like a finished,
+ * sourced article — so a reader clicking "Comparisons" landed on a placeholder. They then
+ * over-corrected to hiding everything unpublished, which made five of six hubs indexable
+ * dead ends listing nothing a reader could use.
+ *
+ * This shows everything, honestly labelled and grouped, so the hub is useful and truthful
+ * at the same time: a reader can see what exists, what is finished, and what is still
+ * being worked on. Template entries are listed as templates and are not presented as
+ * available guides.
+ */
+import { STATUS, type Status } from '../data/status';
+
+export interface Item {
+  title: string;
+  href: string;
+  description?: string;
+  status: Status;
+}
+
+interface Props {
+  items: Item[];
+  /** Copy for the empty state, when the pillar has nothing at all. */
+  emptyState?: string;
+}
+const { items, emptyState } = Astro.props;
+
+/** Display order and section headings. Statuses with nothing in them are omitted. */
+const GROUPS: { status: Status; heading: string; blurb: string }[] = [
+  {
+    status: 'published',
+    heading: 'Published',
+    blurb: 'Editorially reviewed and sourced. Ready to rely on.',
+  },
+  {
+    status: 'technical-review',
+    heading: 'Published — technical review pending',
+    blurb:
+      'Editorially complete and sourced, awaiting subject-matter verification of technical claims.',
+  },
+  {
+    status: 'preliminary',
+    heading: 'In development',
+    blurb:
+      'Published with explicit limitations so the method can be examined. Not yet reliable for planning.',
+  },
+  {
+    status: 'draft',
+    heading: 'Source verification in progress',
+    blurb:
+      'Written, but the sources are still being checked. Not yet published, and not yet something to rely on.',
+  },
+  {
+    status: 'template',
+    heading: 'Templates — not yet written',
+    blurb:
+      'Structural placeholders only. These are not guides and contain no editorial content.',
+  },
+];
+
+const groups = GROUPS.map((g) => ({
+  ...g,
+  entries: items.filter((i) => i.status === g.status),
+})).filter((g) => g.entries.length > 0);
+---
+
+{groups.length === 0 && emptyState && (
+  <div class="callout callout--caution" role="note">
+    <strong class="callout__title">Nothing published here yet</strong>
+    {emptyState}
+  </div>
+)}
+
+{groups.map((g) => (
+  <section class="hub-group" style="margin-top: var(--space-6);">
+    <h2>{g.heading}</h2>
+    <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+      {g.blurb}
+    </p>
+    <ul class="hub-list">
+      {g.entries.map((e) => (
+        <li>
+          <a href={e.href}>{e.title}</a>
+          <span class:list={['badge', `badge--status-${STATUS[e.status].tone}`]}>
+            {STATUS[e.status].label}
+          </span>
+          {e.description && (
+            <span class="meta" style="display:block;">{e.description}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+))}

@@ -2,8 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import Card from '../../components/Card.astro';
+import StatusGroupedList from '../../components/StatusGroupedList.astro';
+import type { Item } from '../../components/StatusGroupedList.astro';
 import { getCollection } from 'astro:content';
+import { isIndexable } from '../../data/status';
 
 const entries = await getCollection('datasets');
 const pipeline = [
@@ -13,16 +15,20 @@ const pipeline = [
   'Annual State of Commercial Roofing report',
 ];
 
-/* Thin-hub guard: noindex this hub while it has no published children.
-   Every child here is currently noindexed pending editorial review, so an indexable
-   hub listing only unreachable pages is a thin-content / crawl-dead-end signal on a
-   domain with no authority yet. The hub re-enters the index automatically (here and
-   in the sitemap filter in astro.config.mjs) as soon as one child is published. */
-const publishedCount = entries.filter((e) => e.data.status === 'published').length;
+const items: Item[] = entries
+  .map((e) => ({
+    title: e.data.title,
+    href: `/data-research/${e.id}/`,
+    description: e.data.coverage,
+    status: e.data.status,
+  }))
+  .sort((a, b) => a.title.localeCompare(b.title));
+const indexableCount = entries.filter((e) => isIndexable(e.data.status)).length;
+const citableCount = entries.filter((e) => e.data.status === 'published').length;
 ---
 
 <Base
-  noindex={publishedCount === 0}
+  noindex={indexableCount === 0}
   title="Data & Research"
   description="Proprietary datasets, benchmarks, regional cost data, roof-life research, hurricane-performance analysis, and methodology reports from Commercial Roofing Intel."
 >
@@ -30,30 +36,33 @@ const publishedCount = entries.filter((e) => e.data.status === 'published').leng
   <PageHero
     eyebrow="Pillar 5 of 6"
     title="Data & Research"
-    lede="Proprietary datasets, benchmarks, and research the industry can cite. Every dataset publishes its methodology, coverage, and limitations alongside the numbers."
+    lede="Datasets, benchmarks, and research — each published with its methodology, coverage, and limitations alongside the numbers. Nothing here is citable until it has been validated, and we say so on the page rather than in the footnotes."
   />
 
   <div class="container section--tight">
-    <div class="callout">
+    {/* This band used to read "CRI data may be cited... Each dataset page includes a
+        suggested citation" while the only dataset on the site says, in its own version
+        history, "not for citation". The hub advertised a property the content denied. */}
+    <div class:list={['callout', citableCount === 0 ? 'callout--caution' : '']}>
       <strong class="callout__title">Citation policy</strong>
-      CRI data may be cited with attribution and a link to the source page. Each dataset
-      page includes a suggested citation and its methodology disclosure.
+      {citableCount === 0 ? (
+        <p style="margin-bottom: 0;">
+          <strong>Nothing here is citable yet.</strong> CRI has published no validated
+          dataset. What exists below is preliminary and is marked as such on the page
+          itself — no suggested citation is offered, because offering one would invite
+          exactly the reliance the data cannot bear. When a dataset reaches v1.0, it will
+          carry a stable citation format and may be cited with attribution and a link.
+        </p>
+      ) : (
+        <p style="margin-bottom: 0;">
+          Validated CRI datasets may be cited with attribution and a link to the source
+          page. Each carries a suggested citation and its methodology disclosure.
+          Preliminary datasets are marked and are not for citation.
+        </p>
+      )}
     </div>
 
-    {/* Screen-reader-only heading: the cards below are <h3>, so without an
-        intervening <h2> this page jumped h1 -> h3 (WCAG 1.3.1). No visual change. */}
-    <h2 class="visually-hidden">Datasets and research</h2>
-    <div class="grid grid--2" style="margin-top: var(--space-5);">
-      {entries.map((e) => (
-        <Card
-          title={e.data.title}
-          href={`/data-research/${e.id}/`}
-          type="Dataset"
-          description={e.data.description}
-          meta={e.data.coverage}
-        />
-      ))}
-    </div>
+    <StatusGroupedList items={items} />
 
     <section class="section--tight">
       <h2>Research pipeline</h2>

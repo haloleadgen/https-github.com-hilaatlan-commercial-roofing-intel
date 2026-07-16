@@ -15,12 +15,15 @@ const dropdownsRaw: Record<string, { title: string; desc: string; href: string }
   '/knowledge/': [
     { title: 'Encyclopedia', desc: 'System and material references', href: '/knowledge/tpo-roofing-systems/' },
     { title: 'Decision guides', desc: 'Frameworks for big decisions', href: '/knowledge/guides/repair-or-replace/' },
-    { title: 'Comparisons', desc: 'Evidence-based side-by-sides', href: '/knowledge/compare/tpo-vs-epdm/' },
+    { title: 'Comparisons', desc: 'Side-by-side analysis on fixed criteria', href: '/knowledge/' },
     { title: 'Glossary', desc: 'Plain-English definitions', href: '/glossary/' },
   ],
+  /* The estimator is deliberately NOT listed here. It is in development and produces no
+     estimate; a nav entry reading "Remaining service life, with methodology" advertises a
+     working tool. isPromotable() cannot catch it — that filter only covers content
+     routes, and the tools are .astro pages. Relist it when Benchmarks v1.0 validates. */
   '/tools/': [
-    { title: 'Roof Life Expectancy Estimator', desc: 'Remaining service life, with methodology', href: '/tools/roof-life-expectancy-estimator/' },
-    { title: 'All tools', desc: 'Calculators, planners, checklists', href: '/tools/' },
+    { title: 'All tools', desc: 'What exists, and how finished each one is', href: '/tools/' },
   ],
   '/situations/': [
     { title: 'My roof is leaking', desc: 'What to do right now', href: '/situations/my-roof-is-leaking/' },
@@ -32,9 +35,10 @@ const dropdownsRaw: Record<string, { title: string; desc: string; href: string }
     { title: 'HOA & condo boards', desc: 'Reserves and board decisions', href: '/for-your-role/hoa-boards/' },
     { title: 'All roles', desc: 'Owners, investors, architects, more', href: '/for-your-role/' },
   ],
+  /* The benchmarks dataset is preliminary and not for citation — "Service-life data by
+     system" in the nav reads as settled data. Not promoted until v1.0. */
   '/data-research/': [
-    { title: 'Roof life expectancy benchmarks', desc: 'Service-life data by system', href: '/data-research/commercial-roof-life-expectancy-benchmarks/' },
-    { title: 'All data & research', desc: 'Datasets and methodology reports', href: '/data-research/' },
+    { title: 'All data & research', desc: 'Datasets, methodology, and their limitations', href: '/data-research/' },
   ],
   '/ai-assistant/': [],
 };
@@ -51,7 +55,11 @@ const dropdowns: typeof dropdownsRaw = Object.fromEntries(
 <header class="site-header">
   <div class="utility-bar">
     <div class="container">
-      <span class="utility-bar__tagline">Independent. Evidence-based. Reader-first.</span>
+      {/* "Evidence-based" was asserted here on all 60 pages, including templates that
+          contain no evidence at all. The claims below are ones every page can actually
+          keep: the funding relationship is disclosed, published work carries its sources,
+          and the corrections policy is public. */}
+      <span class="utility-bar__tagline">Independent. Sourced. Corrected in public.</span>
       <nav aria-label="Utility">
         <a href="/about/">About CRI</a>
         <a href="/about/editorial-standards/">Editorial Standards</a>

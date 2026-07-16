@@ -15,20 +15,25 @@ interface Props {
   updated?: string;
   /** crumb shown after About; omit on the About hub itself */
   crumbName?: string;
+  /** Governance pages awaiting founder confirmation or counsel review are held out of
+   *  the index and out of search until the wording is signed off. They stay reachable
+   *  for readers — a disclosure page should never be hard to find — but CRI does not
+   *  solicit traffic to legal language that is not final. */
+  noindex?: boolean;
 }
-const { title, description, lede, updated, crumbName } = Astro.props;
+const { title, description, lede, updated, crumbName, noindex = false } = Astro.props;
 const crumbs = crumbName
   ? [{ name: 'About', href: '/about/' }, { name: crumbName }]
   : [{ name: 'About' }];
 const currentPath = Astro.url.pathname;
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} noindex={noindex}>
   <Breadcrumbs crumbs={crumbs} />
   <PageHero eyebrow="Trust & Governance" title={title} lede={lede ?? description} />
 
   <div class="container section--tight">
-    <div class="prose" data-pagefind-body>
+    <div class="prose" {...(noindex ? {} : { 'data-pagefind-body': true })}>
       {updated && (
         <p class="text-muted" style="font-size: var(--text-sm);">
           Effective and last reviewed: <time datetime={updated}>{updated}</time>

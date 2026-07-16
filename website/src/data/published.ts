@@ -1,17 +1,24 @@
 import { getCollection } from 'astro:content';
 
 /**
- * Build-time set of every content route whose frontmatter status is `published`.
+ * Build-time set of every content route CRI is willing to PROMOTE.
  *
- * Why this exists: navigation and homepage modules used to hard-code links to
- * specific articles. Most of those articles are still `sample`/`draft`, so the nav
- * was promoting placeholder pages — a visitor clicking "Comparisons" landed on an
- * amber "Sample content — template review only" banner.
+ * "Promotable" is deliberately stricter than "indexable":
  *
- * Filtering through this set means unpublished work is unreachable from promotional
- * surfaces, and re-appears automatically the moment its status flips to `published`.
- * Same principle as the sitemap/noindex logic in astro.config.mjs: `status` is the
- * single switch. Do not hard-code around it.
+ *   published        → promotable. Editorially reviewed and sourced.
+ *   technical-review → promotable. Editorially complete and sourced; the page itself
+ *                      discloses that subject-matter verification is pending.
+ *   preliminary      → INDEXABLE BUT NEVER PROMOTED. The estimator and the benchmark
+ *                      dataset are published so their method can be examined, not
+ *                      because their numbers are trustworthy. Featuring them on the
+ *                      homepage would be the site advertising exactly the reliance the
+ *                      content tells readers not to place in it.
+ *   draft, template  → neither.
+ *
+ * Why this exists: navigation and homepage modules hard-coded links to specific
+ * articles, most of which were placeholders, so a visitor clicking "Comparisons" landed
+ * on a "Sample content" banner. Filtering through this set means unfinished work cannot
+ * be promoted, and re-appears automatically the moment its status earns it.
  */
 
 /** content collection -> public URL prefix */
@@ -23,6 +30,9 @@ const ROUTE_MAP = {
   datasets: '/data-research',
 } as const;
 
+/** Statuses CRI will actively point readers at. See the note above on `preliminary`. */
+const PROMOTABLE = new Set(['published', 'technical-review']);
+
 let cache: Set<string> | null = null;
 
 export async function publishedHrefs(): Promise<Set<string>> {
@@ -31,7 +41,7 @@ export async function publishedHrefs(): Promise<Set<string>> {
   for (const [collection, prefix] of Object.entries(ROUTE_MAP)) {
     const entries = await getCollection(collection as keyof typeof ROUTE_MAP);
     for (const entry of entries) {
-      if ((entry.data as { status?: string }).status === 'published') {
+      if (PROMOTABLE.has((entry.data as { status?: string }).status ?? '')) {
         set.add(`${prefix}/${entry.id}/`);
       }
     }
@@ -40,20 +50,25 @@ export async function publishedHrefs(): Promise<Set<string>> {
   return set;
 }
 
-/** Every route that maps to a content entry, published or not. */
 const CONTENT_PREFIXES = Object.values(ROUTE_MAP);
+const HUBS = new Set([
+  '/knowledge/',
+  '/glossary/',
+  '/situations/',
+  '/for-your-role/',
+  '/data-research/',
+]);
 
 /**
  * True if `href` is safe to promote.
  *
- * Non-content routes (hubs like /tools/, governance, legal) are always allowed —
- * they are .astro pages, not content entries, so they never appear in the published
- * set and must not be filtered out by it.
+ * Non-content routes (hubs, governance, legal) are always allowed — they are .astro
+ * pages, not content entries, so they never appear in the promotable set and must not be
+ * filtered out by it.
  */
-export function isPromotable(href: string, published: Set<string>): boolean {
-  const isContentRoute = CONTENT_PREFIXES.some((p) => href.startsWith(`${p}/`)) &&
-    href !== '/knowledge/' && href !== '/glossary/' && href !== '/situations/' &&
-    href !== '/for-your-role/' && href !== '/data-research/';
+export function isPromotable(href: string, promotable: Set<string>): boolean {
+  const isContentRoute =
+    CONTENT_PREFIXES.some((p) => href.startsWith(`${p}/`)) && !HUBS.has(href);
   if (!isContentRoute) return true;
-  return published.has(href);
+  return promotable.has(href);
 }

@@ -8,6 +8,7 @@ import { SITE, PILLARS } from '../data/site';
 import { getCollection } from 'astro:content';
 import { publishedHrefs, isPromotable } from '../data/published';
 import { formatDate } from '../data/dates';
+import { isIndexable } from '../data/status';
 
 const knowledge = await getCollection('knowledge');
 const glossary = await getCollection('glossary');
@@ -50,14 +51,28 @@ const hrefFor = (e: any) =>
 
 const fmt = (d: string) => formatDate(d, { month: 'short', day: 'numeric', year: 'numeric' });
 
-/* Filtered through isPromotable: never feature a page that is not published.
-   "My Roof Is Leaking" sat here while still `status: sample`. */
+/* Featured work. Every entry is filtered through isPromotable, so nothing unpublished can
+   be featured even if someone adds it here later.
+   Deliberately absent:
+     - "TPO vs. EPDM" — still a template.
+     - "Roof Life Expectancy Estimator" — in development; produces no estimate.
+     - "White Roof vs. Black Roof" — still draft; its verification is not finished.
+     - The EPDM card is NOT titled "The 50-Year Track Record". EPDM's *material history*
+       spans 50+ years, but that phrasing reads as a service-life promise, and our own
+       sourced planning range is 20–30 years. The safer heading is used instead. */
 const editorsPicks = [
-  { title: 'Repair or Replace? How to Decide', href: '/knowledge/guides/repair-or-replace/', note: 'The decision framework every owner eventually needs' },
-  { title: 'TPO Roofing Systems: A Complete Owner\'s Reference', href: '/knowledge/tpo-roofing-systems/', note: 'What to verify before you specify the most common commercial membrane' },
-  { title: 'EPDM Roofing Systems: A Complete Owner\'s Reference', href: '/knowledge/epdm-roofing-systems/', note: 'The longest field track record of any single-ply system' },
-  { title: 'Commercial Roofing Glossary', href: '/glossary/', note: 'Read any proposal without a translator' },
+  { title: 'Facing Repair vs. Replace?', href: '/knowledge/guides/repair-or-replace/', note: 'The framework for the most consequential decision a roof forces — published and sourced' },
+  { title: 'EPDM Roofing: Performance, Uses, and Tradeoffs', href: '/knowledge/epdm-roofing-systems/', note: 'Where the oldest single-ply system still wins, and where it does not' },
+  { title: 'TPO Roofing Systems: An Owner\'s Reference', href: '/knowledge/tpo-roofing-systems/', note: 'What to verify before specifying the most common commercial membrane' },
 ].filter((p) => isPromotable(p.href, published));
+
+/* One featured situation, and only because it is now editorially complete and sourced
+   against Ready.gov and OSHA. Its own page discloses that technical review is pending.
+   People arrive at a site like this mid-emergency; burying the emergency guidance to look
+   tidy would be its own failure. */
+const featuredSituation = isPromotable('/situations/my-roof-is-leaking/', published)
+  ? { title: 'My Roof Is Leaking — What To Do Right Now', href: '/situations/my-roof-is-leaking/' }
+  : null;
 
 /* Same rule for the audience strip. */
 const audienceCards = [
@@ -72,9 +87,12 @@ const audienceCards = [
     <HeroArt />
     <div class="container">
       <h1>The trusted knowledge platform for commercial roofing decisions.</h1>
+      {/* "decision tools" is not claimed here: no CRI calculator is operational — both
+          are gated pending validated data. Do not restore the phrase until one is. */}
       <p class="lede">
-        Independent research, practical guidance, decision tools, and evidence-based
-        resources for commercial property professionals.
+        Independent, sourced guidance for the people who actually carry commercial roofing
+        decisions — owners, managers, and boards. Small on purpose, and clear about what it
+        does not yet know.
       </p>
 
       <div class="hero-search hero-search--home">
@@ -101,9 +119,12 @@ const audienceCards = [
         </p>
       </div>
 
+      {/* "Every claim sourced" was an absolute the site could not keep — a published
+          guide carried two uncited numeric thresholds when this claim was written. Each
+          bullet below is now something a reader can check on this site today. */}
       <div class="home-hero__proof" style="margin-top: var(--space-6);">
         <span>✓ Editorial independence — <a href="/about/editorial-standards/" style="color: var(--cri-blue-400);">public standards</a></span>
-        <span>✓ Every claim sourced</span>
+        <span>✓ Every published page lists its sources</span>
         <span>✓ <a href="/about/corrections/" style="color: var(--cri-blue-400);">Public corrections policy</a></span>
       </div>
     </div>
@@ -158,10 +179,16 @@ const audienceCards = [
         lede="Everything below is published and sourced. This library is deliberately small — it grows only as each piece clears editorial review."
       />
       {/* The "Latest research" card that sat here linked to Roof Life Expectancy
-          Benchmarks v0.1 — a `status: sample` dataset whose own methodology section
-          reads "Placeholder:" and which is explicitly marked not-for-citation. The
-          homepage must not headline it as "Latest research". Restore this card when
-          Benchmarks v1.0 is validated and published. */}
+          Benchmarks v0.1 — a preliminary dataset whose own page says "not for citation".
+          The homepage must not headline it as "Latest research". Restore when v1.0 is
+          validated and published. */}
+      {featuredSituation && (
+        <div class="callout callout--caution" style="margin-bottom: var(--space-5);">
+          <strong class="callout__title">In the middle of it right now?</strong>
+          <a href={featuredSituation.href}>{featuredSituation.title}</a> — protect people
+          first, document before cleanup, and do not sign anything today.
+        </div>
+      )}
       <div class="grid grid--2">
         <div>
           <h3 style="margin-bottom: var(--space-3);">Recently updated</h3>
@@ -216,11 +243,17 @@ const audienceCards = [
             Every relationship is <a href="/about/funding-and-relationships/" style="color: var(--cri-blue-400);">disclosed</a>.
           </p>
         </div>
+        {/* Was: "Evidence-based — Claims trace to standards bodies, technical data, and
+            our own datasets — with published methodology for every number." CRI has no
+            validated dataset, and the one calculator's methodology is explicitly a
+            placeholder, so "every number" was not a claim this site could keep. */}
         <div>
-          <h3>Evidence-based</h3>
+          <h3>Sourced, and honest about the gaps</h3>
           <p style="font-size: var(--text-sm);">
-            Claims trace to standards bodies, technical data, and our own datasets — with
-            <a href="/about/methodology/" style="color: var(--cri-blue-400);">published methodology</a> for every number.
+            Published pages list the documents behind them, and say plainly where the
+            evidence runs out. Where our own data is not yet validated, we mark it and
+            decline to publish a number rather than dress up a guess. See our
+            <a href="/about/methodology/" style="color: var(--cri-blue-400);">methodology</a>.
           </p>
         </div>
         <div>
