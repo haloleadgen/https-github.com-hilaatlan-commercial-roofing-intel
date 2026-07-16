@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base
+  title="Search"
+  description="Search the Commercial Roofing Intel knowledge base — articles, guides, tools, datasets, glossary, and governance pages."
+  noindex={true}
+>
+  <Breadcrumbs crumbs={[{ name: 'Search' }]} />
+  <PageHero
+    title="Search CRI"
+    lede="Every article, guide, comparison, tool, dataset, and glossary entry. Filter by content type in the results."
+  />
+
+  <div class="container section--tight">
+    <div id="search" class="tool-panel"></div>
+
+    <div style="margin-top: var(--space-5);">
+      <h2 style="font-size: var(--text-lg); font-family: var(--font-sans); margin-bottom: var(--space-3);">Popular searches</h2>
+      <div class="chip-row" id="popular-searches">
+        <button class="chip" data-q="TPO">TPO</button>
+        <button class="chip" data-q="repair or replace">Repair or replace</button>
+        <button class="chip" data-q="ponding water">Ponding water</button>
+        <button class="chip" data-q="storm damage">Storm damage</button>
+        <button class="chip" data-q="roof life expectancy">Roof life expectancy</button>
+        <button class="chip" data-q="warranty">Warranties</button>
+      </div>
+      <div id="recent-wrap" hidden style="margin-top: var(--space-5);">
+        <h2 style="font-size: var(--text-lg); font-family: var(--font-sans); margin-bottom: var(--space-3);">Your recent searches</h2>
+        <div class="chip-row" id="recent-searches"></div>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="callout callout--caution">
+        <strong class="callout__title">Search requires JavaScript</strong>
+        Alternatively, browse the complete <a href="/sitemap/">sitemap</a>.
+      </div>
+    </noscript>
+    <p class="text-muted" style="margin-top: var(--space-5); font-size: var(--text-sm);">
+      Tip: press <kbd style="font-family: var(--font-mono); border: 1px solid var(--cri-slate-300); border-radius: 4px; padding: 0 5px;">/</kbd>
+      anywhere on the site to jump to search. Prefer browsing? Start from the
+      <a href="/sitemap/">sitemap</a> or a <a href="/situations/">situation</a>.
+    </p>
+  </div>
+
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      const RECENT_KEY = 'cri-recent-searches';
+      const getRecent = () => { try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]'); } catch { return []; } };
+      const saveRecent = (q) => {
+        if (!q || q.length < 3) return;
+        const list = [q, ...getRecent().filter((x) => x !== q)].slice(0, 6);
+        try { localStorage.setItem(RECENT_KEY, JSON.stringify(list)); } catch {}
+      };
+      const renderRecent = () => {
+        const list = getRecent();
+        const wrap = document.getElementById('recent-wrap');
+        const el = document.getElementById('recent-searches');
+        if (!wrap || !el || list.length === 0) return;
+        wrap.hidden = false;
+        el.innerHTML = '';
+        list.forEach((q) => {
+          const b = document.createElement('button');
+          b.className = 'chip';
+          b.textContent = q;
+          b.addEventListener('click', () => runSearch(q));
+          el.appendChild(b);
+        });
+      };
+
+      let ui = null;
+      const input = () => document.querySelector('#search input[type="text"]');
+      const runSearch = (q) => {
+        const el = input();
+        if (!el) return;
+        el.value = q;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.focus();
+        saveRecent(q);
+        renderRecent();
+      };
+
+      if (typeof PagefindUI !== 'undefined') {
+        ui = new PagefindUI({
+          element: '#search',
+          showSubResults: true,
+          showImages: false,
+          autofocus: true,
+          highlightParam: 'highlight',
+          translations: { placeholder: 'Search commercial roofing topics…' },
+        });
+
+        const q = new URLSearchParams(window.location.search).get('q');
+        if (q) setTimeout(() => runSearch(q), 80);
+
+        let t = null;
+        document.addEventListener('input', (e) => {
+          if (e.target && e.target.matches('#search input')) {
+            clearTimeout(t);
+            const v = e.target.value.trim();
+            t = setTimeout(() => { saveRecent(v); renderRecent(); }, 1500);
+          }
+        });
+      } else {
+        const el = document.getElementById('search');
+        if (el) el.innerHTML = '<p>Search index not found — it is generated at build time. Run <code>npm run build</code> and serve the <code>dist/</code> folder, or browse the <a href="/sitemap/">sitemap</a>.</p>';
+      }
+
+      document.querySelectorAll('#popular-searches .chip').forEach((chip) => {
+        chip.addEventListener('click', () => runSearch(chip.getAttribute('data-q')));
+      });
+      renderRecent();
+    });
+  </script>
+
+  <style is:global>
+    #search {
+      --pagefind-ui-primary: var(--cri-navy-700);
+      --pagefind-ui-text: var(--cri-ink);
+      --pagefind-ui-background: var(--cri-white);
+      --pagefind-ui-border: var(--cri-slate-300);
+      --pagefind-ui-tag: var(--cri-blue-100);
+      --pagefind-ui-border-radius: 6px;
+      --pagefind-ui-font: inherit;
+    }
+    #search mark { background: var(--cri-blue-100); color: var(--cri-navy-900); }
+  </style>
+</Base>

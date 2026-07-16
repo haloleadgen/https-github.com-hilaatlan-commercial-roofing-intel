@@ -1,0 +1,19 @@
+---
+/** "Key facts" panel: at-a-glance review + article facts in the sidebar. */
+interface Fact { label: string; value: string; }
+interface Props { facts: Fact[]; }
+const { facts } = Astro.props;
+---
+{facts.length > 0 && (
+  <aside class="aside-panel" aria-labelledby="keyfacts-heading">
+    <h2 id="keyfacts-heading">Key facts</h2>
+    <dl class="keyfacts">
+      {facts.map((f) => (
+        <>
+          <dt>{f.label}</dt>
+          <dd>{f.value}</dd>
+        </>
+      ))}
+    </dl>
+  </aside>
+)}

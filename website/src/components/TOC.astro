@@ -1,0 +1,19 @@
+---
+/** Table of contents built from rendered Markdown headings (depth 2-3). */
+interface Heading { depth: number; slug: string; text: string; }
+interface Props { headings: Heading[]; }
+const { headings } = Astro.props;
+const items = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+{items.length > 1 && (
+  <nav class="aside-panel toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">On this page</h2>
+    <ul>
+      {items.map((h) => (
+        <li class={h.depth === 3 ? 'toc-depth-3' : ''}>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}

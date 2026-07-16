@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import { PILLARS, GOVERNANCE, LEGAL } from '../data/site';
+import { getCollection } from 'astro:content';
+
+const knowledge = await getCollection('knowledge');
+const glossary = await getCollection('glossary');
+const situations = await getCollection('situations');
+const roles = await getCollection('roles');
+const datasets = await getCollection('datasets');
+---
+
+<Base
+  title="Sitemap"
+  description="Complete human-readable index of every section and page on CommercialRoofingIntel.com."
+>
+  <Breadcrumbs crumbs={[{ name: 'Sitemap' }]} />
+  <PageHero title="Sitemap" lede="Every section of the site, in one place. A machine-readable XML sitemap is available at /sitemap-index.xml." />
+
+  <div class="container section--tight">
+    <div class="grid grid--3">
+      {PILLARS.map((pillar) => (
+        <div>
+          <h2 style="font-size: var(--text-lg);"><a href={pillar.href}>{pillar.name}</a></h2>
+          <ul>
+            {pillar.href === '/knowledge/' && (
+              <>
+                {knowledge.map((e) => <li><a href={`/knowledge/${e.id}/`}>{e.data.title}</a></li>)}
+                <li><a href="/glossary/">Glossary</a></li>
+                {glossary.map((e) => <li><a href={`/glossary/${e.id}/`}>{e.data.term}</a></li>)}
+              </>
+            )}
+            {pillar.href === '/tools/' && (
+              <li><a href="/tools/roof-life-expectancy-estimator/">Roof Life Expectancy Estimator</a></li>
+            )}
+            {pillar.href === '/situations/' &&
+              situations.map((e) => <li><a href={`/situations/${e.id}/`}>{e.data.title}</a></li>)}
+            {pillar.href === '/for-your-role/' &&
+              roles.map((e) => <li><a href={`/for-your-role/${e.id}/`}>{e.data.title}</a></li>)}
+            {pillar.href === '/data-research/' &&
+              datasets.map((e) => <li><a href={`/data-research/${e.id}/`}>{e.data.title}</a></li>)}
+          </ul>
+        </div>
+      ))}
+
+      <div>
+        <h2 style="font-size: var(--text-lg);">Trust &amp; Governance</h2>
+        <ul>
+          {GOVERNANCE.map((g) => <li><a href={g.href}>{g.name}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-size: var(--text-lg);">Site</h2>
+        <ul>
+          {LEGAL.map((l) => <li><a href={l.href}>{l.name}</a></li>)}
+          <li><a href="/search/">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Base>

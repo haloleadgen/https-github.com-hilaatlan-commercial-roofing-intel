@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('situations');
+const urgencyLabel: Record<string, string> = {
+  emergency: 'Emergency',
+  'time-sensitive': 'Time-sensitive',
+  planning: 'Planning',
+};
+
+const planned = [
+  'Storm just hit my building',
+  'Filing an insurance claim',
+  'Preparing for hurricane season',
+  'Buying a building (roof due diligence)',
+  'My contractor proposal doesn’t make sense',
+  'Budgeting for a roof replacement',
+];
+---
+
+<Base
+  title="Situations"
+  description="Commercial roofing guidance organized around real decision moments — leaks, storm damage, insurance claims, repair versus replacement, hurricane preparation, and due diligence."
+>
+  <Breadcrumbs crumbs={[{ name: 'Situations' }]} />
+  <PageHero
+    eyebrow="Pillar 3 of 6"
+    title="Situations"
+    lede="You rarely need “roofing content.” You need to know what to do right now, in the situation you’re in. Start from the moment you’re facing."
+  />
+
+  <div class="container section--tight">
+    <div class="grid grid--3">
+      {entries.map((e) => (
+        <Card
+          title={e.data.title}
+          href={`/situations/${e.id}/`}
+          type={urgencyLabel[e.data.urgency]}
+          description={e.data.description}
+        />
+      ))}
+    </div>
+
+    <section class="section--tight">
+      <h2>Coming in the launch library</h2>
+      <ul>
+        {planned.map((p) => <li>{p}</li>)}
+      </ul>
+    </section>
+  </div>
+</Base>

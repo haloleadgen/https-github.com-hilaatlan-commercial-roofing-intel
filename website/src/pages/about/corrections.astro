@@ -1,0 +1,47 @@
+---
+import GovernanceLayout from '../../layouts/GovernanceLayout.astro';
+import { SITE } from '../../data/site';
+---
+
+<GovernanceLayout
+  title="Corrections"
+  description="Commercial Roofing Intel's corrections policy: how to report an error, how quickly we act, and how corrections are disclosed."
+  crumbName="Corrections"
+  lede="An authority that hides its mistakes isn't one. Here is exactly what happens when CRI gets something wrong."
+  updated="2026-07-15"
+>
+  <h2>Report an error</h2>
+  <p>
+    Email <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a> with the page URL
+    and the issue, or use the <a href="/contact/">contact form</a>. Anyone may report an
+    error — readers, contractors, manufacturers, competitors. The source of the report
+    never affects how it is handled.
+  </p>
+
+  <h2>What happens next</h2>
+  <ol>
+    <li><strong>Acknowledgment.</strong> We confirm receipt within 2 business days.</li>
+    <li><strong>Verification.</strong> The claim is checked against sources under our <a href="/about/editorial-standards/">Editorial Standards</a>.</li>
+    <li><strong>Correction.</strong> Verified factual errors are corrected as soon as verification completes — target within 5 business days of the report.</li>
+    <li><strong>Disclosure.</strong> Material corrections are noted on the corrected page with the date and nature of the change.</li>
+  </ol>
+
+  <h2>What counts as material</h2>
+  <ul>
+    <li>Errors that could change a reader’s decision (costs, service life, code requirements, warranty conditions, safety guidance) are always material and always disclosed.</li>
+    <li>Typos and formatting fixes that do not change meaning are corrected silently.</li>
+  </ul>
+
+  <h2>Disagreements that aren’t errors</h2>
+  <p>
+    Sometimes qualified people disagree with our conclusions without a factual error being
+    involved. Where a substantive methodological objection has merit, we update the page or
+    add the competing view with its evidence — see <a href="/about/methodology/">Methodology</a>.
+  </p>
+
+  <h2>Correction log</h2>
+  <div class="callout">
+    <strong class="callout__title">No corrections issued yet</strong>
+    Material corrections will be listed here with dates and affected pages once the site is live.
+  </div>
+</GovernanceLayout>

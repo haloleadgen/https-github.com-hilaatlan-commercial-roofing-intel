@@ -1,0 +1,130 @@
+---
+import { SITE, PILLARS } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) =>
+  currentPath === href || (href !== '/' && currentPath.startsWith(href));
+
+/** Curated dropdown entries per pillar (kept short; full lists live on pillar pages). */
+const dropdowns: Record<string, { title: string; desc: string; href: string }[]> = {
+  '/knowledge/': [
+    { title: 'Encyclopedia', desc: 'System and material references', href: '/knowledge/tpo-roofing-systems/' },
+    { title: 'Decision guides', desc: 'Frameworks for big decisions', href: '/knowledge/guides/repair-or-replace/' },
+    { title: 'Comparisons', desc: 'Evidence-based side-by-sides', href: '/knowledge/compare/tpo-vs-epdm/' },
+    { title: 'Glossary', desc: 'Plain-English definitions', href: '/glossary/' },
+  ],
+  '/tools/': [
+    { title: 'Roof Life Expectancy Estimator', desc: 'Remaining service life, with methodology', href: '/tools/roof-life-expectancy-estimator/' },
+    { title: 'All tools', desc: 'Calculators, planners, checklists', href: '/tools/' },
+  ],
+  '/situations/': [
+    { title: 'My roof is leaking', desc: 'What to do right now', href: '/situations/my-roof-is-leaking/' },
+    { title: 'Storm damage: first 72 hours', desc: 'Protect your claim', href: '/situations/storm-damage-first-72-hours/' },
+    { title: 'All situations', desc: 'Start from your decision moment', href: '/situations/' },
+  ],
+  '/for-your-role/': [
+    { title: 'Property managers', desc: 'Triage, budgets, vendor oversight', href: '/for-your-role/property-managers/' },
+    { title: 'HOA & condo boards', desc: 'Reserves and board decisions', href: '/for-your-role/hoa-boards/' },
+    { title: 'All roles', desc: 'Owners, investors, architects, more', href: '/for-your-role/' },
+  ],
+  '/data-research/': [
+    { title: 'Roof life expectancy benchmarks', desc: 'Service-life data by system', href: '/data-research/commercial-roof-life-expectancy-benchmarks/' },
+    { title: 'All data & research', desc: 'Datasets and methodology reports', href: '/data-research/' },
+  ],
+  '/ai-assistant/': [],
+};
+---
+
+<header class="site-header">
+  <div class="utility-bar">
+    <div class="container">
+      <span class="utility-bar__tagline">Independent. Evidence-based. Reader-first.</span>
+      <nav aria-label="Utility">
+        <a href="/about/">About CRI</a>
+        <a href="/about/editorial-standards/">Editorial Standards</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container masthead">
+    <a class="brand" href="/">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="8" fill="#0d2b45"></rect>
+        <path d="M10 38 L32 18 L54 38" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M18 44 L32 31 L46 44" fill="none" stroke="#4f9fd8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <span class="brand__name">
+        {SITE.name}
+        <span class="brand__descriptor">{SITE.descriptor}</span>
+      </span>
+    </a>
+
+    <div class="masthead__actions">
+      <a class="search-link" href="/search/">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        </svg>
+        <span>Search</span>
+        <kbd style="font-family: var(--font-mono); font-size: 0.7rem; border: 1px solid var(--cri-slate-300); border-radius: 4px; padding: 0 5px; color: var(--cri-slate-500);">/</kbd>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+        Menu
+      </button>
+    </div>
+  </div>
+
+  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+    <div class="container">
+      <ul>
+        {PILLARS.map((pillar) => {
+          const items = dropdowns[pillar.href] ?? [];
+          return (
+            <li>
+              <a href={pillar.href} aria-current={isActive(pillar.href) ? 'true' : undefined}>
+                {pillar.name}
+              </a>
+              {items.length > 0 && (
+                <div class="nav-dropdown">
+                  {items.map((item) => (
+                    <a href={item.href}>
+                      <strong>{item.title}</strong>
+                      <span>{item.desc}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('primary-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+  // "/" focuses search site-wide (ignored while typing in a field)
+  document.addEventListener('keydown', (e) => {
+    const t = e.target as HTMLElement;
+    const typing = t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable;
+    if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey) {
+      const onPage = document.querySelector<HTMLInputElement>('#hero-q, #search input[type="text"]');
+      if (onPage) { e.preventDefault(); onPage.focus(); }
+      else { e.preventDefault(); window.location.href = '/search/'; }
+    }
+  });
+</script>

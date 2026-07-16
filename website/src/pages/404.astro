@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { PILLARS } from '../data/site';
+---
+
+<Base title="Page not found" description="The page you requested could not be found." noindex={true}>
+  <PageHero
+    eyebrow="404"
+    title="That page isn’t here"
+    lede="It may have moved during a reorganization, or the link may be out of date."
+  />
+  <div class="container section--tight">
+    <p><a class="btn" href="/search/">Search the site</a></p>
+    <h2 style="margin-top: var(--space-6);">Or start from a pillar</h2>
+    <ul>
+      {PILLARS.map((p) => <li><a href={p.href}>{p.name}</a> — {p.summary}</li>)}
+    </ul>
+  </div>
+</Base>

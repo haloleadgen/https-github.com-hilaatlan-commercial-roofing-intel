@@ -1,0 +1,32 @@
+---
+/**
+ * Internal linking system: every content page ends with a curated set of
+ * related resources, keeping readers inside the knowledge graph.
+ */
+import Card from './Card.astro';
+
+interface RelatedItem {
+  title: string;
+  href: string;
+  type?: string;
+  description?: string;
+}
+interface Props {
+  heading?: string;
+  items: RelatedItem[];
+}
+const { heading = 'Related resources', items } = Astro.props;
+---
+
+{items.length > 0 && (
+  <section class="related" aria-labelledby="related-heading">
+    <div class="container">
+      <h2 id="related-heading">{heading}</h2>
+      <div class="grid grid--3">
+        {items.map((item) => (
+          <Card title={item.title} href={item.href} type={item.type} description={item.description} />
+        ))}
+      </div>
+    </div>
+  </section>
+)}

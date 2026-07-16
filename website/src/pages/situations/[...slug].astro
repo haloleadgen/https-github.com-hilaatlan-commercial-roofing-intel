@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('situations')).sort((a, b) =>
+    a.data.title.localeCompare(b.data.title)
+  );
+  return entries.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, prevEntry: entries[i - 1] ?? null, nextEntry: entries[i + 1] ?? null },
+  }));
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+const urgencyLabel = {
+  emergency: 'Emergency',
+  'time-sensitive': 'Time-sensitive',
+  planning: 'Planning',
+}[entry.data.urgency];
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  typeLabel={`Situation · ${urgencyLabel}`}
+  crumbs={[{ name: 'Situations', href: '/situations/' }, { name: entry.data.title }]}
+  updated={entry.data.updated}
+  reviewed={entry.data.reviewed}
+  sources={entry.data.sources}
+  status={entry.data.status}
+  takeaways={entry.data.takeaways}
+  related={entry.data.related}
+  headings={headings}
+  body={entry.body ?? ''}
+  facts={[{ label: 'Urgency', value: urgencyLabel }]}
+  prev={prevEntry ? { title: prevEntry.data.title, href: `/situations/${prevEntry.id}/` } : undefined}
+  next={nextEntry ? { title: nextEntry.data.title, href: `/situations/${nextEntry.id}/` } : undefined}
+  sectionLabel="Situations"
+  showAssessment={true}
+>
+  <Content />
+</ArticleLayout>

@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import { SITE } from '../data/site';
+---
+
+<Base
+  title="Contact"
+  description="Contact the Commercial Roofing Intel editorial team — corrections, methodology questions, research inquiries, and general contact."
+>
+  <Breadcrumbs crumbs={[{ name: 'Contact' }]} />
+  <PageHero
+    title="Contact CRI"
+    lede="Corrections and methodology challenges get priority — they make the platform better for everyone."
+  />
+
+  <div class="container section--tight">
+    <div class="grid grid--2">
+      <div class="stack">
+        <h2>Reach the right desk</h2>
+        <ul class="list-plain stack">
+          <li>
+            <strong>Report an error:</strong>
+            <a href={`mailto:${SITE.contactEmail}?subject=Correction%20request`}>{SITE.contactEmail}</a>
+            — handled under our <a href="/about/corrections/">Corrections policy</a>.
+          </li>
+          <li>
+            <strong>Methodology questions:</strong> same address, subject line “Methodology”
+            — see <a href="/about/methodology/">how our numbers are built</a>.
+          </li>
+          <li>
+            <strong>Research &amp; data citations:</strong> subject line “Research” for dataset
+            questions, citation permissions, and collaboration.
+          </li>
+          <li>
+            <strong>Press:</strong> subject line “Press.”
+          </li>
+          <li>
+            <strong>Phone:</strong> <a href={SITE.contactPhoneHref}>{SITE.contactPhone}</a>
+            — business hours, Eastern time.
+          </li>
+        </ul>
+        <div class="callout">
+          <strong class="callout__title">A note on solicitation</strong>
+          CRI does not accept paid placement, sponsored editorial, or link exchanges.
+          Pitches of that kind will not receive a response.
+        </div>
+      </div>
+
+      <form class="tool-panel" method="post" action="/thanks/" aria-label="Contact form"
+        name="contact" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="visually-hidden" aria-hidden="true"><label>Leave this field empty: <input name="bot-field" /></label></p>
+        <h2 style="margin-bottom: var(--space-4);">Send a message</h2>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="cf-topic">Topic</label>
+          <select id="cf-topic" name="topic">
+            <option>Correction request</option>
+            <option>Methodology question</option>
+            <option>Research / citation</option>
+            <option>Press</option>
+            <option>General</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+          <span class="hint">If reporting an error, include the page URL.</span>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="hint" style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--cri-slate-500);">
+          Submissions are delivered via the hosting platform's form service (active once
+          deployed to Netlify; see GO-LIVE checklist). Email works today.
+        </p>
+      </form>
+    </div>
+  </div>
+</Base>

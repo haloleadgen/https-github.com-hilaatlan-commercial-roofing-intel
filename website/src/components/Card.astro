@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  description?: string;
+  type?: string;
+  meta?: string;
+  cta?: string;
+}
+const { title, href, description, type, meta, cta = 'Read' } = Astro.props;
+---
+
+<article class="card">
+  {type && <span class="badge badge--type">{type}</span>}
+  <h3><a href={href}>{title}</a></h3>
+  {description && <p class="text-muted" style="font-size: var(--text-sm);">{description}</p>}
+  {meta && <p class="card__meta">{meta}</p>}
+  <span class="card__arrow" aria-hidden="true">{cta} →</span>
+</article>

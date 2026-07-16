@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('datasets');
+const pipeline = [
+  'Regional commercial roofing cost benchmarks',
+  'Hurricane-performance analysis by roof system',
+  'Membrane failure-mode research review',
+  'Annual State of Commercial Roofing report',
+];
+---
+
+<Base
+  title="Data & Research"
+  description="Proprietary datasets, benchmarks, regional cost data, roof-life research, hurricane-performance analysis, and methodology reports from Commercial Roofing Intel."
+>
+  <Breadcrumbs crumbs={[{ name: 'Data & Research' }]} />
+  <PageHero
+    eyebrow="Pillar 5 of 6"
+    title="Data & Research"
+    lede="Proprietary datasets, benchmarks, and research the industry can cite. Every dataset publishes its methodology, coverage, and limitations alongside the numbers."
+  />
+
+  <div class="container section--tight">
+    <div class="callout">
+      <strong class="callout__title">Citation policy</strong>
+      CRI data may be cited with attribution and a link to the source page. Each dataset
+      page includes a suggested citation and its methodology disclosure.
+    </div>
+
+    <div class="grid grid--2" style="margin-top: var(--space-5);">
+      {entries.map((e) => (
+        <Card
+          title={e.data.title}
+          href={`/data-research/${e.id}/`}
+          type="Dataset"
+          description={e.data.description}
+          meta={e.data.coverage}
+        />
+      ))}
+    </div>
+
+    <section class="section--tight">
+      <h2>Research pipeline</h2>
+      <ul>
+        {pipeline.map((p) => <li>{p}</li>)}
+      </ul>
+    </section>
+  </div>
+</Base>

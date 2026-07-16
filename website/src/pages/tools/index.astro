@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+
+const tools = [
+  {
+    title: 'Roof Life Expectancy Estimator',
+    href: '/tools/roof-life-expectancy-estimator/',
+    status: 'Available',
+    description: 'Estimate remaining service life from system type, age, climate exposure, and maintenance history.',
+  },
+  {
+    title: 'Repair vs. Replace Decision Planner',
+    href: '/knowledge/guides/repair-or-replace/',
+    status: 'Guide available — interactive version planned',
+    description: 'Work through the repair-or-replace decision with cost thresholds and condition criteria.',
+  },
+  {
+    title: 'Annual Maintenance Budget Planner',
+    href: '/tools/maintenance-budget-planner/',
+    status: 'Available (draft methodology)',
+    description: 'Plan preventive maintenance budgets by roof system, age, and square footage.',
+  },
+  {
+    title: 'Storm Damage Documentation Checklist',
+    href: '/tools/',
+    status: 'In development',
+    description: 'A printable, insurer-ready checklist for documenting storm damage correctly the first time.',
+  },
+];
+---
+
+<Base
+  title="Tools"
+  description="Decision-support calculators, planners, checklists, estimators, and assessment tools for commercial roofing — each with published methodology."
+>
+  <Breadcrumbs crumbs={[{ name: 'Tools' }]} />
+  <PageHero
+    eyebrow="Pillar 2 of 6"
+    title="Tools"
+    lede="Decision-support calculators, planners, checklists, estimators, and assessment tools. Every tool publishes its methodology, assumptions, and limitations — no black boxes."
+  />
+
+  <div class="container section--tight">
+    <div class="callout callout--evidence">
+      <strong class="callout__title">Our tool standard</strong>
+      A CRI tool ships only when its methodology page is public, its assumptions are
+      documented, and its outputs carry appropriate uncertainty language. Read the
+      <a href="/about/methodology/">CRI Methodology</a>.
+    </div>
+
+    <div class="grid grid--2" style="margin-top: var(--space-5);">
+      {tools.map((t) => (
+        <Card
+          title={t.title}
+          href={t.href}
+          type="Decision Tool"
+          description={t.description}
+          meta={t.status}
+        />
+      ))}
+    </div>
+  </div>
+</Base>

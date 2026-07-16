@@ -1,0 +1,21 @@
+{
+  "name": "commercialroofingintel",
+  "description": "Commercial Roofing Intel — the independent knowledge platform for commercial roofing decisions.",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.3.0",
+    "astro": "^5.8.0"
+  },
+  "devDependencies": {
+    "pagefind": "^1.3.0",
+    "playwright-core": "^1.61.1"
+  }
+}

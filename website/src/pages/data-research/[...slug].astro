@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { SITE } from '../../data/site';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('datasets')).sort((a, b) =>
+    a.data.title.localeCompare(b.data.title)
+  );
+  return entries.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, prevEntry: entries[i - 1] ?? null, nextEntry: entries[i + 1] ?? null },
+  }));
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+const { Content, headings } = await render(entry);
+const url = new URL(Astro.url.pathname, SITE.domain).href;
+const year = entry.data.updated ? new Date(entry.data.updated).getFullYear() : new Date().getFullYear();
+
+const facts = [
+  ...(entry.data.coverage ? [{ label: 'Coverage', value: entry.data.coverage }] : []),
+  ...(entry.data.sampleSize ? [{ label: 'Sample', value: entry.data.sampleSize }] : []),
+];
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  typeLabel="Dataset"
+  crumbs={[{ name: 'Data & Research', href: '/data-research/' }, { name: entry.data.title }]}
+  updated={entry.data.updated}
+  reviewed={entry.data.reviewed}
+  sources={entry.data.sources}
+  status={entry.data.status}
+  takeaways={entry.data.takeaways}
+  related={entry.data.related}
+  headings={headings}
+  body={entry.body ?? ''}
+  facts={facts}
+  prev={prevEntry ? { title: prevEntry.data.title, href: `/data-research/${prevEntry.id}/` } : undefined}
+  next={nextEntry ? { title: nextEntry.data.title, href: `/data-research/${nextEntry.id}/` } : undefined}
+  sectionLabel="Data & Research"
+>
+  <div class="callout callout--evidence">
+    <strong class="callout__title">Dataset facts</strong>
+    <div>Methodology: <a href={entry.data.methodologyHref}>published methodology</a></div>
+    <div style="margin-top: var(--space-2);">
+      <strong>Suggested citation:</strong> Commercial Roofing Intel ({year}).
+      “{entry.data.title}.” <em>{url}</em>
+    </div>
+  </div>
+
+  <Content />
+</ArticleLayout>

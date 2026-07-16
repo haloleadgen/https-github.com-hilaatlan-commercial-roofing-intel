@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base
+  title="Terms of Use"
+  description="Terms of use for CommercialRoofingIntel.com — permitted use, educational-content disclaimer, citation policy, and intellectual property."
+>
+  <Breadcrumbs crumbs={[{ name: 'Terms of Use' }]} />
+  <PageHero title="Terms of Use" lede="The short version: use CRI to make better decisions, cite us with attribution, and understand that education is not professional advice." />
+
+  <div class="container section--tight">
+    <div class="prose">
+      <p class="text-muted" style="font-size: var(--text-sm);">Effective: <time datetime="2026-07-15">July 15, 2026</time></p>
+
+      <div class="callout callout--caution">
+        <strong class="callout__title">Legal review required before launch</strong>
+        This draft must be reviewed by qualified counsel before the site goes live.
+      </div>
+
+      <h2>Educational content, not professional advice</h2>
+      <p>
+        CRI content is educational. It is not engineering, architectural, legal, insurance,
+        or financial advice, and it does not create a professional relationship. Roofing
+        decisions depend on building-specific conditions that no publication can assess
+        remotely — engage qualified professionals for decisions about your building.
+      </p>
+
+      <h2>Permitted use and citation</h2>
+      <ul>
+        <li>You may read, link to, and cite CRI content with attribution and a link to the source page.</li>
+        <li>You may not republish substantial portions, scrape at scale for commercial redistribution, or present CRI content as your own.</li>
+        <li>CRI datasets carry their own citation format, shown on each dataset page.</li>
+      </ul>
+
+      <h2>Accuracy</h2>
+      <p>
+        We maintain content under our <a href="/about/editorial-standards/">Editorial Standards</a>
+        and fix errors under our <a href="/about/corrections/">Corrections policy</a>. Content
+        is provided “as is” without warranty; codes, standards, and market data change.
+      </p>
+
+      <h2>Intellectual property</h2>
+      <p>
+        The CRI name, site design, content, tools, and datasets are the property of
+        Commercial Roofing Intel unless otherwise noted.
+      </p>
+
+      <h2>Limitation of liability</h2>
+      <p>
+        To the maximum extent permitted by law, CRI is not liable for decisions made in
+        reliance on educational content. See “Educational content, not professional advice.”
+      </p>
+    </div>
+  </div>
+</Base>

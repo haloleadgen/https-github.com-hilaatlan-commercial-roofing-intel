@@ -1,0 +1,29 @@
+---
+/** Trust strip under every headline: review status, dates, sources, reading time. */
+interface Props {
+  updated?: string;
+  reviewed?: string;
+  sources?: number;
+  minutes?: number;
+}
+const { updated, reviewed = 'Hila Atlan, Founder & Editor-in-Chief', sources, minutes } = Astro.props;
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<div class="trust-meta">
+  <span class="badge badge--evidence">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    Evidence-based
+  </span>
+  <span>Reviewed by {reviewed}</span>
+  {updated && <span>Updated <time datetime={updated}>{fmt(updated)}</time></span>}
+  {typeof sources === 'number' && <span>{sources} sources cited</span>}
+  {typeof minutes === 'number' && <span>{minutes} min read</span>}
+  <span>
+    <a href="/about/editorial-standards/">Editorial standards</a> ·
+    <a href="/about/corrections/">Report an error</a>
+  </span>
+</div>

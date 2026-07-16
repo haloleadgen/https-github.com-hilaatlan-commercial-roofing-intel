@@ -1,0 +1,59 @@
+---
+import { SITE, PILLARS, GOVERNANCE, LEGAL } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>{SITE.name}</h2>
+        <p class="footer-mission">
+          An independent knowledge platform dedicated to commercial roofing —
+          research, technical guidance, decision tools, and practical resources,
+          governed by public editorial standards.
+        </p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          {PILLARS.map((p) => (
+            <li><a href={p.href}>{p.name}</a></li>
+          ))}
+          <li><a href="/glossary/">Glossary</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-governance">
+        <h2 id="footer-governance">Trust &amp; Governance</h2>
+        <ul>
+          {GOVERNANCE.map((g) => (
+            <li><a href={g.href}>{g.name}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-site">
+        <h2 id="footer-site">Site</h2>
+        <ul>
+          {LEGAL.map((l) => (
+            <li><a href={l.href}>{l.name}</a></li>
+          ))}
+          <li><a href="/search/">Search</a></li>
+          <li style="margin-top: var(--space-3);"><a href={SITE.contactPhoneHref}>{SITE.contactPhone}</a></li>
+          <li><a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-legal">
+      <p>© {year} {SITE.name}. All rights reserved.</p>
+      <p>
+        Educational content only — not engineering, legal, or insurance advice.
+        See our <a href="/about/editorial-standards/">Editorial Standards</a> and
+        <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a> disclosures.
+      </p>
+    </div>
+  </div>
+</footer>

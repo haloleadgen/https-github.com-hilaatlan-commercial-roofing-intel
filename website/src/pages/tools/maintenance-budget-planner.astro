@@ -1,0 +1,151 @@
+---
+/** Decision Tool #2 — Annual Maintenance Budget Planner (estimator pattern). */
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SampleNotice from '../../components/SampleNotice.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import TrustMeta from '../../components/TrustMeta.astro';
+
+const related = [
+  { title: 'Roof Life Expectancy Estimator', href: '/tools/roof-life-expectancy-estimator/', type: 'Decision Tool', description: 'How many years the roof has left — the companion question.' },
+  { title: 'Commercial Roof Coatings', href: '/knowledge/roof-coatings/', type: 'Encyclopedia', description: 'The mid-life capital alternative a good budget anticipates.' },
+  { title: 'CRI Methodology', href: '/about/methodology/', type: 'Governance', description: 'How every CRI tool is built and validated.' },
+];
+---
+
+<Base
+  title="Maintenance Budget Planner"
+  description="Plan an annual commercial roof maintenance budget from system type, age, and roof size — planning-grade ranges with published methodology and stated uncertainty."
+  noindex={true}
+>
+  <Breadcrumbs crumbs={[{ name: 'Tools', href: '/tools/' }, { name: 'Maintenance Budget Planner' }]} />
+
+  <article class="container section--tight" data-pagefind-body>
+    <header>
+      <p class="eyebrow" data-pagefind-filter="type">Decision Tool</p>
+      <h1>Maintenance Budget Planner</h1>
+      <p class="lede">
+        A planning-grade annual budget range for proactive roof maintenance — inspections,
+        housekeeping, and minor repairs — based on system, age, and size. Built to start a
+        budget conversation, not end one.
+      </p>
+      <TrustMeta updated="2026-07-15" />
+    </header>
+
+    <SampleNotice status="draft" />
+
+    <div class="grid grid--2" style="align-items: start; margin-top: var(--space-5);">
+      <form class="tool-panel" id="mbp-form" novalidate>
+        <h2 style="margin-bottom: var(--space-4); font-size: var(--text-xl);">Your roof</h2>
+        <div class="field">
+          <label for="mbp-system">Roof system</label>
+          <select id="mbp-system" name="system">
+            <option value="sp">Single-ply (TPO / EPDM / PVC)</option>
+            <option value="mb">Modified bitumen / BUR</option>
+            <option value="metal">Metal</option>
+            <option value="coated">Coated / restored roof</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mbp-size">Roof size (square feet)</label>
+          <input id="mbp-size" name="size" type="number" inputmode="numeric" min="1000" max="2000000" step="500" value="20000" required aria-describedby="mbp-size-error" />
+          <span class="hint" id="mbp-size-error" role="alert" style="color: var(--cri-alert);" hidden>Enter a size between 1,000 and 2,000,000 sq ft.</span>
+        </div>
+        <div class="field">
+          <label for="mbp-age">Roof age</label>
+          <select id="mbp-age" name="age">
+            <option value="new">0–5 years</option>
+            <option value="mid" selected>6–15 years</option>
+            <option value="late">16+ years</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mbp-history">Current maintenance posture</label>
+          <select id="mbp-history" name="history">
+            <option value="proactive">Already proactive (catching up not required)</option>
+            <option value="reactive" selected>Reactive (deferred items likely)</option>
+          </select>
+          <span class="hint">Reactive roofs usually need a first-year catch-up allowance.</span>
+        </div>
+        <button class="btn" type="submit">Plan the budget</button>
+      </form>
+
+      <div>
+        <div class="tool-result" id="mbp-result" role="status" aria-live="polite" hidden>
+          <p class="eyebrow" style="margin-bottom: var(--space-1);">Planning-grade annual budget</p>
+          <p class="tool-result__figure" id="mbp-figure">—</p>
+          <p id="mbp-per" style="font-size: var(--text-xs); font-weight: 600; margin-top: var(--space-1); color: var(--cri-slate-500);"></p>
+          <p id="mbp-note" style="font-size: var(--text-sm); margin-top: var(--space-3);"></p>
+          <p style="font-size: var(--text-xs); color: var(--cri-slate-500); margin-top: var(--space-3);">
+            Methodology v0.1 — rates are pre-validation placeholders, flagged pending the
+            CRI cost benchmark dataset. <a href="#methodology">Full methodology below.</a>
+          </p>
+        </div>
+        <div class="callout">
+          <strong class="callout__title">What this budget covers — and doesn't</strong>
+          Covers the proactive program: scheduled inspections, drain and housekeeping work,
+          and minor repairs. It does not fund capital events (coating cycles, section
+          replacement, storm damage) — those are planned separately, and this tool tells
+          you when to start that conversation.
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top: var(--space-7);">
+      <h2 id="methodology">Methodology</h2>
+      <p>
+        The planner multiplies roof area by a per-square-foot annual maintenance rate
+        range, adjusted for system and age:
+      </p>
+      <ul>
+        <li><strong>Base rates (placeholder, pre-validation):</strong> single-ply $0.10–$0.25/sf·yr; asphalt multi-ply $0.12–$0.30; metal $0.05–$0.15; coated $0.08–$0.20.</li>
+        <li><strong>Age:</strong> 0–5 yrs ×0.7 · 6–15 yrs ×1.0 · 16+ yrs ×1.5.</li>
+        <li><strong>Reactive posture:</strong> one-time first-year catch-up allowance of 50–100% of the annual figure, shown separately.</li>
+        <li>Results round to sensible increments; ranges are wide by design at v0.1.</li>
+      </ul>
+      <p>
+        These rates are drawn from commonly published industry planning figures and are
+        explicitly <strong>unvalidated placeholders</strong> until the CRI cost benchmark
+        dataset (v1.0) replaces them — the same standard as the
+        <a href="/tools/roof-life-expectancy-estimator/">Life Expectancy Estimator</a>.
+      </p>
+      <h2>Limitations</h2>
+      <ul>
+        <li>National planning ranges; regional labor rates shift them meaningfully.</li>
+        <li>Excludes capital events, storm response, and warranty-required specialist work.</li>
+        <li>Roofs with chronic defects need a condition assessment before a budget means anything.</li>
+      </ul>
+    </div>
+  </article>
+
+  <RelatedLinks items={related} />
+
+  <script>
+    const RATES: Record<string, [number, number]> = { sp: [0.10, 0.25], mb: [0.12, 0.30], metal: [0.05, 0.15], coated: [0.08, 0.20] };
+    const AGE: Record<string, number> = { new: 0.7, mid: 1.0, late: 1.5 };
+    const form = document.getElementById('mbp-form') as HTMLFormElement | null;
+    const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+    const round50 = (n: number) => Math.round(n / 50) * 50;
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const d = new FormData(form);
+      const size = Number(d.get('size'));
+      const err = document.getElementById('mbp-size-error')!;
+      if (!Number.isFinite(size) || size < 1000 || size > 2000000) {
+        err.hidden = false; (document.getElementById('mbp-size') as HTMLInputElement).focus(); return;
+      }
+      err.hidden = true;
+      const [rl, rh] = RATES[String(d.get('system'))] ?? [0.1, 0.25];
+      const a = AGE[String(d.get('age'))] ?? 1;
+      const lo = round50(size * rl * a), hi = round50(size * rh * a);
+      document.getElementById('mbp-figure')!.textContent = `${fmt(lo)}–${fmt(hi)} / year`;
+      document.getElementById('mbp-per')!.textContent =
+        `≈ $${(rl * a).toFixed(2)}–$${(rh * a).toFixed(2)} per sq ft per year · Confidence: Low (v0.1 placeholder rates)`;
+      const reactive = String(d.get('history')) === 'reactive';
+      document.getElementById('mbp-note')!.textContent = reactive
+        ? `Add a one-time first-year catch-up allowance of roughly ${fmt(lo * 0.5)}–${fmt(hi)} for deferred items, then the annual range applies. An initial condition assessment should scope that number properly.`
+        : `A proactive program at this level typically pays for itself by deferring capital events — document the work; the maintenance log is also your warranty and insurance evidence.`;
+      document.getElementById('mbp-result')!.hidden = false;
+    });
+  </script>
+</Base>

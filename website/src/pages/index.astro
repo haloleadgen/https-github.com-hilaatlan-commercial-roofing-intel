@@ -1,0 +1,301 @@
+---
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+import PillarIcon from '../components/PillarIcon.astro';
+import HeroArt from '../components/HeroArt.astro';
+import SectionHead from '../components/SectionHead.astro';
+import { SITE, PILLARS } from '../data/site';
+import { getCollection } from 'astro:content';
+
+const knowledge = await getCollection('knowledge');
+const glossary = await getCollection('glossary');
+const situations = await getCollection('situations');
+const datasets = await getCollection('datasets');
+
+/* Counts are computed from the live content collections at build time.
+   Until launch content lands, the band is explicitly flagged as sample scale. */
+const stats = [
+  { value: knowledge.filter((e) => e.data.type === 'article').length, label: 'Encyclopedia articles' },
+  { value: knowledge.filter((e) => e.data.type === 'guide').length, label: 'Decision guides' },
+  { value: knowledge.filter((e) => e.data.type === 'comparison').length, label: 'Comparisons' },
+  { value: 1, label: 'Decision tools' },
+  { value: datasets.length, label: 'Research datasets' },
+  { value: glossary.length, label: 'Glossary terms' },
+];
+
+const recentlyUpdated = [...knowledge, ...situations]
+  .filter((e) => e.data.updated)
+  .sort((a, b) => (b.data.updated! > a.data.updated! ? 1 : -1))
+  .slice(0, 4);
+
+const hrefFor = (e: any) =>
+  situations.includes(e as never) ? `/situations/${e.id}/` : `/knowledge/${e.id}/`;
+
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+const editorsPicks = [
+  { title: 'Repair or Replace? How to Decide', href: '/knowledge/guides/repair-or-replace/', note: 'The decision framework every owner eventually needs' },
+  { title: 'My Roof Is Leaking — What Do I Do Right Now?', href: '/situations/my-roof-is-leaking/', note: 'The three expensive mistakes to avoid in the first 48 hours' },
+  { title: 'Commercial Roofing Glossary', href: '/glossary/', note: 'Read any proposal without a translator' },
+];
+---
+
+<Base title="Home" description={SITE.description}>
+  <!-- HERO: what CRI is, why trust it, where to start — in one viewport -->
+  <section class="home-hero">
+    <HeroArt />
+    <div class="container">
+      <h1>The trusted knowledge platform for commercial roofing decisions.</h1>
+      <p class="lede">
+        Independent research, practical guidance, decision tools, and evidence-based
+        resources for commercial property professionals.
+      </p>
+
+      <div class="hero-search hero-search--home">
+        <form action="/search/" method="get" role="search" aria-label="Search the knowledge base">
+          <input
+            id="hero-q"
+            type="text"
+            name="q"
+            placeholder="Search: TPO, ponding water, repair vs replace, storm damage…"
+            aria-label="Search the knowledge base"
+            autocomplete="off"
+          />
+          <button type="submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+            </svg>
+            Search
+          </button>
+        </form>
+        <p class="hero-search__hint">
+          Press <kbd style="border:1px solid rgba(255,255,255,0.35); border-radius:4px; padding:0 5px;">/</kbd> anywhere to search
+          — or start from <a href="/situations/">your situation</a> or <a href="/for-your-role/">your role</a>.
+        </p>
+      </div>
+
+      <div class="home-hero__proof" style="margin-top: var(--space-6);">
+        <span>✓ Editorial independence — <a href="/about/editorial-standards/" style="color: var(--cri-blue-400);">public standards</a></span>
+        <span>✓ Every claim sourced</span>
+        <span>✓ <a href="/about/corrections/" style="color: var(--cri-blue-400);">Public corrections policy</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND (build-time counts; flagged pre-launch) -->
+  <section class="stats-band" aria-label="Knowledge base at a glance">
+    <div class="container">
+      {stats.map((s) => (
+        <div class="stat">
+          <div class="stat__value">{s.value}</div>
+          <div class="stat__label">{s.label}</div>
+        </div>
+      ))}
+      <p class="stats-band__note">
+        <span class="badge badge--sample">Pre-launch</span>
+        Counts reflect the current sample library and update automatically as the launch collection is published.
+      </p>
+    </div>
+  </section>
+
+  <!-- SIX PILLARS -->
+  <section class="section" aria-labelledby="pillars-heading">
+    <div class="container">
+      <SectionHead
+        id="pillars-heading"
+        eyebrow="Start anywhere"
+        title="Six ways into the knowledge base"
+      />
+      <div class="grid grid--3">
+        {PILLARS.map((pillar) => (
+          <article class="card card--pillar">
+            <PillarIcon icon={pillar.icon} />
+            <h3><a href={pillar.href}>{pillar.name}</a></h3>
+            <p class="text-muted" style="font-size: var(--text-sm);">{pillar.summary}</p>
+            <span class="card__arrow" aria-hidden="true">Explore →</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVING INSTITUTION BAND -->
+  <section class="section section--alt" aria-labelledby="pulse-heading">
+    <div class="container">
+      <SectionHead
+        id="pulse-heading"
+        eyebrow="The research desk"
+        title="What’s moving at CRI"
+        lede="Illustrative pre-launch content — the cadence this platform will keep, with sample entries."
+      />
+      <div class="grid grid--3">
+        <div class="card" style="transform:none;">
+          <span class="badge badge--type">Latest research</span>
+          <h3 style="font-size: var(--text-lg);"><a href="/data-research/commercial-roof-life-expectancy-benchmarks/">Roof Life Expectancy Benchmarks v0.1</a></h3>
+          <p class="text-muted" style="font-size: var(--text-sm);">
+            Service-life ranges for six roof systems across U.S. climate zones — the dataset
+            behind our first decision tool.
+          </p>
+          <span class="card__arrow" aria-hidden="true">Read the dataset →</span>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: var(--space-3);">Recently updated</h3>
+          <ul class="pulse-list">
+            {recentlyUpdated.map((e) => (
+              <li>
+                <a href={hrefFor(e)}>{e.data.title}</a>
+                <span class="meta">Updated {fmt(e.data.updated!)} · Reviewed by {e.data.reviewed}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: var(--space-3);">Editor’s picks</h3>
+          <ul class="pulse-list">
+            {editorsPicks.map((p) => (
+              <li>
+                <a href={p.href}>{p.title}</a>
+                <span class="meta">{p.note}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED COMPARISON + NEWEST TOOL -->
+  <section class="section" aria-labelledby="feature-heading">
+    <div class="container">
+      <SectionHead
+        id="feature-heading"
+        eyebrow="Decision support"
+        title="This month’s featured comparison — and the newest tool"
+      />
+      <div class="feature-split">
+        <article class="card">
+          <span class="badge badge--type">Featured comparison</span>
+          <h3><a href="/knowledge/compare/tpo-vs-epdm/">TPO vs. EPDM: which membrane fits your building?</a></h3>
+          <p class="text-muted" style="font-size: var(--text-sm);">
+            The two most common single-ply membranes, compared on fixed criteria — service life,
+            seams, climate fit, and track record. Neither wins universally; conditions decide.
+          </p>
+          <div class="table-wrap" style="margin-top: var(--space-3);">
+            <table>
+              <thead>
+                <tr><th scope="col">Criterion</th><th scope="col">TPO</th><th scope="col">EPDM</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Typical service life</td><td>15–25 yrs</td><td>20–30 yrs</td></tr>
+                <tr><td>Best-fit climate</td><td>Cooling-dominated</td><td>Heating-dominated</td></tr>
+                <tr><td>Field track record</td><td>~30 years</td><td>50+ years</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <span class="card__arrow" aria-hidden="true">Read the full comparison →</span>
+        </article>
+
+        <article class="card" style="background: var(--cri-navy-800); border-color: var(--cri-navy-700);">
+          <span class="badge" style="background: rgba(79,159,216,0.18); color: var(--cri-blue-400); border-color: var(--cri-navy-600);">Newest decision tool</span>
+          <h3 style="color: var(--cri-white);"><a href="/tools/roof-life-expectancy-estimator/" style="color: var(--cri-white);">Roof Life Expectancy Estimator</a></h3>
+          <p style="font-size: var(--text-sm); color: var(--cri-slate-200);">
+            How many years does your roof have left? A planning-grade range from system type,
+            age, climate, and maintenance history — with the methodology published beside the result.
+          </p>
+          <p style="font-size: var(--text-xs); color: var(--cri-slate-300); margin-top: var(--space-2);">
+            Assumptions, data vintage, and limitations are published beside the result.
+          </p>
+          <span class="card__arrow" aria-hidden="true" style="color: var(--cri-blue-400);">Run the estimator →</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITUATIONS STRIP -->
+  <section class="section section--alt" aria-labelledby="situations-heading">
+    <div class="container">
+      <SectionHead
+        id="situations-heading"
+        eyebrow="Right now"
+        title="In the middle of something?"
+        linkHref="/situations/"
+        linkLabel="All situations"
+      />
+      <div class="situation-strip">
+        <article class="card">
+          <span class="badge badge--sample" style="color: var(--cri-alert); background: var(--cri-alert-bg); border-color: #eec3c3;">Emergency</span>
+          <h3><a href="/situations/my-roof-is-leaking/">My roof is leaking</a></h3>
+          <p class="text-muted" style="font-size: var(--text-sm);">First hour, first day — and the three expensive mistakes.</p>
+        </article>
+        <article class="card">
+          <span class="badge badge--sample">Time-sensitive</span>
+          <h3><a href="/situations/storm-damage-first-72-hours/">Storm just hit</a></h3>
+          <p class="text-muted" style="font-size: var(--text-sm);">Documentation that protects your insurance position.</p>
+        </article>
+        <article class="card card--planning">
+          <span class="badge badge--type">Planning</span>
+          <h3><a href="/knowledge/guides/repair-or-replace/">Facing repair vs. replace</a></h3>
+          <p class="text-muted" style="font-size: var(--text-sm);">A four-test framework: condition, economics, risk, and timing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <section class="section section--navy" aria-labelledby="trust-heading">
+    <div class="container">
+      <p class="eyebrow">Why trust CRI</p>
+      <h2 id="trust-heading">Built like a reference institution, governed like one</h2>
+      <div class="grid grid--3" style="margin-top: var(--space-5);">
+        <div>
+          <h3>Independent</h3>
+          <p style="font-size: var(--text-sm);">
+            Editorial decisions are made solely by our editors, under public standards.
+            Every relationship is <a href="/about/funding-and-relationships/" style="color: var(--cri-blue-400);">disclosed</a>.
+          </p>
+        </div>
+        <div>
+          <h3>Evidence-based</h3>
+          <p style="font-size: var(--text-sm);">
+            Claims trace to standards bodies, technical data, and our own datasets — with
+            <a href="/about/methodology/" style="color: var(--cri-blue-400);">published methodology</a> for every number.
+          </p>
+        </div>
+        <div>
+          <h3>Accountable</h3>
+          <p style="font-size: var(--text-sm);">
+            Review dates on every page. Errors fixed in public under our
+            <a href="/about/corrections/" style="color: var(--cri-blue-400);">corrections policy</a>.
+          </p>
+        </div>
+      </div>
+      <div class="home-hero__actions">
+        <a class="btn btn--secondary" href="/about/how-cri-works/">How CRI works</a>
+        <a class="btn btn--secondary" href="/about/editorial-standards/">Editorial standards</a>
+        <a class="btn btn--secondary" href="/about/methodology/">Methodology</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE STRIP -->
+  <section class="section" aria-labelledby="audience-heading">
+    <div class="container">
+      <SectionHead
+        id="audience-heading"
+        eyebrow="For your role"
+        title="Guidance built for the seat you sit in"
+        linkHref="/for-your-role/"
+        linkLabel="All roles"
+      />
+      <div class="grid grid--3">
+        <Card title="Property Managers" href="/for-your-role/property-managers/" type="Audience" description="Triage, budgeting, vendor oversight, and owner communication." cta="Open hub" />
+        <Card title="HOA & Condo Boards" href="/for-your-role/hoa-boards/" type="Audience" description="Reserve planning, special assessments, and defensible board decisions." cta="Open hub" />
+        <Card title="All roles" href="/for-your-role/" type="Pillar" description="Owners, facility managers, investors, developers, architects, engineers, insurance professionals." cta="Browse" />
+      </div>
+    </div>
+  </section>
+</Base>

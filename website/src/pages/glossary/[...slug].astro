@@ -1,0 +1,87 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustMeta from '../../components/TrustMeta.astro';
+import SampleNotice from '../../components/SampleNotice.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import PrevNext from '../../components/PrevNext.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import { SITE } from '../../data/site';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('glossary')).sort((a, b) =>
+    a.data.term.localeCompare(b.data.term)
+  );
+  return entries.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, prevEntry: entries[i - 1] ?? null, nextEntry: entries[i + 1] ?? null },
+  }));
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+const { Content } = await render(entry);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: entry.data.term,
+  description: entry.data.description,
+  url: new URL(Astro.url.pathname, SITE.domain).href,
+  inDefinedTermSet: `${SITE.domain}/glossary/`,
+};
+
+const facts = [
+  { label: 'Term', value: entry.data.term },
+  ...(entry.data.alsoKnownAs.length ? [{ label: 'Also known as', value: entry.data.alsoKnownAs.join(', ') }] : []),
+  { label: 'Reviewed by', value: entry.data.reviewed },
+];
+---
+
+<Base title={`${entry.data.term} (definition)`} description={entry.data.description} schema={schema} noindex={entry.data.status !== 'published'}>
+  <Breadcrumbs
+    crumbs={[
+      { name: 'Knowledge', href: '/knowledge/' },
+      { name: 'Glossary', href: '/glossary/' },
+      { name: entry.data.term },
+    ]}
+  />
+
+  <div class="container section--tight">
+    <div class="article-grid">
+      <article data-pagefind-body>
+        <header>
+          <p class="eyebrow" data-pagefind-filter="type">Glossary</p>
+          <h1>{entry.data.term}</h1>
+          <p class="lede">{entry.data.description}</p>
+          <TrustMeta updated={entry.data.updated} reviewed={entry.data.reviewed} />
+        </header>
+
+        {entry.data.status !== 'published' && <SampleNotice status={entry.data.status} />}
+
+        <div class="prose">
+          <Content />
+        </div>
+
+        <PrevNext
+          prev={prevEntry ? { title: prevEntry.data.term, href: `/glossary/${prevEntry.id}/` } : undefined}
+          next={nextEntry ? { title: nextEntry.data.term, href: `/glossary/${nextEntry.id}/` } : undefined}
+          label="Glossary"
+        />
+      </article>
+
+      <aside class="article-aside" aria-label="Term information">
+        <KeyFacts facts={facts} />
+        <div class="aside-panel">
+          <h2>Glossary</h2>
+          <ul>
+            <li><a href="/glossary/">Browse all terms</a></li>
+            <li><a href="/about/corrections/">Report an error</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <RelatedLinks items={entry.data.related} heading="Where this term matters" />
+</Base>

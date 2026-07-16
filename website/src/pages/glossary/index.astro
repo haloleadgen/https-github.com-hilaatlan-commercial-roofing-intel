@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('glossary')).sort((a, b) =>
+  a.data.term.localeCompare(b.data.term)
+);
+---
+
+<Base
+  title="Commercial Roofing Glossary"
+  description="Plain-English definitions of commercial roofing terms — written so building owners and managers can read proposals, warranties, and inspection reports with confidence."
+>
+  <Breadcrumbs crumbs={[{ name: 'Knowledge', href: '/knowledge/' }, { name: 'Glossary' }]} />
+  <PageHero
+    eyebrow="Knowledge"
+    title="Commercial Roofing Glossary"
+    lede="Every term defined in plain English first, technical detail second — so you can read a contractor proposal, warranty, or inspection report without a translator."
+  />
+
+  <div class="container section--tight">
+    <dl class="glossary-term">
+      {entries.map((e) => (
+        <>
+          <dt><a href={`/glossary/${e.id}/`}>{e.data.term}</a></dt>
+          <dd>{e.data.description}</dd>
+        </>
+      ))}
+    </dl>
+  </div>
+</Base>

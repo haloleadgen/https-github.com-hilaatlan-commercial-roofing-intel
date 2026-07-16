@@ -1,0 +1,22 @@
+---
+/** Previous / next navigation within a collection — encourages exploration. */
+interface Link { title: string; href: string; }
+interface Props { prev?: Link; next?: Link; label?: string; }
+const { prev, next, label = 'section' } = Astro.props;
+---
+{(prev || next) && (
+  <nav class="pagination" aria-label={`More in this ${label}`}>
+    {prev && (
+      <a href={prev.href} rel="prev">
+        <span class="dir">← Previous</span>
+        <span class="title">{prev.title}</span>
+      </a>
+    )}
+    {next && (
+      <a href={next.href} rel="next" class="next">
+        <span class="dir">Next →</span>
+        <span class="title">{next.title}</span>
+      </a>
+    )}
+  </nav>
+)}

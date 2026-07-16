@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import { SITE } from '../data/site';
+---
+
+<Base
+  title="Complimentary Commercial Roof Assessment"
+  description="A no-obligation, documented commercial roof assessment arranged through CRI's vetted partners — photos, condition summary, and a written report you keep. Educational, disclosed, and pressure-free by policy."
+>
+  <Breadcrumbs crumbs={[{ name: 'Roof Assessment' }]} />
+  <PageHero
+    eyebrow="Reader service"
+    title="Complimentary Commercial Roof Assessment"
+    lede="Everything on CRI is planning-grade information. Decisions need building-specific facts. The assessment is how you get them — documented, no-obligation, and yours to keep."
+  />
+
+  <div class="container section--tight">
+    <div class="article-grid">
+      <div class="prose">
+        <h2>What it is</h2>
+        <p>
+          A structured on-roof evaluation by a <a href="/about/how-cri-works/#partner-standards">vetted</a> commercial roofing contractor:
+          membrane and flashing condition, drainage, penetrations, visible moisture
+          indicators, and photo documentation — summarized in a written report addressed
+          to you. It's the same first step a consultant would bill for, offered
+          complimentary through CRI's disclosed partner network.
+        </p>
+
+        <h2>What you receive</h2>
+        <ul>
+          <li>A documented walk-through with date-stamped photos.</li>
+          <li>A written condition summary: what's sound, what needs attention, what to watch.</li>
+          <li>A useful artifact for budgets, reserve studies, insurance files, and warranty records — regardless of whether any work ever follows.</li>
+        </ul>
+
+        <h2>The ground rules (these are policy, not marketing)</h2>
+        <ul>
+          <li><strong>No obligation.</strong> The report is yours either way.</li>
+          <li><strong>No sales pressure.</strong> Partners agree to a no-pressure standard as a condition of receiving CRI referrals; pressure tactics are grounds for removal from the network. If you experience anything different, <a href="/contact/">tell us</a>.</li>
+          <li><strong>Disclosed relationship.</strong> If you later choose to engage a partner for work, CRI may receive a referral fee. This is how the free platform is funded — documented on <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a> and <a href="/about/how-cri-works/">How CRI Works</a>.</li>
+          <li><strong>Editorial independence is untouched.</strong> Nothing you read on CRI is written to sell assessments; the assessment exists for readers who ask for it.</li>
+        </ul>
+
+        <h2>When an assessment makes sense</h2>
+        <ul>
+          <li>Before a <a href="/knowledge/guides/repair-or-replace/">repair-or-replace decision</a> — it's the condition data the framework needs.</li>
+          <li>When the <a href="/tools/roof-life-expectancy-estimator/">Life Expectancy Estimator</a> returns a short or low-confidence range.</li>
+          <li>Ahead of hurricane season, to create the <a href="/situations/hurricane-preparation/">pre-storm condition record</a>.</li>
+          <li>At property purchase, lease renewal, or reserve-study time.</li>
+        </ul>
+
+        <h2 id="request">Request an assessment</h2>
+        <form class="tool-panel" method="post" action="/thanks/" aria-label="Assessment request form"
+          name="assessment" data-netlify="true" netlify-honeypot="bot-field" style="max-width: 34rem;">
+          <input type="hidden" name="form-name" value="assessment" />
+          <p class="visually-hidden" aria-hidden="true"><label>Leave this field empty: <input name="bot-field" /></label></p>
+          <div class="field">
+            <label for="as-name">Name</label>
+            <input id="as-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="as-email">Email</label>
+            <input id="as-email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="as-phone">Phone (optional)</label>
+            <input id="as-phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="field">
+            <label for="as-location">Building location (city, state)</label>
+            <input id="as-location" name="location" type="text" required />
+          </div>
+          <div class="field">
+            <label for="as-size">Approximate roof size (sq ft, if known)</label>
+            <input id="as-size" name="size" type="text" />
+          </div>
+          <div class="field">
+            <label for="as-notes">Anything we should know? (optional)</label>
+            <textarea id="as-notes" name="notes" rows="3"></textarea>
+            <span class="hint">Leak history, upcoming decisions, access constraints.</span>
+          </div>
+          <button class="btn" type="submit">Request the assessment</button>
+          <p class="hint" style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--cri-slate-500);">
+            No obligation. Your information goes only to CRI and the assigned vetted
+            partner, per our <a href="/privacy/">Privacy Policy</a>. Disclosure:
+            assessments may be performed by Victory E&amp;I Roofing and Construction LLC,
+            which shares common ownership with CRI — see
+            <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a>.
+          </p>
+        </form>
+        <div class="callout callout--caution">
+          <strong class="callout__title">Pre-launch note</strong>
+          Partner coverage areas and the request workflow go live with the site launch;
+          this page defines the standard the service must meet.
+        </div>
+      </div>
+
+      <aside class="article-aside" aria-label="Assessment information">
+        <div class="aside-panel">
+          <h2>At a glance</h2>
+          <dl class="keyfacts">
+            <dt>Cost</dt><dd>Complimentary</dd>
+            <dt>Obligation</dt><dd>None</dd>
+            <dt>Deliverable</dt><dd>Written report + photos, yours to keep</dd>
+            <dt>Performed by</dt><dd>Vetted partner contractor (disclosed)</dd>
+            <dt>Funding model</dt><dd><a href="/about/how-cri-works/">How CRI works</a></dd>
+            <dt>Questions</dt><dd><a href={SITE.contactPhoneHref}>{SITE.contactPhone}</a></dd>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>

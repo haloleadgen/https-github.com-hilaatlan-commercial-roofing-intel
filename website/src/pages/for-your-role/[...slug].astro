@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('roles')).sort((a, b) =>
+    a.data.title.localeCompare(b.data.title)
+  );
+  return entries.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, prevEntry: entries[i - 1] ?? null, nextEntry: entries[i + 1] ?? null },
+  }));
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  typeLabel="Audience Hub"
+  crumbs={[{ name: 'For Your Role', href: '/for-your-role/' }, { name: entry.data.title }]}
+  updated={entry.data.updated}
+  reviewed={entry.data.reviewed}
+  sources={entry.data.sources}
+  status={entry.data.status}
+  takeaways={entry.data.takeaways}
+  related={entry.data.related}
+  headings={headings}
+  body={entry.body ?? ''}
+  facts={[{ label: 'Audience', value: entry.data.audience }]}
+  prev={prevEntry ? { title: prevEntry.data.title, href: `/for-your-role/${prevEntry.id}/` } : undefined}
+  next={nextEntry ? { title: nextEntry.data.title, href: `/for-your-role/${nextEntry.id}/` } : undefined}
+  sectionLabel="For Your Role"
+>
+  <Content />
+</ArticleLayout>

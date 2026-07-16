@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('roles');
+const planned = [
+  'Commercial property owners',
+  'Facility managers',
+  'Commercial real estate investors',
+  'Industrial property owners',
+  'Asset managers',
+  'Developers',
+  'Architects',
+  'Engineers',
+  'Insurance professionals',
+];
+---
+
+<Base
+  title="For Your Role"
+  description="Commercial roofing resources tailored to property owners, property managers, facility managers, HOA boards, investors, developers, architects, engineers, and insurance professionals."
+>
+  <Breadcrumbs crumbs={[{ name: 'For Your Role' }]} />
+  <PageHero
+    eyebrow="Pillar 4 of 6"
+    title="For Your Role"
+    lede="The same roof raises different questions depending on the seat you sit in. These hubs organize CRI’s knowledge, tools, and data around your responsibilities."
+  />
+
+  <div class="container section--tight">
+    <div class="grid grid--3">
+      {entries.map((e) => (
+        <Card
+          title={e.data.title}
+          href={`/for-your-role/${e.id}/`}
+          type="Audience Hub"
+          description={e.data.description}
+        />
+      ))}
+    </div>
+
+    <section class="section--tight">
+      <h2>Role hubs in production</h2>
+      <ul>
+        {planned.map((p) => <li>{p}</li>)}
+      </ul>
+    </section>
+  </div>
+</Base>

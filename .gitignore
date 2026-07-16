@@ -1,0 +1,25 @@
+# Dependencies (reinstallable via npm install)
+node_modules/
+
+# Astro build cache
+.astro/
+
+# OS noise
+.DS_Store
+npm-debug.log*
+
+# Superseded build archives — historical zips, not needed in history.
+# NOTE: website/dist/ is deliberately NOT ignored. No Node toolchain is
+# installed on this machine, so dist/ cannot be regenerated locally and is
+# currently the only deployable artifact. It is the artifact of record.
+website/dist-v1.1.zip
+website/dist-v1.2.zip
+website/dist-v1.3.zip
+website/dist-v1.4.zip
+website/dist-v1.5.zip
+website/dist-v1.6-LAUNCH-CANDIDATE.zip
+website/dist-v1.6.1-LAUNCH-CANDIDATE.zip
+website/dist-v1.6.2-LAUNCH-CANDIDATE.zip
+website/dist-v1.6.3-LAUNCH-CANDIDATE.zip
+website/dist-v1.7-LAUNCH-CANDIDATE.zip
+website/dist.zip

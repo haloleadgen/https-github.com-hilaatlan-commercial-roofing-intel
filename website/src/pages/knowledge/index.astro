@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('knowledge');
+const label: Record<string, string> = {
+  article: 'Encyclopedia',
+  guide: 'Decision Guide',
+  comparison: 'Comparison',
+};
+const sections = [
+  { key: 'article', title: 'Encyclopedia', blurb: 'Neutral, comprehensive references on systems, materials, and technical fundamentals.' },
+  { key: 'guide', title: 'Decision Guides', blurb: 'Structured frameworks for consequential decisions — criteria, thresholds, and trade-offs.' },
+  { key: 'comparison', title: 'Comparisons', blurb: 'Side-by-side, evidence-based comparisons of systems, materials, and approaches.' },
+];
+---
+
+<Base
+  title="Knowledge"
+  description="Commercial roofing systems, materials, maintenance, replacement, coatings, warranties, and technical fundamentals — the CRI knowledge base."
+>
+  <Breadcrumbs crumbs={[{ name: 'Knowledge' }]} />
+  <PageHero
+    eyebrow="Pillar 1 of 6"
+    title="Knowledge"
+    lede="Commercial roofing systems, materials, maintenance, replacement, coatings, warranties, and technical fundamentals — written for decision-makers, reviewed on a published schedule, and sourced end to end."
+  />
+
+  <div class="container section--tight">
+    {sections.map((s) => {
+      const items = entries.filter((e) => e.data.type === s.key);
+      return (
+        <section class="section--tight" aria-label={s.title}>
+          <h2>{s.title}</h2>
+          <p class="lede" style="font-size: var(--text-base);">{s.blurb}</p>
+          <div class="grid grid--3" style="margin-top: var(--space-4);">
+            {items.map((e) => (
+              <Card
+                title={e.data.title}
+                href={`/knowledge/${e.id}/`}
+                type={label[e.data.type]}
+                description={e.data.description}
+                meta={e.data.updated ? `Last updated ${e.data.updated}` : undefined}
+              />
+            ))}
+          </div>
+        </section>
+      );
+    })}
+
+    <section class="section--tight" aria-label="Glossary">
+      <h2>Glossary</h2>
+      <p class="lede" style="font-size: var(--text-base);">
+        Plain-English definitions of commercial roofing terms, written so a first-time
+        building owner can follow a contractor proposal line by line.
+      </p>
+      <p style="margin-top: var(--space-3);"><a class="btn btn--secondary" href="/glossary/">Browse the glossary</a></p>
+    </section>
+  </div>
+</Base>

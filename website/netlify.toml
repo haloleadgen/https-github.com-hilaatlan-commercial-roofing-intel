@@ -1,0 +1,42 @@
+# Netlify configuration — CommercialRoofingIntel.com
+# Used automatically if this repo is connected via Git.
+# For drag-and-drop deploys, upload the contents of dist/ (headers below are
+# duplicated in public/_headers so they apply to drop deploys too).
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# www -> apex canonical redirect (Netlify also handles this when the apex is primary)
+[[redirects]]
+  from = "https://www.commercialroofingintel.com/*"
+  to = "https://commercialroofingintel.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "/pagefind/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

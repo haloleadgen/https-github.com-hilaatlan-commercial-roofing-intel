@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+---
+<Base title="Message received" description="Your message has been received." noindex={true}>
+  <PageHero
+    title="Got it — thank you"
+    lede="Your message is in. We respond within two business days; correction reports get priority."
+  />
+  <div class="container section--tight">
+    <p>While you wait, three useful places to go:</p>
+    <ul>
+      <li><a href="/knowledge/">Browse the knowledge base</a></li>
+      <li><a href="/tools/roof-life-expectancy-estimator/">Run the Roof Life Expectancy Estimator</a></li>
+      <li><a href="/situations/">Find guidance for your current situation</a></li>
+    </ul>
+  </div>
+</Base>

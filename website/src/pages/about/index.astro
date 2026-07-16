@@ -1,0 +1,63 @@
+---
+import GovernanceLayout from '../../layouts/GovernanceLayout.astro';
+import { GOVERNANCE } from '../../data/site';
+---
+
+<GovernanceLayout
+  title="About Commercial Roofing Intel"
+  description="Commercial Roofing Intel (CRI) is an independent knowledge platform for commercial roofing — who we are, what we publish, and how we govern it."
+  lede="CRI exists to give everyone responsible for a commercial roof the same quality of information as the professionals they hire."
+>
+  <h2>What CRI is</h2>
+  <p>
+    Commercial Roofing Intel is an independent knowledge platform dedicated to commercial
+    roofing. We organize research, technical guidance, decision tools, and practical
+    resources for the people who carry roofing responsibility:
+    property owners, property managers, facility managers, HOA boards, investors,
+    developers, architects, engineers, and insurance professionals.
+  </p>
+  <p>
+    We publish evidence-based commercial roofing information the way trusted financial
+    resources publish investment education — independent analysis, clear methodology,
+    and no sales pitch.
+  </p>
+
+  <h2>Who is behind CRI</h2>
+  <p>
+    <strong>Hila Atlan, Founder &amp; Editor-in-Chief.</strong> Founder of Commercial
+    Roofing Intel. Commercial real estate professional focused on evidence-based
+    commercial roofing education, research, and owner advocacy. Oversees editorial
+    standards, research methodology, and publication quality.
+  </p>
+  <p>
+    Commercial Roofing Intel is operated by Victory E&amp;I Roofing, based in Fort Lauderdale, Florida.
+    The platform was founded in 2024 to address a persistent problem: commercial
+    property owners making expensive roofing decisions without access to independent,
+    evidence-based guidance.
+  </p>
+
+  <h2>What CRI is not</h2>
+  <ul>
+    <li>We are not a roofing contractor and we do not perform roofing work.</li>
+    <li>We are not a lead-generation site dressed up as education.</li>
+    <li>We do not accept payment for editorial coverage, rankings, or recommendations.</li>
+  </ul>
+
+  <h2>How we sustain the platform</h2>
+  <p>
+    When readers decide they need roofing services, we may refer qualified opportunities to
+    vetted commercial roofing contractors. Those relationships never influence what we
+    publish, and every relationship is disclosed on our
+    <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a> page.
+    Editorial and commercial functions are structurally separated — see
+    <a href="/about/how-cri-works/">How CRI Works</a>.
+  </p>
+
+  <h2>The trust framework</h2>
+  <p>These are not marketing statements — they are operating policies we can be held to, page by page. If you find any page on this site that violates them, our <a href="/about/corrections/">Corrections process</a> applies to it:</p>
+  <ul>
+    {GOVERNANCE.slice(1).map((g) => (
+      <li><a href={g.href}>{g.name}</a></li>
+    ))}
+  </ul>
+</GovernanceLayout>

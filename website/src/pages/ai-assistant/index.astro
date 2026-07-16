@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Base
+  title="AI Assistant"
+  description="The CRI AI Assistant — a citation-disciplined commercial roofing research assistant that answers only from approved sources and clearly acknowledges gaps or uncertainty."
+>
+  <Breadcrumbs crumbs={[{ name: 'AI Assistant' }]} />
+  <PageHero
+    eyebrow="Pillar 6 of 6"
+    title="AI Assistant"
+    lede="A citation-disciplined commercial roofing research assistant. It answers only from CRI’s approved knowledge base and published research — and says so plainly when it doesn’t know."
+  />
+
+  <div class="container section--tight">
+    <div class="callout callout--caution">
+      <strong class="callout__title">In development</strong>
+      The AI Assistant launches after the cornerstone knowledge base is complete, because
+      the assistant only answers from approved CRI sources. Until then, use
+      <a href="/search/">Search</a> or browse by <a href="/situations/">Situation</a>.
+    </div>
+
+    <div class="prose stack" style="margin-top: var(--space-6);">
+      <h2>The rules it will follow</h2>
+      <ul>
+        <li><strong>Approved sources only.</strong> Answers draw exclusively from CRI’s published knowledge base, datasets, and methodology reports.</li>
+        <li><strong>Citations on every answer.</strong> Each response links to the CRI pages it relied on, so you can verify everything.</li>
+        <li><strong>Honest about gaps.</strong> If CRI hasn’t published on a topic, the assistant says so instead of guessing.</li>
+        <li><strong>No sales function.</strong> The assistant educates. It does not steer users toward any service or vendor.</li>
+        <li><strong>Uncertainty is stated.</strong> Where the evidence is mixed or condition-dependent, the answer says so explicitly.</li>
+      </ul>
+
+      <h2>Why we’re building it this way</h2>
+      <p>
+        General-purpose AI tools will confidently improvise answers about roof systems,
+        warranties, and insurance claims. In this domain, improvised answers cost owners
+        real money. A trustworthy assistant needs a governed corpus first — which is why the
+        knowledge base, <a href="/about/editorial-standards/">Editorial Standards</a>, and
+        <a href="/about/methodology/">Methodology</a> come before the assistant itself.
+      </p>
+    </div>
+  </div>
+</Base>

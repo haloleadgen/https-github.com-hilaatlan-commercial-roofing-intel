@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base
+  title="Privacy Policy"
+  description="Commercial Roofing Intel privacy policy — what we collect, what we don't, and your rights."
+>
+  <Breadcrumbs crumbs={[{ name: 'Privacy Policy' }]} />
+  <PageHero title="Privacy Policy" lede="We collect as little as possible. Reading CRI requires no account and no personal information." />
+
+  <div class="container section--tight">
+    <div class="prose">
+      <p class="text-muted" style="font-size: var(--text-sm);">Effective: <time datetime="2026-07-15">July 15, 2026</time></p>
+
+      <div class="callout callout--caution">
+        <strong class="callout__title">Legal review required before launch</strong>
+        This draft reflects CRI’s intended practices. Have qualified counsel review it for
+        the jurisdictions you operate in (including state privacy laws such as CCPA/CPRA)
+        before the site goes live.
+      </div>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Nothing, for reading.</strong> Browsing CRI requires no account or personal data.</li>
+        <li><strong>What you send us.</strong> If you contact us or request a referral, we collect the information you provide (name, email, message) to respond.</li>
+        <li><strong>Analytics.</strong> We use privacy-respecting, aggregate analytics to understand which pages help readers. Configuration is documented at deployment.</li>
+      </ul>
+
+      <h2>What we don’t do</h2>
+      <ul>
+        <li>We do not sell personal information.</li>
+        <li>We do not run third-party advertising trackers.</li>
+        <li>We do not gate educational content behind data collection.</li>
+      </ul>
+
+      <h2>Referral requests</h2>
+      <p>
+        If you explicitly ask to be connected with a roofing contractor, the information you
+        provide for that purpose is shared with the relevant vetted contractor — that is the
+        service you requested. Relationships are disclosed on
+        <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a>.
+      </p>
+
+      <h2>Retention and rights</h2>
+      <p>
+        Correspondence is retained as long as needed to handle it. You may request access to
+        or deletion of your data via the <a href="/contact/">contact page</a>.
+      </p>
+
+      <h2>Changes</h2>
+      <p>Material changes to this policy will be noted here with a new effective date.</p>
+    </div>
+  </div>
+</Base>

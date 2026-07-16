@@ -1,0 +1,55 @@
+---
+/**
+ * Layout for governance / trust pages (About, Mission, Editorial Standards,
+ * Methodology, Funding & Relationships, Corrections, How CRI Works).
+ */
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import { GOVERNANCE } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  lede?: string;
+  updated?: string;
+  /** crumb shown after About; omit on the About hub itself */
+  crumbName?: string;
+}
+const { title, description, lede, updated, crumbName } = Astro.props;
+const crumbs = crumbName
+  ? [{ name: 'About', href: '/about/' }, { name: crumbName }]
+  : [{ name: 'About' }];
+const currentPath = Astro.url.pathname;
+---
+
+<Base title={title} description={description}>
+  <Breadcrumbs crumbs={crumbs} />
+  <PageHero eyebrow="Trust & Governance" title={title} lede={lede ?? description} />
+
+  <div class="container section--tight">
+    <div class="prose" data-pagefind-body>
+      {updated && (
+        <p class="text-muted" style="font-size: var(--text-sm);">
+          Effective and last reviewed: <time datetime={updated}>{updated}</time>
+        </p>
+      )}
+      <slot />
+    </div>
+
+    <nav class="related" aria-label="Governance pages">
+      <h2>CRI’s trust framework</h2>
+      <ul>
+        {GOVERNANCE.map((g) => (
+          <li>
+            {currentPath === g.href ? (
+              <strong>{g.name} (this page)</strong>
+            ) : (
+              <a href={g.href}>{g.name}</a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</Base>

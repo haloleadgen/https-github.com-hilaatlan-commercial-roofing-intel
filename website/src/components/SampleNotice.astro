@@ -1,0 +1,24 @@
+---
+/**
+ * Pre-publication notice. 'sample' = structural placeholder;
+ * 'draft' = real editorial content, sources under verification.
+ * Removed automatically when frontmatter status becomes 'published'.
+ */
+interface Props { status?: 'sample' | 'draft' }
+const { status = 'sample' } = Astro.props;
+---
+
+{status === 'sample' ? (
+  <div class="callout callout--caution" role="note">
+    <strong class="callout__title">Sample content — template review only</strong>
+    This page demonstrates the template structure. Final editorial content is in
+    production and will replace this text before launch.
+  </div>
+) : (
+  <div class="callout" role="note">
+    <strong class="callout__title">Draft — editorial verification in progress</strong>
+    This article has been drafted to CRI standards but its sources and figures are
+    still being verified by the editorial team. It will carry full citations before
+    publication. Details may change during review.
+  </div>
+)}
