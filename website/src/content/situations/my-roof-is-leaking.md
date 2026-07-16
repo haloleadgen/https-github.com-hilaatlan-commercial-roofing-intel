@@ -4,7 +4,6 @@ description: "Immediate steps for an active commercial roof leak: protect people
 urgency: emergency
 status: sample
 updated: "2026-07-01"
-sources: 4
 takeaways:
   - "Safety and containment first; diagnosis second; contractor calls third."
   - "Document before anyone touches anything — photos and timestamps protect your insurance position."

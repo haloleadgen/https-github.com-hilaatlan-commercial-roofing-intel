@@ -59,7 +59,9 @@ const reviewFacts: Fact[] = [
   { label: 'Content type', value: typeLabel },
   ...(updated ? [{ label: 'Last updated', value: fmt(updated)! }] : []),
   { label: 'Reviewed by', value: reviewed ?? 'Hila Atlan, Founder & Editor-in-Chief' },
-  ...(typeof sources === 'number' ? [{ label: 'Sources cited', value: String(sources) }] : []),
+  ...(typeof sources === 'number' && sources > 0
+    ? [{ label: 'Sources cited', value: String(sources) }]
+    : []),
   { label: 'Reading time', value: `${readingMinutes} min` },
 ];
 

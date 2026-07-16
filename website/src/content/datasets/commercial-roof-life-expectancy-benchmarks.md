@@ -3,7 +3,6 @@ title: "Commercial Roof Life Expectancy Benchmarks"
 description: "Benchmark service-life data for commercial roof systems by membrane type and climate exposure, with full methodology disclosure — the reference table behind CRI's Roof Life Expectancy Estimator."
 status: sample
 updated: "2026-07-01"
-sources: 12
 coverage: "Major low-slope systems, U.S. climate zones"
 sampleSize: "Placeholder — literature synthesis v0.1"
 takeaways:

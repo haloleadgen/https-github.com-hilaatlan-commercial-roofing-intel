@@ -4,7 +4,6 @@ description: "What to do after wind or hail hits your commercial roof — docume
 urgency: time-sensitive
 status: sample
 updated: "2026-07-01"
-sources: 5
 takeaways:
   - "Your insurance position is largely determined by what you document in the first 72 hours."
   - "Temporary protection is your duty under most policies; permanent repair decisions can wait."

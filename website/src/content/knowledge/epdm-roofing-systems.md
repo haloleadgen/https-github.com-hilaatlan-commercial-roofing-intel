@@ -4,7 +4,7 @@ description: "What EPDM rubber roofing is, how it performs over decades, realist
 type: article
 status: published
 updated: "2026-07-15"
-sources: 0
+sources: 3
 takeaways:
   - "EPDM is a synthetic rubber membrane with the longest field track record of any single-ply system — over 50 years of installed history."
   - "Its chemistry is stable and repairs remain possible late in life, which is why many owners run EPDM roofs 25–30 years."

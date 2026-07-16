@@ -1,5 +1,13 @@
 # GO-LIVE Checklist — CommercialRoofingIntel.com
 
+> ⚠️ **SUPERSEDED IN PART — read [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) and
+> [KNOWN_ISSUES.md](KNOWN_ISSUES.md) first (July 16, 2026 review).**
+> The "engineering blockers: ALL CLEARED" line below is **no longer true**. Two new
+> blockers were found: the built `dist/` is out of sync with source and cannot be
+> rebuilt on this machine (no Node installed), and all three published pages were
+> displaying false citation counts. **Do not deploy the current `dist/` or any
+> `dist-v1.*.zip` until the site is rebuilt.**
+
 Updated July 15, 2026 · Build: **dist-v1.6-LAUNCH-CANDIDATE.zip** (60 pages)
 Engineering-side blockers: ALL CLEARED — see DEPLOYMENT-REPORT.md. Founder path: FOUNDER-LAUNCH-ACTIONS.md.
 This session: canonical domain corrected to apex (commercialroofingintel.com), mobile
@@ -17,7 +25,7 @@ noindex action documented.
 - [x] Metadata/schema/canonical/robots/XML sitemap: production-grade and QA-verified.
 - [x] Social sharing: OG image (1200×630) + twitter card on every page.
 - [x] Favicons: SVG + 32px PNG + 180px apple-touch-icon.
-- [x] Production email routed site-wide: hila@victoryeniroofing.com (single source in `src/data/site.ts`).
+- [x] Production email routed site-wide: hila@victoryroofer.com (single source in `src/data/site.ts`).
 - [x] Contact form + Assessment request form: built, spam-protected (honeypot), routed to /thanks/ — activate automatically when deployed on Netlify (attributes in place).
 - [x] Ownership disclosure: Victory E&I named on Funding & Relationships with common-ownership language (flagged for confirmation, below).
 - [x] Production QA: 60 pages, 3,807 internal links, 0 broken; 12/12 launch checks pass.

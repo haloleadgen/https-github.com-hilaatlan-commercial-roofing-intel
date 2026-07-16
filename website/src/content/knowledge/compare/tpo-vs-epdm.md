@@ -4,7 +4,6 @@ description: "Side-by-side comparison of the two most common single-ply commerci
 type: comparison
 status: sample
 updated: "2026-07-01"
-sources: 9
 takeaways:
   - "Neither membrane 'wins' universally — climate, building use, and budget determine the better fit."
   - "White TPO typically outperforms in cooling-dominated climates; black EPDM in heating-dominated ones."

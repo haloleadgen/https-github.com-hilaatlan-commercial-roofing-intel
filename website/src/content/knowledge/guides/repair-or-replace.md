@@ -4,7 +4,7 @@ description: "A structured decision framework for the most consequential commerc
 type: guide
 status: published
 updated: "2026-07-01"
-sources: 6
+sources: 1
 takeaways:
   - "The decision is rarely about the leak in front of you — it's about the remaining value of the whole assembly."
   - "A common consultant rule of thumb: when repair costs approach 25–30% of replacement cost, replacement deserves serious analysis."

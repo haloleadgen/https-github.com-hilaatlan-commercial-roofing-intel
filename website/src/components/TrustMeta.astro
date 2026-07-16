@@ -20,7 +20,9 @@ const fmt = (d: string) =>
   </span>
   <span>Reviewed by {reviewed}</span>
   {updated && <span>Updated <time datetime={updated}>{fmt(updated)}</time></span>}
-  {typeof sources === 'number' && <span>{sources} sources cited</span>}
+  {typeof sources === 'number' && sources > 0 && (
+    <span>{sources} {sources === 1 ? 'source' : 'sources'} cited</span>
+  )}
   {typeof minutes === 'number' && <span>{minutes} min read</span>}
   <span>
     <a href="/about/editorial-standards/">Editorial standards</a> ·

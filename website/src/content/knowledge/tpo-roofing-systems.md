@@ -4,7 +4,7 @@ description: "What TPO is, how it performs, expected service life, common failur
 type: article
 status: published
 updated: "2026-07-01"
-sources: 8
+sources: 3
 takeaways:
   - "TPO (thermoplastic polyolefin) is the most widely installed low-slope commercial membrane in North America."
   - "Realistic service life is 15–25 years and depends more on installation quality and maintenance than on brand."

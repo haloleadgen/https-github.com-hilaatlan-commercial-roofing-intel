@@ -2,6 +2,13 @@
 
 Everything for CommercialRoofingIntel.com lives here.
 
+> 📍 **New (July 16, 2026): [MASTER_INDEX.md](MASTER_INDEX.md) is now the entry point**
+> for the whole project — it maps every document and marks which are out of date.
+> If you're about to launch, read [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) and
+> [KNOWN_ISSUES.md](KNOWN_ISSUES.md) first. **The site is not ready to deploy** —
+> `dist/` must be rebuilt on a computer with Node.js first, and the table below is
+> out of date (v1.8 is the latest build, not v1.1).
+
 ## Want to look at the site?
 
 Open **website → preview → index.html** (double-click it).
