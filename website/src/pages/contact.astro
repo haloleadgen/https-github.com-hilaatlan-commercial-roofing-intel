@@ -77,9 +77,12 @@ import { SITE } from '../data/site';
           <span class="hint">If reporting an error, include the page URL.</span>
         </div>
         <button class="btn" type="submit">Send message</button>
+        {/* Reader-facing copy only. This previously read "(active once deployed to
+            Netlify; see GO-LIVE checklist)" — an internal deployment note, naming an
+            internal document, published on the public contact page. */}
         <p class="hint" style="margin-top: var(--space-3); font-size: var(--text-xs); color: var(--cri-slate-500);">
-          Submissions are delivered via the hosting platform's form service (active once
-          deployed to Netlify; see GO-LIVE checklist). Email works today.
+          We reply to every message. If you would rather use email, write to
+          <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
         </p>
       </form>
     </div>

@@ -47,7 +47,11 @@ const related = [
         benchmarks. It cannot replace a physical condition assessment — and it will tell
         you when to get one.
       </p>
-      <TrustMeta updated="2026-07-01" sources={12} />
+      {/* No sources= : this tool lists no external citations, and its own methodology
+          states the modifier values are pre-validation placeholders. Claiming a
+          citation count here contradicted the page's own disclosure. Restore a real
+          count only when Benchmarks v1.0 ships with sources actually listed. */}
+      <TrustMeta updated="2026-07-01" status="sample" />
     </header>
 
     <SampleNotice />

@@ -34,7 +34,12 @@ const schema = {
 const facts = [
   { label: 'Term', value: entry.data.term },
   ...(entry.data.alsoKnownAs.length ? [{ label: 'Also known as', value: entry.data.alsoKnownAs.join(', ') }] : []),
-  { label: 'Reviewed by', value: entry.data.reviewed },
+  // Only a published entry may claim review. This panel previously asserted
+  // "Reviewed by: Hila Atlan, Founder & Editor-in-Chief" on all 11 glossary terms,
+  // none of which are published.
+  ...(entry.data.status === 'published'
+    ? [{ label: 'Reviewed by', value: entry.data.reviewed }]
+    : [{ label: 'Review status', value: entry.data.status === 'draft' ? 'Draft — verification in progress' : 'Sample — not editorial content' }]),
 ];
 ---
 
@@ -54,7 +59,7 @@ const facts = [
           <p class="eyebrow" data-pagefind-filter="type">Glossary</p>
           <h1>{entry.data.term}</h1>
           <p class="lede">{entry.data.description}</p>
-          <TrustMeta updated={entry.data.updated} reviewed={entry.data.reviewed} />
+          <TrustMeta updated={entry.data.updated} reviewed={entry.data.reviewed} status={entry.data.status} />
         </header>
 
         {entry.data.status !== 'published' && <SampleNotice status={entry.data.status} />}

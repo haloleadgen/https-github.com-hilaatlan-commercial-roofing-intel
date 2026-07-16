@@ -1,29 +1,66 @@
 ---
-/** Trust strip under every headline: review status, dates, sources, reading time. */
+/**
+ * Trust strip under every headline: review status, dates, sources, reading time.
+ *
+ * Every claim here is gated on `status`. Nothing in this strip may assert something
+ * the page has not actually earned:
+ *  - "Evidence-based" and "Reviewed by …" appear ONLY on published pages. They
+ *    previously rendered unconditionally, which meant sample placeholder pages
+ *    claimed to have been reviewed by the Editor-in-Chief and to be evidence-based.
+ *  - The source count renders only when it is greater than zero, so a page never
+ *    advertises "0 sources cited" next to an evidence claim.
+ *
+ * Non-published pages get a neutral status chip instead. The SampleNotice callout
+ * directly beneath carries the fuller explanation.
+ */
+import { formatDate } from '../data/dates';
+
 interface Props {
   updated?: string;
   reviewed?: string;
   sources?: number;
   minutes?: number;
+  status?: 'sample' | 'draft' | 'published';
 }
-const { updated, reviewed = 'Hila Atlan, Founder & Editor-in-Chief', sources, minutes } = Astro.props;
-const fmt = (d: string) =>
-  new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const {
+  updated,
+  reviewed = 'Hila Atlan, Founder & Editor-in-Chief',
+  sources,
+  minutes,
+  status = 'published',
+} = Astro.props;
+
+const isPublished = status === 'published';
+
+// formatDate parses the calendar date as LOCAL midnight — see src/data/dates.ts.
+// new Date('2026-07-01') is UTC midnight and rendered "June 30, 2026" in EDT.
+const fmt = (d: string) => formatDate(d);
 ---
 
 <div class="trust-meta">
-  <span class="badge badge--evidence">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-    Evidence-based
-  </span>
-  <span>Reviewed by {reviewed}</span>
+  {isPublished ? (
+    <span class="badge badge--evidence">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      Evidence-based
+    </span>
+  ) : (
+    <span class="badge">
+      {status === 'draft' ? 'Draft — verification in progress' : 'Sample — not editorial content'}
+    </span>
+  )}
+
+  {isPublished && <span>Reviewed by {reviewed}</span>}
+
   {updated && <span>Updated <time datetime={updated}>{fmt(updated)}</time></span>}
-  {typeof sources === 'number' && sources > 0 && (
+
+  {isPublished && typeof sources === 'number' && sources > 0 && (
     <span>{sources} {sources === 1 ? 'source' : 'sources'} cited</span>
   )}
+
   {typeof minutes === 'number' && <span>{minutes} min read</span>}
+
   <span>
     <a href="/about/editorial-standards/">Editorial standards</a> ·
     <a href="/about/corrections/">Report an error</a>

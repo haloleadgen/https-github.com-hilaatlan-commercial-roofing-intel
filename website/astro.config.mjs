@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // --- Build the exclusion list for the sitemap -------------------------------
 // Any content entry whose frontmatter status is not `published` is noindexed
@@ -9,7 +10,11 @@ import { join } from 'node:path';
 // When a page is editorially verified, set `status: published` in its frontmatter
 // and it automatically re-enters both the index and the sitemap.
 
-const CONTENT_DIR = new URL('./src/content', import.meta.url).pathname;
+// Use fileURLToPath, not URL.pathname: .pathname returns a URL-ENCODED path, so any
+// space in a parent directory name arrives as '%20' and every fs call below fails
+// with ENOENT. This project's folder is "Commercial Roofing Intel" — spaces included —
+// which broke the build outright. fileURLToPath decodes to a real filesystem path.
+const CONTENT_DIR = fileURLToPath(new URL('./src/content', import.meta.url));
 
 // content collection directory -> public URL prefix
 const ROUTE_MAP = {

@@ -1,12 +1,17 @@
 ---
 import { SITE, PILLARS } from '../data/site';
+import { publishedHrefs, isPromotable } from '../data/published';
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
   currentPath === href || (href !== '/' && currentPath.startsWith(href));
 
-/** Curated dropdown entries per pillar (kept short; full lists live on pillar pages). */
-const dropdowns: Record<string, { title: string; desc: string; href: string }[]> = {
+const published = await publishedHrefs();
+
+/** Curated dropdown entries per pillar (kept short; full lists live on pillar pages).
+ *  Entries pointing at unpublished content are filtered out below — never link the
+ *  nav straight at a sample page. Add freely; nothing appears until it is published. */
+const dropdownsRaw: Record<string, { title: string; desc: string; href: string }[]> = {
   '/knowledge/': [
     { title: 'Encyclopedia', desc: 'System and material references', href: '/knowledge/tpo-roofing-systems/' },
     { title: 'Decision guides', desc: 'Frameworks for big decisions', href: '/knowledge/guides/repair-or-replace/' },
@@ -33,6 +38,14 @@ const dropdowns: Record<string, { title: string; desc: string; href: string }[]>
   ],
   '/ai-assistant/': [],
 };
+
+/** Drop any entry whose target is not published, then drop pillars left with nothing. */
+const dropdowns: typeof dropdownsRaw = Object.fromEntries(
+  Object.entries(dropdownsRaw).map(([pillar, items]) => [
+    pillar,
+    items.filter((item) => isPromotable(item.href, published)),
+  ])
+);
 ---
 
 <header class="site-header">

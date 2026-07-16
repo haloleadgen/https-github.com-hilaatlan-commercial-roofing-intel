@@ -6,39 +6,64 @@ import HeroArt from '../components/HeroArt.astro';
 import SectionHead from '../components/SectionHead.astro';
 import { SITE, PILLARS } from '../data/site';
 import { getCollection } from 'astro:content';
+import { publishedHrefs, isPromotable } from '../data/published';
+import { formatDate } from '../data/dates';
 
 const knowledge = await getCollection('knowledge');
 const glossary = await getCollection('glossary');
 const situations = await getCollection('situations');
 const datasets = await getCollection('datasets');
 
-/* Counts are computed from the live content collections at build time.
-   Until launch content lands, the band is explicitly flagged as sample scale. */
-const stats = [
-  { value: knowledge.filter((e) => e.data.type === 'article').length, label: 'Encyclopedia articles' },
-  { value: knowledge.filter((e) => e.data.type === 'guide').length, label: 'Decision guides' },
-  { value: knowledge.filter((e) => e.data.type === 'comparison').length, label: 'Comparisons' },
-  { value: 1, label: 'Decision tools' },
-  { value: datasets.length, label: 'Research datasets' },
-  { value: glossary.length, label: 'Glossary terms' },
-];
+const published = await publishedHrefs();
+const isPub = (e: { data: { status?: string } }) => e.data.status === 'published';
 
+/* Counts are computed from the live content collections at build time, and count
+   ONLY published entries.
+   These previously counted every entry regardless of status, so the homepage
+   advertised "9 Encyclopedia articles" and "11 Glossary terms" when a reader could
+   actually open 2 and 0 — everything else was noindexed sample/draft material.
+   A "pre-launch" caption does not make an inflated number true, and that caption
+   stops being true the moment the site launches.
+   Zero-value rows are dropped rather than displayed as "0". */
+const stats = [
+  { value: knowledge.filter((e) => isPub(e) && e.data.type === 'article').length, one: 'Encyclopedia article', many: 'Encyclopedia articles' },
+  { value: knowledge.filter((e) => isPub(e) && e.data.type === 'guide').length, one: 'Decision guide', many: 'Decision guides' },
+  { value: knowledge.filter((e) => isPub(e) && e.data.type === 'comparison').length, one: 'Comparison', many: 'Comparisons' },
+  { value: datasets.filter(isPub).length, one: 'Research dataset', many: 'Research datasets' },
+  { value: glossary.filter(isPub).length, one: 'Glossary term', many: 'Glossary terms' },
+  { value: situations.filter(isPub).length, one: 'Situation guide', many: 'Situation guides' },
+]
+  .filter((s) => s.value > 0)
+  // With a library this small the counts are frequently 1, so singularise the label —
+  // "1 Decision guides" undercuts the institutional voice the design works for.
+  .map((s) => ({ value: s.value, label: s.value === 1 ? s.one : s.many }));
+
+/* Published only — this band previously surfaced draft and sample pages as
+   "recently updated", sending readers straight into placeholder content. */
 const recentlyUpdated = [...knowledge, ...situations]
-  .filter((e) => e.data.updated)
+  .filter((e) => e.data.updated && isPub(e))
   .sort((a, b) => (b.data.updated! > a.data.updated! ? 1 : -1))
   .slice(0, 4);
 
 const hrefFor = (e: any) =>
   situations.includes(e as never) ? `/situations/${e.id}/` : `/knowledge/${e.id}/`;
 
-const fmt = (d: string) =>
-  new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const fmt = (d: string) => formatDate(d, { month: 'short', day: 'numeric', year: 'numeric' });
 
+/* Filtered through isPromotable: never feature a page that is not published.
+   "My Roof Is Leaking" sat here while still `status: sample`. */
 const editorsPicks = [
   { title: 'Repair or Replace? How to Decide', href: '/knowledge/guides/repair-or-replace/', note: 'The decision framework every owner eventually needs' },
-  { title: 'My Roof Is Leaking — What Do I Do Right Now?', href: '/situations/my-roof-is-leaking/', note: 'The three expensive mistakes to avoid in the first 48 hours' },
+  { title: 'TPO Roofing Systems: A Complete Owner\'s Reference', href: '/knowledge/tpo-roofing-systems/', note: 'What to verify before you specify the most common commercial membrane' },
+  { title: 'EPDM Roofing Systems: A Complete Owner\'s Reference', href: '/knowledge/epdm-roofing-systems/', note: 'The longest field track record of any single-ply system' },
   { title: 'Commercial Roofing Glossary', href: '/glossary/', note: 'Read any proposal without a translator' },
-];
+].filter((p) => isPromotable(p.href, published));
+
+/* Same rule for the audience strip. */
+const audienceCards = [
+  { title: 'Property Managers', href: '/for-your-role/property-managers/', description: 'Triage, budgeting, vendor oversight, and owner communication.' },
+  { title: 'HOA & Condo Boards', href: '/for-your-role/hoa-boards/', description: 'Reserve planning, special assessments, and defensible board decisions.' },
+].filter((c) => isPromotable(c.href, published));
 ---
 
 <Base title="Home" description={SITE.description}>
@@ -84,7 +109,9 @@ const editorsPicks = [
     </div>
   </section>
 
-  <!-- STATS BAND (build-time counts; flagged pre-launch) -->
+  {/* STATS BAND — build-time counts of PUBLISHED entries only.
+      The note no longer says "sample library": the counts are now real, so the
+      caveat that excused inflated numbers is neither needed nor true. */}
   <section class="stats-band" aria-label="Knowledge base at a glance">
     <div class="container">
       {stats.map((s) => (
@@ -94,8 +121,8 @@ const editorsPicks = [
         </div>
       ))}
       <p class="stats-band__note">
-        <span class="badge badge--sample">Pre-launch</span>
-        Counts reflect the current sample library and update automatically as the launch collection is published.
+        Every count is of published, sourced work — the library is early and grows only
+        as each piece clears <a href="/about/editorial-standards/">editorial review</a>.
       </p>
     </div>
   </section>
@@ -128,19 +155,14 @@ const editorsPicks = [
         id="pulse-heading"
         eyebrow="The research desk"
         title="What’s moving at CRI"
-        lede="Illustrative pre-launch content — the cadence this platform will keep, with sample entries."
+        lede="Everything below is published and sourced. This library is deliberately small — it grows only as each piece clears editorial review."
       />
-      <div class="grid grid--3">
-        <div class="card" style="transform:none;">
-          <span class="badge badge--type">Latest research</span>
-          <h3 style="font-size: var(--text-lg);"><a href="/data-research/commercial-roof-life-expectancy-benchmarks/">Roof Life Expectancy Benchmarks v0.1</a></h3>
-          <p class="text-muted" style="font-size: var(--text-sm);">
-            Service-life ranges for six roof systems across U.S. climate zones — the dataset
-            behind our first decision tool.
-          </p>
-          <span class="card__arrow" aria-hidden="true">Read the dataset →</span>
-        </div>
-
+      {/* The "Latest research" card that sat here linked to Roof Life Expectancy
+          Benchmarks v0.1 — a `status: sample` dataset whose own methodology section
+          reads "Placeholder:" and which is explicitly marked not-for-citation. The
+          homepage must not headline it as "Latest research". Restore this card when
+          Benchmarks v1.0 is validated and published. */}
+      <div class="grid grid--2">
         <div>
           <h3 style="margin-bottom: var(--space-3);">Recently updated</h3>
           <ul class="pulse-list">
@@ -168,82 +190,18 @@ const editorsPicks = [
     </div>
   </section>
 
-  <!-- FEATURED COMPARISON + NEWEST TOOL -->
-  <section class="section" aria-labelledby="feature-heading">
-    <div class="container">
-      <SectionHead
-        id="feature-heading"
-        eyebrow="Decision support"
-        title="This month’s featured comparison — and the newest tool"
-      />
-      <div class="feature-split">
-        <article class="card">
-          <span class="badge badge--type">Featured comparison</span>
-          <h3><a href="/knowledge/compare/tpo-vs-epdm/">TPO vs. EPDM: which membrane fits your building?</a></h3>
-          <p class="text-muted" style="font-size: var(--text-sm);">
-            The two most common single-ply membranes, compared on fixed criteria — service life,
-            seams, climate fit, and track record. Neither wins universally; conditions decide.
-          </p>
-          <div class="table-wrap" style="margin-top: var(--space-3);">
-            <table>
-              <thead>
-                <tr><th scope="col">Criterion</th><th scope="col">TPO</th><th scope="col">EPDM</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Typical service life</td><td>15–25 yrs</td><td>20–30 yrs</td></tr>
-                <tr><td>Best-fit climate</td><td>Cooling-dominated</td><td>Heating-dominated</td></tr>
-                <tr><td>Field track record</td><td>~30 years</td><td>50+ years</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <span class="card__arrow" aria-hidden="true">Read the full comparison →</span>
-        </article>
+  {/* FEATURED COMPARISON + NEWEST TOOL — removed for V1.
+      Both halves promoted unpublished pages: "TPO vs. EPDM" is `status: sample`,
+      and the Roof Life Expectancy Estimator is noindexed pending Benchmarks v1.0.
+      The section also reprinted the sample dataset's service-life figures directly
+      on the homepage, giving placeholder numbers top-level prominence.
+      Restore when a comparison and the estimator are genuinely published. */}
 
-        <article class="card" style="background: var(--cri-navy-800); border-color: var(--cri-navy-700);">
-          <span class="badge" style="background: rgba(79,159,216,0.18); color: var(--cri-blue-400); border-color: var(--cri-navy-600);">Newest decision tool</span>
-          <h3 style="color: var(--cri-white);"><a href="/tools/roof-life-expectancy-estimator/" style="color: var(--cri-white);">Roof Life Expectancy Estimator</a></h3>
-          <p style="font-size: var(--text-sm); color: var(--cri-slate-200);">
-            How many years does your roof have left? A planning-grade range from system type,
-            age, climate, and maintenance history — with the methodology published beside the result.
-          </p>
-          <p style="font-size: var(--text-xs); color: var(--cri-slate-300); margin-top: var(--space-2);">
-            Assumptions, data vintage, and limitations are published beside the result.
-          </p>
-          <span class="card__arrow" aria-hidden="true" style="color: var(--cri-blue-400);">Run the estimator →</span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SITUATIONS STRIP -->
-  <section class="section section--alt" aria-labelledby="situations-heading">
-    <div class="container">
-      <SectionHead
-        id="situations-heading"
-        eyebrow="Right now"
-        title="In the middle of something?"
-        linkHref="/situations/"
-        linkLabel="All situations"
-      />
-      <div class="situation-strip">
-        <article class="card">
-          <span class="badge badge--sample" style="color: var(--cri-alert); background: var(--cri-alert-bg); border-color: #eec3c3;">Emergency</span>
-          <h3><a href="/situations/my-roof-is-leaking/">My roof is leaking</a></h3>
-          <p class="text-muted" style="font-size: var(--text-sm);">First hour, first day — and the three expensive mistakes.</p>
-        </article>
-        <article class="card">
-          <span class="badge badge--sample">Time-sensitive</span>
-          <h3><a href="/situations/storm-damage-first-72-hours/">Storm just hit</a></h3>
-          <p class="text-muted" style="font-size: var(--text-sm);">Documentation that protects your insurance position.</p>
-        </article>
-        <article class="card card--planning">
-          <span class="badge badge--type">Planning</span>
-          <h3><a href="/knowledge/guides/repair-or-replace/">Facing repair vs. replace</a></h3>
-          <p class="text-muted" style="font-size: var(--text-sm);">A four-test framework: condition, economics, risk, and timing.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  {/* SITUATIONS STRIP — removed for V1.
+      Headlined "My roof is leaking" and "Storm just hit"; both are `status: sample`
+      and their bodies are literal "Placeholder:" stubs. Promoting emergency triage
+      that leads to placeholder copy is the worst failure mode this site has, so the
+      strip is gone until those pages carry real, sourced production content. */}
 
   <!-- TRUST BAND -->
   <section class="section section--navy" aria-labelledby="trust-heading">
@@ -291,9 +249,12 @@ const editorsPicks = [
         linkHref="/for-your-role/"
         linkLabel="All roles"
       />
+      {/* Property Managers and HOA & Condo Boards cards sat here while both pages are
+          `status: sample`. They return automatically once published — see audienceCards. */}
       <div class="grid grid--3">
-        <Card title="Property Managers" href="/for-your-role/property-managers/" type="Audience" description="Triage, budgeting, vendor oversight, and owner communication." cta="Open hub" />
-        <Card title="HOA & Condo Boards" href="/for-your-role/hoa-boards/" type="Audience" description="Reserve planning, special assessments, and defensible board decisions." cta="Open hub" />
+        {audienceCards.map((c) => (
+          <Card title={c.title} href={c.href} type="Audience" description={c.description} cta="Open hub" />
+        ))}
         <Card title="All roles" href="/for-your-role/" type="Pillar" description="Owners, facility managers, investors, developers, architects, engineers, insurance professionals." cta="Browse" />
       </div>
     </div>

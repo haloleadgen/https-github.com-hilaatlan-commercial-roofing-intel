@@ -1,4 +1,5 @@
 ---
+import { yearOf } from '../../data/dates';
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { SITE } from '../../data/site';
@@ -16,7 +17,9 @@ export async function getStaticPaths() {
 const { entry, prevEntry, nextEntry } = Astro.props;
 const { Content, headings } = await render(entry);
 const url = new URL(Astro.url.pathname, SITE.domain).href;
-const year = entry.data.updated ? new Date(entry.data.updated).getFullYear() : new Date().getFullYear();
+// yearOf parses as a local calendar date: new Date('2026-01-01').getFullYear() returned
+// 2025 in any timezone behind UTC, putting the wrong year in the citation block.
+const year = entry.data.updated ? yearOf(entry.data.updated) : new Date().getFullYear();
 
 const facts = [
   ...(entry.data.coverage ? [{ label: 'Coverage', value: entry.data.coverage }] : []),

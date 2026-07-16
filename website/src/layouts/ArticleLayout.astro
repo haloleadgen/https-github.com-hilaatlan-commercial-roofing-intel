@@ -14,6 +14,7 @@ import KeyFacts from '../components/KeyFacts.astro';
 import PrevNext from '../components/PrevNext.astro';
 import AssessmentNote from '../components/AssessmentNote.astro';
 import { SITE } from '../data/site';
+import { formatDate } from '../data/dates';
 
 interface Crumb { name: string; href?: string; }
 interface RelatedItem { title: string; href: string; type?: string; description?: string; }
@@ -52,14 +53,20 @@ const {
 const words = body.trim().split(/\s+/).filter(Boolean).length;
 const readingMinutes = Math.max(1, Math.round(words / 220));
 
-const fmt = (d?: string) =>
-  d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : undefined;
+const fmt = (d?: string) => (d ? formatDate(d) : undefined);
+
+const isPublished = status === 'published';
 
 const reviewFacts: Fact[] = [
   { label: 'Content type', value: typeLabel },
   ...(updated ? [{ label: 'Last updated', value: fmt(updated)! }] : []),
-  { label: 'Reviewed by', value: reviewed ?? 'Hila Atlan, Founder & Editor-in-Chief' },
-  ...(typeof sources === 'number' && sources > 0
+  // Only a published page may claim it was reviewed. On sample/draft pages this
+  // sidebar previously asserted "Reviewed by: Hila Atlan, Founder & Editor-in-Chief"
+  // over placeholder content that had had no such review.
+  ...(isPublished
+    ? [{ label: 'Reviewed by', value: reviewed ?? 'Hila Atlan, Founder & Editor-in-Chief' }]
+    : [{ label: 'Review status', value: status === 'draft' ? 'Draft — verification in progress' : 'Sample — not editorial content' }]),
+  ...(isPublished && typeof sources === 'number' && sources > 0
     ? [{ label: 'Sources cited', value: String(sources) }]
     : []),
   { label: 'Reading time', value: `${readingMinutes} min` },
@@ -88,7 +95,7 @@ const articleSchema = {
           <p class="eyebrow" data-pagefind-filter="type">{typeLabel}</p>
           <h1>{title}</h1>
           <p class="lede">{description}</p>
-          <TrustMeta updated={updated} reviewed={reviewed} sources={sources} minutes={readingMinutes} />
+          <TrustMeta updated={updated} reviewed={reviewed} sources={sources} minutes={readingMinutes} status={status} />
         </header>
 
         {status !== 'published' && <SampleNotice status={status} />}
