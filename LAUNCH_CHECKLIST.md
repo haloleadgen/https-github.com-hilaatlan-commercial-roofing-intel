@@ -1,6 +1,6 @@
 # Launch Checklist — CommercialRoofingIntel.com
 
-Updated July 16, 2026 · Release candidate **`dist-v1.9-RC1.zip`** (677 KB, 162 files)
+Updated July 17, 2026 · Release candidate **`dist-v2.1-RC1.zip`** (1.42 MB, 120 files — includes 23 per-page OG cards)
 Supersedes `GO-LIVE.md` and the checklist in `VERSION-1-REPORT.md` where they conflict.
 
 **Status: HOLD LAUNCH.** Engineering is done. Every remaining blocker is editorial,

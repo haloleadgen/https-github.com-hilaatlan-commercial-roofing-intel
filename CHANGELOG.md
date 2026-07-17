@@ -4,6 +4,53 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-17 (v2.1-RC1) — Launch-readiness sprint: per-page OG cards + permanent QA gate
+
+`dist-v2.1-RC1.zip` · 1.42 MB · 120 files · build exit 0 · 60 pages, 24 indexable.
+Supersedes v1.9-RC2 **and** the stray `dist-v2.0-PRODUCTION.zip` (which predates RC2's
+citation-architecture work and should not be deployed).
+
+**Per-page Open Graph cards (was improvement #3 on the impact list).** Every indexable
+page except the homepage now gets its own 1200×630 branded card — CRI navy, section
+kicker, page title, tagline — generated post-build by `scripts/generate-og.mjs` from
+each page's own `<title>`, so the card set can never drift from the page set (the script
+fails the build on any mismatch). Homepage and noindexed pages keep `og-default.png`.
+Also added `og:locale` and made `og:image:alt` page-specific. Typographic cards only —
+no imagery was invented.
+
+**Permanent QA gate.** The acceptance checks previously run by hand each session are now
+`scripts/verify-launch.mjs` (`npm run verify`): 1 h1 per page · canonical/description/
+OG/Twitter on every page · no duplicate titles · every internal link resolves · all
+JSON-LD parses · sitemap = indexable set exactly · no placeholder text on any indexable
+page · every referenced og:image exists · no img without alt · no `http://` URLs ·
+robots.txt correct. It caught one real error during this sprint (an interrupted build
+missing two OG cards), which is the point of its existence.
+
+**Deliberately NOT done, with reasons:**
+- **FAQPage schema** — audited every indexable page: the "?" headings are CTAs
+  ("Want eyes on your actual roof?"), not Q&A content. FAQPage markup on non-FAQ
+  content is schema spam and a rich-results penalty risk. Add it when a page has a
+  real FAQ section.
+- **Roofing photography** — the site still has zero photographs, deliberately. Stock
+  or AI-generated "project" imagery on an evidence-first, contractor-affiliated site
+  would manufacture the appearance of first-hand experience. Real, owned photography
+  per the shot list in ROUND-1-REVIEW.md remains the path.
+- **Draft/placeholder content** — all 13 pages containing placeholder text remain
+  noindexed drafts/templates with visible status banners. Nothing was invented to
+  fill them; that is editorial work (see KNOWN_ISSUES #1).
+
+**Verified this build:** `npm run verify` PASS · 24 = 24 sitemap/indexable agreement ·
+0 broken internal links · 0 placeholder text on indexable pages · all 23 OG cards
+render correctly (visually spot-checked) · responsive: 21 media queries, mobile-first,
+no fixed widths >375px, tables in overflow wrappers · trust: "Reviewed by" only on
+published pages, situations pages carry the "Technical review pending" chip, assessment
+page discloses Victory E&I + referral fee, funding page noindexed pending counsel.
+
+**Build note:** `sharp` added to devDependencies (OG rendering). Node lockfile updated
+accordingly; build remains `npm ci && npm run build`, Netlify config unchanged.
+
+---
+
 ## 2026-07-16 (v1.9-RC2) — Citation architecture applied to the draft library
 
 `dist-v1.9-RC2.zip` · 679 KB · 162 files · build exit 0, **0 errors, 0 warnings**, 60 pages.
