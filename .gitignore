@@ -26,3 +26,7 @@ website/dist.zip
 website/dist-v2.0-PRODUCTION.zip
 website/dist-v1.9-RC1.zip
 website/dist-v1.9-RC2.zip
+
+# Stale pre-RC2 build copies displaced during the RC2 dist sync (host FS blocks deletion from the sandbox; delete manually anytime)
+website/releases/superseded/dist-stale-jul16/
+website/releases/superseded/preview-stale/
