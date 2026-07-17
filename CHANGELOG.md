@@ -4,6 +4,48 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-17 (v2.2-RC1) — Homepage completion + Knowledge page V1
+
+`dist-v2.2-RC1.zip` · 1.42 MB · 120 files · build exit 0 · 60 pages, 24 indexable ·
+`npm run verify` PASS. Supersedes v2.1-RC2. Material website change (homepage +
+Knowledge hub), hence a new RC per the RC rule.
+
+**Homepage (founder-directed completion sprint).**
+- Hero: sharper positioning (who it serves, why it is different), three action paths
+  (situations / repair-or-replace / assessment), and the assessment CTA carries the
+  Victory E&I common-ownership disclosure at the point of offer, in the assessment
+  page's own wording.
+- New "Featured guidance" section: five cards — every one a real published or
+  technical-review page (repair-or-replace, both emergency situation guides, TPO, EPDM).
+  Nothing preliminary, draft, or template is featured; all cards pass isPromotable.
+- New "In verification now" strip: names forthcoming work (titles only, deliberately
+  unlinked) so depth is communicated without routing readers into unverified pages.
+- New "For your role" section: ten role cards (owners, PMs, HOA/condo boards, facility
+  managers, asset managers, CRE professionals, developers, architects/engineers,
+  insurance professionals, financial decision makers) — each with the seat's core
+  problem, a characteristic question, and links ONLY to published/technical-review
+  work or hubs. Role hub pages remain templates and are not linked; the section says so.
+- "What's moving" band: replaced the duplicate editor's-picks column with a plain-prose
+  explanation of the publication-status framework.
+- New closing assessment section with full disclosure block (Victory E&I named, common
+  ownership stated, referral-fee funding model stated, links to Funding & Relationships).
+
+**Knowledge page (founder-directed V1 pass).**
+- Draft and template entries no longer render on the public page — reader-ready work
+  only (published/technical-review). They remain in the repo and reappear automatically
+  when their status earns it. StatusGroupedList untouched (other hubs out of scope).
+- New introduction defining the library's purpose; grouped by content type (System
+  encyclopedia / Decision guides / Comparisons) with status label + updated date per
+  entry; groups with nothing reader-ready are omitted rather than shown empty.
+- No filter UI existed to simplify; finding is delegated to /search/ (linked in intro).
+
+**Explicitly NOT done:** no new articles were written. Creating "publishable" content
+to fill homepage cards would require citations that have not been verified — the exact
+thing this site's governance forbids. The content gap to V1 remains editorial
+(KNOWN_ISSUES #1) and is stated honestly on the page instead of papered over.
+
+---
+
 ## 2026-07-17 (v2.1-RC2) — Author entity consistency + release hygiene
 
 `dist-v2.1-RC2.zip` · 1.42 MB · 120 files · build exit 0 · 60 pages, 24 indexable ·

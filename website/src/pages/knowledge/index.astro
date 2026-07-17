@@ -2,30 +2,48 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import StatusGroupedList from '../../components/StatusGroupedList.astro';
-import type { Item } from '../../components/StatusGroupedList.astro';
 import { getCollection } from 'astro:content';
-import { isIndexable } from '../../data/status';
+import { STATUS, isIndexable, type Status } from '../../data/status';
+import { formatDate } from '../../data/dates';
 
 const entries = await getCollection('knowledge');
 
-const label: Record<string, string> = {
-  article: 'Encyclopedia',
-  guide: 'Decision Guide',
-  comparison: 'Comparison',
-};
+/* V1 decision (founder-directed, Homepage/Knowledge completion sprints, July 2026):
+   the public Knowledge page lists only reader-ready work. Draft and template entries
+   are excluded from the public interface entirely — they remain in the repository and
+   return here automatically when their status earns it. The prior version listed
+   every entry grouped by status; the visible "Templates — not yet written" groups made
+   the page feel unfinished to visitors. Honesty is preserved by the status label on
+   every card and on every article page itself. */
+const READER_READY = new Set<Status>(['published', 'technical-review']);
+const ready = entries.filter((e) => READER_READY.has(e.data.status as Status));
 
-/* The complete pillar, grouped by publication status. Previously every entry rendered as
-   an identical Card, so a template placeholder was visually indistinguishable from a
-   finished, sourced article. */
-const items: Item[] = entries
-  .map((e) => ({
-    title: e.data.title,
-    href: `/knowledge/${e.id}/`,
-    description: label[e.data.type],
-    status: e.data.status,
-  }))
-  .sort((a, b) => a.title.localeCompare(b.title));
+const fmt = (d?: string) => (d ? formatDate(d, { month: 'short', day: 'numeric', year: 'numeric' }) : null);
+
+/* Grouped by content type — logical groups with clear headings, per the readability
+   directive — instead of one dense undifferentiated list. Empty groups are omitted. */
+const TYPE_GROUPS = [
+  {
+    type: 'article',
+    heading: 'System encyclopedia',
+    blurb: 'What each roofing system is, how it performs, how it fails, and what to verify before specifying it.',
+  },
+  {
+    type: 'guide',
+    heading: 'Decision guides',
+    blurb: 'Frameworks for the big decisions — what to weigh, what evidence to gather, and when each option deserves analysis.',
+  },
+  {
+    type: 'comparison',
+    heading: 'Comparisons',
+    blurb: 'Side-by-side analysis of systems and specifications on fixed criteria.',
+  },
+].map((g) => ({
+  ...g,
+  entries: ready
+    .filter((e) => e.data.type === g.type)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+})).filter((g) => g.entries.length > 0);
 
 /* Indexable once anything here is reachable to a reader — published, technical-review,
    or preliminary. A hub listing only unreachable pages is a crawl dead end. */
@@ -35,26 +53,47 @@ const indexableCount = entries.filter((e) => isIndexable(e.data.status)).length;
 <Base
   noindex={indexableCount === 0}
   title="Knowledge"
-  description="Commercial roofing systems, materials, maintenance, replacement, coatings, warranties, and technical fundamentals — the CRI knowledge base."
+  description="The central commercial roofing reference library — evidence-based articles, decision guides, and technical resources for commercial property owners and decision-makers."
 >
   <Breadcrumbs crumbs={[{ name: 'Knowledge' }]} />
   <PageHero
     eyebrow="Pillar 1 of 6"
     title="Knowledge"
-    lede="Commercial roofing systems, materials, maintenance, replacement, coatings, warranties, and technical fundamentals — written for decision-makers and sourced end to end."
+    lede="The central commercial roofing reference library: evidence-based educational articles, practical decision guides, and technical resources — written so commercial property owners and decision-makers can make informed roofing decisions."
   />
 
   <div class="container section--tight">
-    <div class="callout">
-      <strong class="callout__title">What you are looking at</strong>
-      This library is early and deliberately small. Everything CRI has started is listed
-      below, grouped by exactly how finished it is — including the parts that are not
-      finished. Only work under <strong>Published</strong> has been editorially reviewed
-      and sourced. Our <a href="/about/editorial-standards/">editorial standards</a>
-      explain what each stage means.
-    </div>
+    <p style="max-width: 70ch;">
+      Every page in this library is written for the person carrying the decision, not the
+      person selling the roof. Published work is editorially reviewed and lists its
+      sources; each page carries its own publication status and review date, so you always
+      know how mature the guidance is. The library grows only as new work clears
+      <a href="/about/editorial-standards/">editorial review</a> — looking for something
+      specific? <a href="/search/">Search the knowledge base</a>.
+    </p>
 
-    <StatusGroupedList items={items} />
+    {TYPE_GROUPS.map((g) => (
+      <section class="hub-group" style="margin-top: var(--space-7);">
+        <h2>{g.heading}</h2>
+        <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+          {g.blurb}
+        </p>
+        <ul class="hub-list">
+          {g.entries.map((e) => (
+            <li>
+              <a href={`/knowledge/${e.id}/`}>{e.data.title}</a>
+              <span class:list={['badge', `badge--status-${STATUS[e.data.status as Status].tone}`]}>
+                {STATUS[e.data.status as Status].label}
+              </span>
+              <span class="meta" style="display:block;">
+                {e.data.description}
+                {fmt(e.data.updated) && ` · Updated ${fmt(e.data.updated)}`}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
 
     <section class="section--tight" style="margin-top: var(--space-7);">
       <h2>Glossary</h2>

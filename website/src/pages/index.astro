@@ -8,7 +8,6 @@ import { SITE, PILLARS } from '../data/site';
 import { getCollection } from 'astro:content';
 import { publishedHrefs, isPromotable } from '../data/published';
 import { formatDate } from '../data/dates';
-import { isIndexable } from '../data/status';
 
 const knowledge = await getCollection('knowledge');
 const glossary = await getCollection('glossary');
@@ -55,34 +54,135 @@ const fmt = (d: string) => formatDate(d, { month: 'short', day: 'numeric', year:
    be featured even if someone adds it here later.
    Deliberately absent:
      - "TPO vs. EPDM" — still a template.
-     - "Roof Life Expectancy Estimator" — in development; produces no estimate.
+     - "Roof Life Expectancy Estimator" and the Benchmarks dataset — indexable so their
+       method can be examined, but `preliminary` is never promoted (see published.ts).
      - "White Roof vs. Black Roof" — still draft; its verification is not finished.
      - The EPDM card is NOT titled "The 50-Year Track Record". EPDM's *material history*
        spans 50+ years, but that phrasing reads as a service-life promise, and our own
        sourced planning range is 20–30 years. The safer heading is used instead. */
-const editorsPicks = [
-  { title: 'Facing Repair vs. Replace?', href: '/knowledge/guides/repair-or-replace/', note: 'The framework for the most consequential decision a roof forces — published and sourced' },
-  { title: 'EPDM Roofing: Performance, Uses, and Tradeoffs', href: '/knowledge/epdm-roofing-systems/', note: 'Where the oldest single-ply system still wins, and where it does not' },
-  { title: 'TPO Roofing Systems: An Owner\'s Reference', href: '/knowledge/tpo-roofing-systems/', note: 'What to verify before specifying the most common commercial membrane' },
+const featuredGuidance = [
+  { title: 'Repair or Replace? How to Decide', href: '/knowledge/guides/repair-or-replace/', type: 'Decision Guide', description: 'The framework for the most consequential decision a roof forces: what to weigh, what evidence to gather, and when each path deserves serious analysis.' },
+  { title: 'My Roof Is Leaking — What To Do Right Now', href: '/situations/my-roof-is-leaking/', type: 'Situation', description: 'The first hour, in order: protect people, contain water, document everything before cleanup — and the expensive mistakes people make while it is still raining inside.' },
+  { title: 'Storm Damage: The First 72 Hours', href: '/situations/storm-damage-first-72-hours/', type: 'Situation', description: 'What to document, who to call, and what not to sign. The steps that protect both the building and the insurance claim, sourced to Ready.gov and OSHA guidance.' },
+  { title: "TPO Roofing Systems: An Owner's Reference", href: '/knowledge/tpo-roofing-systems/', type: 'Encyclopedia', description: 'The most widely installed commercial membrane in North America: how it performs, how it fails, and the four things to verify before specifying it.' },
+  { title: 'EPDM Roofing: Performance, Uses, and Tradeoffs', href: '/knowledge/epdm-roofing-systems/', type: 'Encyclopedia', description: 'Where the oldest single-ply system still wins, where it does not, and how to read its long material history without mistaking it for a service-life promise.' },
 ].filter((p) => isPromotable(p.href, published));
 
-/* One featured situation, and only because it is now editorially complete and sourced
-   against Ready.gov and OSHA. Its own page discloses that technical review is pending.
-   People arrive at a site like this mid-emergency; burying the emergency guidance to look
-   tidy would be its own failure. */
-const featuredSituation = isPromotable('/situations/my-roof-is-leaking/', published)
-  ? { title: 'My Roof Is Leaking — What To Do Right Now', href: '/situations/my-roof-is-leaking/' }
-  : null;
+/* Titles only, no links, clearly labelled. These are real drafts in the repository whose
+   sources have not cleared review — naming forthcoming work is honest; linking readers
+   into unverified pages is not. Do not add hrefs here. */
+const inVerification = [
+  'Commercial Roof Inspections',
+  'Commercial Roof Warranties',
+  'Roof Coatings and Restoration',
+  'Hurricane Preparation',
+  'Insurance Claims After a Storm',
+  'TPO vs. EPDM',
+  'White Roof vs. Black Roof',
+  'Roof Life Expectancy Benchmarks v1.0',
+];
 
-/* Same rule for the audience strip. */
-const audienceCards = [
-  { title: 'Property Managers', href: '/for-your-role/property-managers/', description: 'Triage, budgeting, vendor oversight, and owner communication.' },
-  { title: 'HOA & Condo Boards', href: '/for-your-role/hoa-boards/', description: 'Reserve planning, special assessments, and defensible board decisions.' },
-].filter((c) => isPromotable(c.href, published));
+/* ROLE GUIDE — every "Start here" link is a hub, a governance page, or a page whose
+   status is published/technical-review (enforced through isPromotable at render). Role
+   hub pages themselves are still templates, so cards do NOT link to them; they link to
+   the real work a person in that seat can use today. The problems and questions below
+   are editorial framing, not factual claims — no numbers, no promises. */
+const roles = [
+  {
+    role: 'Building Owners',
+    problem: 'One roof, one budget, and a repair-or-replace question with six figures attached.',
+    questions: '“Do I actually need a new roof, or am I being sold one?”',
+    links: [
+      { label: 'Repair or Replace? How to Decide', href: '/knowledge/guides/repair-or-replace/' },
+      { label: 'TPO — the membrane most bids will quote', href: '/knowledge/tpo-roofing-systems/' },
+    ],
+  },
+  {
+    role: 'Property Managers',
+    problem: 'Tenant calls, vendor quotes, and owners who want one defensible recommendation.',
+    questions: '“A tenant reported a leak — what do I do before the contractor arrives?”',
+    links: [
+      { label: 'My Roof Is Leaking — first-hour steps', href: '/situations/my-roof-is-leaking/' },
+      { label: 'All situation guides', href: '/situations/' },
+    ],
+  },
+  {
+    role: 'HOA & Condo Associations',
+    problem: 'Volunteer boards making the building’s largest capital decision in public.',
+    questions: '“How do we compare bids that don’t even describe the same scope?”',
+    links: [
+      { label: 'The repair-or-replace framework', href: '/knowledge/guides/repair-or-replace/' },
+      { label: 'Request a free roof assessment', href: '/assessment/' },
+    ],
+  },
+  {
+    role: 'Facility Managers',
+    problem: 'Keeping the roof documented, maintained, and off the emergency list.',
+    questions: '“What should be in the file before storm season, not after?”',
+    links: [
+      { label: 'Storm damage: the first 72 hours', href: '/situations/storm-damage-first-72-hours/' },
+      { label: 'Browse the knowledge base', href: '/knowledge/' },
+    ],
+  },
+  {
+    role: 'Asset Managers',
+    problem: 'The roof is a capital asset with a service life — but the data behind “remaining life” claims is thin industry-wide.',
+    questions: '“What evidence actually stands behind a life-expectancy number?”',
+    links: [
+      { label: 'Data & Research — methods and limitations', href: '/data-research/' },
+      { label: 'Our research methodology', href: '/about/methodology/' },
+    ],
+  },
+  {
+    role: 'CRE Professionals',
+    problem: 'Due diligence windows are short, and the roof is the deal’s least-inspected major system.',
+    questions: '“What does the membrane on this building actually tell me?”',
+    links: [
+      { label: 'TPO systems reference', href: '/knowledge/tpo-roofing-systems/' },
+      { label: 'EPDM systems reference', href: '/knowledge/epdm-roofing-systems/' },
+    ],
+  },
+  {
+    role: 'Developers',
+    problem: 'Specifying a roof system today that someone else will own for decades.',
+    questions: '“What should the spec verify beyond the brand name?”',
+    links: [
+      { label: 'What owners should verify in a TPO spec', href: '/knowledge/tpo-roofing-systems/' },
+      { label: 'System references in the knowledge base', href: '/knowledge/' },
+    ],
+  },
+  {
+    role: 'Architects & Engineers',
+    problem: 'Clients bring roofing claims from sales meetings; you need neutral references to answer with.',
+    questions: '“Where is the sourced version of that claim?”',
+    links: [
+      { label: 'Encyclopedia and comparisons', href: '/knowledge/' },
+      { label: 'Editorial standards behind every page', href: '/about/editorial-standards/' },
+    ],
+  },
+  {
+    role: 'Insurance Professionals',
+    problem: 'Claims live or die on what was documented in the first days after a storm.',
+    questions: '“What should the insured have on file before we ever meet?”',
+    links: [
+      { label: 'Storm damage: the first 72 hours', href: '/situations/storm-damage-first-72-hours/' },
+      { label: 'All situation guides', href: '/situations/' },
+    ],
+  },
+  {
+    role: 'Financial Decision Makers',
+    problem: 'Approving roofing spend without a way to pressure-test the recommendation.',
+    questions: '“Is this expenditure defensible, and what were the alternatives?”',
+    links: [
+      { label: 'The repair-or-replace framework', href: '/knowledge/guides/repair-or-replace/' },
+      { label: 'How CRI works — and how it is funded', href: '/about/how-cri-works/' },
+    ],
+  },
+].map((r) => ({ ...r, links: r.links.filter((l) => isPromotable(l.href, published)) }));
 ---
 
 <Base title="Home" description={SITE.description}>
-  <!-- HERO: what CRI is, why trust it, where to start — in one viewport -->
+  <!-- HERO: what CRI is, who it serves, why it is different, where to start -->
   <section class="home-hero">
     <HeroArt />
     <div class="container">
@@ -91,8 +191,9 @@ const audienceCards = [
           are gated pending validated data. Do not restore the phrase until one is. */}
       <p class="lede">
         Independent, sourced guidance for the people who actually carry commercial roofing
-        decisions — owners, managers, and boards. Small on purpose, and clear about what it
-        does not yet know.
+        decisions — owners, property managers, boards, and the professionals who advise
+        them. No sales pitch, no scare tactics: published editorial standards, sources on
+        every published page, and plain statements of what we do not yet know.
       </p>
 
       <div class="hero-search hero-search--home">
@@ -114,10 +215,23 @@ const audienceCards = [
           </button>
         </form>
         <p class="hero-search__hint">
-          Press <kbd style="border:1px solid rgba(255,255,255,0.35); border-radius:4px; padding:0 5px;">/</kbd> anywhere to search
-          — or start from <a href="/situations/">your situation</a> or <a href="/for-your-role/">your role</a>.
+          Press <kbd style="border:1px solid rgba(255,255,255,0.35); border-radius:4px; padding:0 5px;">/</kbd> anywhere to search.
         </p>
       </div>
+
+      <div class="home-hero__actions" style="margin-top: var(--space-5);">
+        <a class="btn" href="/situations/">Start with your situation</a>
+        <a class="btn btn--secondary" href="/knowledge/guides/repair-or-replace/">Facing repair vs. replace?</a>
+        <a class="btn btn--ghost" href="/assessment/">Request a free roof assessment</a>
+      </div>
+      {/* The assessment CTA carries its disclosure at the point of offer, in the same
+          words the assessment page uses. Do not shorten it to just "free assessment". */}
+      <p style="font-size: var(--text-xs); margin-top: var(--space-3); opacity: 0.85;">
+        Assessments may be performed by Victory E&amp;I Roofing and Construction LLC, which
+        shares common ownership with CRI —
+        <a href="/about/funding-and-relationships/" style="color: var(--cri-blue-400);">relationship disclosed</a>.
+        CRI itself is an independent educational platform and performs no roofing work.
+      </p>
 
       {/* "Every claim sourced" was an absolute the site could not keep — a published
           guide carried two uncited numeric thresholds when this claim was written. Each
@@ -144,6 +258,7 @@ const audienceCards = [
       <p class="stats-band__note">
         Every count is of published, sourced work — the library is early and grows only
         as each piece clears <a href="/about/editorial-standards/">editorial review</a>.
+        Work in progress is listed below, and stays unlinked until its sources are verified.
       </p>
     </div>
   </section>
@@ -155,6 +270,7 @@ const audienceCards = [
         id="pillars-heading"
         eyebrow="Start anywhere"
         title="Six ways into the knowledge base"
+        lede="The same library, organized six ways — by topic, by tool, by emergency, by role, by evidence, and by question. Enter wherever your problem starts; every page cross-links to the rest."
       />
       <div class="grid grid--3">
         {PILLARS.map((pillar) => (
@@ -169,8 +285,37 @@ const audienceCards = [
     </div>
   </section>
 
+  <!-- FEATURED GUIDANCE — published and technical-review work only -->
+  <section class="section section--alt" aria-labelledby="featured-heading">
+    <div class="container">
+      <SectionHead
+        id="featured-heading"
+        eyebrow="Start with the decision in front of you"
+        title="Featured guidance"
+        lede="Most people arrive here mid-decision — a leak, a bid, a board meeting. These are the pages that answer the questions we see most, in the order the decision actually unfolds."
+      />
+      <div class="grid grid--3">
+        {featuredGuidance.map((p) => (
+          <Card title={p.title} href={p.href} type={p.type} description={p.description} />
+        ))}
+      </div>
+      {/* Titles only, deliberately unlinked — see inVerification note above. */}
+      <div style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">In verification now</h3>
+        <p class="text-muted" style="font-size: var(--text-sm); max-width: 62ch;">
+          The pages below are written and in source verification. They publish — and appear
+          here — only when every claim has a citation that survives review. That is slower
+          than the industry norm. It is also the point.
+        </p>
+        <p class="text-muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
+          {inVerification.join(' · ')}
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- LIVING INSTITUTION BAND -->
-  <section class="section section--alt" aria-labelledby="pulse-heading">
+  <section class="section" aria-labelledby="pulse-heading">
     <div class="container">
       <SectionHead
         id="pulse-heading"
@@ -182,13 +327,6 @@ const audienceCards = [
           Benchmarks v0.1 — a preliminary dataset whose own page says "not for citation".
           The homepage must not headline it as "Latest research". Restore when v1.0 is
           validated and published. */}
-      {featuredSituation && (
-        <div class="callout callout--caution" style="margin-bottom: var(--space-5);">
-          <strong class="callout__title">In the middle of it right now?</strong>
-          <a href={featuredSituation.href}>{featuredSituation.title}</a> — protect people
-          first, document before cleanup, and do not sign anything today.
-        </div>
-      )}
       <div class="grid grid--2">
         <div>
           <h3 style="margin-bottom: var(--space-3);">Recently updated</h3>
@@ -196,22 +334,26 @@ const audienceCards = [
             {recentlyUpdated.map((e) => (
               <li>
                 <a href={hrefFor(e)}>{e.data.title}</a>
-                <span class="meta">Updated {fmt(e.data.updated!)} · Reviewed by {e.data.reviewed}</span>
+                <span class="meta">Updated {fmt(e.data.updated!)} · Reviewed by {e.data.reviewed ?? 'Hila Atlan, Founder & Editor-in-Chief'}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h3 style="margin-bottom: var(--space-3);">Editor’s picks</h3>
-          <ul class="pulse-list">
-            {editorsPicks.map((p) => (
-              <li>
-                <a href={p.href}>{p.title}</a>
-                <span class="meta">{p.note}</span>
-              </li>
-            ))}
-          </ul>
+          <h3 style="margin-bottom: var(--space-3);">How pages earn their place</h3>
+          <p class="text-muted" style="font-size: var(--text-sm);">
+            Every page on CRI carries a visible publication status. <strong>Published</strong>
+            means editorially reviewed with sources listed. <strong>Technical review
+            pending</strong> means editorially complete, with subject-matter verification
+            still open — and the page says so. Draft work is excluded from search, from
+            promotion, and from this homepage until its sources are verified.
+          </p>
+          <p class="text-muted" style="font-size: var(--text-sm); margin-top: var(--space-2);">
+            The full framework is public: <a href="/about/editorial-standards/">editorial
+            standards</a>, <a href="/about/methodology/">methodology</a>, and a
+            <a href="/about/corrections/">corrections policy</a> that fixes errors in the open.
+          </p>
         </div>
       </div>
     </div>
@@ -220,15 +362,45 @@ const audienceCards = [
   {/* FEATURED COMPARISON + NEWEST TOOL — removed for V1.
       Both halves promoted unpublished pages: "TPO vs. EPDM" is `status: sample`,
       and the Roof Life Expectancy Estimator is noindexed pending Benchmarks v1.0.
-      The section also reprinted the sample dataset's service-life figures directly
-      on the homepage, giving placeholder numbers top-level prominence.
       Restore when a comparison and the estimator are genuinely published. */}
 
-  {/* SITUATIONS STRIP — removed for V1.
-      Headlined "My roof is leaking" and "Storm just hit"; both are `status: sample`
-      and their bodies are literal "Placeholder:" stubs. Promoting emergency triage
-      that leads to placeholder copy is the worst failure mode this site has, so the
-      strip is gone until those pages carry real, sourced production content. */}
+  <!-- FOR YOUR ROLE — the guidance that exists today, organized by the seat you sit in.
+       Role hub pages are still templates; cards link to real published work instead. -->
+  <section class="section section--alt" aria-labelledby="roles-heading">
+    <div class="container">
+      <SectionHead
+        id="roles-heading"
+        eyebrow="For your role"
+        title="Different seats, different questions"
+        lede="A leaking roof is one event, but it is ten different problems depending on where you sit — a capital decision for the owner, a claim for the insurer, a board vote for the association. Start from the questions your seat actually asks."
+        linkHref="/for-your-role/"
+        linkLabel="All roles"
+      />
+      <div class="grid grid--2">
+        {roles.map((r) => (
+          <article class="card">
+            <span class="badge badge--type">Role</span>
+            <h3>{r.role}</h3>
+            <p class="text-muted" style="font-size: var(--text-sm);">{r.problem}</p>
+            <p style="font-size: var(--text-sm); font-style: italic; margin-top: var(--space-2);">{r.questions}</p>
+            {r.links.length > 0 && (
+              <ul style="font-size: var(--text-sm); margin-top: var(--space-2); padding-left: 1.1em;">
+                {r.links.map((l) => (
+                  <li><a href={l.href}>{l.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+      <p class="text-muted" style="font-size: var(--text-sm); margin-top: var(--space-4); max-width: 70ch;">
+        Dedicated hubs for each role are in development and will publish under the same
+        review standard as everything else. Until then, the links above go straight to the
+        published work most relevant to each seat — nothing on this page links to
+        unfinished content.
+      </p>
+    </div>
+  </section>
 
   <!-- TRUST BAND -->
   <section class="section section--navy" aria-labelledby="trust-heading">
@@ -240,6 +412,7 @@ const audienceCards = [
           <h3>Independent</h3>
           <p style="font-size: var(--text-sm);">
             Editorial decisions are made solely by our editors, under public standards.
+            CRI sells no roofing work and accepts no payment for coverage.
             Every relationship is <a href="/about/funding-and-relationships/" style="color: var(--cri-blue-400);">disclosed</a>.
           </p>
         </div>
@@ -259,7 +432,8 @@ const audienceCards = [
         <div>
           <h3>Accountable</h3>
           <p style="font-size: var(--text-sm);">
-            Review dates on every page. Errors fixed in public under our
+            Review dates on every page. A named editor behind every review. Errors fixed
+            in public under our
             <a href="/about/corrections/" style="color: var(--cri-blue-400);">corrections policy</a>.
           </p>
         </div>
@@ -272,23 +446,43 @@ const audienceCards = [
     </div>
   </section>
 
-  <!-- AUDIENCE STRIP -->
-  <section class="section" aria-labelledby="audience-heading">
+  <!-- ASSESSMENT — the one offer on the page, disclosed at the point of offer -->
+  <section class="section" aria-labelledby="assessment-heading">
     <div class="container">
       <SectionHead
-        id="audience-heading"
-        eyebrow="For your role"
-        title="Guidance built for the seat you sit in"
-        linkHref="/for-your-role/"
-        linkLabel="All roles"
+        id="assessment-heading"
+        eyebrow="When reading isn't enough"
+        title="Want eyes on your actual roof?"
+        lede="Guides answer the general question. A written condition report with photos answers yours — what is actually up there, what needs attention, and what can wait."
       />
-      {/* Property Managers and HOA & Condo Boards cards sat here while both pages are
-          `status: sample`. They return automatically once published — see audienceCards. */}
-      <div class="grid grid--3">
-        {audienceCards.map((c) => (
-          <Card title={c.title} href={c.href} type="Audience" description={c.description} cta="Open hub" />
-        ))}
-        <Card title="All roles" href="/for-your-role/" type="Pillar" description="Owners, facility managers, investors, developers, architects, engineers, insurance professionals." cta="Browse" />
+      <div class="grid grid--2">
+        <div>
+          <p style="font-size: var(--text-sm);">
+            CRI arranges complimentary commercial roof assessments: a documented walk of
+            the roof, photographs, and a written condition report that is yours to keep —
+            whether or not any work ever follows. No obligation, and no pressure standard:
+            partners who pitch during an assessment lose the referral relationship.
+          </p>
+          <p class="text-muted" style="font-size: var(--text-xs); margin-top: var(--space-3);">
+            Disclosure: assessments may be performed by Victory E&amp;I Roofing and
+            Construction LLC, which shares common ownership with CRI. If you later choose
+            to engage a partner for work, CRI may receive a referral fee — this is how the
+            free platform is funded, documented under
+            <a href="/about/funding-and-relationships/">Funding &amp; Relationships</a>.
+            CRI is an independent educational platform and performs no roofing work itself.
+          </p>
+        </div>
+        <div>
+          <div class="callout callout--evidence">
+            <strong class="callout__title">What you get</strong>
+            A documented roof walk, photos, and a written condition report — plus the
+            knowledge base to read it against.
+            <div style="margin-top: var(--space-3);">
+              <a class="btn" href="/assessment/">Request an assessment</a>
+              <a class="btn btn--ghost" href="/contact/" style="margin-left: var(--space-2);">Ask a question first</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
