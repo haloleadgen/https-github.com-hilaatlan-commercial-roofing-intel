@@ -205,6 +205,10 @@ a:hover { color: var(--cri-navy-700); }
 .btn--ghost { background: transparent; color: var(--cri-blue-500); border-color: transparent; }
 .section--navy .btn--secondary { color: var(--cri-white); border-color: var(--cri-slate-300); }
 .section--navy .btn--secondary:hover { background: rgba(255,255,255,0.1); }
+/* The hero shares the navy background, so navy-on-transparent buttons vanish there. */
+.home-hero .btn--secondary { color: var(--cri-white); border-color: var(--cri-slate-300); }
+.home-hero .btn--secondary:hover { background: rgba(255,255,255,0.1); }
+.home-hero .btn--ghost { color: var(--cri-blue-400); }
 
 /* ---------- Cards ---------- */
 .card {
