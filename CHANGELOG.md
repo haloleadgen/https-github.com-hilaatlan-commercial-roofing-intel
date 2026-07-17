@@ -4,6 +4,40 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-17 (v2.3-RC1) — Situations page V1
+
+`dist-v2.3-RC1.zip` · 1.43 MB · 120 files · build exit 0 · 60 pages, 24 indexable ·
+`npm run verify` PASS. Supersedes v2.2-RC1. Situations hub only — no other page touched.
+
+- **Unfinished work removed from public view.** The hub rendered every entry grouped by
+  status, so the site's highest-intent page showed "Templates — not yet written" and
+  "Source verification in progress" headings to visitors. Now only reader-ready work
+  (published / technical-review) renders; the two drafts are named under "In verification
+  now" with one-line notes and **no links**, and three planned guides are listed as titles
+  only. Nothing routes a reader into unverified emergency or insurance guidance.
+- **Introduction strengthened** — three paragraphs establishing why the pillar is
+  organized by decision moment rather than by roofing system, what shape each guide
+  follows, and how to read the publication status.
+- **Grouped by urgency** (Happening right now / The days that follow / Deciding ahead of
+  time), each with an explanatory blurb. Empty groups are omitted rather than shown as
+  empty shells.
+- **Cards expanded** from a bare title + urgency label to: status badge, full editorial
+  description, the guide's own top two takeaways, live source count, and updated date —
+  all pulled from the entry's frontmatter, so a card can never drift from its page.
+- **"When a situation needs professional eyes"** — new educational section: five specific
+  conditions under which reading stops being enough, framed as documentation rather than
+  commitment, followed by the assessment CTA carrying the approved Victory E&I disclosure
+  verbatim (common ownership named, referral-fee funding model stated, Funding &
+  Relationships linked, "CRI performs no roofing work" stated).
+- **"Where to go next"** — new cross-pillar section linking Knowledge, Glossary, For Your
+  Role, Tools, and Data & Research. Every content link is filtered through `isPromotable`
+  at render, so an unfinished target cannot be linked even if added later.
+
+Verified: 26 distinct links on the hub, all resolving to real pages · zero links to the
+two drafts whose titles appear · disclosure intact · rendered and checked on staging.
+
+---
+
 ## 2026-07-17 (v2.2-RC1) — Homepage completion + Knowledge page V1
 
 `dist-v2.2-RC1.zip` · 1.42 MB · 120 files · build exit 0 · 60 pages, 24 indexable ·

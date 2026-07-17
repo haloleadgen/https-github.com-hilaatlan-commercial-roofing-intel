@@ -2,37 +2,77 @@
 import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import PageHero from '../../components/PageHero.astro';
-import StatusGroupedList from '../../components/StatusGroupedList.astro';
-import type { Item } from '../../components/StatusGroupedList.astro';
 import { getCollection } from 'astro:content';
-import { isIndexable } from '../../data/status';
+import { STATUS, isIndexable, type Status } from '../../data/status';
+import { publishedHrefs, isPromotable } from '../../data/published';
+import { formatDate } from '../../data/dates';
 
 const entries = await getCollection('situations');
-const urgencyLabel: Record<string, string> = {
-  emergency: 'Emergency',
-  'time-sensitive': 'Time-sensitive',
-  planning: 'Planning',
-};
+const published = await publishedHrefs();
 
+/* V1 (founder-directed Situations sprint, July 2026): only reader-ready work renders
+   publicly. Draft situations stay in the repository and return here automatically when
+   their sources clear verification — they are named further down as forthcoming, but
+   never linked. The prior version rendered every entry grouped by status, which put
+   "Templates — not yet written" headings on the public page.
+   Honesty is preserved by the status badge on each card and on each page itself. */
+const READER_READY = new Set<Status>(['published', 'technical-review']);
+const ready = entries.filter((e) => READER_READY.has(e.data.status as Status));
+
+const fmt = (d?: string) =>
+  d ? formatDate(d, { month: 'short', day: 'numeric', year: 'numeric' }) : null;
+
+/* Grouped by urgency — the axis a reader in trouble actually sorts on. Groups with
+   nothing reader-ready are omitted rather than displayed empty. */
+const URGENCY_GROUPS = [
+  {
+    urgency: 'emergency',
+    heading: 'Happening right now',
+    blurb:
+      'Water is coming in and decisions cannot wait. These guides lead with the safety steps, then the ones that protect the building and the evidence.',
+  },
+  {
+    urgency: 'time-sensitive',
+    heading: 'The days that follow',
+    blurb:
+      'The event has passed but the clock has not stopped. What gets documented, reported, and signed in this window shapes everything downstream.',
+  },
+  {
+    urgency: 'planning',
+    heading: 'Deciding ahead of time',
+    blurb:
+      'No emergency — a decision. Budgets, bids, due diligence, and the questions worth answering before a roof forces the issue.',
+  },
+].map((g) => ({
+  ...g,
+  entries: ready
+    .filter((e) => e.data.urgency === g.urgency)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+})).filter((g) => g.entries.length > 0);
+
+/* Titles only, deliberately unlinked — these drafts exist in the repository and their
+   sources are still in verification. Naming forthcoming work is honest; routing readers
+   into unverified emergency guidance is not. Do not add hrefs here. */
+const inVerification = [
+  { title: 'Hurricane Preparation for Commercial Roofs', note: 'The 96-hour sequence before a named storm makes landfall.' },
+  { title: "Commercial Roof Insurance Claims: The Owner's Playbook", note: 'How claims are actually evaluated, from notice to settlement.' },
+];
+
+/* Planned but not yet written. No page exists, so nothing here can be linked. */
 const planned = [
-  'Storm just hit my building',
-  'Filing an insurance claim',
-  'Preparing for hurricane season',
-  'Buying a building (roof due diligence)',
+  'Buying a building — roof due diligence',
   'My contractor proposal doesn’t make sense',
   'Budgeting for a roof replacement',
 ];
 
-/* The complete pillar, grouped by publication status — a template placeholder must never
-   look like a finished emergency guide. Indexable once anything here is reachable. */
-const items: Item[] = entries
-  .map((e) => ({
-    title: e.data.title,
-    href: `/situations/${e.id}/`,
-    description: urgencyLabel[e.data.urgency],
-    status: e.data.status,
-  }))
-  .sort((a, b) => a.title.localeCompare(b.title));
+/* Cross-pillar links, filtered through isPromotable so an unfinished page can never be
+   linked from here even if someone adds one later. */
+const relatedKnowledge = [
+  { label: 'Repair or Replace? How to Decide', href: '/knowledge/guides/repair-or-replace/', note: 'The decision most situations eventually lead to.' },
+  { label: "TPO Roofing Systems: An Owner's Reference", href: '/knowledge/tpo-roofing-systems/', note: 'The membrane most commercial buildings and bids involve.' },
+  { label: 'EPDM Roofing: Performance, Uses, and Tradeoffs', href: '/knowledge/epdm-roofing-systems/', note: 'Where the oldest single-ply system still earns its place.' },
+].filter((l) => isPromotable(l.href, published));
+
 const indexableCount = entries.filter((e) => isIndexable(e.data.status)).length;
 ---
 
@@ -57,13 +97,171 @@ const indexableCount = entries.filter((e) => isIndexable(e.data.status)).length;
       your local emergency number.
     </div>
 
-    <StatusGroupedList items={items} />
+    <p style="max-width: 70ch;">
+      Roofing decisions almost never begin with research. They begin with an event — a
+      stain spreading across a ceiling tile, a storm that just passed, a proposal that
+      doesn’t read right. This pillar organizes CRI’s guidance the way those moments
+      actually arrive: by how much time you have, and what the next few hours or days
+      will decide.
+    </p>
+    <p style="max-width: 70ch;">
+      Each guide below is written to be usable while the problem is still happening —
+      what to do first, what to protect, what to document before anything changes, and
+      the decisions that are safe to defer. Every one lists its sources and carries its
+      publication status, so you know how mature the guidance is before you rely on it.
+    </p>
 
-    <section class="section--tight">
-      <h2>Coming in the launch library</h2>
-      <ul>
-        {planned.map((p) => <li>{p}</li>)}
+    {URGENCY_GROUPS.map((g) => (
+      <section class="hub-group" style="margin-top: var(--space-7);">
+        <h2>{g.heading}</h2>
+        <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: var(--space-4); max-width: 70ch;">
+          {g.blurb}
+        </p>
+        <div class="grid grid--2">
+          {g.entries.map((e) => (
+            <article class="card">
+              <span class:list={['badge', `badge--status-${STATUS[e.data.status as Status].tone}`]}>
+                {STATUS[e.data.status as Status].label}
+              </span>
+              <h3><a href={`/situations/${e.id}/`}>{e.data.title}</a></h3>
+              <p class="text-muted" style="font-size: var(--text-sm);">{e.data.description}</p>
+              {e.data.takeaways && e.data.takeaways.length > 0 && (
+                <ul style="font-size: var(--text-sm); margin-top: var(--space-2); padding-left: 1.1em;">
+                  {e.data.takeaways.slice(0, 2).map((t: string) => <li>{t}</li>)}
+                </ul>
+              )}
+              <p class="card__meta">
+                {e.data.sources?.length > 0 && `${e.data.sources.length} sources cited`}
+                {fmt(e.data.updated) && ` · Updated ${fmt(e.data.updated)}`}
+              </p>
+              <span class="card__arrow" aria-hidden="true">Read →</span>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    {/* When a situation warrants a professional — educational, no pressure, and the
+        disclosure travels with the offer in the assessment page's own wording. */}
+    <section class="hub-group" style="margin-top: var(--space-7);">
+      <h2>When a situation needs professional eyes</h2>
+      <p style="max-width: 70ch;">
+        Most situations have a reading answer and a looking answer. A guide can tell you
+        what ponding water means; it cannot tell you whether the water on your roof is
+        ponding, or whether the stain in unit 4B started above it. Reading is enough when
+        you are orienting yourself, comparing options, or deciding what to ask. It stops
+        being enough at a few specific points:
+      </p>
+      <ul style="max-width: 70ch;">
+        <li>
+          <strong>After any storm that touched the building</strong> — wind and hail damage
+          is often invisible from the ground, and undocumented damage is difficult to claim
+          later.
+        </li>
+        <li>
+          <strong>When water has reached the interior more than once</strong> — repeat leaks
+          in the same area usually indicate a system problem, not a spot failure.
+        </li>
+        <li>
+          <strong>Before a capital decision</strong> — reserve studies, budget cycles, and
+          repair-versus-replace calls all rest on the roof’s actual condition, not its age.
+        </li>
+        <li>
+          <strong>When a proposal recommends full replacement and you have no independent
+          read</strong> — a documented condition report is how you check a recommendation
+          against evidence.
+        </li>
+        <li>
+          <strong>Before buying or refinancing</strong> — the roof is frequently the
+          least-inspected major system in a building at the moment it matters most.
+        </li>
       </ul>
+      <p style="max-width: 70ch;">
+        A condition assessment is documentation, not a commitment: a walked roof, photos,
+        and a written report that is yours to keep whether or not any work follows. CRI
+        arranges these at no cost.
+      </p>
+      <div class="callout callout--evidence">
+        <strong class="callout__title">Request a roof condition assessment</strong>
+        A documented roof walk, photographs, and a written condition report — no
+        obligation, and no pressure standard: partners who pitch during an assessment
+        lose the referral relationship.
+        <div style="margin-top: var(--space-3);">
+          <a class="btn" href="/assessment/">Request an assessment</a>
+          <a class="btn btn--ghost" href="/contact/" style="margin-left: var(--space-2);">Ask a question first</a>
+        </div>
+      </div>
+      <p class="text-muted" style="font-size: var(--text-xs); margin-top: var(--space-3); max-width: 70ch;">
+        Disclosure: assessments may be performed by Victory E&amp;I Roofing and Construction
+        LLC, which shares common ownership with CRI. If you later choose to engage a partner
+        for work, CRI may receive a referral fee — this is how the free platform is funded,
+        documented under <a href="/about/funding-and-relationships/">Funding &amp;
+        Relationships</a>. CRI is an independent educational platform and performs no
+        roofing work itself.
+      </p>
+    </section>
+
+    <!-- Cross-pillar links: knowledge, roles, tools -->
+    <section class="hub-group" style="margin-top: var(--space-7);">
+      <h2>Where to go next</h2>
+      <div class="grid grid--3">
+        <div>
+          <h3 style="font-size: var(--text-base);">Understand the system</h3>
+          <ul style="font-size: var(--text-sm); padding-left: 1.1em;">
+            {relatedKnowledge.map((l) => (
+              <li style="margin-bottom: var(--space-2);">
+                <a href={l.href}>{l.label}</a>
+                <span class="meta" style="display:block;">{l.note}</span>
+              </li>
+            ))}
+            <li><a href="/glossary/">Glossary</a> — the terms a proposal will use</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: var(--text-base);">Start from your seat</h3>
+          <ul style="font-size: var(--text-sm); padding-left: 1.1em;">
+            <li style="margin-bottom: var(--space-2);">
+              <a href="/for-your-role/">For your role</a>
+              <span class="meta" style="display:block;">The same situation reads differently to an owner, a manager, a board, or an insurer.</span>
+            </li>
+            <li><a href="/knowledge/">Browse the knowledge base</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: var(--text-base);">Tools &amp; evidence</h3>
+          <ul style="font-size: var(--text-sm); padding-left: 1.1em;">
+            <li style="margin-bottom: var(--space-2);">
+              <a href="/tools/">Tools</a>
+              <span class="meta" style="display:block;">What exists, and how finished each one is — stated plainly.</span>
+            </li>
+            <li>
+              <a href="/data-research/">Data &amp; Research</a>
+              <span class="meta" style="display:block;">Our datasets, methods, and their limitations.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="hub-group" style="margin-top: var(--space-7);">
+      <h2>In verification now</h2>
+      <p class="text-muted" style="font-size: var(--text-sm); max-width: 70ch;">
+        These guides are written and in source verification. They publish — and become
+        linkable — only when every claim carries a citation that survives review. On
+        emergency and insurance guidance especially, we would rather be late than wrong.
+      </p>
+      <ul style="font-size: var(--text-sm);">
+        {inVerification.map((p) => (
+          <li style="margin-bottom: var(--space-2);">
+            <strong>{p.title}</strong>
+            <span class="meta" style="display:block;">{p.note}</span>
+          </li>
+        ))}
+      </ul>
+      <h3 style="font-size: var(--text-base); margin-top: var(--space-5);">Planned</h3>
+      <p class="text-muted" style="font-size: var(--text-sm);">
+        {planned.join(' · ')}
+      </p>
     </section>
   </div>
 </Base>
