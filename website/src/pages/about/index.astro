@@ -1,12 +1,28 @@
 ---
 import GovernanceLayout from '../../layouts/GovernanceLayout.astro';
-import { GOVERNANCE } from '../../data/site';
+import { GOVERNANCE, SITE } from '../../data/site';
+
+/* Person entity for the named editor. Every fact here is already published in
+   visible text on this page — nothing is asserted to machines that is not
+   asserted to humans. No credentials are claimed (Hila holds no roofing,
+   contractor, or engineering credential and the site must never imply one). */
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Hila Atlan',
+  jobTitle: 'Founder & Editor-in-Chief',
+  description:
+    'Founder of Commercial Roofing Intel. Oversees editorial standards, research methodology, and publication quality.',
+  url: `${SITE.domain}/about/#who-is-behind-cri`,
+  worksFor: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
+};
 ---
 
 <GovernanceLayout
   title="About Commercial Roofing Intel"
   description="Commercial Roofing Intel (CRI) is an independent knowledge platform for commercial roofing — who we are, what we publish, and how we govern it."
   lede="CRI exists to give everyone responsible for a commercial roof the same quality of information as the professionals they hire."
+  schema={personSchema}
 >
   <h2>What CRI is</h2>
   <p>
@@ -22,7 +38,7 @@ import { GOVERNANCE } from '../../data/site';
     and no sales pitch.
   </p>
 
-  <h2>Who is behind CRI</h2>
+  <h2 id="who-is-behind-cri">Who is behind CRI</h2>
   <p>
     <strong>Hila Atlan, Founder &amp; Editor-in-Chief.</strong> Founder of Commercial
     Roofing Intel. Commercial real estate professional focused on evidence-based

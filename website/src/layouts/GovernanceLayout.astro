@@ -20,15 +20,17 @@ interface Props {
    *  for readers — a disclosure page should never be hard to find — but CRI does not
    *  solicit traffic to legal language that is not final. */
   noindex?: boolean;
+  /** Optional JSON-LD object passed through to Base (e.g. Person on the About page). */
+  schema?: Record<string, unknown>;
 }
-const { title, description, lede, updated, crumbName, noindex = false } = Astro.props;
+const { title, description, lede, updated, crumbName, noindex = false, schema } = Astro.props;
 const crumbs = crumbName
   ? [{ name: 'About', href: '/about/' }, { name: crumbName }]
   : [{ name: 'About' }];
 const currentPath = Astro.url.pathname;
 ---
 
-<Base title={title} description={description} noindex={noindex}>
+<Base title={title} description={description} noindex={noindex} schema={schema}>
   <Breadcrumbs crumbs={crumbs} />
   <PageHero eyebrow="Trust & Governance" title={title} lede={lede ?? description} />
 

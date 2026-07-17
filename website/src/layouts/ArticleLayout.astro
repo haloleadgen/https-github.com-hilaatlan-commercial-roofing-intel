@@ -22,7 +22,7 @@ import type { Source } from '../data/sources';
 interface Crumb { name: string; href?: string; }
 interface RelatedItem { title: string; href: string; type?: string; description?: string; }
 interface Heading { depth: number; slug: string; text: string; }
-interface Fact { label: string; value: string; }
+interface Fact { label: string; value: string; href?: string; }
 interface Link { title: string; href: string; }
 
 interface Props {
@@ -70,7 +70,14 @@ const reviewFacts: Fact[] = [
   // actually happened. This sidebar previously asserted "Reviewed by: Hila Atlan,
   // Founder & Editor-in-Chief" over template content that had had no such review.
   ...(meta.showEditorialReview
-    ? [{ label: 'Editorial review', value: reviewed ?? EDITOR }]
+    ? [
+        {
+          label: 'Editorial review',
+          value: reviewed ?? EDITOR,
+          // The claim links to the public description of the person making it.
+          ...(reviewed ? {} : { href: '/about/#who-is-behind-cri' }),
+        },
+      ]
     : []),
   ...(status === 'technical-review'
     ? [{ label: 'Technical review', value: 'Pending subject-matter verification' }]
@@ -95,7 +102,19 @@ const articleSchema = isIndexable(status)
       author: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
       publisher: { '@type': 'Organization', name: SITE.name, url: SITE.domain },
       ...(meta.showEditorialReview
-        ? { editor: { '@type': 'Person', name: reviewed ?? EDITOR } }
+        ? {
+            editor: reviewed
+              ? { '@type': 'Person', name: reviewed }
+              : {
+                  // Same entity as the Person schema on /about/ — one editor,
+                  // one URL, so every "Reviewed by" claim resolves to the same
+                  // publicly described person (E-E-A-T entity consistency).
+                  '@type': 'Person',
+                  name: 'Hila Atlan',
+                  jobTitle: 'Founder & Editor-in-Chief',
+                  url: `${SITE.domain}/about/#who-is-behind-cri`,
+                },
+          }
         : {}),
       ...(sourceCount > 0
         ? { citation: sources.map((x) => x.url ?? `${x.title} — ${x.publisher}`) }

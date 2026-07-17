@@ -1,6 +1,6 @@
 ---
 /** "Key facts" panel: at-a-glance review + article facts in the sidebar. */
-interface Fact { label: string; value: string; }
+interface Fact { label: string; value: string; href?: string; }
 interface Props { facts: Fact[]; }
 const { facts } = Astro.props;
 ---
@@ -11,7 +11,7 @@ const { facts } = Astro.props;
       {facts.map((f) => (
         <>
           <dt>{f.label}</dt>
-          <dd>{f.value}</dd>
+          <dd>{f.href ? <a href={f.href}>{f.value}</a> : f.value}</dd>
         </>
       ))}
     </dl>

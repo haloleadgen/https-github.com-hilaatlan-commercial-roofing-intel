@@ -22,7 +22,11 @@ const base = {
   title: z.string(),
   description: z.string(),
   updated: z.string().optional(),
-  reviewed: z.string().default('Hila Atlan, Founder & Editor-in-Chief'),
+  /** Set only to name a DIFFERENT reviewer. When unset, layouts attribute editorial
+   *  review to the default editor as a consistent linked entity (name + jobTitle +
+   *  /about/#who-is-behind-cri) in both the visible panel and Article schema.
+   *  A string default here would collapse that entity back to plain text. */
+  reviewed: z.string().optional(),
   /** The editorial publication-status framework — see src/data/status.ts.
    *  Governs indexing, search, promotion, and which trust claims may render.
    *  'template' replaces the former 'sample'. */

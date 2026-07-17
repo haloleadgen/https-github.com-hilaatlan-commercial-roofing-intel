@@ -4,6 +4,48 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-17 (v2.1-RC2) — Author entity consistency + release hygiene
+
+`dist-v2.1-RC2.zip` · 1.42 MB · 120 files · build exit 0 · 60 pages, 24 indexable ·
+`npm run verify` PASS. Supersedes RC1 (same day).
+
+**Trust improvement — one editor, one entity (was improvement #7).** Every editorial
+claim on the site now resolves to the same publicly described person:
+- `/about/` emits Person JSON-LD for Hila Atlan (name, jobTitle, description, worksFor)
+  built only from facts already visible on the page; the "Who is behind CRI" section
+  now has a stable anchor (`#who-is-behind-cri`).
+- Article schema `editor` and Organization `founder` reference that same entity with
+  the same URL, splitting name and jobTitle properly instead of one text blob.
+- The visible "Editorial review" fact in every article's Key Facts panel now links to
+  the About bio — the claim is one click from the person making it.
+- Root cause fixed: the content schema defaulted `reviewed` to a plain string, which
+  collapsed the entity to text on every collection page. `reviewed` is now optional
+  and means "a different reviewer"; the default editor is attributed by the layouts.
+  No credential is claimed anywhere — Hila's described role remains editorial only.
+
+**Release hygiene (QA fix).** All 15 superseded build zips moved to
+`website/releases/superseded/` with a DO-NOT-DEPLOY README. The misleadingly named
+`dist-v2.0-PRODUCTION.zip` (predates the RC2 citation work) is quarantined there.
+Exactly one deployable artifact now sits at `website/` root.
+
+**Verified absent, third session in a row: the Gemini research library.** Searched
+this machine, the connected Google Drive (Victory E&I marketing content only), Notion,
+and Gmail. It does not exist anywhere reachable. Nothing was invented in its place.
+
+**⚠️ Flagged for founder decision (not integrated, not changed):** Gmail shows a
+parallel auto-built site at `commercial-roofing-intel-llc.polsia.app` (July 14–15)
+describing CRI as a company that "provides commercial roofing services to businesses
+across South Florida." That contradicts the educational-platform mission, blurs the
+Victory E&I editorial firewall, and violates the one-production-codebase rule. It
+should be shut down or clearly separated before launch; live, it is a reputational
+and SEO liability (duplicate brand, contradictory positioning).
+
+**Remaining production pages:** every incomplete page requires editorial content
+(citations or subject-matter review), which cannot be manufactured. None were
+"completed" by invention. See KNOWN_ISSUES #1–#3.
+
+---
+
 ## 2026-07-17 (v2.1-RC1) — Launch-readiness sprint: per-page OG cards + permanent QA gate
 
 `dist-v2.1-RC1.zip` · 1.42 MB · 120 files · build exit 0 · 60 pages, 24 indexable.
