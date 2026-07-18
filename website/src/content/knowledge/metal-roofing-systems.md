@@ -4,6 +4,15 @@ description: "Standing seam and exposed-fastener metal roofing for commercial bu
 type: article
 status: draft
 updated: "2026-07-15"
+sources:
+  - title: "ASTM E1514 — Standard Specification for Structural Standing Seam Steel Roof Panel Systems"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/e1514-98r23e01.html"
+    supports: "Confirms structural standing seam steel roofing is a defined system with concealed panel clips and specified panel/clip anchorage and joint sealers — the technical basis for the standing-seam vs exposed-fastener distinction on this page. Verified against the current ASTM catalogue entry (E1514-98, reapproved 2023). It specifies the system and its test methods, not a field service-life figure."
+  - title: "ASTM A792/A792M — Standard Specification for Steel Sheet, 55 % Aluminum-Zinc Alloy-Coated by the Hot-Dip Process"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/a0792_a0792m-25a.html"
+    supports: "The substrate standard for Galvalume (55 % aluminum-zinc alloy-coated steel sheet) named on this page. Verified against the current ASTM catalogue entry (A792/A792M-25a). Specifies the coated-steel sheet material, not the finished roof's paint-warranty or service-life claims."
 takeaways:
   - "Metal is the longevity outlier: standing seam systems routinely plan for 30–45 years, with coating technology setting the ceiling."
   - "Standing seam (concealed clips) and exposed-fastener panels are different products with different lifespans — don't let bids blur them."
@@ -103,10 +112,15 @@ quiet advantages.
 **Is a metal roof loud in rain?**
 Over insulated commercial assemblies, no more than any other system.
 
-## Sources — none yet
+## Verification still outstanding
 
-This page has **no citations**. The documents below are the ones CRI intends to obtain
-and read; nothing here has been consulted, and none of it supports any statement above.
-It is a shopping list, not a bibliography.
+Verified so far: **ASTM E1514** (structural standing seam steel roof panel systems, with the
+concealed-clip definition this page relies on) and **ASTM A792/A792M** (the Galvalume
+substrate), each read against its current ASTM catalogue entry. They establish what the
+system and its substrate *are*.
 
-*To obtain: MCA/MBMA technical guides, ASTM E1514/E2140 (standing seam), UL 2218 (impact), paint-system warranty terms, FM wind-uplift approvals.*
+Still outstanding, and supporting nothing above until obtained: MCA/MBMA technical guides,
+ASTM E1592 (uplift test method) and E2140 (aluminum standing seam), UL 2218 and FM approvals
+behind the impact/hail and wind claims, and PVDF/"Kynar" paint-system warranty terms. The
+30–45 year service-life ranges and the fastener-cycle guidance remain editorial synthesis
+pending those sources. This page stays in source verification until they are read.

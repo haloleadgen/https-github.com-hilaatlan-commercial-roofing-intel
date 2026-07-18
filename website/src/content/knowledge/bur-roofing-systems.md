@@ -4,6 +4,15 @@ description: "What built-up (tar-and-gravel) roofing is, why it still protects l
 type: article
 status: draft
 updated: "2026-07-15"
+sources:
+  - title: "ASTM D312/D312M — Standard Specification for Asphalt Used in Roofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d0312_d0312m-16ar23.html"
+    supports: "Confirms the roofing asphalt (bitumen) in built-up roofs is a standardized material classified in four types (I–IV). Verified against the current ASTM catalogue entry (D312/D312M-16a, reapproved 2023). A material specification for the asphalt only — it does not establish BUR service life or assembly performance."
+  - title: "ASTM D2178/D2178M — Standard Specification for Asphalt Glass Felt Used in Roofing and Waterproofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d2178_d2178m-15ar21.html"
+    supports: "The reinforcing-ply half of a built-up roof: asphalt-impregnated glass felt, specified for use with D312 asphalt in BUR construction. Verified against the current ASTM catalogue entry (D2178/D2178M-15a, reapproved 2021). Specifies the felt material, not the finished roof's longevity."
 takeaways:
   - "BUR is the century-old multi-ply system: alternating bitumen and reinforcing felts, usually gravel-surfaced — maximum redundancy."
   - "Well-built BUR routinely reaches 20–30 years, and 4-ply systems longer; the aging is gradual, not sudden."
@@ -93,10 +102,14 @@ missing gravel is the problem to flag.
 Ply count, surfacing, tear-off scope, and insulation are frequently unequal across bids.
 Force identical specifications before comparing numbers.
 
-## Sources — none yet
+## Verification still outstanding
 
-This page has **no citations**. The documents below are the ones CRI intends to obtain
-and read; nothing here has been consulted, and none of it supports any statement above.
-It is a shopping list, not a bibliography.
+Verified so far: **ASTM D312/D312M** (the roofing asphalt) and **ASTM D2178/D2178M** (the
+asphalt glass ply felt) — the two material standards behind BUR's "alternating bitumen and
+felt" construction, each read against its current ASTM catalogue entry. D2178 is specified
+for use with D312 in built-up roofs, so the pair describes what BUR *is made of*, not how
+long it lasts.
 
-*To obtain: NRCA manual, ASTM D312 (asphalt), ARMA BUR technical literature, published service-life field studies.*
+Still outstanding, and supporting nothing above until obtained: the NRCA *Roofing Manual*,
+ARMA built-up-roofing literature, and published service-life field studies for the 20–30
+year range. This page stays in source verification until those are read.

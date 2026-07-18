@@ -4,6 +4,33 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-18 — Verified ASTM citations, batch 2 (BUR + metal drafts)
+
+Same pattern and guardrails as the entry below: source-only, both pages stay `draft`
+(noindexed, out of the sitemap), no publish. Each standard read against its current ASTM
+catalogue entry; every `supports` note scoped to material/system facts, never service life.
+
+- **`knowledge/bur-roofing-systems`** — added **ASTM D312/D312M-16a(2023)** (the roofing
+  asphalt) and **ASTM D2178/D2178M-15a(2021)** (the asphalt glass ply felt). The pair maps
+  onto BUR's "alternating bitumen and felt" construction; D2178 is specified for use with
+  D312 in built-up roofs. NRCA, ARMA, and field service-life studies remain outstanding.
+- **`knowledge/metal-roofing-systems`** — added **ASTM E1514-98(2023)e1** (structural
+  standing seam steel panel systems, incl. the concealed-clip definition) and **ASTM
+  A792/A792M-25a** (the Galvalume substrate). MCA/MBMA guides, ASTM E1592/E2140, UL 2218,
+  FM approvals, and PVDF paint-warranty terms remain outstanding; the 30–45 yr ranges stay
+  editorial synthesis.
+
+Verified: clean rebuild (exit 0, 0 warnings, 60 pages) · `npm run verify` PASS (24
+indexable, unchanged) · both pages noindex and absent from the sitemap · one Sources
+heading each · all four URLs resolve to live ASTM catalogue entries.
+
+Running total across both 2026-07-18 batches: **8 verified ASTM primary citations across 5
+membrane drafts** (PVC, modified-bitumen, roof-coatings, BUR, metal). All still `draft` —
+the publish decision remains the founder's, and each page still needs its remaining
+non-ASTM sources (NRCA especially) before it is publishable.
+
+---
+
 ## 2026-07-18 — Verified ASTM citations added to three membrane drafts
 
 Source-only change to three **draft** (noindexed) knowledge articles. No `status` flipped,
