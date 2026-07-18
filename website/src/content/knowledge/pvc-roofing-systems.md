@@ -4,10 +4,14 @@ description: "What PVC roofing is, why restaurants and chemical-exposure buildin
 type: article
 status: draft
 sources:
-  - title: "Understanding ASTM Standards for Roofing Membranes — summary of ASTM D4434 (Standard Specification for Poly(Vinyl Chloride) Sheet Roofing)"
-    publisher: "Carlisle SynTec (manufacturer summary of the ASTM standard)"
+  - title: "ASTM D4434/D4434M — Standard Specification for Poly(Vinyl Chloride) Sheet Roofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d4434_d4434m-21.html"
+    supports: "Confirms PVC single-ply roofing sheet must be fiber- or fabric-reinforced and sets its minimum material-property limits. Verified against the current ASTM catalogue entry (D4434/D4434M-21). It is a material specification: the standard explicitly excludes in-service life, fire resistance, and wind-uplift design, so it supports none of the service-life figures on this page."
+  - title: "Understanding ASTM Standards for Roofing Membranes — summary of ASTM D4434"
+    publisher: "Carlisle SynTec (manufacturer summary)"
     url: "https://www.carlislesyntec.com/en/Resources/Media/Blog-Landing-Page/SpecTopics/2021/12/16/Understanding-ASTM-Standards-for-Roofing-Membranes"
-    supports: "Type II (fiber-reinforced), Type III (fabric-reinforced), and Type IV classifications. This is a manufacturer's summary of the standard, not the standard itself — ASTM D4434 has not been read against its current catalogue entry. Carried over from the draft's own verification note."
+    supports: "Cited only for its plain-language enumeration of the D4434 reinforcement classes (Type II fiber-reinforced, Type III fabric-reinforced, Type IV). A manufacturer's summary, not the standard itself."
 updated: "2026-07-15"
 takeaways:
   - "PVC is a welded-seam single-ply membrane distinguished by chemical and grease resistance — the default over restaurants and industrial exhaust."
@@ -112,6 +116,12 @@ coating candidate. See [Coating vs. Replacement](/knowledge/compare/coating-vs-r
 
 ## Verification still outstanding
 
-Not yet obtained: the NRCA manual, SPRI bulletins, plasticizer-aging research, and ASTM
-D4434 itself rather than a manufacturer's summary of it. This page stays in source
-verification until they are.
+Verified so far: **ASTM D4434/D4434M**, read against its current ASTM catalogue entry —
+the material specification for PVC single-ply sheet, including its reinforcement
+requirement and property limits.
+
+Still outstanding: the NRCA *Roofing Manual: Membrane Roof Systems*, SPRI technical
+bulletins, and independent plasticizer-aging and field-service research to support the
+service-life range and the late-life brittleness and re-weldability claims. A material
+standard does not establish in-service longevity. This page stays in source verification
+until those are obtained.

@@ -4,6 +4,15 @@ description: "What mod-bit roofing is, where multi-ply redundancy still beats si
 type: article
 status: draft
 updated: "2026-07-15"
+sources:
+  - title: "ASTM D6164/D6164M — Standard Specification for Styrene Butadiene Styrene (SBS) Modified Bituminous Sheet Materials Using Polyester Reinforcements"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d6164_d6164m-26.html"
+    supports: "Confirms SBS-modified, polyester-reinforced bituminous sheet as a defined material class (Grades G granule-surfaced and S smooth-surfaced) intended for multiple-ply roofing and waterproofing membranes, and sets its property limits. Verified against the current ASTM catalogue entry (D6164/D6164M-26). A material specification — it does not establish service life or field performance."
+  - title: "ASTM D6222/D6222M — Standard Specification for Atactic Polypropylene (APP) Modified Bituminous Sheet Materials Using Polyester Reinforcements"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d6222_d6222m-16.html"
+    supports: "The APP counterpart to D6164: confirms APP-modified, polyester-reinforced bituminous sheet as a defined material class for multiple-ply membranes. Verified against the current ASTM catalogue entry (D6222/D6222M-16, reapproved 2023). A material specification, not a performance or service-life claim."
 takeaways:
   - "Modified bitumen is asphalt engineered with polymers (SBS or APP), installed in two or more plies — redundancy is its core value."
   - "A 2-ply mod-bit roof tolerates surface damage that would leak through any single-ply immediately."
@@ -97,10 +106,14 @@ under intense UV. Regional practice usually decides; both perform when installed
 Frequently yes, once granule loss begins but before saturation — see
 [Coating vs. Replacement](/knowledge/compare/coating-vs-replacement/).
 
-## Sources — none yet
+## Verification still outstanding
 
-This page has **no citations**. The documents below are the ones CRI intends to obtain
-and read; nothing here has been consulted, and none of it supports any statement above.
-It is a shopping list, not a bibliography.
+Verified so far: **ASTM D6164/D6164M** (SBS) and **ASTM D6222/D6222M** (APP) — the two
+material specifications for polyester-reinforced modified-bitumen sheet, each read against
+its current ASTM catalogue entry. They establish what the membranes *are*, not how long
+they last.
 
-*To obtain: ASTM D6162–D6164 (SBS), D6222–D6223 (APP), NRCA manual, ARMA technical bulletins, NFPA 241 / hot-work standards.*
+Still outstanding, and supporting nothing above until obtained: the NRCA *Roofing Manual*,
+ARMA technical bulletins, and NFPA 241 / hot-work fire-safety standards behind the
+torch-application guidance, plus field-service data for the 15–25 year range. This page
+stays in source verification until those are read.

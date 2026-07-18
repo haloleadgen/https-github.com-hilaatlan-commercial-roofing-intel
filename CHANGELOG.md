@@ -4,6 +4,44 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-18 — Verified ASTM citations added to three membrane drafts
+
+Source-only change to three **draft** (noindexed) knowledge articles. No `status` flipped,
+no page published, nothing added to the sitemap — the founder's publish decision is left
+untouched (PROJECT_RULES #3, #8). Attacks the documented #1 bottleneck — *citation
+verification, not writing* (KNOWN_ISSUES #1) — by converting standards the drafts had
+listed as "to obtain" into verified primary sources.
+
+Each ASTM standard was read against its **current official ASTM catalogue entry** before
+citing (PROJECT_RULES #2; the `sources.ts` rule "checked against their current official
+catalogue description"). Every `supports` note is scoped to what a *material specification*
+actually proves — none is allowed to stand behind a service-life figure, which these
+standards explicitly exclude.
+
+- **`knowledge/pvc-roofing-systems`** — added **ASTM D4434/D4434M-21** as the primary
+  citation. The Carlisle manufacturer summary is retained, now scoped to only the
+  Type II/III/IV reinforcement enumeration it actually supports. "Verification still
+  outstanding" updated: D4434 verified; NRCA *Roofing Manual*, SPRI bulletins, and
+  plasticizer-aging/field research still outstanding.
+- **`knowledge/modified-bitumen-roofing-systems`** — added **ASTM D6164/D6164M-26** (SBS)
+  and **ASTM D6222/D6222M-16, reapproved 2023** (APP). Body "Sources — none yet" converted
+  to "Verification still outstanding" (NRCA, ARMA, NFPA 241 / hot-work, and field-service
+  data for the 15–25 yr range remain).
+- **`knowledge/roof-coatings`** — added **ASTM D6083/D6083M-24** (acrylic). Note records
+  that a silicone/urethane material standard, RCMA bulletins, CRRC reflectivity data, and
+  IRS maintenance-vs-capital guidance remain outstanding, and that the ponding/adhesion/
+  mil-thickness/cost statements are still editorial synthesis.
+
+Verified: clean rebuild after clearing the content-layer cache (exit 0, **0 warnings**, 60
+pages) · `npm run verify` **PASS** (24 indexable, unchanged) · all three pages remain
+`noindex` and absent from the sitemap · exactly one Sources heading per page (no duplicate
+from the auto-rendered `Sources` component) · every citation URL resolves to a live ASTM
+catalogue entry. `dist/` not committed with this change — it is a draft-only, non-shipping
+edit; rebuild before any deploy per PROJECT_RULES #4. Left for the founder: whether/when to
+promote these drafts (still short of publishable — each needs its remaining sources first).
+
+---
+
 ## 2026-07-17 (v2.3-RC1) — Situations page V1
 
 `dist-v2.3-RC1.zip` · 1.43 MB · 120 files · build exit 0 · 60 pages, 24 indexable ·

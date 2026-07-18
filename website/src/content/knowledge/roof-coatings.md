@@ -4,6 +4,11 @@ description: "Silicone, acrylic, and urethane roof coatings — what restoration
 type: article
 status: draft
 updated: "2026-07-15"
+sources:
+  - title: "ASTM D6083/D6083M — Standard Specification for Liquid-Applied Acrylic Coating Used in Roofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d6083_d6083m-24.html"
+    supports: "Confirms liquid-applied water-based acrylic elastomeric roof coating as a defined material class and sets its property requirements (solids, viscosity, tensile, elongation, weathering, adhesion). Verified against the current ASTM catalogue entry (D6083/D6083M-24). It standardises the acrylic material only — it does not cover silicone or urethane coatings, application, or in-service coating life."
 takeaways:
   - "A coating is not a new roof: it's UV and weathering protection for a roof that is still fundamentally sound."
   - "The candidacy test is moisture: coating over a wet roof seals the problem in. Survey first, always."
@@ -103,10 +108,14 @@ commonly targets 10–20 years, renewable by recoat if the substrate stays sound
 Sometimes, and sometimes it's marketing. Compare leak-coverage terms, exclusions
 (ponding, traffic), and maintenance requirements line by line.
 
-## Sources — none yet
+## Verification still outstanding
 
-This page has **no citations**. The documents below are the ones CRI intends to obtain
-and read; nothing here has been consulted, and none of it supports any statement above.
-It is a shopping list, not a bibliography.
+Verified so far: **ASTM D6083/D6083M** — the material specification for liquid-applied
+acrylic roof coating, read against its current ASTM catalogue entry. It standardises the
+acrylic chemistry only.
 
-*To obtain: ASTM D6694/D6083/C836 (coating standards), RCMA technical bulletins, CRRC reflectivity data, manufacturer system specifications, IRS maintenance vs. capital guidance.*
+Still outstanding, and supporting nothing above until obtained: an equivalent material
+standard for silicone and urethane coatings, RCMA technical bulletins, CRRC reflectivity
+data, and IRS guidance on the maintenance-vs-capital tax treatment referenced above. The
+ponding, adhesion, mil-thickness, and cost statements remain editorial synthesis pending
+those sources. This page stays in source verification until they are read.
