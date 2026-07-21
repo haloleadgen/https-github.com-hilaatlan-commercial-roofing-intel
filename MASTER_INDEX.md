@@ -1,6 +1,6 @@
 # Master Index — Commercial Roofing Intel
 
-**Start here.** This is the single entry point for the project. Last updated July 16, 2026.
+**Start here.** This is the single entry point for the project. Last updated July 21, 2026.
 
 CommercialRoofingIntel.com — an independent commercial roofing knowledge platform.
 Static site, Astro 5 + Pagefind. Source in `website/src/`, built output in `website/dist/`.
@@ -24,32 +24,33 @@ Static site, Astro 5 + Pagefind. Source in `website/src/`, built output in `webs
 
 | | |
 | --- | --- |
-| **Package** | `website/dist-v1.9-RC2.zip` (679 KB, 162 files) — supersedes RC1 |
-| **Build date** | 2026-07-16 |
-| **Node** | v22.23.1 (matches `netlify.toml`) |
-| **Status** | **Release candidate — not production.** Legal, DNS, and email gates are open. |
+| **Package** | `website/dist-v2.4-RC1.zip` — supersedes all earlier zips |
+| **Build date** | 2026-07-21 |
+| **Node** | v22.x (`sharp` now a tracked devDependency — earlier builds relied on a global install) |
+| **Status** | **Release candidate — not production.** Legal, professional-review, DNS, and email gates are open. |
 
 `dist-v1.9-RC1.zip` and `dist-v2.0-PRODUCTION.zip` are retained but **superseded**. RC1
 predates the citation migration; v2.0-PRODUCTION predates the status framework entirely
 and still carries the old trust badges. Deploy neither.
 
-**Citation coverage:** structured citations are in **9 of 35** content files — every file
-that has a real citation to structure. The other 26 have none, and now say so on the page
-("Sources — none yet"). There is no hidden backlog of unstructured citations.
+**Citation coverage (July 21):** structured, fetched-and-verified citations are in **all
+24 published files and all 4 technical-review files**. Only the 6 noindexed template
+pages and the preliminary dataset remain uncited — and say so on the page.
 
 ## The three facts that matter most today
 
-1. **The build is clean and the site is honest.** `npm ci && npm run build` → exit 0,
-   zero errors, zero warnings, 60 pages. Every trust claim is now gated on publication
-   status, and the acceptance test passes: every visible source count equals the visible
-   source entries on that page.
-2. **Launch is still held — on editorial, legal and operational gates, not engineering.**
-   3 pages are fully published; 2 emergency pages are editorially complete but await
-   technical review by a qualified roofer; counsel has not reviewed privacy, terms, or the
-   funding page; no hosting, DNS, or CRI-domain email exists.
+1. **The content gap is substantially closed.** July 21: 21 drafts were verified and
+   published — **24 published pages** (from 3), 48 indexable (from 24), every published
+   page carrying fetched-and-verified sources with limits stated. Clean rebuild → exit 0,
+   60 pages, `npm run verify` PASS.
+2. **Launch is still held — on legal, professional-review, and operational gates.**
+   Four Situations pages await review by qualified professionals (roofer / claims);
+   counsel has not reviewed privacy, terms, or the funding page; the GoDaddy domain still
+   serves a placeholder; no CRI-domain email exists. None of these are content or
+   engineering problems.
 3. **`status` is the only switch.** Indexing, search, sitemap, nav, homepage promotion and
-   every badge derive from it. Change one word of frontmatter and the whole site updates
-   consistently. Never route around it — see [PROJECT_RULES.md](PROJECT_RULES.md).
+   every badge derive from it. This session's 21 status flips propagated everywhere with
+   zero manual wiring — never route around it. See [PROJECT_RULES.md](PROJECT_RULES.md).
 
 ## The editorial status framework
 

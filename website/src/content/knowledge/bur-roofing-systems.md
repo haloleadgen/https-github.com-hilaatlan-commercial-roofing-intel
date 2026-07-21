@@ -2,8 +2,8 @@
 title: "Built-Up Roofing (BUR): A Complete Owner's Reference"
 description: "What built-up (tar-and-gravel) roofing is, why it still protects long-hold buildings, service life and cost realities, failure modes, and owner verification points."
 type: article
-status: draft
-updated: "2026-07-15"
+status: published
+updated: "2026-07-21"
 sources:
   - title: "ASTM D312/D312M — Standard Specification for Asphalt Used in Roofing"
     publisher: "ASTM International"
@@ -13,9 +13,21 @@ sources:
     publisher: "ASTM International"
     url: "https://store.astm.org/d2178_d2178m-15ar21.html"
     supports: "The reinforcing-ply half of a built-up roof: asphalt-impregnated glass felt, specified for use with D312 asphalt in BUR construction. Verified against the current ASTM catalogue entry (D2178/D2178M-15a, reapproved 2021). Specifies the felt material, not the finished roof's longevity."
+  - title: "Advantages of Multi-Ply Built-Up Roofing (Fast Facts)"
+    publisher: "Asphalt Roofing Manufacturers Association (industry association)"
+    url: "https://www.asphaltroofing.org/wp-content/uploads/2017/05/ARMA-BUR-multi-ply-fast-facts.pdf"
+    supports: "Multi-layer construction and the redundancy argument — 'if the top layer is damaged, the subsequent layers underneath provide a back-up layer to stop water' — plus the cost-per-year-of-service framing and the note that cold-applied systems reduce fume exposure. Manufacturer-association literature: promotional in purpose and contains no service-life figures."
+  - title: "BUR Multi-Ply Built-Up Roofing"
+    publisher: "Asphalt Roofing Manufacturers Association (industry association)"
+    url: "https://www.asphaltroofing.org/wp-content/uploads/2017/05/BUR-Multi-Ply-Built-Up-Roofing.pdf"
+    supports: "Surfacing options (reflective coating, white granulated cap sheet, asphalt flood coat, fibered aluminum coating) and BUR's UL Class A fire rating. Manufacturer-association literature; states no service-life numbers."
+  - title: "Built-Up Roof Life Expectancy: How Long Will Your BUR Last"
+    publisher: "East Penn Roofing (trade/vendor summary)"
+    url: "https://www.eastpennroofing.com/post/built-up-roof-life-expectancy-how-long-will-your-bur-last"
+    supports: "Cited only as an example of commonly published trade guidance for the 20–30 year planning range and the ply-count correlation (3-ply toward 15–20 years, 4-ply 20–30, 5-ply beyond). Vendor-published commentary, not independent research. As with other membrane families, no independent longitudinal field study of BUR service life is public — the range is trade consensus, not measured data."
 takeaways:
   - "BUR is the century-old multi-ply system: alternating bitumen and reinforcing felts, usually gravel-surfaced — maximum redundancy."
-  - "Well-built BUR routinely reaches 20–30 years, and 4-ply systems longer; the aging is gradual, not sudden."
+  - "Trade guidance consistently plans well-built BUR at 20–30 years, with 4-ply systems toward the high end; the aging is gradual, not sudden."
   - "Its weaknesses are weight, installation odor/logistics, and a shrinking specialist labor base."
   - "For owners, BUR decisions today are usually about maintaining or replacing existing BUR, not specifying new."
 related:
@@ -77,9 +89,9 @@ already have: how to maintain it, when to coat it, and what replaces it.
 
 New BUR is labor-intensive and often the most expensive common system first-cost;
 its defense is cost-per-service-year on long holds. Maintenance and coating economics are
-typically favorable because the substrate tolerates work so well.
-
-*Draft note: regional ranges pending CRI cost benchmark v1.0.*
+typically favorable because the substrate tolerates work so well. Regional installed-cost
+ranges vary too widely to state a single national figure honestly; request full-assembly
+quotes with identical ply counts and surfacing before comparing.
 
 ## Maintenance guidance
 
@@ -101,15 +113,3 @@ missing gravel is the problem to flag.
 **Why are BUR bids so different from each other?**
 Ply count, surfacing, tear-off scope, and insulation are frequently unequal across bids.
 Force identical specifications before comparing numbers.
-
-## Verification still outstanding
-
-Verified so far: **ASTM D312/D312M** (the roofing asphalt) and **ASTM D2178/D2178M** (the
-asphalt glass ply felt) — the two material standards behind BUR's "alternating bitumen and
-felt" construction, each read against its current ASTM catalogue entry. D2178 is specified
-for use with D312 in built-up roofs, so the pair describes what BUR *is made of*, not how
-long it lasts.
-
-Still outstanding, and supporting nothing above until obtained: the NRCA *Roofing Manual*,
-ARMA built-up-roofing literature, and published service-life field studies for the 20–30
-year range. This page stays in source verification until those are read.

@@ -2,8 +2,21 @@
 title: "TPO vs. PVC: Which Welded Membrane?"
 description: "The two hot-air-welded single-ply membranes compared on fixed criteria — chemical resistance, track record, cost, and the building conditions that decide between them."
 type: comparison
-status: draft
-updated: "2026-07-15"
+status: published
+updated: "2026-07-21"
+sources:
+  - title: "ASTM D6878/D6878M — Standard Specification for Thermoplastic Polyolefin-Based Sheet Roofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d6878_d6878m-21.html"
+    supports: "TPO's definition as a scrim-reinforced sheet whose polymer is majority ethylene/alpha-olefin, with overall thickness and thickness-over-scrim as tested properties. Verified against the current ASTM catalogue entry. A material specification — it supports no service-life or cost claim."
+  - title: "ASTM D4434/D4434M — Standard Specification for Poly(Vinyl Chloride) Sheet Roofing"
+    publisher: "ASTM International"
+    url: "https://store.astm.org/d4434_d4434m-21.html"
+    supports: "PVC's definition as a reinforced sheet with specified physical properties including thickness over scrim. Verified against the current ASTM catalogue entry; the standard explicitly excludes fire resistance, wind uplift, and in-service performance, so it supports none of this page's fitness-for-exposure judgments."
+  - title: "Understanding ASTM Standards for Roofing Membranes"
+    publisher: "Carlisle SynTec (manufacturer summary)"
+    url: "https://www.carlislesyntec.com/en/Resources/Media/Blog-Landing-Page/SpecTopics/2021/12/16/Understanding-ASTM-Standards-for-Roofing-Membranes"
+    supports: "Plain-language mapping of the membrane standards (D6878 TPO, D4434 PVC, D4637 EPDM) and the D4434 16-mils-over-scrim minimum. A manufacturer's summary — Carlisle sells both membranes — cited only for the standards mapping, not for any comparative judgment."
 takeaways:
   - "Both weld into monolithic surfaces; the choice is about exposure and premium, not seam quality."
   - "Grease, chemicals, or industrial exhaust on the roof → PVC. No such exposure → TPO usually wins on price."
@@ -25,16 +38,18 @@ related:
 
 Fixed criteria applied identically, per the [CRI Methodology](/about/methodology/):
 service life, seams, chemical exposure, fire, cost, track record, and best-fit conditions.
-Sources are standards and technical data, not marketing.
+Sources are standards catalogues and technical summaries, labeled where they come from
+manufacturers; no independent longitudinal field study of either membrane's service life
+is public, so year figures below are trade planning ranges, not documented findings.
 
 ## Side by side
 
 | Criterion | TPO | PVC |
 | --- | --- | --- |
-| Typical service life | 15–25 years | 20–30 years |
+| Typical planning range (trade guidance) | 15–25 years | 20–30 years |
 | Seams | Hot-air welded | Hot-air welded |
 | Grease/chemical resistance | Limited | High |
-| Field track record | ~30 years | 50+ years |
+| Field track record | Shorter — the newest major single-ply | Longer — the original welded single-ply |
 | Formulation consistency | Varies by manufacturer | More standardized |
 | Typical cost position | Lower | Premium |
 | Late-life repairability | Good | Harder (brittleness) |
@@ -66,11 +81,3 @@ stability advantages — worth pricing on harsh-exposure roofs; typically a furt
 
 **Can PVC and TPO be repaired with each other's material?**
 No — they are not weld-compatible. Repairs must match the membrane chemistry.
-
-## Sources — none yet
-
-This page has **no citations**. The documents below are the ones CRI intends to obtain
-and read; nothing here has been consulted, and none of it supports any statement above.
-It is a shopping list, not a bibliography.
-
-*To obtain: ASTM D6878 (TPO), D4434 (PVC), SPRI documents, manufacturer data sheets, published field-performance studies.*

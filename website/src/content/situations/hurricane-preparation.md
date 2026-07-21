@@ -1,19 +1,31 @@
 ---
 title: "Hurricane Preparation for Commercial Roofs"
-description: "A 96-hour preparation sequence for named storms: what to secure, document, and stage before landfall — and why the pre-storm file determines the post-storm claim."
+description: "A preparation sequence for named storms: what to secure, document, and stage before landfall — and why the pre-storm file shapes the post-storm claim."
 urgency: time-sensitive
-status: draft
+status: technical-review
+updated: "2026-07-21"
 sources:
-  - title: "Florida SB 4-D Building Safety Law — milestone inspection requirements"
-    publisher: "Thornton Tomasetti (engineering firm summary)"
-    url: "https://www.thorntontomasetti.com/florida-sb4d-building-safety-law"
-    supports: "Milestone inspections for buildings of three or more habitable stories: first inspection at 30 years (25 in some coastal jurisdictions), recurring every 10 years. A third-party summary, not the statute — Fla. Stat. has not been read directly. Carried over from the draft's own verification note."
-updated: "2026-07-15"
+  - title: "EZ-PREP: Severe Weather Emergency Preparedness and Response Planning"
+    publisher: "Insurance Institute for Business & Home Safety (IBHS)"
+    url: "https://disastersafety.org/wp-content/uploads/2016/04/ez-prep-ibhs.pdf"
+    supports: "Timeline-phased business storm preparation (5 days / 72 hours / 24–48 hours out): clearing roof drains, gutters, and downspouts of debris to prevent water backup at about 72 hours out; checking that rooftop equipment mounts (air conditioners, fan housings, satellite dishes, antennas, signs) are secure; removing or securing loose ground items that may become windborne debris; maintaining emergency contact lists. A business emergency-preparedness toolkit, not a roofing engineering document — it does not address membrane systems specifically."
+  - title: "Hurricane Safety — Plan Ahead"
+    publisher: "NOAA National Weather Service"
+    url: "https://www.weather.gov/safety/hurricane-plan"
+    supports: "Reviewing insurance policies to ensure adequate coverage, and the principle that the best time to prepare is before hurricane season begins on June 1. General public-safety guidance, not commercial-building-specific."
+  - title: "Background on: Hurricane and windstorm deductibles"
+    publisher: "Insurance Information Institute (III)"
+    url: "https://www.iii.org/article/background-on-hurricane-and-windstorm-deductibles"
+    supports: "Hurricane and windstorm deductibles are typically percentage-based rather than flat-dollar, and their structure and triggers vary by state and by policy. Primarily written around residential coverage; commercial property appears only in its survey of state wind programs — cited here for the general deductible structure, not for any specific commercial figure."
+  - title: "Filing a Business Insurance Claim after a Disaster"
+    publisher: "Insurance Information Institute (III)"
+    url: "https://www.iii.org/article/filing-business-insurance-claim-after-disaster"
+    supports: "Post-loss basics for businesses: contact the insurer as soon as possible, photograph damage, make reasonable temporary repairs to prevent additional damage while avoiding permanent repairs before the adjuster's assessment, and keep receipts and records. General business-claims guidance, not roofing-specific."
 takeaways:
-  - "Hurricane prep is mostly documentation and drainage: prove pre-storm condition, and make sure water can leave the roof."
-  - "The pre-storm photo file is the single most valuable claim asset you can create — carriers evaluate damage against prior condition."
-  - "Loose rooftop items become projectiles and membrane punctures; securing them is the highest-leverage physical task."
-  - "After the storm, temporary protection is your policy duty; permanent repair decisions can wait for the adjuster."
+  - "Hurricane prep is mostly documentation and drainage: record the roof's pre-storm condition, and make sure water can leave the roof."
+  - "A dated pre-storm photo record is evidence you cannot recreate afterward — disputed claims often turn on prior condition."
+  - "Loose rooftop and ground items can become wind-borne debris; securing them is one of the highest-leverage physical tasks."
+  - "After the storm: reasonable temporary protection to prevent further damage, then wait for the adjuster before permanent repairs — and ask your insurer what your policy requires."
 related:
   - title: "Storm Damage: The First 72 Hours"
     href: "/situations/storm-damage-first-72-hours/"
@@ -28,72 +40,87 @@ related:
 
 ## The principle: prepare the file, not just the roof
 
-When a claim is disputed, the argument is almost never about whether the storm happened —
-it's about what condition the roof was in before it hit. Owners with a dated, photographed
-pre-storm record settle faster and more fully than owners without one. Every physical task
-below matters; the documentation tasks decide the money.
+When a claim is disputed, the argument is rarely about whether the storm happened — it is
+usually about what condition the roof was in before it hit. A dated, photographed
+pre-storm record is evidence you cannot recreate afterward. Every physical task below
+matters; the documentation tasks are what let you prove, later, what the storm did and
+did not do.
+
+The real starting line is earlier than any forecast: the National Weather Service's
+standing advice is that the best time to prepare is before hurricane season begins. The
+inspection, the file, and the insurance review below are far easier in May than with a
+named storm on the map.
 
 ## 96–72 hours out
 
-- **Commission or perform a documented walk-through.** Date-stamped photos of the field,
-  every seam line you can see, all flashings, drains, [scuppers](/glossary/scupper/),
-  rooftop units, and interior ceilings below the roof.
+- **Commission or perform a documented walk-through** — by your roofing contractor or
+  someone trained and equipped to be on the roof safely. Date-stamped photos of the
+  field, every seam line you can see, all flashings, drains,
+  [scuppers](/glossary/scupper/), rooftop units, and interior ceilings below the roof.
 - **Pull the file together:** last inspection report, warranty, maintenance log, prior
   repair invoices. If it isn't in one folder, make it one folder today.
-- **Review your policy's named-storm provisions** — deductible (often percentage-based for
-  wind), notice requirements, and your duty to mitigate.
+- **Review your policy's storm provisions** — the deductible (hurricane and windstorm
+  deductibles are often percentage-based, and their structure varies by state and by
+  policy), notice requirements, and what your policy requires of you after a loss. If
+  anything is unclear, ask your broker now, not after landfall.
 
 ## 72–24 hours out
 
-- **Clear drainage completely.** Drains, scuppers, gutters, overflow paths. Most "wind"
-  claims include water damage that better drainage would have reduced.
-- **Secure or remove loose items:** ballast checks, equipment panels, satellite mounts,
-  abandoned equipment, stored materials. Anything loose is a puncture waiting to happen.
+- **Clear drainage completely.** Drains, scuppers, gutters, downspouts, overflow paths.
+  IBHS's business preparedness guidance puts clearing roof drains, gutters, and
+  downspouts of debris at about 72 hours out — blocked drainage lets wind-driven rain
+  become a standing water load.
+- **Secure or remove loose items.** Check that rooftop equipment mounts — air
+  conditioners, fan housings, satellite dishes, antennas, signs — are secure, and remove
+  or tie down loose stored materials and abandoned equipment. Anything loose can become
+  wind-borne debris: a hazard to people and neighboring property, and a puncture risk for
+  the membrane.
 - **Tighten the details:** have a roofer address any open seams, loose flashings, or
-  unsealed penetrations found in the walk-through — minor pre-storm repairs are cheap;
-  the same defect after landfall becomes a coverage argument.
+  unsealed penetrations found in the walk-through. A defect repaired and documented
+  before the storm is a maintenance item; the same defect discovered afterward can muddy
+  the question of what the storm actually caused.
 - **Photograph everything again after prep is done.** This is the "condition at landfall"
   record.
 
 ## 24 hours out
 
 - Interior prep: move inventory away from historically vulnerable areas, stage tarps and
-  containers, confirm emergency contacts (roofer, mitigation contractor, insurance agent,
-  and your policy's claim-reporting number) are written down somewhere that works without
-  power.
+  containers for after the storm, and confirm emergency contacts — roofer, mitigation
+  contractor, insurance agent or broker, and your policy's claim-reporting number — are
+  written down somewhere that works without power.
 
 ## After the storm
 
-Follow the [first-72-hours protocol](/situations/storm-damage-first-72-hours/): safety,
-documentation before touching anything, temporary protection (your duty), claim notice,
-and no permanent repairs before adjuster review. Then work the
+Follow the [first-72-hours protocol](/situations/storm-damage-first-72-hours/): safety
+first, documentation before anything changes, reasonable temporary protection to prevent
+further damage (most policies expect this — keep receipts), prompt claim notice, and no
+permanent repairs before the adjuster's assessment. Then work through the
 [insurance claim playbook](/situations/insurance-claims/).
 
 ## State and local notes
 
-Wind-zone code requirements, roof-attachment rules, and insurance law vary sharply by
-state — Florida in particular has building-code and condo-inspection requirements
-(including milestone-inspection law for older multi-story buildings) that change both
-prep and post-storm obligations. *Draft note: state-specific reference pages (Florida
-first) are planned for the Data & Research pillar; statutory citations will be added
-under verification.*
+Wind-zone code requirements, roof-attachment rules, inspection obligations, and insurance
+law vary by state and locality, and some coastal jurisdictions add requirements that
+change both preparation and post-storm obligations. This page stays at the national
+level deliberately: check your state's department of insurance consumer pages and your
+local building department for the rules that apply to your building, and ask your broker
+how your policy interacts with them.
 
 ## Frequently asked questions
 
 **Is it worth paying a roofer for a pre-storm inspection every season?**
-For most commercial roofs in hurricane-exposed regions, yes — it doubles as the annual
-maintenance inspection and produces the pre-storm condition record.
+For many owners in hurricane-exposed regions it doubles as the annual maintenance
+inspection, and it produces the dated condition record this page is built around. Whether
+it pays for itself depends on the roof and the building — but the record is the point.
 
 **Should we tarp proactively before a storm?**
-No — tarps don't survive hurricane winds and can worsen membrane damage. Pre-storm effort
-belongs in drainage, securing loose items, and sealing known defects.
+Tarps are post-storm temporary protection, not pre-storm hardening. High winds can
+displace a tarp, and a displaced tarp — with whatever fastened or ballasted it — becomes
+debris of its own. Pre-storm effort belongs in drainage, securing loose items, and
+repairing known defects.
 
 **Our roof is old. Does prep still matter?**
-More, not less. An aging roof with a documented maintenance record is a coverage
-conversation; an aging roof with no record invites a wear-and-tear denial.
-
-## Verification still outstanding
-
-Not yet obtained: FEMA/NOAA guidance, IBHS programs, FM data sheets, HVHZ code
-provisions, and the statute itself rather than a summary of it. This page stays in
-source verification until they are.
+More, not less. Commercial property policies generally cover accidental damage rather
+than wear and tear, and routine maintenance is the owner's responsibility. A documented
+maintenance record is what lets an older roof's storm damage be distinguished from its
+age; without one, that distinction is much harder to make.

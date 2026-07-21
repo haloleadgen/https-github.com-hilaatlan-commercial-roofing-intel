@@ -4,6 +4,59 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-21 — v2.4-RC1: the editorial publication session — 3 → 24 published pages
+
+The launch bar ("20–30 real cornerstone articles") was the last content blocker Claude
+could clear, and this session cleared the bulk of it. **21 drafts were verified and
+published; 2 situations drafts were promoted to `technical-review`.** Every new citation
+was fetched and read before being added; every `supports` note states what the source
+supports *and its limits*. No citation was invented; claims that could not be sourced
+were softened, reframed as trade guidance with a named origin, or deleted.
+
+**Published this session (21):**
+- Knowledge (7): bur-roofing-systems · metal-roofing-systems ·
+  modified-bitumen-roofing-systems · pvc-roofing-systems · roof-coatings ·
+  commercial-roof-inspections · commercial-roof-warranties
+- Compare (6): 45-mil-vs-60-mil · adhered-vs-mechanically-attached ·
+  coating-vs-replacement · modbit-vs-bur · tpo-vs-pvc · white-roof-vs-black-roof
+- Glossary (8): flashing · fully-adhered · mechanically-attached · mil-thickness ·
+  parapet · scrim · square · wind-uplift
+
+**Promoted to `technical-review` (2):** situations/hurricane-preparation ·
+situations/insurance-claims — fully sourced (IBHS, NWS, III, NAIC), Florida-specific
+legal claims replaced with national language, adversarial/outcome-claim wording removed.
+Both await review by qualified professionals, and say so on the page.
+
+**Integrity corrections en route:**
+- `white-roof-vs-black-roof` — the draft's sole source attributed a 236-city model and
+  a 2001 Austin field study to an LBNL/ENERGY STAR PDF that contains neither. Rewritten
+  to what the document actually says; correction disclosed in the `supports` field.
+- `epdm-roofing-systems` (published) carried a leftover "*Draft note*" in its cost
+  section — replaced with an honest no-validated-dataset statement.
+- `commercial-roof-warranties` — "ponding is the most consequential standard exclusion"
+  corrected: neither specimen warranty names it as an exclusion; reframed per the
+  actual documents.
+- Every "## Sources — none yet" placeholder section deleted from the published set.
+
+**Build fix:** `sharp` was imported by `scripts/generate-og.mjs` but missing from
+`package.json` — the build only worked where sharp happened to be installed globally.
+Added to devDependencies (lockfile updated). Without this, a Netlify build from git
+would have failed.
+
+**Result:** clean rebuild from `rm -rf dist .astro` → exit 0, 60 pages, **48 indexable**
+(was 24), 47 OG cards, `npm run verify` **PASS**. The hubs un-noindexed automatically —
+the status machinery worked exactly as designed. Homepage hero claim "Every published
+page lists its sources" verified true: minimum source count across all 24 published
+pages is 1.
+
+**Citation sourcing notes:** ASTM store pages became robots-blocked mid-session, so some
+ASTM designations are supported through verified secondary descriptions (Professional
+Roofing, Carlisle's standards summary) rather than direct store URLs. Five sources were
+independently re-fetched at the end of the session as an adversarial spot-check
+(ARMA PDF, DOE, III, IIBEC, RCMA) — all real, all supporting the attached claims.
+
+---
+
 ## 2026-07-18 — Verified ASTM citations, batch 2 (BUR + metal drafts)
 
 Same pattern and guardrails as the entry below: source-only, both pages stay `draft`

@@ -97,8 +97,9 @@ often the lowest-first-cost single-ply option where structure allows the weight.
 Request costs as a full assembly quote (membrane, insulation, attachment, flashings,
 tear-off, disposal) — never as membrane square-foot price alone.
 
-*Draft note: regional cost ranges will be added from the CRI cost benchmark dataset when
-v1.0 validation completes.*
+CRI does not yet publish regional cost ranges: we have not validated a dataset we would
+be willing to cite. Until we do, treat any specific figure you encounter as a starting
+point for bids, not a benchmark.
 
 ## Maintenance guidance
 

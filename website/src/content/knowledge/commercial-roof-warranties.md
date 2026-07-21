@@ -2,12 +2,25 @@
 title: "Commercial Roof Warranties: What's Actually Covered"
 description: "Manufacturer NDL warranties versus contractor workmanship warranties, the exclusions that surprise owners, and how to keep a 20-year warranty actually worth 20 years."
 type: article
-status: draft
-updated: "2026-07-15"
+status: published
+updated: "2026-07-21"
+sources:
+  - title: "EverGuard Diamond Pledge NDL Roof Guarantee (specimen)"
+    publisher: "GAF (manufacturer document)"
+    url: "https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1818198/GAF_NDL_Warranty.pdf"
+    supports: "What an NDL guarantee actually promises: repair of leaks caused by manufacturing defect, ordinary wear, or workmanship, with 'no dollar limit on covered repairs.' Also its conditions and exclusions: written leak notice within 30 days; regular inspections and maintenance with records kept; written GAF approval required for repairs, modifications, additions, or changes in building use; consequential/incidental damages (interior damage, mold) excluded; a $500 investigation fee when a leak proves non-covered. A specimen form hosted by a third party — individual issued guarantees vary by version, term, and negotiated riders."
+  - title: "Golden Seal Total Roofing System Warranty (sample copy)"
+    publisher: "Carlisle SynTec (manufacturer document, hosted by Buildsite)"
+    url: "https://www.buildsite.com/pdf/carlislesyntec/Carlisle-SynTec-Golden-Seal-Total-Roofing-System-Warranty-2928851.pdf"
+    supports: "That repair of the leak is the owner's exclusive remedy; 30-day written leak notice; the warranty is 'null and void' if alterations or repairs are made without prior written authorization; exclusions for damage from building components, other trades' work, chemicals, condensation, and consequential damages; maintenance conditions requiring six-month inspections and retained records; and transferability contingent on completed procedures, fees, and inspection. Notable limit: ponding water is not a named exclusion in this sample — it is policed through the maintenance/drainage obligations instead. A sample form; issued terms vary."
+  - title: "Is Your Roof Warranty Really Protecting You?"
+    publisher: "Buildings magazine (trade press)"
+    url: "https://www.buildings.com/industry-news/article/10188492/is-your-roof-warranty-really-protecting-you"
+    supports: "That ponding water and poor maintenance appear among standard exclusions in commercial roof warranties; that owners must perform and document maintenance inspections to keep coverage; and that manufacturer warranties 'generally cover only stopping the leak,' not loss of use or contents. Trade-press reporting based on practitioner interviews, not a survey of warranty documents."
 takeaways:
   - "A roof warranty is a contract with conditions, not a guarantee — most owner disappointment comes from unread terms, not bad faith."
   - "The gold standard is a manufacturer NDL (No Dollar Limit) system warranty; contractor workmanship warranties cover the most common early failures."
-  - "Standard exclusions — ponding water, unauthorized repairs, unreported leaks, trades damage — void more coverage than product failure ever uses."
+  - "Exclusions and conditions — unauthorized repairs, unreported leaks, other trades' damage, unmet maintenance and drainage obligations — are where owners most often lose coverage in practice."
   - "Warranties require maintenance records; the inspection file is what keeps coverage alive."
 related:
   - title: "Commercial Roof Inspections: What Good Looks Like"
@@ -25,10 +38,12 @@ related:
 
 - **Manufacturer warranty** — covers the membrane/system per its terms. Ranges from
   bare material-only coverage (prorated, labor excluded — worth little) to **NDL system
-  warranties** covering material and labor to repair covered leaks, with no per-repair
-  dollar cap, contingent on certified-installer work and manufacturer inspection.
-- **Contractor workmanship warranty** — covers installation defects, typically 1–5
-  years. Most early roof failures are workmanship, which makes this short warranty
+  warranties** obligating the manufacturer to repair covered leaks with "no dollar limit
+  on covered repairs" (GAF's specimen language), contingent on certified-installer work,
+  registration, and the manufacturer's conditions.
+- **Contractor workmanship warranty** — covers installation defects. Its term is set by
+  contract, not by any standard, and is usually measured in a few years rather than
+  decades. Most early roof failures are workmanship, which makes this short warranty
   disproportionately important — and makes contractor longevity part of the spec.
 
 The two are complementary; sophisticated owners negotiate both explicitly.
@@ -41,11 +56,16 @@ approved installer, registered warranty, required maintenance, and the exclusion
 
 ## The exclusions that actually void coverage
 
-1. **[Ponding water](/glossary/ponding-water/)** — the most consequential standard
-   exclusion; chronic ponding areas can lose coverage entirely.
+1. **[Ponding water](/glossary/ponding-water/)** — trade press lists it among standard
+   exclusions, and even where it is not a named exclusion (it isn't in the Carlisle
+   sample CRI read), chronic ponding can cost coverage through the warranty's
+   maintenance and drainage obligations. Either way, read how your terms treat it.
 2. **Unauthorized repairs** — patching by a non-approved roofer can void the system
-   warranty. Emergency mitigation is generally accommodated — document and notify.
-3. **Unreported leaks** — most terms require prompt written notice.
+   warranty; the Carlisle sample is "null and void" on unauthorized alterations. How
+   emergency mitigation is treated varies — check your terms, and document and notify
+   regardless.
+3. **Unreported leaks** — both specimen warranties CRI reviewed require written notice
+   within 30 days of discovering a leak.
 4. **Other trades** — HVAC, solar, and telecom damage isn't the roofer's product failure.
 5. **Change of use / added equipment** without manufacturer sign-off.
 6. **Consequential damage** — contents and interiors are the insurance policy's job,
@@ -86,13 +106,5 @@ of maintenance and prompt notice frequently reverses first denials. Persistent d
 justify a consultant's review.
 
 **Does the warranty transfer if we sell the building?**
-Many do, with notice and a fee within a set window. Handle it during the transaction —
-it's cheap diligence with real value.
-
-## Sources — none yet
-
-This page has **no citations**. The documents below are the ones CRI intends to obtain
-and read; nothing here has been consulted, and none of it supports any statement above.
-It is a shopping list, not a bibliography.
-
-*To obtain: representative manufacturer warranty documents (NDL terms, exclusions), NRCA warranty guidance, IIBEC commentary, assignability terms.*
+Many do — the Carlisle sample makes transfer contingent on completed procedures, fees,
+and an inspection. Handle it during the transaction — it's cheap diligence with real value.

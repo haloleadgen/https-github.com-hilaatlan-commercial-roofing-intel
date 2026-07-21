@@ -1,10 +1,11 @@
 # Launch Checklist — CommercialRoofingIntel.com
 
-Updated July 17, 2026 · Release candidate **`dist-v2.1-RC1.zip`** (1.42 MB, 120 files — includes 23 per-page OG cards)
+Updated July 21, 2026 · Release candidate **`dist-v2.4-RC1.zip`** (48 indexable pages, 47 per-page OG cards)
 Supersedes `GO-LIVE.md` and the checklist in `VERSION-1-REPORT.md` where they conflict.
 
-**Status: HOLD LAUNCH.** Engineering is done. Every remaining blocker is editorial,
-legal, or operational — and none of them can be cleared by Claude.
+**Status: HOLD LAUNCH — but the editorial gate is now substantially cleared.**
+The published set went from 3 to **24 cited pages** on July 21 (see CHANGELOG).
+Every remaining blocker is legal, professional-review, or operational.
 
 The site is now *honest*: nothing claims more than it has earned, and the status of every
 page is stated on the page. What it is not yet is *finished*, and it does not pretend to be.
@@ -24,12 +25,15 @@ page is stated on the page. What it is not yet is *finished*, and it does not pr
 - [ ] **Partner agreement in writing** — the no-pressure standard and referral fees.
 
 ### Editorial
-- [ ] **Technical review of both emergency pages** by a qualified roofing professional.
-      They are editorially complete and sourced to Ready.gov and OSHA, and the pages say
-      openly that technical review is pending. Once reviewed, flip
+- [ ] **Professional review of the four Situations pages** — the two emergency pages
+      (qualified roofing professional), hurricane-preparation (roofing professional),
+      and insurance-claims (commercial claims professional). All four are editorially
+      complete, sourced, and say openly that review is pending. Once reviewed, flip
       `status: technical-review` → `published`.
-- [ ] **Decide whether 3 published articles is a launch.** Your own rule says 20–30.
-      23 drafts need *citations, not writing*.
+- [x] **The 20–30 article launch bar** — substantially cleared July 21: **24 published
+      pages** (16 substantive knowledge articles/comparisons + 8 glossary terms), every
+      one with fetched-and-verified sources. Remaining quick wins: the 3 template
+      glossary terms.
 - [ ] **Benchmarks v1.0** — validate the dataset, then the estimator can be restored.
       Until then both are correctly gated.
 

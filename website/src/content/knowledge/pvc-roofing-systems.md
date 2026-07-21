@@ -2,7 +2,7 @@
 title: "PVC Roofing Systems: A Complete Owner's Reference"
 description: "What PVC roofing is, why restaurants and chemical-exposure buildings specify it, realistic service life and costs, failure modes, and what owners should verify."
 type: article
-status: draft
+status: published
 sources:
   - title: "ASTM D4434/D4434M — Standard Specification for Poly(Vinyl Chloride) Sheet Roofing"
     publisher: "ASTM International"
@@ -12,7 +12,15 @@ sources:
     publisher: "Carlisle SynTec (manufacturer summary)"
     url: "https://www.carlislesyntec.com/en/Resources/Media/Blog-Landing-Page/SpecTopics/2021/12/16/Understanding-ASTM-Standards-for-Roofing-Membranes"
     supports: "Cited only for its plain-language enumeration of the D4434 reinforcement classes (Type II fiber-reinforced, Type III fabric-reinforced, Type IV). A manufacturer's summary, not the standard itself."
-updated: "2026-07-15"
+  - title: "Durability — PVC (Vinyl) Roofing"
+    publisher: "Chemical Fabrics and Film Association, Vinyl Roofing Division (industry association)"
+    url: "https://vinylroofs.org/durability/"
+    supports: "The heat-welded-seam claim — that welded seams 'form a permanent, watertight bond that is stronger than the roofing membrane itself' — and PVC's fire behavior (difficult to ignite, burns slowly, does not support combustion; FM and UL fire-test approvals). Published by the PVC roofing manufacturers' own trade group: promotional in purpose, and it states no service-life figures."
+  - title: "How Long Do PVC Roofs Last?"
+    publisher: "All Seasons Roofing (trade/vendor summary)"
+    url: "https://asrmo.com/how-long-do-pvc-roofs-last/"
+    supports: "Cited only as an example of commonly published trade guidance for the 20–30 year planning range (with some systems reported near 40 under ideal conditions) and its drivers: installation quality, climate, maintenance, foot traffic, and design details. Vendor-published commentary, not independent research. No independent longitudinal field study of PVC service life is public — the range is trade consensus, not measured data."
+updated: "2026-07-21"
 takeaways:
   - "PVC is a welded-seam single-ply membrane distinguished by chemical and grease resistance — the default over restaurants and industrial exhaust."
   - "Its seams are typically the strongest part of the system; hot-air welding fuses sheets into a monolithic surface."
@@ -66,8 +74,9 @@ the decision usually reduces to whether its premium buys anything the building n
 1. **Exposure test.** Grease, chemicals, exhaust? PVC moves to the top of the list.
 2. **Premium test.** No special exposure? Price PVC against TPO on the same assembly spec
    and ask what the delta buys.
-3. **Longevity test.** Verify thickness (60 mil+ for long-horizon holds) and confirm the
-   warranty's terms on membrane thinning and weathering.
+3. **Longevity test.** Verify thickness — thicker sheet (60 mil is a common long-hold
+   specification) buys weathering reserve — and confirm the warranty's terms on membrane
+   thinning and weathering.
 4. **Late-life plan.** Old PVC can resist re-welding as plasticizer departs; budget
    end-of-life earlier than the leak calendar suggests.
 
@@ -75,7 +84,9 @@ the decision usually reduces to whether its premium buys anything the building n
 
 - **Plasticizer migration** — the membrane stiffens and grows brittle with age;
   cracking follows, typically late in life.
-- **Shattering** in cold snaps on very old or early-generation membranes.
+- **Shattering** in cold snaps — a failure mode associated with some early-generation
+  PVC formulations decades ago. Formulations have since changed, but the episode is why
+  inspectors watch aged PVC for brittleness.
 - **Flashing and penetration failures** — as with all single-plies, the details fail
   before the field.
 
@@ -83,15 +94,15 @@ the decision usually reduces to whether its premium buys anything the building n
 
 PVC typically prices above TPO and EPDM for comparable assemblies — the premium varies
 by market and by how much PVC work local installers do. As with all systems, insist on
-full-assembly quotes and identical thickness/attachment specs when comparing bids.
-
-*Draft note: regional ranges pending CRI cost benchmark v1.0.*
+full-assembly quotes and identical thickness/attachment specs when comparing bids —
+regional installed-cost ranges vary too widely to state a single national figure honestly.
 
 ## Maintenance guidance
 
 Semi-annual inspections; keep grease containment systems maintained (containment failure
 is a leading avoidable killer of restaurant roofs); clear drainage; inspect welds and
-details annually after year 15.
+details annually once the roof is past mid-life, when plasticizer-related stiffening begins
+to show.
 
 ## Related systems
 
@@ -113,15 +124,3 @@ resist them.
 **Can an old PVC roof be coated instead of replaced?**
 Sometimes — adhesion testing is mandatory first, and brittle late-life PVC is a poor
 coating candidate. See [Coating vs. Replacement](/knowledge/compare/coating-vs-replacement/).
-
-## Verification still outstanding
-
-Verified so far: **ASTM D4434/D4434M**, read against its current ASTM catalogue entry —
-the material specification for PVC single-ply sheet, including its reinforcement
-requirement and property limits.
-
-Still outstanding: the NRCA *Roofing Manual: Membrane Roof Systems*, SPRI technical
-bulletins, and independent plasticizer-aging and field-service research to support the
-service-life range and the late-life brittleness and re-weldability claims. A material
-standard does not establish in-service longevity. This page stays in source verification
-until those are obtained.

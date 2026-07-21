@@ -1,110 +1,74 @@
 # Content Inventory — Commercial Roofing Intel
 
-Generated July 16, 2026 from `website/src/content/` and verified against `website/dist/`.
+Updated July 21, 2026 from `website/src/content/` and verified against a clean rebuild
+of `website/dist/` (`npm run verify` → PASS).
 
-**Headline:** 60 built pages · 23 indexable · **3 substantive published articles.**
+**Headline:** 60 built pages · **48 indexable** · **24 published content pages** ·
+4 in technical review · 6 templates · 1 preliminary dataset.
 
-`status` drives everything automatically: anything not `published` gets
-`noindex, follow` in the head **and** is excluded from the XML sitemap
-(`astro.config.mjs`). That machinery is correct and well built — the content just
-hasn't caught up to it.
+`status` drives everything automatically: anything not indexable-grade gets
+`noindex, follow` and is excluded from the XML sitemap (`astro.config.mjs`). The
+machinery held perfectly through this session's 21 status changes — hubs un-noindexed
+themselves the moment they gained published children.
 
 Legend — P0 = launch blocker · P1 = launch-shaping · P2 = post-launch
 
 ---
 
-## Published & indexable (the entire live editorial surface)
+## Published (24) — every page carries fetched-and-verified sources
 
-| Page | Sources | Needs | Priority |
-| --- | --- | --- | --- |
-| `/knowledge/tpo-roofing-systems/` | 3 real (ASTM D6878, NRCA, trade) | Badge was "8" → corrected to 3. Honest about the TPO field-study evidence gap — keep that. | P0 rebuild |
-| `/knowledge/epdm-roofing-systems/` | 3 real (ASTM D4637, ERA, NRCA) | Badge was "**0**" → corrected to 3. Was actively understating itself. | P0 rebuild |
-| `/knowledge/guides/repair-or-replace/` | **1** | Two uncited numeric thresholds (25–30% cost, 25% saturation). Source them or demote to `draft`. See KNOWN_ISSUES #3. | **P0 decision** |
+**Knowledge — systems & guides (10):**
+`tpo-roofing-systems` · `epdm-roofing-systems` · `pvc-roofing-systems` ·
+`bur-roofing-systems` · `metal-roofing-systems` · `modified-bitumen-roofing-systems` ·
+`roof-coatings` · `commercial-roof-inspections` · `commercial-roof-warranties` ·
+`guides/repair-or-replace`
 
-That is the whole of it. Three articles. Everything else a reader can reach is a hub,
-a governance page, or a legal page.
+**Knowledge — comparisons (6):**
+`45-mil-vs-60-mil` · `adhered-vs-mechanically-attached` · `coating-vs-replacement` ·
+`modbit-vs-bur` · `tpo-vs-pvc` · `white-roof-vs-black-roof`
 
-## Indexable non-editorial pages (20)
+**Glossary (8):**
+`flashing` · `fully-adhered` · `mechanically-attached` · `mil-thickness` · `parapet` ·
+`scrim` · `square` · `wind-uplift`
 
-Hubs: `/`, `/knowledge/`, `/glossary/`, `/situations/`, `/for-your-role/`,
-`/data-research/`, `/tools/`, `/ai-assistant/`, `/assessment/`
-Governance: `/about/`, `/about/mission/`, `/about/editorial-standards/`,
-`/about/methodology/`, `/about/funding-and-relationships/`, `/about/corrections/`,
-`/about/how-cri-works/`
-Legal/utility: `/contact/`, `/privacy/`, `/terms/`, `/sitemap/`
+House rules held throughout: every source fetched and read before citation; `supports`
+states each source's limits; service-life figures framed as trade planning ranges with
+named origins; evidence gaps stated on-page rather than papered over.
 
-⚠️ **Five of these hubs have zero indexable children** (`/glossary/`, `/situations/`,
-`/for-your-role/`, `/data-research/`, `/tools/`). See KNOWN_ISSUES #4 — thin-content
-risk at launch. **P1.**
+## Technical review (4) — indexed, sourced, honest about pending review
 
----
+`situations/my-roof-is-leaking` · `situations/storm-damage-first-72-hours`
+(await a qualified roofing professional) ·
+`situations/hurricane-preparation` (roofing professional) ·
+`situations/insurance-claims` (commercial claims professional). **P1 — schedule the
+reviews; do not let "pending" become permanent.**
 
-## Draft — real content, sources under verification (23, all noindexed)
+## Preliminary (1)
 
-These carry the "Draft — editorial verification in progress" banner and a prose
-`## Sources` section in the honest "Verified so far: … / Remaining verification: …"
-form. They declare `sources: 0`, which now renders nothing rather than
-"0 sources cited".
+`datasets/commercial-roof-life-expectancy-benchmarks` — still `v0.1 — sample`, still
+gating the two tools. **P1 if the estimator is to ship.**
 
-**Knowledge (13):** bur-roofing-systems · commercial-roof-inspections ·
-commercial-roof-warranties · metal-roofing-systems ·
-modified-bitumen-roofing-systems · pvc-roofing-systems · roof-coatings ·
-compare/45-mil-vs-60-mil · compare/adhered-vs-mechanically-attached ·
-compare/coating-vs-replacement · compare/modbit-vs-bur · compare/tpo-vs-pvc ·
-compare/white-roof-vs-black-roof
+## Template (6) — noindexed structural placeholders
 
-**Situations (2):** hurricane-preparation · insurance-claims
+`glossary/ponding-water` · `glossary/positive-drainage` · `glossary/scupper` ·
+`knowledge/compare/tpo-vs-epdm` · `roles/property-managers` · `roles/hoa-boards`
 
-**Glossary (8):** flashing · fully-adhered · mechanically-attached · mil-thickness ·
-parapet · scrim · square · wind-uplift
-
-*Needs:* finish source verification → set real `sources:` count → `status: published`.
-**P1** — this is the fastest path to a credible launch surface. Thirteen knowledge
-articles are already drafted; they need citations, not writing.
-
----
-
-## Sample — structural placeholders (8, all noindexed)
-
-Template demos, not editorial content. Carry the amber "Sample content" banner.
-
-| Page | Note |
-| --- | --- |
-| `/data-research/commercial-roof-life-expectancy-benchmarks/` | **The dataset behind the estimator.** Still `v0.1 — sample`, methodology is a literal "Placeholder:". Declared "12 sources"; had **zero**. Removed. **P0 if the estimator ships.** |
-| `/knowledge/compare/tpo-vs-epdm/` | Declared "9 sources"; had zero. Removed. |
-| `/situations/my-roof-is-leaking/` | Declared "4 sources"; had zero. Removed. |
-| `/situations/storm-damage-first-72-hours/` | Declared "5 sources"; had zero. Removed. |
-| `/glossary/ponding-water/`, `/glossary/positive-drainage/`, `/glossary/scupper/` | Sample glossary entries |
-| `/for-your-role/property-managers/`, `/for-your-role/hoa-boards/` | Sample audience pages |
-
-⚠️ Those inflated counts were a **trap**: flipping `status` to `published` would have
-shipped "12 sources cited" on a page citing nothing. The `sources:` field has been
-removed from all four. See KNOWN_ISSUES #2.
-
----
+The three glossary terms are quick wins (same verification method as this session).
+The role pages and tpo-vs-epdm need drafting. `/for-your-role/` is now the only pillar
+hub with zero indexable children. **P2, except the glossary trio (P1-adjacent).**
 
 ## Tools (2, both noindexed)
 
-| Tool | State |
-| --- | --- |
-| `/tools/roof-life-expectancy-estimator/` | Fully functional. **Noindexed** because its underlying benchmark data is still sample-grade. Correct call. |
-| `/tools/maintenance-budget-planner/` | Same. |
-
-The estimator is the most differentiated thing on the site and it cannot launch until
-the benchmarks reach v1.0. **P1.** Do not un-noindex it before the data is validated —
-a tool that outputs confident numbers from placeholder data, on a contractor-affiliated
-site, is the worst-case version of this project.
+`roof-life-expectancy-estimator` and `maintenance-budget-planner` remain correctly
+gated on Benchmarks v1.0.
 
 ---
 
 ## What this inventory says
 
-The engineering is ahead of the content by roughly an order of magnitude. The
-templates, status machinery, governance layer, and design system are production-grade.
-The editorial pipeline has produced 3 published articles against a stated launch bar
-of 20–30.
-
-**The bottleneck is citation verification, not writing.** 23 drafts already exist in
-good structural shape. Converting even 10 of them to `published` with real sources
-would take the site from "3 articles" to a defensible launch — and would fill the
-empty hubs at the same time.
+The site's own launch rule was "20–30 real cornerstone articles." The published set now
+stands at **24 pages, 16 of them substantive knowledge articles/comparisons** — at the
+bar by page count, just under it if only long-form knowledge pieces count. The honest
+framing: the content surface is now defensible; the remaining editorial work is
+professional review of the four Situations pages, the three quick-win glossary terms,
+and the role pages — plus counsel and operations, which content cannot fix.

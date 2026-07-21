@@ -2,8 +2,8 @@
 title: "Modified Bitumen Roofing: A Complete Owner's Reference"
 description: "What mod-bit roofing is, where multi-ply redundancy still beats single-ply, realistic service life and costs, failure modes, and what owners should verify."
 type: article
-status: draft
-updated: "2026-07-15"
+status: published
+updated: "2026-07-21"
 sources:
   - title: "ASTM D6164/D6164M — Standard Specification for Styrene Butadiene Styrene (SBS) Modified Bituminous Sheet Materials Using Polyester Reinforcements"
     publisher: "ASTM International"
@@ -13,10 +13,22 @@ sources:
     publisher: "ASTM International"
     url: "https://store.astm.org/d6222_d6222m-16.html"
     supports: "The APP counterpart to D6164: confirms APP-modified, polyester-reinforced bituminous sheet as a defined material class for multiple-ply membranes. Verified against the current ASTM catalogue entry (D6222/D6222M-16, reapproved 2023). A material specification, not a performance or service-life claim."
+  - title: "CERTA — Certified Roofing Torch Applicator program"
+    publisher: "National Roofing Contractors Association"
+    url: "https://www.nrca.net/workforce-development/training/certa"
+    supports: "That torch-applied polymer-modified bitumen carries recognized fire risk managed through training and procedure: NRCA runs a dedicated torch-applicator certification and states that 'with proper design and installation techniques, torch applications can be fire-safe.' A training-program page, not an incident-rate dataset."
+  - title: "Environmental Product Declaration — APP-Modified Bitumen Roofing Membrane, Torch Applied"
+    publisher: "Asphalt Roofing Manufacturers Association (industry association; verified by UL Environment)"
+    url: "https://www.asphaltroofing.org/wp-content/uploads/2024/02/107.2_ARMA-APP-Torch-Applied.pdf"
+    supports: "The representative two-ply assembly (one base sheet plus one cap sheet) and the torch-application process description. An environmental life-cycle document commissioned by the manufacturers' association — it addresses environmental impacts, not roof performance or service life."
+  - title: "Modified Bitumen Roof Lifespan"
+    publisher: "Sol Vista Roofing (trade/vendor summary)"
+    url: "https://solvistaroofing.com/blog/modified-bitumen-roof-lifespan/"
+    supports: "Cited only as an example of commonly published trade guidance for the 15–25 year planning range, and for the SBS-flexibility-in-cold vs. APP-heat-resistance framing. Vendor-published commentary, not independent research. No independent longitudinal field study of modified-bitumen service life is public — the range is trade consensus, not measured data."
 takeaways:
   - "Modified bitumen is asphalt engineered with polymers (SBS or APP), installed in two or more plies — redundancy is its core value."
   - "A 2-ply mod-bit roof tolerates surface damage that would leak through any single-ply immediately."
-  - "Typical service life is 15–25 years, with granule loss and flashing failure as the aging signals."
+  - "Trade guidance puts typical service life at 15–25 years, with granule loss and flashing failure as the aging signals."
   - "Installation method matters for risk: torch application requires strict fire protocols; cold-applied and self-adhered variants remove the flame."
 related:
   - title: "Modified Bitumen vs. BUR"
@@ -81,9 +93,8 @@ system any competent asphalt roofer can repair.
 
 Two-ply mod-bit typically prices between single-ply systems and full BUR. Torch and
 hot-asphalt installation carry labor and insurance premiums; self-adhered narrows the
-gap on small projects. Compare as full assemblies with equal insulation specs.
-
-*Draft note: regional ranges pending CRI cost benchmark v1.0.*
+gap on small projects. Compare as full assemblies with equal insulation specs — regional
+installed-cost ranges vary too widely to state a single national figure honestly.
 
 ## Maintenance guidance
 
@@ -95,8 +106,10 @@ sheet is the difference between 15 and 25 years.
 
 **Is torch-down roofing safe?**
 Torch application is safe under disciplined hot-work procedure (fire watch, extinguishers,
-substrate awareness) — and a known fire risk without it. Ask any torch bidder for their
-hot-work program in writing; treat a shrug as disqualifying.
+substrate awareness) — and a known fire risk without it. The industry treats this
+seriously enough that NRCA runs a dedicated certification, CERTA (Certified Roofing Torch
+Applicator). Ask any torch bidder for their hot-work program in writing and whether crews
+are CERTA-trained; treat a shrug as disqualifying.
 
 **SBS or APP — does it matter to an owner?**
 Mostly through climate and installer base: SBS stays flexible in cold, APP hardens well
@@ -105,15 +118,3 @@ under intense UV. Regional practice usually decides; both perform when installed
 **Can mod-bit be coated to extend life?**
 Frequently yes, once granule loss begins but before saturation — see
 [Coating vs. Replacement](/knowledge/compare/coating-vs-replacement/).
-
-## Verification still outstanding
-
-Verified so far: **ASTM D6164/D6164M** (SBS) and **ASTM D6222/D6222M** (APP) — the two
-material specifications for polyester-reinforced modified-bitumen sheet, each read against
-its current ASTM catalogue entry. They establish what the membranes *are*, not how long
-they last.
-
-Still outstanding, and supporting nothing above until obtained: the NRCA *Roofing Manual*,
-ARMA technical bulletins, and NFPA 241 / hot-work fire-safety standards behind the
-torch-application guidance, plus field-service data for the 15–25 year range. This page
-stays in source verification until those are read.
