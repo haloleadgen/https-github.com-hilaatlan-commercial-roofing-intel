@@ -82,7 +82,10 @@ const dropdowns: typeof dropdownsRaw = Object.fromEntries(
     </a>
 
     <div class="masthead__actions">
-      <a class="search-link" href="/search/">
+      {/* aria-label required: the visible "Search" span is display:none below the
+          mobile breakpoint, leaving only an aria-hidden SVG (Lighthouse link-name
+          failure, 2026-07-21). */}
+      <a class="search-link" href="/search/" aria-label="Search">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
           <line x1="21" y1="21" x2="16.5" y2="16.5"></line>

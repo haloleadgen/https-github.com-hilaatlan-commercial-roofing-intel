@@ -4,6 +4,35 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-21 (later) — v2.4-RC2: deployment-readiness session
+
+RC1 frozen as baseline (git tag `v2.4-RC1-recovery` @ `e7b2a04`; zip SHA-256
+verified identical on the Mac and in the build environment, contents diffed against
+the verified `dist/` — zero differences). Full pre-flight QA run against the exact
+artifact via local serve + Playwright + Lighthouse: 25 page checks clean on desktop
+and 375px mobile, nav toggle verified, all nav links resolve, search works,
+sitemap/canonical/noindex/OG cross-checks 48/48, robots/404/headers correct.
+
+**Two accessibility defects fixed (the only source changes in RC2):**
+- `.footer-legal` text was slate-500 on navy-900 — 2.95:1 contrast, a WCAG AA
+  failure. Now slate-300 (9.93:1). One CSS declaration.
+- The header search link had no accessible name below the mobile breakpoint (its
+  visible label is `display: none` there and the SVG is `aria-hidden`). Added
+  `aria-label="Search"`. Homepage Lighthouse accessibility 89 → 96.
+
+Deferred (punch list): card-list touch-target size (WCAG 2.5.8) — CSS layout
+change, not worth the risk in a frozen RC.
+
+New docs: `DEPLOYMENT-RUNBOOK.md` (every deploy step, forms/email verification,
+DNS cutover, live-URL QA), `PUNCH-LIST.md` (ranked Critical→Low),
+`LAUNCH-READINESS-REPORT.md` (recommendation: **soft launch**, conditions inside).
+Polsia parallel site verified still live — takedown documented as founder action.
+Artifact: `website/dist-v2.4-RC2.zip`, SHA-256 `9c37cc92…`. Untestable before
+deploy, unchanged: forms end-to-end, email delivery, live CWV, www→apex 301,
+rich-result validation.
+
+---
+
 ## 2026-07-21 — v2.4-RC1: the editorial publication session — 3 → 24 published pages
 
 The launch bar ("20–30 real cornerstone articles") was the last content blocker Claude
