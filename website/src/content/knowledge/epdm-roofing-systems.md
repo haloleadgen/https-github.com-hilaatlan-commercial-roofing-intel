@@ -19,7 +19,7 @@ sources:
     supports: "Long-term field performance background. Industry-association source; treat directionally, not as an independent benchmark."
 takeaways:
   - "EPDM is a synthetic rubber membrane with the longest field track record of any single-ply system — over 50 years of installed history."
-  - "Its chemistry is stable and repairs remain possible late in life, which is why many owners run EPDM roofs 25–30 years."
+  - "Its chemistry is stable and repairs remain possible late in life, which is why many owners run EPDM roofs to the top of the 20–30 year planning range."
   - "Seams are EPDM's structural weak point: they rely on adhesives and tapes rather than the welded seams of TPO and PVC."
   - "Black EPDM absorbs heat — an advantage in heating-dominated climates, a cost in cooling-dominated ones."
 related:

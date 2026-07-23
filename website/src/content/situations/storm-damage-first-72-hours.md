@@ -104,7 +104,7 @@ safe to photograph first.
 ## Notify
 
 - **Your insurer or broker — promptly.** Review your policy and contact them to ask about
-  notice, documentation, mitigation, inspections, and repair authorisation. Notice
+  notice, documentation, mitigation, inspections, and repair authorization. Notice
   requirements, documentation standards, and what is and is not covered vary by policy.
   Ask what *your* policy requires rather than relying on general advice — including this
   page.
@@ -131,7 +131,7 @@ policy document, and your insurer or broker.
   4am call-out.
 - **No visible interior water and no evidence of breach.** A scheduled post-storm
   inspection is the right response.
-- **Neighbouring buildings were hit and yours may not have been.** A storm passing over
+- **Neighboring buildings were hit and yours may not have been.** A storm passing over
   does not establish that your roof was damaged. Have it assessed rather than assuming
   either way.
 
@@ -175,7 +175,7 @@ No. Photograph from safe vantage points, or have a qualified professional or dro
 operator do it. OSHA identifies falls as the leading cause of death in construction work
 and warns that roofing surfaces can become slick when wet. No photograph is worth a fall.
 
-**A contractor knocked and says my roof is totalled and they'll handle the claim. Should I?**
+**A contractor knocked and says my roof is totaled and they'll handle the claim. Should I?**
 Slow down. Ask whether they are licensed for your jurisdiction, whether they have a
 permanent local address, and whether the person diagnosing the damage is the person who
 would be paid to fix it. Read every document before signing — especially anything that

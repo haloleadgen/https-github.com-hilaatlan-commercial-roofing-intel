@@ -24,7 +24,7 @@ updated: "2026-07-21"
 takeaways:
   - "This is a climate question: cooling-dominated buildings generally benefit from white; heating-dominated buildings can benefit from dark."
   - "Roof insulation level changes everything — the better insulated the assembly, the smaller surface color's energy effect becomes."
-  - "White roofs run dramatically cooler in summer, which also slows membrane aging."
+  - "White roofs run dramatically cooler in summer — and lower surface temperatures are widely expected in the trade to slow membrane aging, though CRI has not yet found an independent source quantifying it."
   - "Some cities and codes mandate cool roofing; check local requirements before preference enters."
 related:
   - title: "Commercial Roof Coatings"
@@ -71,8 +71,9 @@ under the roof (conditioned space vs. warehouse).
 3. **Code.** Cool-roof requirements exist in several jurisdictions and energy codes —
    California's Title 24 is the best-known example — so verify locally before
    specifying dark in a warm zone.
-4. **Membrane longevity.** Cooler surfaces age slower — a modest but real thumb on the
-   white side, everywhere.
+4. **Membrane longevity.** Practitioners widely expect cooler surfaces to age slower — a
+   modest thumb on the white side, though this durability link is not yet covered by the
+   sources on this page.
 
 ## The winter heating penalty, handled honestly
 

@@ -25,7 +25,7 @@ related:
 ## Plain-English definition
 
 One thousandth of an inch (0.001 in.) — the unit used to state single-ply membrane
-thickness. A 60-mil membrane is 0.060 in. thick, about the thickness of a credit card
+thickness. A 60-mil membrane is 0.060 in. thick, about the thickness of two credit cards
 and a half. Commercial single-ply membranes are commonly produced in 45-, 60-, 72-, and
 80-mil versions.
 

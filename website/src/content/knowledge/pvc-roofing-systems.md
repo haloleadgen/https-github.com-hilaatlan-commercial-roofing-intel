@@ -100,8 +100,7 @@ regional installed-cost ranges vary too widely to state a single national figure
 ## Maintenance guidance
 
 Semi-annual inspections; keep grease containment systems maintained (containment failure
-is a leading avoidable killer of restaurant roofs); clear drainage; inspect welds and
-details annually once the roof is past mid-life, when plasticizer-related stiffening begins
+is a leading avoidable killer of restaurant roofs); clear drainage; add a detailed weld-and-seam check to the routine once the roof is past mid-life, when plasticizer-related stiffening begins
 to show.
 
 ## Related systems

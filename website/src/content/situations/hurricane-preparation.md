@@ -33,7 +33,7 @@ related:
   - title: "Commercial Roof Insurance Claims"
     href: "/situations/insurance-claims/"
     type: "Situation"
-  - title: "My Roof Is Leaking — What Do I Do Right Now?"
+  - title: "My Roof Is Leaking — What To Do Right Now"
     href: "/situations/my-roof-is-leaking/"
     type: "Situation"
 ---

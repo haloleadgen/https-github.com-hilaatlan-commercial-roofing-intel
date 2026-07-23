@@ -34,7 +34,7 @@ const orgSchema = {
   url: SITE.domain,
   description: SITE.description,
   email: SITE.contactEmail,
-  telephone: '+1-954-634-2028',
+  telephone: SITE.contactPhoneHref.replace("tel:", ""),
   logo: `${SITE.domain}/favicon.svg`,
   publishingPrinciples: `${SITE.domain}/about/editorial-standards/`,
   correctionsPolicy: `${SITE.domain}/about/corrections/`,

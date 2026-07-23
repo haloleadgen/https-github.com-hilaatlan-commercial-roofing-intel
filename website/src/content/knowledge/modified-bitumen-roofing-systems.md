@@ -27,7 +27,7 @@ sources:
     supports: "Cited only as an example of commonly published trade guidance for the 15–25 year planning range, and for the SBS-flexibility-in-cold vs. APP-heat-resistance framing. Vendor-published commentary, not independent research. No independent longitudinal field study of modified-bitumen service life is public — the range is trade consensus, not measured data."
 takeaways:
   - "Modified bitumen is asphalt engineered with polymers (SBS or APP), installed in two or more plies — redundancy is its core value."
-  - "A 2-ply mod-bit roof tolerates surface damage that would leak through any single-ply immediately."
+  - "A 2-ply mod-bit roof can tolerate surface damage that a single-ply membrane may not — redundancy is the point."
   - "Trade guidance puts typical service life at 15–25 years, with granule loss and flashing failure as the aging signals."
   - "Installation method matters for risk: torch application requires strict fire protocols; cold-applied and self-adhered variants remove the flame."
 related:

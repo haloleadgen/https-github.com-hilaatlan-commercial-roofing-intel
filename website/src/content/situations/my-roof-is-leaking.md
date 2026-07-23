@@ -17,7 +17,7 @@ takeaways:
   - "Protect people first. Water near electricity is what injures people during a roof leak — not the water itself."
   - "Never stand beneath, puncture, or disturb a sagging or bulging ceiling. Clear the area and get qualified help to evaluate it from a safe position."
   - "Document everything before anything is cleaned up — you cannot re-create the evidence later."
-  - "Do not sign a full replacement contract during the emergency. Stabilising the building and deciding its roof's future are two separate decisions."
+  - "Do not sign a full replacement contract during the emergency. Stabilizing the building and deciding its roof's future are two separate decisions."
 related:
   - title: "Repair or Replace? How to Decide"
     href: "/knowledge/guides/repair-or-replace/"
@@ -56,7 +56,7 @@ electricity … if it is safe to do so*. That last clause is the one people igno
 breaker panel is wet, sits in a flooded area, or can only be reached by crossing standing
 water, **do not go to it** — Ready.gov's instruction is not to walk through flood water.
 Call your electrician, or your local emergency number if the situation is dangerous, and
-let them de-energise the area.
+let them de-energize the area.
 
 **Sagging or bulging ceilings.** A ceiling holding water is carrying a load it was never
 designed for, and you cannot see the condition of the structure or the wiring above it.
@@ -105,7 +105,7 @@ repairs anything:
 - Keep **timestamps** on. Most phones record them automatically.
 - Photograph **undamaged** areas too — it establishes what the leak did and did not reach.
 - Keep a written log: when it was discovered, who was told, what was done, when.
-- Keep every receipt for anything bought or hired in response — tarps, wet-vacs, labour,
+- Keep every receipt for anything bought or hired in response — tarps, wet-vacs, labor,
   temporary storage.
 - If a contractor attends, photograph the condition **before** any work, and get the scope
   in writing.
@@ -113,7 +113,7 @@ repairs anything:
 ## Notify
 
 - **Your insurer or broker — promptly.** Review your policy and contact them to ask about
-  notice, documentation, mitigation, inspections, and repair authorisation. Every policy is
+  notice, documentation, mitigation, inspections, and repair authorization. Every policy is
   different. What yours requires of you, and what it will and will not pay for, is a
   question about *your document* — not about roofing in general. Ask; do not assume, and do
   not let a contractor tell you what your policy says.
@@ -130,7 +130,7 @@ replacement decision.
   conditions where it is safe to be there.
 - Clearing blocked drains and scuppers **from a safe position**. Often the highest-value
   action available, because a blocked drain turns a small breach into a large load.
-- Water extraction and drying, before secondary damage (mould, delamination, swelling)
+- Water extraction and drying, before secondary damage (mold, delamination, swelling)
   begins.
 - Get the stabilisation scope in writing and keep the documentation. Ask your insurer what
   they expect before authorising anything beyond making the building safe.
@@ -194,7 +194,7 @@ hold you.
 **Will my insurance cover this?**
 That is a question about your specific policy, and we cannot answer it for you. Contact
 your insurer or broker promptly and ask about notice, documentation, mitigation,
-inspections, and repair authorisation. Do not assume any cost will be reimbursed until
+inspections, and repair authorization. Do not assume any cost will be reimbursed until
 your insurer tells you it will be.
 
 **Someone offered to handle my whole claim if I sign a form. Should I?**

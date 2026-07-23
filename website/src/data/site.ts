@@ -10,7 +10,7 @@ export const SITE = {
   domain: 'https://commercialroofingintel.com',
   descriptor: 'Independent commercial roofing knowledge',
   description:
-    'Commercial Roofing Intel is an independent knowledge platform for commercial roofing — research, technical guidance, decision tools, and practical resources for commercial property professionals.',
+    'Commercial Roofing Intel is an independent knowledge platform for commercial roofing — research, technical guidance, and practical resources for commercial property professionals.',
   /** VERIFIED production contact (founder-confirmed July 15, 2026).
    * Victory E&I affiliation is disclosed on Funding & Relationships. */
   contactEmail: 'hila@victoryroofer.com',
@@ -32,7 +32,7 @@ export const PILLARS = [
     name: 'Tools',
     href: '/tools/',
     summary:
-      'Decision-support calculators, planners, checklists, estimators, and assessment tools with published methodology.',
+      'Decision-support calculators and planners, built with published methodology — in development, shipping only as their underlying data is validated.',
     icon: 'calculator',
   },
   {
@@ -53,14 +53,14 @@ export const PILLARS = [
     name: 'Data & Research',
     href: '/data-research/',
     summary:
-      'Proprietary datasets, benchmarks, regional cost data, roof-life research, hurricane-performance analysis, and methodology reports.',
+      'Benchmark datasets, roof-life research, and methodology reports — versioned and published as they are validated.',
     icon: 'chart',
   },
   {
     name: 'AI Assistant',
     href: '/ai-assistant/',
     summary:
-      'A citation-disciplined commercial roofing research assistant that answers only from approved sources and clearly acknowledges gaps or uncertainty.',
+      'In development: a citation-disciplined research assistant that will answer only from approved sources and clearly acknowledge gaps or uncertainty.',
     icon: 'assistant',
   },
 ] as const;

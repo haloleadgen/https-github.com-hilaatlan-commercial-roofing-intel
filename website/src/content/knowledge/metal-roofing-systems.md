@@ -26,7 +26,7 @@ sources:
     url: "https://www.billraganroofing.com/blog/how-long-metal-roof-last"
     supports: "Cited only as an example of commonly published trade guidance: standing seam at 30 years minimum (50+ possible), screw-down panels around 20 years without maintenance (toward 30 with it), and fastener washers wallowing out on roughly 5–10 year re-tightening/replacement cycles. Vendor-published commentary from a residential contractor, not commercial field research."
 takeaways:
-  - "Metal is the longevity outlier: standing seam systems routinely plan for 30–45 years, with coating technology setting the ceiling."
+  - "Metal is the longevity outlier: standing seam systems routinely plan for 30–45+ years, with coating technology setting the ceiling."
   - "Standing seam (concealed clips) and exposed-fastener panels are different products with different lifespans — don't let bids blur them."
   - "The failure clock on exposed-fastener metal is the fasteners themselves: thousands of gasketed screws that age faster than the panels."
   - "Metal suits slopes; on dead-flat roofs it is generally the wrong conversation."
@@ -61,7 +61,7 @@ coating grade — read the actual warranty document rather than the brand name.
 
 Sloped commercial roofs (warehouses, retail, schools, agricultural/industrial), owners
 with 30+ year horizons, and severe-hail or wildfire-exposed regions. Aluminum standing
-seam earns its premium within coastal salt exposure. For low-slope buildings, metal
+seam earns its premium in coastal salt exposure. For low-slope buildings, metal
 enters mainly as retrofit framing over failed flat roofs — a niche, engineered decision.
 
 ## How it performs

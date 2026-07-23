@@ -72,13 +72,10 @@ const featuredGuidance = [
    sources have not cleared review — naming forthcoming work is honest; linking readers
    into unverified pages is not. Do not add hrefs here. */
 const inVerification = [
-  'Commercial Roof Inspections',
-  'Commercial Roof Warranties',
-  'Roof Coatings and Restoration',
-  'Hurricane Preparation',
-  'Insurance Claims After a Storm',
   'TPO vs. EPDM',
-  'White Roof vs. Black Roof',
+  'Property Manager role guide',
+  'HOA Board role guide',
+  'Glossary: ponding water, positive drainage, scupper',
   'Roof Life Expectancy Benchmarks v1.0',
 ];
 
@@ -334,7 +331,7 @@ const roles = [
             {recentlyUpdated.map((e) => (
               <li>
                 <a href={hrefFor(e)}>{e.data.title}</a>
-                <span class="meta">Updated {fmt(e.data.updated!)} · Reviewed by {e.data.reviewed ?? 'Hila Atlan, Founder & Editor-in-Chief'}</span>
+                <span class="meta">Updated {fmt(e.data.updated!)} · {e.data.reviewed ? `Reviewed by ${e.data.reviewed}` : 'Sources verified'}</span>
               </li>
             ))}
           </ul>
@@ -344,7 +341,7 @@ const roles = [
           <h3 style="margin-bottom: var(--space-3);">How pages earn their place</h3>
           <p class="text-muted" style="font-size: var(--text-sm);">
             Every page on CRI carries a visible publication status. <strong>Published</strong>
-            means editorially reviewed with sources listed. <strong>Technical review
+            means every claim carries a listed source that survived verification review. <strong>Technical review
             pending</strong> means editorially complete, with subject-matter verification
             still open — and the page says so. Draft work is excluded from search, from
             promotion, and from this homepage until its sources are verified.
@@ -460,8 +457,8 @@ const roles = [
           <p style="font-size: var(--text-sm);">
             CRI arranges complimentary commercial roof assessments: a documented walk of
             the roof, photographs, and a written condition report that is yours to keep —
-            whether or not any work ever follows. No obligation, and no pressure standard:
-            partners who pitch during an assessment lose the referral relationship.
+            whether or not any work ever follows. No obligation, and a no-pressure standard:
+            pitching during an assessment is grounds for removal from the referral program.
           </p>
           <p class="text-muted" style="font-size: var(--text-xs); margin-top: var(--space-3);">
             Disclosure: assessments may be performed by Victory E&amp;I Roofing and

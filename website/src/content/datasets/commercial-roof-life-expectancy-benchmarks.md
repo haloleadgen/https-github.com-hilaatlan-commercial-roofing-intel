@@ -7,7 +7,7 @@ coverage: "Major low-slope systems, U.S. climate zones"
 sampleSize: "Not yet established — preliminary literature synthesis, v0.1"
 takeaways:
   - "Service life varies more within a system type than between system types — installation and maintenance dominate."
-  - "These benchmarks power the CRI Roof Life Expectancy Estimator and are versioned for stable citation."
+  - "These are v0.1 draft benchmarks gathered for validation — the Roof Life Expectancy Estimator stays gated until they are validated as v1.0."
 related:
   - title: "Roof Life Expectancy Estimator"
     href: "/tools/roof-life-expectancy-estimator/"
@@ -45,4 +45,4 @@ plan against them.
 
 ## Version history
 
-- **v0.1 (preliminary)** — commonly published figures, gathered for validation. Not validated, not for citation, and not used in any public CRI calculator. Superseded by v1.0.
+- **v0.1 (preliminary)** — commonly published figures, gathered for validation. Not validated, not for citation, and not used in any public CRI calculator. Will be superseded by v1.0.

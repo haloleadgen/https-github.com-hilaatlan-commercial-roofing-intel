@@ -5,11 +5,14 @@ import PageHero from '../components/PageHero.astro';
 import { PILLARS, GOVERNANCE, LEGAL } from '../data/site';
 import { getCollection } from 'astro:content';
 
-const knowledge = await getCollection('knowledge');
-const glossary = await getCollection('glossary');
-const situations = await getCollection('situations');
-const roles = await getCollection('roles');
-const datasets = await getCollection('datasets');
+// Template-status entries are excluded: the homepage promises draft work "stays
+// unlinked until its sources are verified", so the human sitemap must not link them.
+const notTemplate = (e: { data: { status?: string } }) => e.data.status !== 'template';
+const knowledge = (await getCollection('knowledge')).filter(notTemplate);
+const glossary = (await getCollection('glossary')).filter(notTemplate);
+const situations = (await getCollection('situations')).filter(notTemplate);
+const roles = (await getCollection('roles')).filter(notTemplate);
+const datasets = (await getCollection('datasets')).filter(notTemplate);
 ---
 
 <Base

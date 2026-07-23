@@ -4,6 +4,57 @@ Newest first. Dates are the founder's local dates.
 
 ---
 
+## 2026-07-23 — v2.5: full production-readiness audit — trust regressions fixed, forms a11y bug, planner gated
+
+Complete page-by-page audit (clean build + verify PASS baseline; independent sweep of all
+60 built pages; axe-core WCAG 2.2-AA scan; 375px touch-target measurement; four parallel
+editorial reviews covering every content file and template, each finding re-verified
+against built HTML before fixing). Full report: **LAUNCH_BLOCKERS.md** (supersedes
+PUNCH-LIST.md ordering).
+
+**Trust-integrity fixes:** "evidence-based" had crept onto 3 built pages (About, Mission,
+Knowledge hub) — now 0 again; About page falsely said CRI "is operated by Victory E&I
+Roofing" (contradicting the funding page) — corrected to the disclosed common-ownership
+formulation and unverified "founded in 2024" removed; homepage "In verification now"
+listed 4 already-published articles — now accurate; dataset takeaway claimed benchmarks
+"power the Estimator" while the page says "Do not cite" — fixed; assessment + thanks pages
+referenced estimator output that doesn't exist — fixed; unearned "Reviewed by" fallback
+removed; "Published means editorially reviewed" and Editorial Standards present-tense
+review claims softened to honest policy language; human sitemap no longer links template
+pages; pillar summaries and default meta description no longer claim nonexistent tools,
+proprietary datasets, or a live AI assistant.
+
+**Maintenance Budget Planner GATED** (form/output/script removed, methodology published
+for scrutiny) to match the estimator — the Tools hub already claimed "neither will give
+you a number" while the planner emitted dollar ranges from self-described placeholder
+rates. Hub copy now true. Reversible in one revert if the founder prefers the tool live.
+
+**Accessibility:** both forms' honeypot was keyboard-focusable (a screen-reader user's
+submission would be silently discarded as spam — on the revenue path) — fixed with
+tabindex=-1; the deferred WCAG 2.5.8 touch-target failure fixed (list/breadcrumb/footer/
+nav links 15–22px → ≥24px). axe-core: 0 AA violations across 8 templates scanned.
+
+**Content accuracy:** BUR takeaway/table corrected to match its own cited source (3-ply
+15–20 yrs, 4-ply 20–30); mod-bit absolute overclaim softened; TPO market-share and
+formulation claims hedged as trade consensus; white-vs-black membrane-aging claim marked
+as trade expectation not covered by page sources; mil-thickness credit-card comparison
+was arithmetically wrong (fixed: 60 mil ≈ two cards); ponding-water's "NRCA guidance"
+link to a third-party mirror (hinarratives.com) removed with honest note; 9 British
+spellings Americanized on emergency pages; EPDM/metal range notation unified; PVC
+maintenance cadence contradiction clarified; 2 related-link titles fixed; schema phone
+now derived from site.ts.
+
+**Safety re-verified, no changes:** no roof-access or ceiling-puncture advice, Ready.gov
+electrical language intact, no insurance absolutes, no state law as national fact.
+
+Verified: clean rebuild exit 0 · `npm run verify` PASS (60 pages, 48 indexable,
+unchanged) · all fixes confirmed in built output · zero broken internal links ·
+"evidence-based" count 0 · axe 0 violations. Ops note: repo pushed to private GitHub
+(hilaatlan/commercial-roofing-intel) July 22; `main` + tags push pending (2 commands);
+stale `.git/index.lock` cleared and `website/dist 2/` duplicate removed via `_to_delete/`.
+
+---
+
 ## 2026-07-21 (later) — v2.4-RC2: deployment-readiness session
 
 RC1 frozen as baseline (git tag `v2.4-RC1-recovery` @ `e7b2a04`; zip SHA-256

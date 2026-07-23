@@ -37,8 +37,9 @@ const related = [
 >
   <Breadcrumbs crumbs={[{ name: 'Tools', href: '/tools/' }, { name: 'Roof Life Expectancy Estimator' }]} />
 
-  {/* Not indexed: this tool is status:sample pending Benchmarks v1.0. It is
-    noindexed for crawlers, so it must not be reachable via on-site search either. */}
+  {/* Deliberately INDEXED: the page's entire content explains its own gating, so it can
+    rank for its name without misleading anyone. The tool itself is gated (no form, no
+    output) pending Benchmarks v1.0 — see the GATED comment below. */}
   <article class="container section--tight">
     <header>
       <p class="eyebrow" data-pagefind-filter="type">Decision Tool</p>

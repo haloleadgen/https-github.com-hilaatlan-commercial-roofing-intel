@@ -22,11 +22,13 @@ faster, debris accumulates, and structural load increases.
 
 ## Why it matters to you
 
-**Verified:** NRCA defines ponding as water remaining more than 48 hours after
-rainfall under drying conditions, and manufacturer warranties commonly require positive
+NRCA defines ponding as water remaining 48 hours or longer after rainfall under
+conditions conducive to drying, and manufacturer warranties commonly require positive
 drainage or exclude damage from standing water
-([NRCA guidance](https://hinarratives.com/wp-content/uploads/sites/176/2021/09/Roof-Ponding-NRCA.pdf),
-[ARMA — Ponding Water Basics](https://www.asphaltroofing.org/ponding-water-basics/)).
+([ARMA — Ponding Water Basics](https://www.asphaltroofing.org/ponding-water-basics/)).
+A primary NRCA citation still needs to be obtained before this term can publish — an
+earlier draft linked a third-party mirror of an NRCA document, which does not meet
+CRI's sourcing standard and has been removed.
 Remediation typically means drainage correction: added drains, scuppers, or tapered
 insulation.
 

@@ -5,7 +5,7 @@ audience: "HOA & Condo Boards"
 status: template
 updated: "2026-07-01"
 takeaways:
-  - "Roofing is usually the largest line in a reserve study — and the most commonly underfunded."
+  - "Roofing is often one of the largest lines in a reserve study — and frequently underfunded."
   - "Board decisions need a defensible paper trail: independent assessments, comparable bids, documented criteria."
 related:
   - title: "Commercial Roof Life Expectancy Benchmarks"

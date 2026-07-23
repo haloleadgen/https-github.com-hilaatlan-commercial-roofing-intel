@@ -46,7 +46,7 @@ import { SITE } from '../data/site';
         <h2>When an assessment makes sense</h2>
         <ul>
           <li>Before a <a href="/knowledge/guides/repair-or-replace/">repair-or-replace decision</a> — it's the condition data the framework needs.</li>
-          <li>When the <a href="/tools/roof-life-expectancy-estimator/">Life Expectancy Estimator</a> returns a short or low-confidence range.</li>
+          <li>When you are planning around an aging roof and need real condition data to time the decision.</li>
           <li>Ahead of hurricane season, to create the <a href="/situations/hurricane-preparation/">pre-storm condition record</a>.</li>
           <li>At property purchase, lease renewal, or reserve-study time.</li>
         </ul>
@@ -55,7 +55,7 @@ import { SITE } from '../data/site';
         <form class="tool-panel" method="post" action="/thanks/" aria-label="Assessment request form"
           name="assessment" data-netlify="true" netlify-honeypot="bot-field" style="max-width: 34rem;">
           <input type="hidden" name="form-name" value="assessment" />
-          <p class="visually-hidden" aria-hidden="true"><label>Leave this field empty: <input name="bot-field" /></label></p>
+          <p class="visually-hidden" aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
           <div class="field">
             <label for="as-name">Name</label>
             <input id="as-name" name="name" type="text" autocomplete="name" required />

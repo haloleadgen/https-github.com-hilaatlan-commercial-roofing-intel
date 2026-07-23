@@ -8,7 +8,7 @@ takeaways:
   - "Your job isn't roofing expertise — it's running a defensible process."
   - "The manager's leverage points: documentation discipline, preventive maintenance cadence, and structured vendor selection."
 related:
-  - title: "My Roof Is Leaking — What Do I Do Right Now?"
+  - title: "My Roof Is Leaking — What To Do Right Now"
     href: "/situations/my-roof-is-leaking/"
     type: "Situation"
   - title: "Roof Life Expectancy Estimator"

@@ -14,7 +14,7 @@ sources:
     url: "https://www.moserroofingsolutions.com/blog/what-is-tpo-roofing-lifespan/"
     supports: "Cited only as an example of commonly published trade guidance for the 15–25 year planning range. It is vendor-published commentary, not independent research. No independent longitudinal field study of TPO service life is public — a genuine evidence gap."
 takeaways:
-  - "TPO (thermoplastic polyolefin) is the most widely installed low-slope commercial membrane in North America."
+  - "TPO (thermoplastic polyolefin) is, by wide trade consensus, the most widely installed low-slope commercial membrane in North America — an independent market-share source is still being sought."
   - "Realistic service life is 15–25 years and depends more on installation quality and maintenance than on brand."
   - "Heat-welded seams are TPO's core strength — and improper welding is its most common failure origin."
   - "Membrane thickness (45/60/80 mil) and attachment method materially change cost, wind performance, and longevity."
@@ -52,8 +52,8 @@ Most TPO failures begin at the details, not the field: improperly welded seams (
 dominant early-failure origin), flashing failures at walls and penetrations, membrane
 cracking at high-stress points as the weathering surface thins toward the
 [scrim](/glossary/scrim/), and accelerated aging wherever
-[ponding water](/glossary/ponding-water/) stands. Formulation quality also varies more
-across TPO manufacturers than in other membranes — ask for the specific product's field
+[ponding water](/glossary/ponding-water/) stands. Trade experience suggests formulation
+quality varies more across TPO manufacturers than in other membranes — ask for the specific product's field
 history, not the category's.
 
 ## What owners should verify before specifying TPO

@@ -27,7 +27,7 @@ sources:
     supports: "Cited only as an example of commonly published trade guidance for the 20–30 year planning range and the ply-count correlation (3-ply toward 15–20 years, 4-ply 20–30, 5-ply beyond). Vendor-published commentary, not independent research. As with other membrane families, no independent longitudinal field study of BUR service life is public — the range is trade consensus, not measured data."
 takeaways:
   - "BUR is the century-old multi-ply system: alternating bitumen and reinforcing felts, usually gravel-surfaced — maximum redundancy."
-  - "Trade guidance consistently plans well-built BUR at 20–30 years, with 4-ply systems toward the high end; the aging is gradual, not sudden."
+  - "Trade guidance plans well-built BUR by ply count — roughly 15–20 years for 3-ply and 20–30 for 4-ply; the aging is gradual, not sudden."
   - "Its weaknesses are weight, installation odor/logistics, and a shrinking specialist labor base."
   - "For owners, BUR decisions today are usually about maintaining or replacing existing BUR, not specifying new."
 related:
@@ -60,7 +60,7 @@ already have: how to maintain it, when to coat it, and what replaces it.
 
 | Attribute | Typical performance | What drives variance |
 | --- | --- | --- |
-| Service life | 20–30 years (4-ply toward the high end) | Ply count, drainage, maintenance |
+| Service life | 15–20 years (3-ply) to 20–30 years (4-ply) | Ply count, drainage, maintenance |
 | Redundancy | Highest of common systems | Ply count |
 | Weight | High (especially graveled) | Structure must carry it |
 | Repairability | High — mature techniques | Aging labor base |

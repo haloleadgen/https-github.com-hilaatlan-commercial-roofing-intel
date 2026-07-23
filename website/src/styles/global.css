@@ -876,3 +876,19 @@ a:hover { color: var(--cri-navy-700); }
 @media (max-width: 40em) {
   .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
+
+/* ---------------------------------------------------------------------------
+   WCAG 2.5.8 minimum target size (24×24 CSS px) — v2.5
+   List links, breadcrumbs, footer links, and nav menu links previously
+   measured 15–22px tall at 375px (Lighthouse `target-size` failure, deferred
+   in the v2.4-RC2 punch list). Padding enlarges the hit area; layout impact
+   is a few px of extra vertical rhythm in link lists only.
+--------------------------------------------------------------------------- */
+.breadcrumbs a,
+.site-footer a,
+.primary-nav a,
+main :where(ul, ol, dl) a:not(.btn) {
+  display: inline-block;
+  padding-block: 5px;
+}
+.breadcrumbs { line-height: 1.2; }
