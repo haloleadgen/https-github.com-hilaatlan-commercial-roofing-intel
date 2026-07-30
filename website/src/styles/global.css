@@ -5,37 +5,48 @@
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* Color — primary palette */
-  --cri-navy-900: #0b2239;
-  --cri-navy-800: #0d2b45;
-  --cri-navy-700: #123a5d;
-  --cri-navy-600: #1a4d7a;
-  --cri-blue-500: #1f6fa8;
-  --cri-blue-400: #4f9fd8;
-  --cri-blue-100: #e3eef7;
-  --cri-blue-50:  #f1f7fb;
+  /* Color — South Florida editorial palette (v3).
+     The variable NAMES are kept from v1 so every component rule re-skins by
+     token remap: "navy" now carries deep palm green, "blue" carries the olive
+     interactive hue, and the slate scale is warm stone. Every text pairing
+     below was re-measured ≥ WCAG AA before shipping. */
+  --cri-navy-900: #17211a;   /* deepest palm — footer, utility bar */
+  --cri-navy-800: #1e2a22;   /* Deep Palm Green — hero, primary surfaces */
+  --cri-navy-700: #243329;   /* primary buttons */
+  --cri-navy-600: #46573f;   /* pine mid */
+  --cri-blue-500: #4a5b45;   /* olive — links & interactive (6.4:1 on warm white) */
+  --cri-blue-400: #d8c7a6;   /* warm sand-terracotta — accents on dark surfaces */
+  --cri-blue-100: #ede5d2;   /* sand light */
+  --cri-blue-50:  #f2ecdd;   /* sand wash — alt sections */
 
-  /* Neutrals */
-  --cri-ink:      #1a2430;
-  --cri-slate-700:#3d4a59;
-  --cri-slate-500:#5b6b7c;
-  --cri-slate-300:#c3ccd6;
-  --cri-slate-200:#dde3ea;
-  --cri-slate-100:#eef1f5;
-  --cri-paper:    #fbfcfd;
+  /* Neutrals — warm stone */
+  --cri-ink:      #24291f;
+  --cri-slate-700:#474b42;
+  --cri-slate-500:#6a685c;
+  --cri-slate-300:#c6bfae;
+  --cri-slate-200:#e0d8c6;
+  --cri-slate-100:#efe9db;
+  --cri-paper:    #f7f4ef;   /* Warm White */
   --cri-white:    #ffffff;
 
-  /* Semantic */
-  --cri-evidence: #1e6f4f;   /* verified / evidence badges */
-  --cri-evidence-bg: #e9f4ee;
-  --cri-caution:  #8a5a00;
-  --cri-caution-bg: #fdf3e0;
-  --cri-alert:    #9c2b2b;
-  --cri-alert-bg: #fbeaea;
+  /* Brand accents */
+  --cri-terracotta: #c56a3d;      /* large elements, rules, borders (3.1:1 on warm white) */
+  --cri-terracotta-text: #9f5222; /* text-safe terracotta (5.4:1 on warm white) */
+  --cri-sand: #d8c7a6;
+  --cri-brass: #c0a468;      /* compass-star gold, dark surfaces only */
+  --cri-stone: #6b6f66;
 
-  /* Typography */
-  --font-serif: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Semantic */
+  --cri-evidence: #2e6b4f;   /* verified / evidence badges */
+  --cri-evidence-bg: #e9f2ea;
+  --cri-caution:  #8a5a00;
+  --cri-caution-bg: #f8efdc;
+  --cri-alert:    #a03424;
+  --cri-alert-bg: #f7e9e4;
+
+  /* Typography — editorial serif display over humanist sans (self-hosted, no CDN) */
+  --font-serif: "Fraunces", "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
   /* Type scale */
@@ -62,13 +73,39 @@
   /* Layout */
   --container-max: 76rem;
   --content-max: 46rem;
-  --radius: 6px;
-  --radius-lg: 10px;
-  --shadow-sm: 0 1px 2px rgba(13, 43, 69, 0.08);
-  --shadow-md: 0 3px 12px rgba(13, 43, 69, 0.10);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(30, 42, 34, 0.06), 0 1px 3px rgba(30, 42, 34, 0.07);
+  --shadow-md: 0 2px 4px rgba(30, 42, 34, 0.05), 0 10px 28px rgba(30, 42, 34, 0.10);
+
+  /* Accent (terracotta, text-safe; AA on warm white and sand washes) */
+  --cri-accent: var(--cri-terracotta-text);
 
   /* Focus */
-  --focus-ring: 3px solid #b25e09;
+  --focus-ring: 3px solid var(--cri-accent);
+}
+
+/* ---------- Self-hosted variable fonts (privacy-preserving; no CDN) ---------- */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-latin-wght-italic.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* ---------- Reset / base ---------- */
@@ -892,3 +929,194 @@ main :where(ul, ol, dl) a:not(.btn) {
   padding-block: 5px;
 }
 .breadcrumbs { line-height: 1.2; }
+
+
+/* ==========================================================================
+   v3 — South Florida Editorial identity layer
+   "The Architectural Digest of commercial roofing." Light, materials,
+   architecture, space. Reskin only: no layout, IA, URL, or copy changes.
+   All rules override by cascade order.
+   ========================================================================== */
+
+/* --- Editorial typography --- */
+:root { --text-4xl: 3.1rem; }
+h1, h2, h3, h4 { font-weight: 600; }
+h1 { letter-spacing: -0.015em; line-height: 1.12; }
+h2 { letter-spacing: -0.008em; }
+.lede { line-height: 1.62; font-weight: 420; }
+body { font-weight: 430; }
+strong, b, th, .btn, .badge { font-variation-settings: normal; }
+
+/* --- Buttons: palm primary, sand secondary, quiet motion --- */
+.btn {
+  padding: 0.72rem 1.4rem;
+  border-radius: 9px;
+  background: var(--cri-navy-800);
+  box-shadow: 0 1px 2px rgba(30, 42, 34, 0.18);
+  transition: background-color 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease, color 0.18s ease;
+}
+.btn:hover { background: var(--cri-navy-900); box-shadow: 0 3px 10px rgba(30, 42, 34, 0.22); }
+.btn--secondary {
+  background: var(--cri-sand);
+  color: var(--cri-navy-800);
+  border-color: transparent;
+  box-shadow: none;
+}
+.btn--secondary:hover { background: #cdbb97; color: var(--cri-navy-900); box-shadow: none; }
+.btn--ghost { background: transparent; box-shadow: none; color: var(--cri-blue-500); }
+.btn--ghost:hover { background: var(--cri-blue-50); box-shadow: none; color: var(--cri-navy-800); }
+/* On dark palm surfaces, secondary stays legible as outlined sand */
+.section--navy .btn--secondary, .home-hero .btn--secondary {
+  background: transparent;
+  color: var(--cri-blue-100);
+  border-color: rgba(216, 199, 166, 0.55);
+}
+.section--navy .btn--secondary:hover, .home-hero .btn--secondary:hover {
+  background: rgba(216, 199, 166, 0.12);
+  color: var(--cri-white);
+}
+.home-hero .btn--ghost { color: var(--cri-blue-400); }
+
+/* --- Header: gallery-calm chrome --- */
+.utility-bar { border-bottom: 1px solid rgba(216, 199, 166, 0.14); }
+.utility-bar .container { min-height: 2.4rem; }
+.utility-bar__tagline {
+  text-transform: uppercase;
+  font-size: 0.71rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--cri-blue-400);
+}
+.masthead { padding-block: var(--space-4); }
+.brand__name { font-weight: 600; letter-spacing: 0.005em; }
+.brand__descriptor { letter-spacing: 0.09em; text-transform: uppercase; font-size: 0.68rem; }
+.search-link { transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease; }
+.search-link:hover { background: var(--cri-blue-50); border-color: var(--cri-stone); color: var(--cri-navy-800); }
+@media (min-width: 62em) {
+  .primary-nav ul { gap: var(--space-4); }
+  .primary-nav a { letter-spacing: 0.015em; transition: border-color 0.18s ease, color 0.18s ease; }
+  .primary-nav a:hover { border-bottom-color: var(--cri-terracotta); }
+  .primary-nav a[aria-current="true"], .primary-nav a.is-active { border-bottom-color: var(--cri-terracotta); }
+}
+
+/* --- Home hero: dusk over a flat roof — light as material --- */
+.home-hero {
+  background:
+    radial-gradient(85rem 36rem at 88% -14%, rgba(197, 106, 61, 0.20), transparent 60%),
+    radial-gradient(60rem 30rem at -8% 115%, rgba(74, 91, 69, 0.55), transparent 58%),
+    linear-gradient(180deg, var(--cri-navy-800) 0%, #19241c 100%);
+  border-bottom: 1px solid rgba(197, 106, 61, 0.45);
+  padding-block: var(--space-9) var(--space-8);
+}
+@media (max-width: 48em) { .home-hero { padding-block: var(--space-8) var(--space-7); } }
+.home-hero .lede { color: #d9d2c2; }
+.home-hero__proof { color: #cbc4b2; letter-spacing: 0.01em; }
+
+/* Hero search: warm vessel, burnt-terracotta action (AA on white text) */
+.hero-search form {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 0 rgba(216, 199, 166, 0.10), 0 16px 44px rgba(10, 14, 10, 0.45);
+}
+.hero-search input { padding: 1rem 1.2rem; }
+.hero-search input:focus {
+  border-color: var(--cri-terracotta);
+  box-shadow: 0 0 0 4px rgba(197, 106, 61, 0.30);
+}
+.hero-search button {
+  background: var(--cri-terracotta-text);
+  padding: 0 1.55rem;
+  letter-spacing: 0.01em;
+  transition: background-color 0.18s ease;
+}
+.hero-search button:hover { background: #8a4419; }
+.hero-search__hint { color: #b6b0a0; }
+.hero-search__hint a { color: var(--cri-blue-400); }
+
+/* --- Cards: paper on warm white, soft warm lift --- */
+.card { border-color: #e4dccb; }
+.card:hover, .card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(30, 42, 34, 0.06), 0 14px 32px rgba(30, 42, 34, 0.11);
+  border-color: var(--cri-slate-300);
+}
+.card--pillar { border-top: 3px solid var(--cri-terracotta); }
+.card__arrow { color: var(--cri-terracotta-text); }
+
+/* --- Micro-interaction consistency --- */
+.chip { transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease; }
+.chip:hover { border-color: var(--cri-terracotta); box-shadow: var(--shadow-sm); }
+.pagination a { transition: border-color 0.18s ease, box-shadow 0.18s ease; }
+.pagination a:hover { border-color: var(--cri-terracotta); }
+.pulse-list a:hover { color: var(--cri-terracotta-text); }
+
+/* --- Sections: premium whitespace, warm alt bands --- */
+.section { padding-block: clamp(3.4rem, 6.5vw, 4.75rem); }
+.section--tight { padding-block: var(--space-6); }
+.eyebrow { color: var(--cri-terracotta-text); letter-spacing: 0.12em; }
+.section--navy .eyebrow { color: var(--cri-blue-400); }
+
+/* Subtle material texture for the blueprint band (now: drafting grid in sand) */
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(74, 91, 69, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 91, 69, 0.055) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* --- Trust signals: quiet authority --- */
+.trust-meta {
+  border-block: 0;
+  border: 1px solid var(--cri-slate-200);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--cri-white) 0%, var(--cri-blue-50) 150%);
+  padding: var(--space-3) var(--space-4);
+}
+.stat__value { font-variant-numeric: tabular-nums; font-weight: 600; }
+.stat__label { letter-spacing: 0.02em; }
+.badge--evidence { border-color: #c4dccb; }
+
+/* --- Forms: warm focus --- */
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--cri-blue-500);
+  box-shadow: 0 0 0 4px rgba(74, 91, 69, 0.18);
+}
+
+/* --- Per-section atmosphere (South Florida felt through light & material).
+       Same design language; a different tint of it per pillar. --- */
+body[data-section="knowledge"] .page-hero {
+  background: linear-gradient(180deg, #efe9db 0%, var(--cri-paper) 100%); /* architectural concrete */
+}
+body[data-section="tools"] .page-hero {
+  background:
+    linear-gradient(rgba(74, 91, 69, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 91, 69, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #f0ece0 0%, var(--cri-paper) 100%);
+  background-size: 26px 26px, 26px 26px, 100% 100%; /* blueprint feeling */
+}
+body[data-section="situations"] .page-hero {
+  background: linear-gradient(180deg, #e6e2d6 0%, var(--cri-paper) 100%); /* storm-light */
+  border-bottom-color: var(--cri-slate-300);
+}
+body[data-section="for-your-role"] .page-hero {
+  background: linear-gradient(180deg, #f0eadf 0%, var(--cri-paper) 100%); /* workspace warmth */
+}
+body[data-section="data-research"] .page-hero {
+  background:
+    repeating-radial-gradient(circle at 82% 30%, rgba(74, 91, 69, 0.045) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, #efeadc 0%, var(--cri-paper) 100%); /* topographic */
+}
+body[data-section="about"] .page-hero {
+  background: linear-gradient(180deg, var(--cri-blue-50) 0%, var(--cri-paper) 100%); /* warm editorial */
+}
+body[data-section="ai-assistant"] .page-hero {
+  background: linear-gradient(180deg, #f4f1ea 0%, var(--cri-paper) 100%); /* modern minimal */
+}
+
+/* Mobile: keep the trust tagline to a single quiet line */
+@media (max-width: 40em) {
+  .utility-bar__tagline { font-size: 0.6rem; letter-spacing: 0.09em; white-space: nowrap; }
+  .utility-bar nav { gap: var(--space-3); }
+  .utility-bar a { white-space: nowrap; }
+}

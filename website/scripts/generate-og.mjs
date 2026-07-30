@@ -6,7 +6,7 @@
  * and renders exactly those cards from each page's own <title> — so the set of
  * generated images can never drift from the set of referenced images.
  *
- * Design: institutional, evidence-first. CRI navy, thin blue rule, page title,
+ * Design: institutional, evidence-first. CRI deep palm, terracotta rule, page title,
  * domain. No imagery is invented — these are typographic cards only.
  */
 import { readFileSync, readdirSync, statSync, mkdirSync, writeFileSync } from 'fs';
@@ -62,14 +62,14 @@ function card(title, kicker) {
     .map((l, i) => `<tspan x="90" y="${Math.round(startY + i * lineH)}">${esc(l)}</tspan>`)
     .join('');
   return `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#0b2239"/>
-  <rect width="1200" height="8" y="0" fill="#4f9fd8"/>
-  <text x="90" y="120" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" letter-spacing="4" fill="#4f9fd8" font-weight="bold">COMMERCIAL ROOFING INTEL</text>
-  ${kicker ? `<text x="90" y="170" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" letter-spacing="2" fill="#c3ccd6">${esc(kicker.toUpperCase())}</text>` : ''}
+  <rect width="1200" height="630" fill="#1e2a22"/>
+  <rect width="1200" height="8" y="0" fill="#c56a3d"/>
+  <text x="90" y="120" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" letter-spacing="4" fill="#d8c7a6" font-weight="bold">COMMERCIAL ROOFING INTEL</text>
+  ${kicker ? `<text x="90" y="170" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" letter-spacing="2" fill="#cbc4b2">${esc(kicker.toUpperCase())}</text>` : ''}
   <text font-family="DejaVu Sans, Arial, sans-serif" font-size="${size}" font-weight="bold" fill="#fbfcfd">${tspans}</text>
-  <rect x="90" y="520" width="64" height="4" fill="#1f6fa8"/>
-  <text x="90" y="566" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" fill="#c3ccd6">Independent, sourced knowledge for commercial roofing decisions</text>
-  <text x="90" y="602" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" fill="#5b6b7c">commercialroofingintel.com</text>
+  <rect x="90" y="520" width="64" height="4" fill="#c56a3d"/>
+  <text x="90" y="566" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" fill="#cbc4b2">Independent, sourced knowledge for commercial roofing decisions</text>
+  <text x="90" y="602" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" fill="#a39c8a">commercialroofingintel.com</text>
 </svg>`;
 }
 
