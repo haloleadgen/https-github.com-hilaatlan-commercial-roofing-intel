@@ -857,7 +857,7 @@ a:hover { color: var(--cri-navy-700); }
   right: -2rem;
   bottom: -0.5rem;
   width: min(46rem, 60vw);
-  opacity: 0.5;
+  opacity: 0.55;
   z-index: 1;
   pointer-events: none;
 }
@@ -1002,10 +1002,12 @@ strong, b, th, .btn, .badge { font-variation-settings: normal; }
 
 /* --- Home hero: dusk over a flat roof — light as material --- */
 .home-hero {
+  /* Sunrise over a white commercial roof: warm glow at the horizon line,
+     deep palm sky above, skyline line-art softly visible (HeroArt). */
   background:
-    radial-gradient(85rem 36rem at 88% -14%, rgba(197, 106, 61, 0.20), transparent 60%),
-    radial-gradient(60rem 30rem at -8% 115%, rgba(74, 91, 69, 0.55), transparent 58%),
-    linear-gradient(180deg, var(--cri-navy-800) 0%, #19241c 100%);
+    radial-gradient(72rem 26rem at 52% 118%, rgba(201, 121, 74, 0.34), rgba(201, 121, 74, 0.10) 46%, transparent 66%),
+    radial-gradient(90rem 40rem at 85% -18%, rgba(74, 91, 69, 0.45), transparent 60%),
+    linear-gradient(180deg, #17211a 0%, var(--cri-navy-800) 55%, #243329 100%);
   border-bottom: 1px solid rgba(197, 106, 61, 0.45);
   padding-block: var(--space-9) var(--space-8);
 }
@@ -1015,13 +1017,33 @@ strong, b, th, .btn, .badge { font-variation-settings: normal; }
 
 /* Hero search: warm vessel, burnt-terracotta action (AA on white text) */
 .hero-search form {
-  border-radius: var(--radius-lg);
-  box-shadow: 0 1px 0 rgba(216, 199, 166, 0.10), 0 16px 44px rgba(10, 14, 10, 0.45);
+  border-radius: 14px;
+  padding: 6px;
+  gap: 6px;
+  background: rgba(247, 244, 239, 0.10);
+  border: 1px solid rgba(247, 244, 239, 0.24);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(216, 199, 166, 0.10), 0 18px 48px rgba(10, 14, 10, 0.42);
 }
-.hero-search input { padding: 1rem 1.2rem; }
+@supports not (backdrop-filter: blur(14px)) {
+  .hero-search form { background: rgba(23, 33, 26, 0.82); }
+}
+.hero-search input {
+  padding: 0.92rem 1.1rem;
+  background: transparent;
+  color: var(--cri-white);
+  border-radius: 9px;
+}
+.hero-search input::placeholder { color: rgba(247, 244, 239, 0.72); }
 .hero-search input:focus {
   border-color: var(--cri-terracotta);
-  box-shadow: 0 0 0 4px rgba(197, 106, 61, 0.30);
+  box-shadow: 0 0 0 3px rgba(197, 106, 61, 0.30);
+}
+.hero-search button { border-radius: 9px; }
+@media (max-width: 26em) {
+  .hero-search input { border-radius: 9px 9px 0 0; }
+  .hero-search button { border-radius: 0 0 9px 9px; }
 }
 .hero-search button {
   background: var(--cri-terracotta-text);
