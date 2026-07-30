@@ -126,9 +126,16 @@ import PageHero from '../components/PageHero.astro';
       --pagefind-ui-background: var(--cri-white);
       --pagefind-ui-border: var(--cri-slate-300);
       --pagefind-ui-tag: var(--cri-blue-100);
-      --pagefind-ui-border-radius: 6px;
+      --pagefind-ui-border-radius: 9px;
       --pagefind-ui-font: inherit;
     }
     #search mark { background: var(--cri-blue-100); color: var(--cri-navy-900); }
+    /* v3.2: warm focus treatment (replaces the browser-default blue halo) */
+    #search input:focus,
+    #search input:focus-visible {
+      outline: none !important;
+      border-color: var(--cri-blue-500) !important;
+      box-shadow: 0 0 0 4px rgba(74, 91, 69, 0.18);
+    }
   </style>
 </Base>

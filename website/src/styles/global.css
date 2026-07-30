@@ -1142,3 +1142,54 @@ body[data-section="ai-assistant"] .page-hero {
   .utility-bar nav { gap: var(--space-3); }
   .utility-bar a { white-space: nowrap; }
 }
+
+/* ==========================================================================
+   v3.2 — Final visual freeze: P1 defect fixes + two P2 polish items.
+   CSS-only; no structure, copy, URL, or behavior changes.
+   ========================================================================== */
+
+/* P1-1 · Hero/dark-surface primary CTA: sand fill, deep-palm text.
+   Restores a clear action hierarchy: sand primary / outlined secondary / text ghost. */
+.home-hero .btn:not(.btn--secondary):not(.btn--ghost),
+.section--navy .btn:not(.btn--secondary):not(.btn--ghost) {
+  background: var(--cri-sand);
+  color: var(--cri-navy-800);
+  box-shadow: 0 1px 2px rgba(10, 14, 10, 0.28);
+}
+.home-hero .btn:not(.btn--secondary):not(.btn--ghost):hover,
+.section--navy .btn:not(.btn--secondary):not(.btn--ghost):hover {
+  background: #e6d9bd;
+  color: var(--cri-navy-900);
+  box-shadow: 0 3px 10px rgba(10, 14, 10, 0.32);
+}
+
+/* P1-2 · Stats-band note: the paragraph was display:flex, which split its text
+   nodes and inline link into separate flex items — a sentence fragmented across
+   the grid. Render it as one quiet, intentional editorial note. */
+.stats-band__note {
+  display: block;
+  grid-column: 1 / -1;
+  max-width: 62ch;
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--cri-slate-500);
+}
+.stats-band__note a { color: var(--cri-terracotta-text); }
+
+/* P1-3 · Badges inside flex-column cards stretched full width. Compact pills. */
+.card .badge { align-self: flex-start; }
+
+/* P2-4 · Stats band: four balanced columns, stronger numerals. */
+.stats-band .container { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 48em) { .stats-band .container { grid-template-columns: repeat(4, 1fr); } }
+.stat__value { font-size: var(--text-3xl); }
+
+/* P2-5 · Warm focus treatment on dark surfaces (terracotta measured <3:1 on
+   deep palm; sand measures 8.9:1). Light surfaces keep the terracotta ring. */
+.home-hero :focus-visible,
+.section--navy :focus-visible,
+.site-footer :focus-visible,
+.utility-bar :focus-visible {
+  outline: 3px solid var(--cri-sand);
+  outline-offset: 2px;
+}
